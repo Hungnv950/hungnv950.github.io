@@ -14,7 +14,7 @@ on [Jekyll][jekyll] and [Processwire CMS/CMF][pw].
 ### Contact me
 
 Find me on [Google+][google] / [Github][github] / [Twitter][Twitter] or just say `Hello` at 
-[gayanvirajith@gmail.com](gayanvirajith@gmail.com).
+[hungnv950@gmail.com](hungnv950@gmail.com).
 
 
 [tf]: http://template-factory.nl
@@ -22,6 +22,6 @@ Find me on [Google+][google] / [Github][github] / [Twitter][Twitter] or just say
 [pw]: http://processwire.com
 [pwf]: http://processwire.com/talk
 [jekyll]: http://jekyllrb.com
-[github]: https://github.com/gayanvirajith
-[google]: https://plus.google.com/+GayanVirajith
-[twitter]: https://twitter.com/gayanvirajith
+[github]: https://github.com/hungnv950
+[google]: https://plus.google.com/+hungnv950
+[twitter]: https://twitter.com/hungnv950

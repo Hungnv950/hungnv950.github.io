@@ -2,12 +2,436 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title></title>
-    <description>Harmony is free responsive jekyll theme.</description>
-    <link>http://gayan.me/</link>
-    <atom:link href="http://gayan.me/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 25 Jun 2019 16:55:01 +0700</pubDate>
-    <lastBuildDate>Tue, 25 Jun 2019 16:55:01 +0700</lastBuildDate>
+    <description></description>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Tue, 27 Aug 2019 10:09:14 +0700</pubDate>
+    <lastBuildDate>Tue, 27 Aug 2019 10:09:14 +0700</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
+    
+      <item>
+        <title>Những tricks khi học JSX</title>
+        <description>&lt;ul&gt;
+  &lt;li&gt;Nội dung bài viết xoay quanh khóa học trên &lt;a href=&quot;https://www.codecademy.com/courses/react-101/lessons/react-jsx-advanced/exercises/self-closing-tags?action=resume_content_item&quot;&gt;Codecademy&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;class-vs-classname&quot;&gt;class vs className&lt;/h3&gt;
+&lt;p&gt;Trong HTML, &lt;code&gt;class&lt;/code&gt; thường được sử dụng để đặt tên cho thuộc tính của đối tượng\&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;h1 class=&quot;big&quot;&amp;gt;Hey&amp;lt;/h1&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Trong JSX, chúng ta không thể sử dụng &lt;code&gt;class&lt;/code&gt; mà phải sử dụng &lt;code&gt;className&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;h1 className=&quot;big&quot;&amp;gt;Hey&amp;lt;/h1&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This is because JSX gets translated into (được định dạng sang) JavaScript, and class is a reserved word (danh từ riêng) in JavaScript. Khi JSX rendered (được biểu diễn) JSX &lt;code&gt;className&lt;/code&gt; attributes (thuộc tính) are automatically rendered as &lt;code&gt;class&lt;/code&gt; attributes.&lt;/p&gt;
+
+&lt;p&gt;Example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;import React from 'react';
+import ReactDOM from 'react-dom';
+
+// Write code here:
+const myDiv = (
+	&amp;lt;div className=&quot;big&quot;&amp;gt;
+    I AM A BIG DIV
+  &amp;lt;/div&amp;gt;
+)
+
+ReactDOM.render(myDiv, document.getElementById('app'))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;self-closing-tags&quot;&gt;Self-Closing Tags&lt;/h3&gt;
+&lt;p&gt;Another JSX ‘gotcha’ (bất ngờ) involves (liên quan) self-closing tags (các thẻ tự động đóng).&lt;/p&gt;
+</description>
+        <pubDate>Tue, 27 Aug 2019 00:00:00 +0700</pubDate>
+        <link>http://localhost:4000/tech/2019/08/27/reactjs-jsx/</link>
+        <guid isPermaLink="true">http://localhost:4000/tech/2019/08/27/reactjs-jsx/</guid>
+        
+        
+        <category>tech</category>
+        
+      </item>
+    
+      <item>
+        <title>What is Jekyll!</title>
+        <description>
+</description>
+        <pubDate>Fri, 12 Jul 2019 05:48:45 +0700</pubDate>
+        <link>http://localhost:4000/blog/2019/07/12/unicode_equivalence/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/2019/07/12/unicode_equivalence/</guid>
+        
+        
+        <category>blog</category>
+        
+      </item>
+    
+      <item>
+        <title>From Third Project</title>
+        <description>&lt;h2 id=&quot;những-điều-thú-vị&quot;&gt;Những điều thú vị&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;From 1/7/2019&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;regex-tìm-mọi-khoảng-trắng-unicode-tiếng-anh-và-tiếng-nhật&quot;&gt;Regex tìm mọi khoảng trắng unicode tiếng Anh và tiếng Nhật&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;/[[:space:]]|\s+/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Sử dụng gem ransack để tìm kiếm với full_name&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;  ransacker :full_name,
+    formatter: proc { |v|
+      v.gsub(/[[:space:]]|\s+/, &quot;&quot;)
+    } do |parent|
+    Arel::Nodes::NamedFunction.new(&quot;CONCAT_WS&quot;,
+      [
+        Arel::Nodes::SqlLiteral.new('&quot;&quot;'),
+        parent.table[:last_name], parent.table[:first_name]
+      ])
+  end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Change author in commit&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git filter-branch --commit-filter '
+        if [ &quot;$GIT_COMMITTER_NAME&quot; = &quot;&amp;lt;hungnv950&amp;gt;&quot; ];
+        then
+                GIT_COMMITTER_NAME=&quot;&amp;lt;hungbnv-1225&amp;gt;&quot;;
+                GIT_AUTHOR_NAME=&quot;&amp;lt;hungbnv-1225&amp;gt;&quot;;
+                GIT_COMMITTER_EMAIL=&quot;&amp;lt;nguyen.van.hungb@sun-asterisk.com&amp;gt;&quot;;
+                GIT_AUTHOR_EMAIL=&quot;&amp;lt;nguyen.van.hungb@sun-asterisk.com&amp;gt;&quot;;
+                git commit-tree &quot;$@&quot;;
+        else
+                git commit-tree &quot;$@&quot;;
+        fi' HEAD
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+        <pubDate>Mon, 01 Jul 2019 00:00:00 +0700</pubDate>
+        <link>http://localhost:4000/2019/07/01/from-third-project/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/07/01/from-third-project/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Sử dụng nhiều tài khoản github trên cùng một máy tính cá nhân</title>
+        <description>&lt;h3 id=&quot;step-1-tạo-ssh-key-mới-cho-tài-khoản-công-việc&quot;&gt;Step 1: Tạo ssh key mới cho tài khoản công việc&lt;/h3&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;ssh-keygen -t rsa -C “github-email-address”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Khi màn hình hiện &lt;code&gt;Enter file in which to save the key (/home/&amp;lt;user&amp;gt;/.ssh/id_rsa):&lt;/code&gt;  Nhập user cho công việc của bạn, ví dụ mình sẽ nhập là &lt;code&gt;id_rsa_sun&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Kiểm tra xem id_rsa_sun đã được sinh ra chưa.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;cd cd ~/.ssh&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;ls&lt;/p&gt;
+
+  &lt;p&gt;Danh sách các file đã được sinh ra:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;id_rsa_sun  id_rsa_sun.pub  id_rsa  id_rsa.pub
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;step-2-cài-đặt-ssh-key-trên-github&quot;&gt;Step 2: Cài đặt ssh key trên github&lt;/h3&gt;
+
+&lt;p&gt;Lấy id_rsa của email mới bạn vừa tạo.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;cat id_rsa_sun.pub&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Sau đó nhập vào ssh-key cuả tài khoản git công việc tại https://github.com/settings/keys&lt;/p&gt;
+
+&lt;h3 id=&quot;bước-3-cài-đặt-github-host&quot;&gt;Bước 3: Cài đặt Github Host&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;touch ~/.ssh/config&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;nano ~/.ssh/config&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Sửa file config của bạn thành dạng:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# Tài khoản git cá nhân vẫn dùng của bạn
+Host github.com-username
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_rsa
+# Tài khoản công việc
+Host github.com-sun # config này sẽ dùng để xử lý xác định khi cấu hình remote
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_rsa_sun  # id_rsa_sun mà chúng ta vừa tạo
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Sau khi tạo 1 project trên github với tài khoản khác. Khi bạn &lt;code&gt;add remote&lt;/code&gt; nên chú ý user khi add.
+Ví dụ khi clone repo mới:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;git clone git@github.com-sun:&amp;lt;&lt;strong&gt;user&lt;/strong&gt;&amp;gt;/sample_ruby.git&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;git config user.email “&amp;lt;&lt;strong&gt;emai dùng để sinh id_rsa_sun ở trên&lt;/strong&gt;&amp;gt;”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Sau đó bạn có thể add và commit bình thường.&lt;/p&gt;
+
+&lt;p&gt;Add remote với repo mới:&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;git remote add origin git@github.com-sun:&amp;lt;&lt;strong&gt;user&lt;/strong&gt;&amp;gt;/sample_ruby.git&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Note: &lt;code&gt;sun&lt;/code&gt; ở đây là user của mình đặt ra, các bạn có thể thay đổi theo user công việc hoặc nick name bạn muốn cho phù hợp.&lt;/p&gt;
+
+&lt;h3 id=&quot;nguồn-git-push--pull-with-two-different-accounts-and-two-different-users-on-the-same-machine&quot;&gt;Nguồn: &lt;a href=&quot;https://medium.com/@therajanmaurya/git-push-pull-with-two-different-account-and-two-different-user-on-same-machine-a85f9ee7ec61&quot;&gt;Git Push &amp;amp; Pull with Two different accounts and Two different users on the same machine&lt;/a&gt;&lt;/h3&gt;
+</description>
+        <pubDate>Wed, 26 Jun 2019 05:48:45 +0700</pubDate>
+        <link>http://localhost:4000/tech/2019/06/26/su-dung-nhieu-tai-khoan-github-tren-cung-mot-may-tinh-ca-nhan/</link>
+        <guid isPermaLink="true">http://localhost:4000/tech/2019/06/26/su-dung-nhieu-tai-khoan-github-tren-cung-mot-may-tinh-ca-nhan/</guid>
+        
+        
+        <category>tech</category>
+        
+      </item>
+    
+      <item>
+        <title>Cha đã quên</title>
+        <description>&lt;p&gt;&lt;strong&gt;Cha đã quên&lt;/strong&gt; - một câu chuyện ngắn của tác giả &lt;em&gt;W.Livingston Larned&lt;/em&gt; trích từ cuốn (&lt;strong&gt;Đắc Nhân Tâm&lt;/strong&gt; - &lt;em&gt;Dale Carnegie&lt;/em&gt;)&lt;/p&gt;
+
+&lt;p&gt;Con trai yêu quý, con hãy nghe những lời ân hận của cha đây. Cha đã lẻn vào phòng con khi con đang chìm vào giấc ngủ trẻ thơ. Nhìn kìa, một tay con đặt dưới gò má, những lọn tóc hung đẫm mồ hôi bám chặt vào vầng trán ẩm ướt. Chỉ cách đây vài phút thôi, khi cha ngồi trong phòng đọc sách và xem lại bài viết của mình, nỗi hối hận dâng ngập hồn cha. Và cha đã chạy đến phòng con để nói lời xin lỗi.&lt;/p&gt;
+
+&lt;p&gt;Con ơi, cha đã tức giận, quát mắng khi con cầm khăn lau mặt qua quýt trong lúc thay quần áo đi học, lúc con để đôi giày dơ bẩn hay thấy con vứt vật dụng lung tung trong nhà. Cha luôn chăm chăm nhìn thấy toàn là lỗi lầm của con. Buổi sáng cha thấy con không ngăn nắp khi ngủ dậy, lại còn ăn uống vội vàng và lấy một lúc quá nhiều thức ăn vào đĩa. Vì chỉ nhìn thấy lỗi lầm nên khi con chào cha xin phép ra ngoài chơi, cha chỉ cau mày và trả lời cộc lốc không chút thiện cảm: “Hừm! Liệu mà về sớm đấy!”.&lt;/p&gt;
+
+&lt;p&gt;Buổi chiều, cha cũng tức giận với những sơ suất của con. Khi thấy đôi vớ của con rách, cha đã làm con phải mất mặt trước bạn bè khi lôi con về nhà. Con thật sự đã làm cha rất giận dữ vì đã không tiết kiệm, không chịu giữ gìn những món đồ mà cha đã phải vất vả làm việc dành dụm mua cho con.&lt;/p&gt;
+
+&lt;p&gt;Khi cha đang đọc báo, con rụt rè bước tới ngước nhìn cha với ánh mắt ngây thơ trong sáng, cha lại quát lên: “Mày muốn cái gì?”. Và trái tim cha đã xúc động biết dường nào khi con chỉ im lặng chạy đến, vòng tay bé bỏng ôm cổ cha thật chặt với tất cả yêu thương trìu mến rồi lại chạy biến thật nhanh ra ngoài.&lt;/p&gt;
+
+&lt;p&gt;Con thương yêu!&lt;/p&gt;
+
+&lt;p&gt;Con có biết không, tờ báo đã rời khỏi tay cha trong yên lặng và một nỗi sợ lẫn đau xót ngẹn ngào xâm chiếm cõi lòng cha. Cha đã làm gì thế này? Cha đã biến mình thành một người cha suốt ngày chỉ xăm soi tội lỗi của con mình. Một người cha chỉ toàn kiếm cái xấu của con mình để chê trách và đây là phần thưởng mà cha dành cho con như một đứa trẻ ư? Cha chỉ muốn con phải thế này thế nọ, cha chỉ muốn con phải cư xử như người lớn. Cha đã đo con bằng cây thước dành cho một người trưởng thành, bằng cả những năm tháng tuổi đời và sự trải nghiệm già dặn của cha.&lt;/p&gt;
+
+&lt;p&gt;Con yêu của cha!&lt;/p&gt;
+
+&lt;p&gt;Trong khi cha nhìn con bằng đôi mắt già cỗi và muộn phiền, đầy thành kiến, soi mói ấy, cha chẳng thèm biết đến những cái tốt, điều hay và sự chân thành, hồn nhiên trong tư chất của con. Trái tim nhỏ bé của con nồng ấm và to lớn như ánh rạng đông đang tặng bao tia nắng ấm cho ngọn đồi bao la. Con đã hồn nhiên lao vào hôn chúc cha ngủ ngon mà không hề vướng bận việc cha đã la mắng con cả ngày và hằn học với con vì những lý do không chính đáng.&lt;/p&gt;
+
+&lt;p&gt;Con thương yêu!&lt;/p&gt;
+
+&lt;p&gt;Cha không thể đợi thêm nữa. Cha phải nhanh chóng bước đến bên con, quỳ xuống cạnh chiếc giường nhỏ bé và nhìn khuôn mặt thơ ngây của con trong giấc ngủ với một niềm ân hận vô cùng. Có thể, con còn quá bé bỏng để hiểu nhưng cảm xúc đang tràn ngập lòng cha. Cha hứa với con, ngay từ giây phút này, cha sẽ trở lại là người cha đích thực và luôn biết trân trọng tình yêu của con ngay cả trong giây phút nóng giận bừng bừng. Cha sẽ là người bạn trung thành của con, sẽ đau khổ khi con gặp bất hạnh, sẽ cười vui khi con gặp may mắn sung sướng. Cha sẽ cắn chặt môi để không thốt ra những lời gắt gỏng mỗi khi con quỷ giận dữ trỗi dậy trong lòng cha. Cha sẽ tự bảo mình rằng con vẫn còn bé bỏng.&lt;/p&gt;
+
+&lt;p&gt;Ôi, hình như cha đã nhìn đứa con thơ dại của cha như nhìn một con người trưởng thành thật sự. Giờ đây, nhìn con cuộn mình trong chăn và mệt mỏi ngủ yên trên chiếc giường bé xíu, Cha chợt nhận ra rằng con chỉ là một đứa trẻ thơ ngây. Sáng sáng, con vẫn nũng nịu trong vòng tay trìu mến của mẹ. Mái tóc tơ mềm mại của con còn vướng víu trên bờ vai mẹ, cần được che chở trong cảm giác được yêu thương. Vậy mà, Cha đã đòi hỏi ở con quá nhiều…..&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Sự thực, người cha chưa từng đứng ở lập trường của một cậu bé để hiểu về cuộc sống như thế nào, hoặc ông ấy đã quên mất. Và cũng thật bất ngờ khi một đứa bé trước những sự đối xử của cha thì em vẫn rất mực yêu thương cha với sự chân thành. 
+
+Theo mình, câu chuyện không chỉ dừng lại ở việc cách giáo dục con cái của cá bậc cha mẹ mà nó còn để lại nhiều bài học về cách sống và cách tiếp nhận cuộc sống. Ai cũng sẽ là những đứa trẻ trong lĩnh vực mới của mình và nếu chân thành như cách mà đứa trẻ đối xử với người cha ắt sẽ thành công. Và hi vọng những người anh - người cha vẫn luôn sẵn lòng đứng ở vị trí newbee để có thể cùng nhau hoàn thành công việc một cách tốt nhất.
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+        <pubDate>Wed, 26 Jun 2019 05:48:45 +0700</pubDate>
+        <link>http://localhost:4000/life/2019/06/26/morning-speech-cha-da-quen/</link>
+        <guid isPermaLink="true">http://localhost:4000/life/2019/06/26/morning-speech-cha-da-quen/</guid>
+        
+        
+        <category>life</category>
+        
+      </item>
+    
+      <item>
+        <title>What is Jekyll!</title>
+        <description>&lt;p&gt;&lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt; is a static site generator, an open-source tool for creating simple yet powerful websites of all shapes and sizes. Here is a little quote from the official website:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;It takes a template directory containing raw text files in various formats, runs it through &lt;a href=&quot;http://daringfireball.net/projects/markdown/&quot;&gt;Markdown&lt;/a&gt; (or &lt;a href=&quot;http://redcloth.org/textile&quot;&gt;Textile&lt;/a&gt;) and Liquid converters, and spits out a complete, ready-to-publish static website suitable for serving with your favorite web server. Jekyll also happens to be the engine behind &lt;a href=&quot;http://pages.github.com/&quot;&gt;GitHub Pages&lt;/a&gt;, which means you can use Jekyll to host your project’s page, blog, or website from GitHub’s servers for free.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;jekyllrb.com&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/mojombo/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;.&lt;/p&gt;
+
+</description>
+        <pubDate>Wed, 29 May 2019 05:48:45 +0700</pubDate>
+        <link>http://localhost:4000/blog/2019/05/29/welcome-to-jekyll/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/2019/05/29/welcome-to-jekyll/</guid>
+        
+        
+        <category>blog</category>
+        
+      </item>
+    
+      <item>
+        <title>Block và yield trong ruby</title>
+        <description>&lt;h1 id=&quot;blocks&quot;&gt;&lt;strong&gt;&lt;code&gt;Blocks&lt;/code&gt;&lt;/strong&gt;&lt;/h1&gt;
+&lt;p&gt;Về cơ bản, &lt;code&gt;blocks&lt;/code&gt; trong ruby là một cách để nhóm các câu lệnh sao cho chúng ta có thể kết hợp với các lời gọi phương thức như thể chúng là các tham số.&lt;/p&gt;
+
+&lt;p&gt;Ruby cung cấp hai cách để viết &lt;code&gt;blocks&lt;/code&gt; là:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Sử dụng dấu &lt;code&gt;{}&lt;/code&gt; đối với những blocks ngắn gọn có thể viêt trên một dòng.
+    &lt;pre&gt;&lt;code&gt;array = [1,2,3,4]
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Sử dụng cụm &lt;code&gt;do..end&lt;/code&gt;
+    &lt;pre&gt;&lt;code&gt;array.map! do |n|
+  n * n
+end
+=&amp;gt; [1, 4, 9, 16]
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;procs&quot;&gt;&lt;strong&gt;&lt;code&gt;Procs&lt;/code&gt;&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;Một proc là một instance của lớp Proc. Proc là &lt;code&gt;object&lt;/code&gt; còn &lt;code&gt;blocks&lt;/code&gt; thì không.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;p = Proc.new { puts &quot;Hello World&quot; }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Điều này cho phép chúng ta gọi các phương thức trên nó và gán nó cho các biến. Procs cũng có thể gọi lại chính nó.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;p.call  # prints 'Hello World'
+p.class # returns 'Proc'
+a = p   # a now equals p, a Proc instance
+p       # returns a proc object '#&amp;lt;Proc:0x007f96b1a60eb0@(irb):46&amp;gt;'
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;-lambdas&quot;&gt;&lt;code&gt; Lambdas&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;Lambda function hầu như giống với Procs nhưng có hai điểm khác biệt:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Thứ nhất: Lambda kiểm tra số lượng phần tử đầu vào. Báo lỗi nếu không chính xác. Còn Procs thì không
+    &lt;pre&gt;&lt;code&gt;l = lambda { &quot;I'm a lambda&quot; }
+l.call
+=&amp;gt; &quot;I'm a lambda&quot;
+l.call('arg')
+ArgumentError: wrong number of arguments (1 for 0)
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Thứ hai:  Lambdas và Procs xử lý khi gặp từ khóa &lt;code&gt;return&lt;/code&gt; khác nhau:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;def lambda_test
+  lam = lambda { return }
+  lam.call
+  puts &quot;Hello world&quot;
+end
+
+lambda_test                 # calling lambda_test prints 'Hello World'
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;def proc_test
+  proc = Proc.new { return }
+  proc.call
+  puts &quot;Hello world&quot;
+end
+
+proc_test                 # calling proc_test prints nothing
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&quot;yield&quot;&gt;&lt;strong&gt;&lt;code&gt;Yield&lt;/code&gt;&lt;/strong&gt;&lt;/h1&gt;
+&lt;p&gt;Yield là một cách rất hay của Ruby để thực hiện một khối trong một phương thức bất kì mà không làm ảnh hưởng. Để hiểu rõ hơn chúng ta cùng theo dõi một ví dụ:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;def rb_block
+  puts 'Start'
+  yield
+  yield
+  puts 'End'
+end
+
+rb_block {puts &quot;We're in the block&quot;}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;Kết quả:&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Start
+We're in the block
+We're in the block
+End
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Dễ hiểu, khi thực thi method &lt;code&gt;rb_block&lt;/code&gt;, ruby thực hiện câu bình thường cho tới khi gặp từ khóa &lt;code&gt;yield&lt;/code&gt; , ruby sẽ dừng và thực hiện block này sau đó sẽ thực thi tiếp tục các logic của method &lt;code&gt;rb_block&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&quot;yield-với-tham-số&quot;&gt;Yield với tham số&lt;/h2&gt;
+&lt;p&gt;Để dễ hiểu, ta quan sát ví dụ:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;def rb_block
+    yield('hello', 'ruby')
+end
+
+rb_block { |s, r| puts s + ' ' + r
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;Kết quả:&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;hello ruby
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ta thấy, ruby cho phép truyển tham số vào yield trong các khối. Trong khối, chúng ta liệt kê tên của các đối số để nhận các tham số qua các dấu &lt;code&gt;||&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Lưu ý:&lt;/code&gt; Khi định nghĩa &lt;code&gt;yield&lt;/code&gt; &lt;code&gt;có tham số&lt;/code&gt;, việc truyền vào tham số bắt buộc. Nếu không nhận được tham số phù hợp ruby sẽ báo lỗi.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;rb_block   #`rb_block': no block given (yield) (LocalJumpError)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&quot;tài-liệu-tham-khảo&quot;&gt;Tài liệu tham khảo&lt;/h1&gt;
+&lt;p&gt;http://www.bogotobogo.com/RubyOnRails/RubyOnRails_Blocks_and_Yield.php&lt;/p&gt;
+
+&lt;p&gt;https://code.tutsplus.com/tutorials/ruby-on-rails-study-guide-blocks-procs-and-lambdas–net-29811&lt;/p&gt;
+
+&lt;p&gt;http://awaxman11.github.io/blog/2013/08/05/what-is-the-difference-between-a-block/&lt;/p&gt;
+
+&lt;p&gt;https://viblo.asia/p/thanh-thao-ruby-block-trong-5-phut-L4x5xg2alBM/&lt;/p&gt;
+
+&lt;p&gt;https://viblo.asia/p/block-trong-ruby-wjAM7yNOvmWe&lt;/p&gt;
+</description>
+        <pubDate>Wed, 21 Mar 2018 05:48:45 +0700</pubDate>
+        <link>http://localhost:4000/tech/2018/03/21/ruby-block-and-yield/</link>
+        <guid isPermaLink="true">http://localhost:4000/tech/2018/03/21/ruby-block-and-yield/</guid>
+        
+        
+        <category>tech</category>
+        
+      </item>
+    
+      <item>
+        <title>Git Cherry-pick</title>
+        <description>&lt;h1 id=&quot;git-cherry-pick&quot;&gt;Git Cherry-pick&lt;/h1&gt;
+&lt;p&gt;Đối với junior, khi bắt đầu với Git nâng cao thì có muôn vàn vấn đê cần gặp phải. Và cũng có nhiều khái niệm khi nghe lần đầu chúng ta đều thấy bỡ ngỡ.&lt;/p&gt;
+
+&lt;p&gt;Hôm nay mình xin giới thiệu về &lt;code&gt;git cherry-pick&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;khái-niệm&quot;&gt;Khái niệm:&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;git-cherry-pick - Apply the changes introduced by some existing commits
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Hiểu một cách chi tiết, &lt;code&gt;cherry-pick&lt;/code&gt; là một cách để checkout một commit tại branch nhất định về branch hiện tại.&lt;/p&gt;
+
+&lt;h2 id=&quot;cú-pháp&quot;&gt;Cú pháp&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;git cherry-pick [--edit] [-n] [-m parent-number] [-s] [-x] [--ff]
+		  [-S[&amp;lt;keyid&amp;gt;]] &amp;lt;commit&amp;gt;…​
+git cherry-pick --continue
+git cherry-pick --quit
+git cherry-pick --abort
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;ví-dụ&quot;&gt;Ví dụ&lt;/h2&gt;
+&lt;p&gt;Yêu cầu: apply code từ commit F của nhánh dev về nhánh rel_2.3
+&lt;img src=&quot;https://images.viblo.asia/099e65eb-c8d6-4871-af82-a0b099dce187.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git checkout rel_2.3 # Đầu tiên ta checkout về nhánh rel_2.3
+$ git cherry-pick dev~2
+#Hoặc cũng có thể viết : 
+$ git cherry-pick F # F ở đây là hash commit
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Kết quả:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://images.viblo.asia/83664572-df3b-42c1-bb99-72d1cd55b217.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Nhánh rel_2.3 đã được apply code từ commit F của nhánh dev.
+Việc cần làm tiếp theo là sửa conflig như rebase và merge bình thường.&lt;/p&gt;
+&lt;h2 id=&quot;cherry-pick-và-merge&quot;&gt;Cherry-pick và Merge&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Ơ! Nếu thế thì tại sao ta lại không dùng &lt;code&gt;merge&lt;/code&gt; trong trường hợp này nhỉ.&lt;/li&gt;
+  &lt;li&gt;Câu trả lời là: Merge sẽ lấy &lt;code&gt;commit cuối cùng&lt;/code&gt; của nhánh &lt;code&gt;dev&lt;/code&gt; tức &lt;code&gt;H&lt;/code&gt; để áp dụng vào nhánh rel_2.3
+Tức: &lt;img src=&quot;https://images.viblo.asia/ce3195a5-6a80-46c4-92aa-e2e91da9c7e5.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;tài-liệu-tham-khảo&quot;&gt;Tài liệu tham khảo&lt;/h2&gt;
+&lt;p&gt;https://git-scm.com/docs/git-cherry-pick&lt;/p&gt;
+
+&lt;p&gt;https://stackoverflow.com/questions/9339429/what-does-cherry-picking-a-commit-with-git-mean&lt;/p&gt;
+
+&lt;p&gt;https://nathanhoad.net/how-to-cherry-pick-changes-with-git&lt;/p&gt;
+</description>
+        <pubDate>Wed, 21 Mar 2018 05:48:45 +0700</pubDate>
+        <link>http://localhost:4000/tech/2018/03/21/git-cherry-pick/</link>
+        <guid isPermaLink="true">http://localhost:4000/tech/2018/03/21/git-cherry-pick/</guid>
+        
+        
+        <category>tech</category>
+        
+      </item>
     
       <item>
         <title>Sample post from harmony</title>
@@ -71,36 +495,11 @@
 &lt;p&gt;Want me to suggest something? Please &lt;a href=&quot;https://github.com/web-create/harmony/issues/new&quot;&gt;Send me a request&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Wed, 20 Aug 2014 06:56:45 +0700</pubDate>
-        <link>http://gayan.me/sample-post</link>
-        <guid isPermaLink="true">http://gayan.me/sample-post</guid>
+        <link>http://localhost:4000/sample-post</link>
+        <guid isPermaLink="true">http://localhost:4000/sample-post</guid>
         
         
         <category>blog</category>
-        
-      </item>
-    
-      <item>
-        <title>What is Jekyll!</title>
-        <description>&lt;p&gt;&lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt; is a static site generator, an open-source tool for creating simple yet powerful websites of all shapes and sizes. Here is a little quote from the official website:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;It takes a template directory containing raw text files in various formats, runs it through &lt;a href=&quot;http://daringfireball.net/projects/markdown/&quot;&gt;Markdown&lt;/a&gt; (or &lt;a href=&quot;http://redcloth.org/textile&quot;&gt;Textile&lt;/a&gt;) and Liquid converters, and spits out a complete, ready-to-publish static website suitable for serving with your favorite web server. Jekyll also happens to be the engine behind &lt;a href=&quot;http://pages.github.com/&quot;&gt;GitHub Pages&lt;/a&gt;, which means you can use Jekyll to host your project’s page, blog, or website from GitHub’s servers for free.&lt;/p&gt;
-  &lt;ul&gt;
-    &lt;li&gt;jekyllrb.com&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/mojombo/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;.&lt;/p&gt;
-
-</description>
-        <pubDate>Tue, 29 Jul 2014 05:48:45 +0700</pubDate>
-        <link>http://gayan.me/blog/jekyll/2014/07/29/welcome-to-jekyll/</link>
-        <guid isPermaLink="true">http://gayan.me/blog/jekyll/2014/07/29/welcome-to-jekyll/</guid>
-        
-        
-        <category>blog</category>
-        
-        <category>jekyll</category>
         
       </item>
     

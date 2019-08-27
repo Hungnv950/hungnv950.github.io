@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  Block và yield trong ruby 
+title:  Block và yield trong ruby
 date:   2018-03-20 22:48:45
-description: Block và yield trong ruby 
+description: Block và yield trong ruby
 categories:
 - tech
 ---

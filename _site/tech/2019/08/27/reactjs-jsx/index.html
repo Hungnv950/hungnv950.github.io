@@ -66,7 +66,7 @@
 </ul>
 
 <h3 id="class-vs-classname">class vs className</h3>
-<p>Trong HTML, <code>class</code> thường được sử dụng để đặt tên cho thuộc tính của đối tượng\</p>
+<p>Trong HTML, <code>class</code> thường được sử dụng để đặt tên cho thuộc tính của đối tượng</p>
 
 <pre><code>&lt;h1 class="big"&gt;Hey&lt;/h1&gt;
 </code></pre>
@@ -93,7 +93,131 @@ const myDiv = (
 ReactDOM.render(myDiv, document.getElementById('app'))
 </code></pre>
 <h3 id="self-closing-tags">Self-Closing Tags</h3>
-<p>Another JSX ‘gotcha’ (bất ngờ) involves (liên quan) self-closing tags (các thẻ tự động đóng).</p>
+<p>Another JSX ‘gotcha’ (Một bất ngờ của JSX) involves (liên quan) self-closing tags (các thẻ tự động đóng).</p>
+
+<p>What’s a self-closing tag?</p>
+
+<p>Most (phần lớn) HTML elements(thành phần) use two tags: an opening tag (<code>&lt;div&gt;</code>), and a closing tag (<code>&lt;/div&gt;</code>). However, some HTML elements such as (như là) <code>&lt;img&gt;</code> and <code>&lt;input&gt;</code> use only one tag. The tag that belongs to(thuộc về) a single-tag element isn’t an opening tag nor a closing tag; it’s a self-closing tag.</p>
+
+<p>When you write a self-closing tag in HTML, it is optional to include a forward-slash (dấu gạch chéo) immediately before (ngay trước) the final angle-bracket (dấu ngoặc nhọn cuối cùng):</p>
+
+<pre><code>Fine in HTML with a slash:
+
+  &lt;br /&gt;
+
+Also fine, without the slash:
+
+  &lt;br&gt;
+</code></pre>
+
+<p>But!</p>
+
+<p>In JSX, you have to include (phải bao gồm) the slash (dấu gạch chéo). If you write a self-closing tag in JSX and forget the slash (quên dấu gạch chéo), you will raise (nhận) an error:</p>
+
+<pre><code>Fine in JSX:
+
+  &lt;br /&gt;
+
+NOT FINE AT ALL in JSX:
+
+  &lt;br&gt;
+</code></pre>
+
+<h3 id="curly-braces-dấu-ngoặc-nhọn-in-jsx">Curly Braces (Dấu ngoặc nhọn) in JSX</h3>
+
+<p>Any code in between (nằm giữa) the tags of a JSX element will be read as JSX (đọc dưới dạng JSX), not as regular (cú pháp) JavaScript! JSX doesn’t add numbers - it reads them as text, just like HTML.</p>
+
+<p>You need a way to write code that says, “Even though I am located in between JSX tags, treat me like ordinary JavaScript and not like JSX.”</p>
+
+<p>You can do this by wrapping (đóng gói) your code in curly braces (dấu ngoặc nhọn).</p>
+
+<pre><code># 5
+&lt;h1&gt;{2 + 3}&lt;/h1&gt;
+</code></pre>
+
+<h3 id="variables-biến-in-jsx">Variables (biến) in JSX</h3>
+
+<p>When you inject (đưa) JavaScript into JSX, that JavaScript is part of the same environment (một phần của môi trường tương ứng) as the rest (phần còn lại) of the JavaScript in your file.</p>
+
+<p>That means that you can access (truy cập) variables while inside (trong khi bên trong) of a JSX expression, even if those (ngay cả khi) variables were declared (được khai báo) on the outside.</p>
+
+<pre><code>// Declare a variable:
+const name = 'Gerdo';
+
+// Access your variable
+// from inside of a JSX expression:
+const greeting = &lt;p&gt;Hello, {name}!&lt;/p&gt;;
+</code></pre>
+
+<h3 id="variable-attributes-các-thuộc-tính-biến-in-jsx">Variable Attributes (các thuộc tính biến) in JSX</h3>
+
+<p>When writing JSX, it’s common to use variables (các biến) to set attributes (các thuộc tính).</p>
+
+<p>Here’s an example of how that might work (cách nó hoạt động):</p>
+
+<pre><code>// Use a variable to set the `height` and `width` attributes:
+
+const sideLength = "200px";
+
+const panda = (
+  &lt;img
+    src="images/panda.jpg"
+    alt="panda"
+    height={sideLength}
+    width={sideLength} /&gt;
+);
+</code></pre>
+
+<p>Notice how in this example, the <code>&lt;img /&gt;</code>‘s attributes each get their own line. This can make your code more readable (dễ đọc) if you have a lot of attributes (có nhiều thuộc tính) on one element (thành phần).</p>
+
+<p>Object properties (thuộc tính đối tượng) are also often used to set attributes (đặt thuộc tính):</p>
+
+<pre><code>const pics = {
+  panda: "http://bit.ly/1Tqltv5",
+  owl: "http://bit.ly/1XGtkM3",
+  owlCat: "http://bit.ly/1Upbczi"
+};
+
+const panda = (
+  &lt;img
+    src={pics.panda}
+    alt="Lazy Panda" /&gt;
+);
+
+const owl = (
+  &lt;img
+    src={pics.owl}
+    alt="Unimpressed Owl" /&gt;
+);
+
+const owlCat = (
+  &lt;img
+    src={pics.owlCat}
+    alt="Ghastly Abomination" /&gt;
+);
+</code></pre>
+
+<h3 id="event-sự-kiện-listeners--lắng-nghe-in-jsx">Event (sự kiện) Listeners  (lắng nghe) in JSX</h3>
+<p>https://www.codecademy.com/courses/react-101/lessons/react-jsx-advanced/exercises/jsx-event-listeners?action=resume_content_item</p>
+
+<p>JSX elements (các phần tử ) can have event listeners (sự kiện lắng nghe), just like HTML elements can. Programming (lập trình) in React means constantly working (liên tục làm việc) with event listeners.</p>
+
+<p>You create an event listener by giving a (cung cấp) JSX element a special attribute (thuộc tính đặc biệt). Here’s an example:</p>
+
+<p><code>&lt;img onClick={myFunc} /&gt;</code></p>
+
+<p>An event listener attribute’s name should be something like onClick or onMouseOver: the word on, plus the type of event that you’re listening for. You can see a list of valid event names here.</p>
+
+<p>An event listener attribute’s value should be a function. The above example would only work if myFunc were a valid function that had been defined elsewhere:</p>
+
+<pre><code>function myFunc() {
+  alert('Make myFunc the pFunc... omg that was horrible i am so sorry');
+}
+
+&lt;img onClick={myFunc} /&gt;
+</code></pre>
+
+<p>Note that in HTML, event listener names are written in all lowercase, such as onclick or onmouseover. In JSX, event listener names are written in camelCase, such as onClick or onMouseOver.</p>
 
 		</div>
 	</div>
@@ -103,6 +227,16 @@ ReactDOM.render(myDiv, document.getElementById('app'))
 	<div class="related">
 		<h4>Related Posts</h4>
 		<ul class="posts">
+		    
+		    <li>
+			  <span>09 Sep 2019 &raquo;</span>
+			  <a href="http://localhost:4000/tech/2019/09/09/ruby-inject-vs-each_with_object/">Ruby inject vs each_with_object</a>
+		    </li>
+		    
+		    <li>
+			  <span>09 Sep 2019 &raquo;</span>
+			  <a href="http://localhost:4000/tech/2019/09/09/sql-advanced/">Learn SQL advanced</a>
+		    </li>
 		    
 		    <li>
 			  <span>12 Jul 2019 &raquo;</span>
@@ -139,11 +273,6 @@ ReactDOM.render(myDiv, document.getElementById('app'))
 			  <a href="http://localhost:4000/tech/2018/03/21/git-cherry-pick/">Git Cherry-pick</a>
 		    </li>
 		    
-		    <li>
-			  <span>20 Aug 2014 &raquo;</span>
-			  <a href="http://localhost:4000/sample-post">Sample post from harmony</a>
-		    </li>
-		    
 		</ul>
 	</div>
 	
@@ -157,7 +286,7 @@ ReactDOM.render(myDiv, document.getElementById('app'))
 		<div class="column-2"><a href="http://localhost:4000/ ">Home</a></div>
 		<div class="column-3">
 			
-				<span>Newer >></span>
+				<a href="http://localhost:4000/tech/2019/09/09/sql-advanced/">Newer >></a>
 			
 		</div>
 	</div>

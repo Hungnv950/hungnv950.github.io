@@ -5,9 +5,281 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 27 Aug 2019 10:09:14 +0700</pubDate>
-    <lastBuildDate>Tue, 27 Aug 2019 10:09:14 +0700</lastBuildDate>
+    <pubDate>Wed, 23 Oct 2019 08:33:37 +0700</pubDate>
+    <lastBuildDate>Wed, 23 Oct 2019 08:33:37 +0700</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
+    
+      <item>
+        <title>Ruby inject vs each_with_object</title>
+        <description>&lt;p&gt;Có thể bạn đã nghe qua hoặc đã dùng thử với &lt;code&gt;inject&lt;/code&gt; và &lt;code&gt;each_with_object&lt;/code&gt; nhưng chưa thực sự hiểu sâu về chúng mà chỉ đọc qua guide về cách sử dụng căn bản. Hôm nay chúng ta sẽ đi sâu tìm hiểu để có một cái nhìn sâu hơn về &lt;code&gt;inject&lt;/code&gt; và &lt;code&gt;each_with_object&lt;/code&gt; thông qua các ví dụ trực quan.&lt;/p&gt;
+
+&lt;h3 id=&quot;inject&quot;&gt;inject&lt;/h3&gt;
+&lt;p&gt;Định nghĩa trên trang  &lt;a href=&quot;https://apidock.com/rails/Enumerable/inject&quot;&gt;apidock&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;inject(p1 = v1, p2 = v2)&lt;/p&gt;
+
+  &lt;p&gt;Combines all elements of enum by applying a binary operation, specified by a block or a symbol that names a method or operator.&lt;/p&gt;
+
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Tốt hơn cho các hoạt động trên các đối tượng/collections có thể thay đổi giá trị và trả về một giá trị mới&lt;/li&gt;
+  &lt;li&gt;Tốt cho các đối tượng nguyên thủy và các đối tượng mà trả về giá trị mới khi thay đổi.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;each_with_object&quot;&gt;each_with_object&lt;/h3&gt;
+&lt;p&gt;Định nghĩa trên trang  &lt;a href=&quot;https://apidock.com/rails/Enumerable/each_with_object&quot;&gt;apidock&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;each_with_object(memo) public&lt;/p&gt;
+
+  &lt;p&gt;Iterates over a collection, passing the current element and the memo to the block. Handy for building up hashes or reducing collections down to one object.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Tốt hơn cho các hoạt động có thể thay đổi trên các đối tượng như là Hash hoặc Array&lt;/li&gt;
+  &lt;li&gt;Khi sử dụng chúng ta cần cung cấp một đối tượng mới để bắt đầu và sử dụng đối tượng nó. Và dĩ nhiên sẽ không hữu dụng nếu bạn muốn sửa đổi trên 1 đối tượng hiện tại.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;Bây giờ chúng ta sẽ cùng nhau đi vào ví dụ để làm rõ những luận điểm trên!&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;vd1&quot;&gt;VD1:&lt;/h3&gt;
+&lt;p&gt;Hãy chú ý tới các ví dụ khác nhau. Tưởng tượng bạn có một tập hợp các đối tượng và bạn muốn tạo ra một &lt;code&gt;hash&lt;/code&gt; sử dụng chúng và thực hiện một số loại ánh xạ khác nhau.&lt;/p&gt;
+
+&lt;p&gt;Cùng tìm hiểu vấn đề:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Bạn muốn xây dựng một đối tượng mới (Hash `lower_to_upper)&lt;/li&gt;
+  &lt;li&gt;Bắt đầu với hash trống &lt;code&gt;{}&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Trong trường hợp này, &lt;code&gt;each_with_object&lt;/code&gt; rất tiện lợi:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;lower = 'a'..'z'
+lower_to_upper = lower.each_with_object({}) do |char, hash|
+  hash[char] = char.upcase
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Cùng xem sử dụng &lt;code&gt;inject&lt;/code&gt; nhưng có vẻ không tiện lợi bằng việc sử dụng &lt;code&gt;each_with_object&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;lower = 'a'..'z'
+lower_to_upper = lower.inject({}) do |hash, char|
+  hash[char] = char.upcase
+  hash
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;nguyên nhân vì &lt;code&gt;inject&lt;/code&gt; yêu cầu giá trị để ghi nhớ cho block trong các lần sử dungj tiếp theo (&lt;code&gt;hash&lt;/code&gt; được khởi tạo với &lt;code&gt;{}&lt;/code&gt;) được trả về sau mỗi lần lặp qua &lt;code&gt;block&lt;/code&gt;. Vì vậy mặc dù bạn liên tục hoạt động trên cùng một đối tượng, bạn luôn cần nó được trả về ở cuối của khối.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;each_with_object&lt;/code&gt; mặt khác luôn gọi khối có cùng một đối tượng ban đầu được truyền làm đối số đầu tiên cho method.&lt;/p&gt;
+
+&lt;h3 id=&quot;vd2&quot;&gt;VD2&lt;/h3&gt;
+&lt;p&gt;Nhưng với trường hợp bạn đã có một đối tượng hiện để thay đổi. Trong trường hợp như vậy, thông thường bạn nên sử dụng &lt;code&gt;each&lt;/code&gt; thay vì &lt;code&gt;each_with_object&lt;/code&gt; nhưng &lt;code&gt;each_with_object&lt;/code&gt; có thể ngắn hơn một chút nếu bạn vẫn cần trả về đối tượng đã thay đổi.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Sử dụng each:&lt;/em&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mapping = {'ż' =&amp;gt; 'Ż', 'ó' =&amp;gt; 'Ó'}
+lower = 'a'..'z'
+lower.each do |char|
+  mapping[char] = char.upcase
+end
+return mapping # optionally
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;em&gt;Sử dụng &lt;code&gt;each_with_object&lt;/code&gt;:&lt;/em&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mapping = {'ż' =&amp;gt; 'Ż', 'ó' =&amp;gt; 'Ó'}
+lower = 'a'..'z'
+lower.each_with_object(mapping) do |char, hash|
+  hash[char] = char.upcase
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;mapping = {'ż' =&amp;gt; 'Ż', 'ó' =&amp;gt; 'Ó'}
+lower = 'a'..'z'
+lower.each_with_object(mapping) do |char|
+  mapping[char] = char.upcase
+end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Nhấn mạnh ở đây &lt;code&gt;each&lt;/code&gt; sẽ tốt hơn nếu bạn muốn thay đổi một tập hợp hiện có, bởi vì thông thường bạn không cần phải &lt;code&gt;return&lt;/code&gt;. Sau cùng, bất cứ khi nào đối tượng làm đối số, cho dù xuất phát từ đâu, có thể vẫn đang có đối tượng tham chiếu đến đối tượng này.&lt;/p&gt;
+
+&lt;h3 id=&quot;vd3&quot;&gt;VD3&lt;/h3&gt;
+&lt;p&gt;Trong ví dụ tiếp theo sẽ không thay đổi trạng thái bên trong của đối tượng mà luôn tạo ra một đối tượng mới. Pháp tóan sử dụng sẽ luôn trả về một đối tượng mới.&lt;/p&gt;
+
+&lt;p&gt;Ví dụ đơn giản nhất là toán tử &lt;code&gt;+&lt;/code&gt; số.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;a = 1
+b = 2
+
+a.frozen?
+# =&amp;gt; true
+b.frozen?
+# =&amp;gt; true
+
+c = a + b
+# =&amp;gt; 3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Không có cách nào để thay đổi đối tượng &lt;code&gt;integer&lt;/code&gt; được tham chiếu bởi biến a thành 3. ĐIều duy nhất có thể làm là gán một đối tượng khác cho biến a hoặc bằn b hoặc c.&lt;/p&gt;
+
+&lt;p&gt;Tiếp theo là một ví dụ rõ ràng hơn:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;require 'date'
+d = Date.new(2017, 10, 10)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Nếu bạn muốn một ngày khác, bạn không thể thay đổi instance &lt;code&gt;Date&lt;/code&gt; hiện tại. Bạn cần tạo một instance mới.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;d.day=12
+# =&amp;gt; NoMethodError: undefined method `day=' for #&amp;lt;Date:
+
+e = Date.new(2017, 10, 12)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Hey, sau một vài ví dụ đơn giản chúng ta đã phần nào hiểu được chúng ta có gì khi làm chủ được &lt;code&gt;inject&lt;/code&gt; nếu bạn có một đối tượng bất biến, &lt;code&gt;inject&lt;/code&gt; là sự lựa chọn hoàn hảo.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(5..10).inject(:+)
+(5..10).inject(0, :+)
+(5..10).inject{|sum, n| sum + n }
+
+(5..10).inject(1, :*)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Hoặc:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;starting_date = Date.new(2019,10,20)
+result = [1, 10].inject(starting_date) do |date, delay|
+  date + delay
+end
+# =&amp;gt; Date.new(2017,10,31)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;vd4&quot;&gt;VD4&lt;/h3&gt;
+&lt;p&gt;Làn này chúng ta sẽ tạo một đối tượng mới môi lần nhưng không phải vì có thể thay đổi trạng thái bên trong mà bởi vì phương thức đó nhất định sẽ trả về một đối tượng mới.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;result = [
+ {1 =&amp;gt; 2},
+ {2 =&amp;gt; 3},
+ {3 =&amp;gt; 4},
+ {1 =&amp;gt; 5},
+].inject(:merge)
+# =&amp;gt; {1=&amp;gt;5, 2=&amp;gt;3, 3=&amp;gt;4}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;Hash#merge&lt;/code&gt; gộp hai hashes và trả về hash mới. Điều đó giải thích vì sao chúng ta có thể dễ dàng sử dụng với &lt;code&gt;inject&lt;/code&gt;
+Sẽ ngắn gọn hơn so với:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[
+ {1 =&amp;gt; 2},
+ {2 =&amp;gt; 3},
+ {3 =&amp;gt; 4},
+ {1 =&amp;gt; 5},
+].each_with_object({}) {|element, hash| hash.merge!(element) }
+# =&amp;gt; {1=&amp;gt;5, 2=&amp;gt;3, 3=&amp;gt;4}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Funny&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Có một điều lạ là các phần tử truyền vào block của &lt;code&gt;inject&lt;/code&gt; và &lt;code&gt;each_with_object&lt;/code&gt; đảo ngược nhau.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;lower_to_upper = lower.each_with_object({}) do |char, `hash`|
+  hash[char] = char.upcase
+end
+
+lower_to_upper = lower.inject({}) do |`hash`, char|
+  hash[char] = char.upcase
+  hash
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Hi vọng sau bài này các bạn có thể hiểu thêm về &lt;code&gt;inject&lt;/code&gt; và &lt;code&gt;each_with_object&lt;/code&gt;. Chúc các bạn một ngày vui vẻ :D&lt;/p&gt;
+
+&lt;p&gt;Nguồn: https://blog.arkency.com/inject-vs-each-with-object/&lt;/p&gt;
+</description>
+        <pubDate>Mon, 09 Sep 2019 00:00:00 +0700</pubDate>
+        <link>http://localhost:4000/tech/2019/09/09/ruby-inject-vs-each_with_object/</link>
+        <guid isPermaLink="true">http://localhost:4000/tech/2019/09/09/ruby-inject-vs-each_with_object/</guid>
+        
+        
+        <category>tech</category>
+        
+      </item>
+    
+      <item>
+        <title>Learn SQL advanced</title>
+        <description>&lt;p&gt;The first thing i want tell about the first link i found from google. It make by qoura. Fine, i like it: https://www.quora.com/How-do-I-learn-more-advanced-SQL&lt;/p&gt;
+
+&lt;p&gt;Firstly i want learn SQL from basic, because maybe i’m a beginer in every thing. Of course, i dont like this. But some day, when i joined my project, i know i am a chicken. So, if i’m not a bigger, i will be a person.&lt;/p&gt;
+
+&lt;p&gt;First ez query:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;SELECT * FROM Customers;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This query will select all record with all attributes of Customers.&lt;/p&gt;
+
+&lt;h3 id=&quot;select-distinct&quot;&gt;SELECT DISTINCT&lt;/h3&gt;
+&lt;p&gt;The SQL select distinct statement is used to return only distinct(diffirent) values.
+Inside a table, a column often contains many duplicate values, and sometimes you only want to list the different (distinct) value.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Syntax:&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;SELECT DISTINCT column1, column2,..
+FROM table_name;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;SELECT DISTINCT Country FROM Customers;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This query will have result all different Country of customer.&lt;/p&gt;
+
+&lt;h3 id=&quot;where-clause&quot;&gt;WHERE Clause&lt;/h3&gt;
+&lt;p&gt;The &lt;code&gt;where&lt;/code&gt; clause is used to filter records.
+The &lt;code&gt;where&lt;/code&gt; clause is used to extract only those records that fulfill a specified condition (Đáp ứng một điều kiện cụ thể).
+&lt;code&gt;Syntax:&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;SELECT column1, column2
+FROM table_name
+WHERE condition;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This query will return the records of column1 and column2 with condition is &lt;code&gt;condition&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;###&lt;/p&gt;
+
+&lt;h3 id=&quot;sql-order-by&quot;&gt;SQL ORDER BY&lt;/h3&gt;
+&lt;p&gt;The &lt;code&gt;order by&lt;/code&gt; key word is used to sort the result-set in ascending or desending order.
+In the default, the &lt;code&gt;order by&lt;/code&gt; will sort the records in ascending order by default. To sort records &lt;code&gt;desending&lt;/code&gt;, use &lt;code&gt;DESC&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;SELECT column1, column2, ...
+FROM table_name
+ORDER BY column1, column2, ... ASC|DESC;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;insert-into&quot;&gt;INSERT INTO&lt;/h3&gt;
+&lt;p&gt;Used to insert new records in table.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;INSERT INTO table_name (column1, column2, column3, ...)
+VALUES (value1, value2, value3, ...);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ex:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;INSERT INTO Customers (CustomerName, ContactName, Address, City, PostalCode, Country)
+VALUES ('Cardinal', 'Tom B. Erichsen', 'Skagen 21', 'Stavanger', '4006', 'Norway');
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;sql-null-value&quot;&gt;SQL NULL VALUE&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;What is null value?&lt;/em&gt;
+A field wit null value is field with no vale.&lt;/p&gt;
+
+&lt;p&gt;IS NULL syntax&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;SELECT column_names
+FROM table_name
+WHERE column_name IS NULL;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;IS NOT NULL syntax&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;SELECT column_names
+FROM table_name
+WHERE column_name IS NOT NULL;
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+        <pubDate>Mon, 09 Sep 2019 00:00:00 +0700</pubDate>
+        <link>http://localhost:4000/tech/2019/09/09/sql-advanced/</link>
+        <guid isPermaLink="true">http://localhost:4000/tech/2019/09/09/sql-advanced/</guid>
+        
+        
+        <category>tech</category>
+        
+      </item>
     
       <item>
         <title>Những tricks khi học JSX</title>
@@ -16,7 +288,7 @@
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;class-vs-classname&quot;&gt;class vs className&lt;/h3&gt;
-&lt;p&gt;Trong HTML, &lt;code&gt;class&lt;/code&gt; thường được sử dụng để đặt tên cho thuộc tính của đối tượng\&lt;/p&gt;
+&lt;p&gt;Trong HTML, &lt;code&gt;class&lt;/code&gt; thường được sử dụng để đặt tên cho thuộc tính của đối tượng&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;h1 class=&quot;big&quot;&amp;gt;Hey&amp;lt;/h1&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
@@ -43,7 +315,131 @@ const myDiv = (
 ReactDOM.render(myDiv, document.getElementById('app'))
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id=&quot;self-closing-tags&quot;&gt;Self-Closing Tags&lt;/h3&gt;
-&lt;p&gt;Another JSX ‘gotcha’ (bất ngờ) involves (liên quan) self-closing tags (các thẻ tự động đóng).&lt;/p&gt;
+&lt;p&gt;Another JSX ‘gotcha’ (Một bất ngờ của JSX) involves (liên quan) self-closing tags (các thẻ tự động đóng).&lt;/p&gt;
+
+&lt;p&gt;What’s a self-closing tag?&lt;/p&gt;
+
+&lt;p&gt;Most (phần lớn) HTML elements(thành phần) use two tags: an opening tag (&lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt;), and a closing tag (&lt;code&gt;&amp;lt;/div&amp;gt;&lt;/code&gt;). However, some HTML elements such as (như là) &lt;code&gt;&amp;lt;img&amp;gt;&lt;/code&gt; and &lt;code&gt;&amp;lt;input&amp;gt;&lt;/code&gt; use only one tag. The tag that belongs to(thuộc về) a single-tag element isn’t an opening tag nor a closing tag; it’s a self-closing tag.&lt;/p&gt;
+
+&lt;p&gt;When you write a self-closing tag in HTML, it is optional to include a forward-slash (dấu gạch chéo) immediately before (ngay trước) the final angle-bracket (dấu ngoặc nhọn cuối cùng):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Fine in HTML with a slash:
+
+  &amp;lt;br /&amp;gt;
+
+Also fine, without the slash:
+
+  &amp;lt;br&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;But!&lt;/p&gt;
+
+&lt;p&gt;In JSX, you have to include (phải bao gồm) the slash (dấu gạch chéo). If you write a self-closing tag in JSX and forget the slash (quên dấu gạch chéo), you will raise (nhận) an error:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Fine in JSX:
+
+  &amp;lt;br /&amp;gt;
+
+NOT FINE AT ALL in JSX:
+
+  &amp;lt;br&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;curly-braces-dấu-ngoặc-nhọn-in-jsx&quot;&gt;Curly Braces (Dấu ngoặc nhọn) in JSX&lt;/h3&gt;
+
+&lt;p&gt;Any code in between (nằm giữa) the tags of a JSX element will be read as JSX (đọc dưới dạng JSX), not as regular (cú pháp) JavaScript! JSX doesn’t add numbers - it reads them as text, just like HTML.&lt;/p&gt;
+
+&lt;p&gt;You need a way to write code that says, “Even though I am located in between JSX tags, treat me like ordinary JavaScript and not like JSX.”&lt;/p&gt;
+
+&lt;p&gt;You can do this by wrapping (đóng gói) your code in curly braces (dấu ngoặc nhọn).&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# 5
+&amp;lt;h1&amp;gt;{2 + 3}&amp;lt;/h1&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;variables-biến-in-jsx&quot;&gt;Variables (biến) in JSX&lt;/h3&gt;
+
+&lt;p&gt;When you inject (đưa) JavaScript into JSX, that JavaScript is part of the same environment (một phần của môi trường tương ứng) as the rest (phần còn lại) of the JavaScript in your file.&lt;/p&gt;
+
+&lt;p&gt;That means that you can access (truy cập) variables while inside (trong khi bên trong) of a JSX expression, even if those (ngay cả khi) variables were declared (được khai báo) on the outside.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// Declare a variable:
+const name = 'Gerdo';
+
+// Access your variable
+// from inside of a JSX expression:
+const greeting = &amp;lt;p&amp;gt;Hello, {name}!&amp;lt;/p&amp;gt;;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;variable-attributes-các-thuộc-tính-biến-in-jsx&quot;&gt;Variable Attributes (các thuộc tính biến) in JSX&lt;/h3&gt;
+
+&lt;p&gt;When writing JSX, it’s common to use variables (các biến) to set attributes (các thuộc tính).&lt;/p&gt;
+
+&lt;p&gt;Here’s an example of how that might work (cách nó hoạt động):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// Use a variable to set the `height` and `width` attributes:
+
+const sideLength = &quot;200px&quot;;
+
+const panda = (
+  &amp;lt;img
+    src=&quot;images/panda.jpg&quot;
+    alt=&quot;panda&quot;
+    height={sideLength}
+    width={sideLength} /&amp;gt;
+);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Notice how in this example, the &lt;code&gt;&amp;lt;img /&amp;gt;&lt;/code&gt;‘s attributes each get their own line. This can make your code more readable (dễ đọc) if you have a lot of attributes (có nhiều thuộc tính) on one element (thành phần).&lt;/p&gt;
+
+&lt;p&gt;Object properties (thuộc tính đối tượng) are also often used to set attributes (đặt thuộc tính):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;const pics = {
+  panda: &quot;http://bit.ly/1Tqltv5&quot;,
+  owl: &quot;http://bit.ly/1XGtkM3&quot;,
+  owlCat: &quot;http://bit.ly/1Upbczi&quot;
+};
+
+const panda = (
+  &amp;lt;img
+    src={pics.panda}
+    alt=&quot;Lazy Panda&quot; /&amp;gt;
+);
+
+const owl = (
+  &amp;lt;img
+    src={pics.owl}
+    alt=&quot;Unimpressed Owl&quot; /&amp;gt;
+);
+
+const owlCat = (
+  &amp;lt;img
+    src={pics.owlCat}
+    alt=&quot;Ghastly Abomination&quot; /&amp;gt;
+);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;event-sự-kiện-listeners--lắng-nghe-in-jsx&quot;&gt;Event (sự kiện) Listeners  (lắng nghe) in JSX&lt;/h3&gt;
+&lt;p&gt;https://www.codecademy.com/courses/react-101/lessons/react-jsx-advanced/exercises/jsx-event-listeners?action=resume_content_item&lt;/p&gt;
+
+&lt;p&gt;JSX elements (các phần tử ) can have event listeners (sự kiện lắng nghe), just like HTML elements can. Programming (lập trình) in React means constantly working (liên tục làm việc) with event listeners.&lt;/p&gt;
+
+&lt;p&gt;You create an event listener by giving a (cung cấp) JSX element a special attribute (thuộc tính đặc biệt). Here’s an example:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;lt;img onClick={myFunc} /&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;An event listener attribute’s name should be something like onClick or onMouseOver: the word on, plus the type of event that you’re listening for. You can see a list of valid event names here.&lt;/p&gt;
+
+&lt;p&gt;An event listener attribute’s value should be a function. The above example would only work if myFunc were a valid function that had been defined elsewhere:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;function myFunc() {
+  alert('Make myFunc the pFunc... omg that was horrible i am so sorry');
+}
+
+&amp;lt;img onClick={myFunc} /&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note that in HTML, event listener names are written in all lowercase, such as onclick or onmouseover. In JSX, event listener names are written in camelCase, such as onClick or onMouseOver.&lt;/p&gt;
 </description>
         <pubDate>Tue, 27 Aug 2019 00:00:00 +0700</pubDate>
         <link>http://localhost:4000/tech/2019/08/27/reactjs-jsx/</link>
@@ -101,6 +497,15 @@ ReactDOM.render(myDiv, document.getElementById('app'))
         else
                 git commit-tree &quot;$@&quot;;
         fi' HEAD
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;  scope :wait_admin_approve, lambda {
+    candidate = Candidate.arel_table
+    flu = Influencer.arel_table
+    left_joins(:influencer).where(candidate[:status].eq(&quot;applied&quot;).and(flu[:company_id].eq(nil)).or(
+                                    candidate[:status].eq(&quot;office_approved&quot;).and(flu[:company_id].not_eq(nil))
+                                  ))
+  }
 &lt;/code&gt;&lt;/pre&gt;
 </description>
         <pubDate>Mon, 01 Jul 2019 00:00:00 +0700</pubDate>
@@ -430,76 +835,6 @@ Tức: &lt;img src=&quot;https://images.viblo.asia/ce3195a5-6a80-46c4-92aa-e2e91
         
         
         <category>tech</category>
-        
-      </item>
-    
-      <item>
-        <title>Sample post from harmony</title>
-        <description>&lt;p&gt;Just a sample post to show some of the &lt;em&gt;typography&lt;/em&gt; elements supported from 
-&lt;strong&gt;harmony&lt;/strong&gt; theme.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;A blockquote:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Donec in mollis eros, nec rutrum turpis. &lt;strong&gt;Curabitur&lt;/strong&gt; sem elit, semper nec volutpat quis, laoreet et sapien. In felis erat, rhoncus sed pellentesque mollis, tincidunt quis elit.&lt;/p&gt;
-  &lt;ul&gt;
-    &lt;li&gt;By Someone&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;header-2&quot;&gt;Header 2&lt;/h2&gt;
-
-&lt;p&gt;Duis lacinia commodo dui, vel aliquam metus hendrerit eu. Integer et scelerisque dui. Sed nec molestie quam. Donec sit amet nisl a massa commodo ultrices nec quis nunc. Aenean aliquet eu arcu adipiscing dignissim. Nunc dictum elit vitae dolor molestie aliquet.&lt;/p&gt;
-
-&lt;p&gt;Example code:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Tom&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints &amp;#39;Hi, Tom&amp;#39; to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;A list:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Praesent nisi elit, bibendum ut consectetur ac, aliquet in nunc&lt;/li&gt;
-  &lt;li&gt;Donec ante est, volutpat in mi et, pulvinar congue dolor.&lt;/li&gt;
-  &lt;li&gt;Quisque ultrices pulvinar sollicitudin.&lt;/li&gt;
-  &lt;li&gt;Duis elementum odio eu euismod suscipit.&lt;/li&gt;
-  &lt;li&gt;Integer enim lorem, interdum sit amet consectetur non, bibendum eget neque.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;A numbered list:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Praesent nisi elit, bibendum ut consectetur ac, aliquet in nunc.&lt;/li&gt;
-  &lt;li&gt;Donec ante est, volutpat in mi et, pulvinar congue dolor.&lt;/li&gt;
-  &lt;li&gt;Quisque ultrices pulvinar sollicitudin.&lt;/li&gt;
-  &lt;li&gt;Duis elementum odio eu euismod suscipit.&lt;/li&gt;
-  &lt;li&gt;Integer enim lorem, interdum sit amet consectetur non, bibendum eget neque.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Definition list:&lt;/p&gt;
-
-&lt;dl&gt;
-  &lt;dt&gt;Curabitur cursus magna eu sem cursus&lt;/dt&gt;
-  &lt;dd&gt;ac ultrices urna pharetra.&lt;/dd&gt;
-  &lt;dd&gt;Duis scelerisque ipsum eu luctus elementum.&lt;/dd&gt;
-  &lt;dt&gt;Pellentesque habitant morbi tristique senectus&lt;/dt&gt;
-  &lt;dd&gt;Curabitur malesuada lacus ac gravida porttitor&lt;/dd&gt;
-  &lt;dd&gt;Duis sodales feugiat lorem et mollis.&lt;/dd&gt;
-&lt;/dl&gt;
-
-&lt;p&gt;Want me to suggest something? Please &lt;a href=&quot;https://github.com/web-create/harmony/issues/new&quot;&gt;Send me a request&lt;/a&gt;&lt;/p&gt;
-</description>
-        <pubDate>Wed, 20 Aug 2014 06:56:45 +0700</pubDate>
-        <link>http://localhost:4000/sample-post</link>
-        <guid isPermaLink="true">http://localhost:4000/sample-post</guid>
-        
-        
-        <category>blog</category>
         
       </item>
     

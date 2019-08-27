@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Ruby inject vs each_with_object</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">        
+        <meta name="description" content="Harmony is a free responsive jekyll theme by Gayan Virajith and Maheshika Lakmali. Sourced on Github -  https://github.com/gayanvirajith/harmony
+">
+        <link rel="canonical" 
+        href="http://localhost:4000/tech/2019/09/09/ruby-inject-vs-each_with_object/">
+        
+        <!-- styles -->
+        <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+
+        <!-- Modernizr js -->
+        <script async src="/assets/js/modernizr.js"></script>    
+
+        <!-- IE Fixes -->
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->        
+    </head>
+    <body class="theme-base-01">
+        <header class="main-header">
+            <div class="wc-container">
+                <h1><a href="/">Lang thang</a></h1>
+                <h2>A litte of Hưng.</h2>
+                <ul class="header-links" id="header-links">
+	<li>
+		<a href="http://localhost:4000/">Home</a><span>/</span>
+	</li>
+	<li>
+		<a href="http://localhost:4000/life">Life</a><span>/</span>
+	</li>
+	<li>
+		<a href="http://localhost:4000/tech">Tech</a><span>/</span>
+	</li>
+	<li>
+		<a href="http://localhost:4000/about">About</a><span>/</span>
+	</li>
+	
+</ul>                
+            </div>
+        </header>
+        <div class="page-content wc-container">
+	
+	<div class="post">
+		<h1>Ruby inject vs each_with_object</h1>
+		<p class="post-meta">
+			
+      <span class="categories">
+      tech
+      </span> |
+	    
+	    <span class="post-date">
+    	Sep 9, 2019 
+	    </span>
+		</p>		
+		<div class="post">
+			<p>Có thể bạn đã nghe qua hoặc đã dùng thử với <code>inject</code> và <code>each_with_object</code> nhưng chưa thực sự hiểu sâu về chúng mà chỉ đọc qua guide về cách sử dụng căn bản. Hôm nay chúng ta sẽ đi sâu tìm hiểu để có một cái nhìn sâu hơn về <code>inject</code> và <code>each_with_object</code> thông qua các ví dụ trực quan.</p>
+
+<h3 id="inject">inject</h3>
+<p>Định nghĩa trên trang  <a href="https://apidock.com/rails/Enumerable/inject">apidock</a></p>
+<blockquote>
+  <p>inject(p1 = v1, p2 = v2)</p>
+
+  <p>Combines all elements of enum by applying a binary operation, specified by a block or a symbol that names a method or operator.</p>
+
+</blockquote>
+
+<ul>
+  <li>Tốt hơn cho các hoạt động trên các đối tượng/collections có thể thay đổi giá trị và trả về một giá trị mới</li>
+  <li>Tốt cho các đối tượng nguyên thủy và các đối tượng mà trả về giá trị mới khi thay đổi.</li>
+</ul>
+
+<h3 id="each_with_object">each_with_object</h3>
+<p>Định nghĩa trên trang  <a href="https://apidock.com/rails/Enumerable/each_with_object">apidock</a></p>
+<blockquote>
+  <p>each_with_object(memo) public</p>
+
+  <p>Iterates over a collection, passing the current element and the memo to the block. Handy for building up hashes or reducing collections down to one object.</p>
+</blockquote>
+
+<ul>
+  <li>Tốt hơn cho các hoạt động có thể thay đổi trên các đối tượng như là Hash hoặc Array</li>
+  <li>Khi sử dụng chúng ta cần cung cấp một đối tượng mới để bắt đầu và sử dụng đối tượng nó. Và dĩ nhiên sẽ không hữu dụng nếu bạn muốn sửa đổi trên 1 đối tượng hiện tại.</li>
+</ul>
+
+<p><em>Bây giờ chúng ta sẽ cùng nhau đi vào ví dụ để làm rõ những luận điểm trên!</em></p>
+
+<h3 id="vd1">VD1:</h3>
+<p>Hãy chú ý tới các ví dụ khác nhau. Tưởng tượng bạn có một tập hợp các đối tượng và bạn muốn tạo ra một <code>hash</code> sử dụng chúng và thực hiện một số loại ánh xạ khác nhau.</p>
+
+<p>Cùng tìm hiểu vấn đề:</p>
+
+<ul>
+  <li>Bạn muốn xây dựng một đối tượng mới (Hash `lower_to_upper)</li>
+  <li>Bắt đầu với hash trống <code>{}</code></li>
+</ul>
+
+<p>Trong trường hợp này, <code>each_with_object</code> rất tiện lợi:</p>
+<pre><code>lower = 'a'..'z'
+lower_to_upper = lower.each_with_object({}) do |char, hash|
+  hash[char] = char.upcase
+end
+</code></pre>
+
+<p>Cùng xem sử dụng <code>inject</code> nhưng có vẻ không tiện lợi bằng việc sử dụng <code>each_with_object</code></p>
+
+<pre><code>lower = 'a'..'z'
+lower_to_upper = lower.inject({}) do |hash, char|
+  hash[char] = char.upcase
+  hash
+end
+</code></pre>
+
+<p>nguyên nhân vì <code>inject</code> yêu cầu giá trị để ghi nhớ cho block trong các lần sử dungj tiếp theo (<code>hash</code> được khởi tạo với <code>{}</code>) được trả về sau mỗi lần lặp qua <code>block</code>. Vì vậy mặc dù bạn liên tục hoạt động trên cùng một đối tượng, bạn luôn cần nó được trả về ở cuối của khối.</p>
+
+<p><code>each_with_object</code> mặt khác luôn gọi khối có cùng một đối tượng ban đầu được truyền làm đối số đầu tiên cho method.</p>
+
+<h3 id="vd2">VD2</h3>
+<p>Nhưng với trường hợp bạn đã có một đối tượng hiện để thay đổi. Trong trường hợp như vậy, thông thường bạn nên sử dụng <code>each</code> thay vì <code>each_with_object</code> nhưng <code>each_with_object</code> có thể ngắn hơn một chút nếu bạn vẫn cần trả về đối tượng đã thay đổi.</p>
+
+<p><em>Sử dụng each:</em></p>
+<pre><code>mapping = {'ż' =&gt; 'Ż', 'ó' =&gt; 'Ó'}
+lower = 'a'..'z'
+lower.each do |char|
+  mapping[char] = char.upcase
+end
+return mapping # optionally
+</code></pre>
+
+<p><em>Sử dụng <code>each_with_object</code>:</em></p>
+<pre><code>mapping = {'ż' =&gt; 'Ż', 'ó' =&gt; 'Ó'}
+lower = 'a'..'z'
+lower.each_with_object(mapping) do |char, hash|
+  hash[char] = char.upcase
+end
+</code></pre>
+
+<pre><code>mapping = {'ż' =&gt; 'Ż', 'ó' =&gt; 'Ó'}
+lower = 'a'..'z'
+lower.each_with_object(mapping) do |char|
+  mapping[char] = char.upcase
+end
+</code></pre>
+<p>Nhấn mạnh ở đây <code>each</code> sẽ tốt hơn nếu bạn muốn thay đổi một tập hợp hiện có, bởi vì thông thường bạn không cần phải <code>return</code>. Sau cùng, bất cứ khi nào đối tượng làm đối số, cho dù xuất phát từ đâu, có thể vẫn đang có đối tượng tham chiếu đến đối tượng này.</p>
+
+<h3 id="vd3">VD3</h3>
+<p>Trong ví dụ tiếp theo sẽ không thay đổi trạng thái bên trong của đối tượng mà luôn tạo ra một đối tượng mới. Pháp tóan sử dụng sẽ luôn trả về một đối tượng mới.</p>
+
+<p>Ví dụ đơn giản nhất là toán tử <code>+</code> số.</p>
+
+<pre><code>a = 1
+b = 2
+
+a.frozen?
+# =&gt; true
+b.frozen?
+# =&gt; true
+
+c = a + b
+# =&gt; 3
+</code></pre>
+<p>Không có cách nào để thay đổi đối tượng <code>integer</code> được tham chiếu bởi biến a thành 3. ĐIều duy nhất có thể làm là gán một đối tượng khác cho biến a hoặc bằn b hoặc c.</p>
+
+<p>Tiếp theo là một ví dụ rõ ràng hơn:</p>
+<pre><code>require 'date'
+d = Date.new(2017, 10, 10)
+</code></pre>
+<p>Nếu bạn muốn một ngày khác, bạn không thể thay đổi instance <code>Date</code> hiện tại. Bạn cần tạo một instance mới.</p>
+<pre><code>d.day=12
+# =&gt; NoMethodError: undefined method `day=' for #&lt;Date:
+
+e = Date.new(2017, 10, 12)
+</code></pre>
+
+<p>Hey, sau một vài ví dụ đơn giản chúng ta đã phần nào hiểu được chúng ta có gì khi làm chủ được <code>inject</code> nếu bạn có một đối tượng bất biến, <code>inject</code> là sự lựa chọn hoàn hảo.</p>
+
+<pre><code>(5..10).inject(:+)
+(5..10).inject(0, :+)
+(5..10).inject{|sum, n| sum + n }
+
+(5..10).inject(1, :*)
+</code></pre>
+
+<p>Hoặc:</p>
+<pre><code>starting_date = Date.new(2019,10,20)
+result = [1, 10].inject(starting_date) do |date, delay|
+  date + delay
+end
+# =&gt; Date.new(2017,10,31)
+</code></pre>
+
+<h3 id="vd4">VD4</h3>
+<p>Làn này chúng ta sẽ tạo một đối tượng mới môi lần nhưng không phải vì có thể thay đổi trạng thái bên trong mà bởi vì phương thức đó nhất định sẽ trả về một đối tượng mới.</p>
+<pre><code>result = [
+ {1 =&gt; 2},
+ {2 =&gt; 3},
+ {3 =&gt; 4},
+ {1 =&gt; 5},
+].inject(:merge)
+# =&gt; {1=&gt;5, 2=&gt;3, 3=&gt;4}
+</code></pre>
+
+<p><code>Hash#merge</code> gộp hai hashes và trả về hash mới. Điều đó giải thích vì sao chúng ta có thể dễ dàng sử dụng với <code>inject</code>
+Sẽ ngắn gọn hơn so với:</p>
+<pre><code>[
+ {1 =&gt; 2},
+ {2 =&gt; 3},
+ {3 =&gt; 4},
+ {1 =&gt; 5},
+].each_with_object({}) {|element, hash| hash.merge!(element) }
+# =&gt; {1=&gt;5, 2=&gt;3, 3=&gt;4}
+</code></pre>
+
+<p><strong>Funny</strong></p>
+
+<p>Có một điều lạ là các phần tử truyền vào block của <code>inject</code> và <code>each_with_object</code> đảo ngược nhau.</p>
+
+<pre><code>lower_to_upper = lower.each_with_object({}) do |char, `hash`|
+  hash[char] = char.upcase
+end
+
+lower_to_upper = lower.inject({}) do |`hash`, char|
+  hash[char] = char.upcase
+  hash
+end
+</code></pre>
+
+<p>Hi vọng sau bài này các bạn có thể hiểu thêm về <code>inject</code> và <code>each_with_object</code>. Chúc các bạn một ngày vui vẻ :D</p>
+
+<p>Nguồn: https://blog.arkency.com/inject-vs-each-with-object/</p>
+
+		</div>
+	</div>
+
+
+	
+	<div class="related">
+		<h4>Related Posts</h4>
+		<ul class="posts">
+		    
+		    <li>
+			  <span>09 Sep 2019 &raquo;</span>
+			  <a href="http://localhost:4000/tech/2019/09/09/sql-advanced/">Learn SQL advanced</a>
+		    </li>
+		    
+		    <li>
+			  <span>27 Aug 2019 &raquo;</span>
+			  <a href="http://localhost:4000/tech/2019/08/27/reactjs-jsx/">Những tricks khi học JSX</a>
+		    </li>
+		    
+		    <li>
+			  <span>12 Jul 2019 &raquo;</span>
+			  <a href="http://localhost:4000/blog/2019/07/12/unicode_equivalence/">What is Jekyll!</a>
+		    </li>
+		    
+		    <li>
+			  <span>01 Jul 2019 &raquo;</span>
+			  <a href="http://localhost:4000/2019/07/01/from-third-project/">From Third Project</a>
+		    </li>
+		    
+		    <li>
+			  <span>26 Jun 2019 &raquo;</span>
+			  <a href="http://localhost:4000/tech/2019/06/26/su-dung-nhieu-tai-khoan-github-tren-cung-mot-may-tinh-ca-nhan/">Sử dụng nhiều tài khoản github trên cùng một máy tính cá nhân</a>
+		    </li>
+		    
+		    <li>
+			  <span>26 Jun 2019 &raquo;</span>
+			  <a href="http://localhost:4000/life/2019/06/26/morning-speech-cha-da-quen/">Cha đã quên</a>
+		    </li>
+		    
+		    <li>
+			  <span>29 May 2019 &raquo;</span>
+			  <a href="http://localhost:4000/blog/2019/05/29/welcome-to-jekyll/">What is Jekyll!</a>
+		    </li>
+		    
+		    <li>
+			  <span>21 Mar 2018 &raquo;</span>
+			  <a href="http://localhost:4000/tech/2018/03/21/ruby-block-and-yield/">Block và yield trong ruby</a>
+		    </li>
+		    
+		    <li>
+			  <span>21 Mar 2018 &raquo;</span>
+			  <a href="http://localhost:4000/tech/2018/03/21/git-cherry-pick/">Git Cherry-pick</a>
+		    </li>
+		    
+		</ul>
+	</div>
+	
+
+	<div class="post-footer">
+		<div class="column-1">
+			
+				<a href="http://localhost:4000/tech/2019/09/09/sql-advanced/"><< Older</a>
+			
+		</div>
+		<div class="column-2"><a href="http://localhost:4000/ ">Home</a></div>
+		<div class="column-3">
+			
+				<span>Newer >></span>
+			
+		</div>
+	</div>
+</div>
+ 
+
+        <footer class="main-footer">
+            <div class="wc-container">
+                <div class="column one">
+                    <h6>Few more links</h6>
+<ul class="menu">
+    <li><a href="http://localhost:4000/about">About</a></li>
+    <li><a href="http://localhost:4000/life">Life</a></li>
+    <li><a href="http://localhost:4000/tech">Tech</a></li>
+    <li><a href="http://localhost:4000/faq">Help / FAQ</a></li>    
+</ul>		                    
+                </div>
+                <div class="column two">
+                    <h6>Follow me</h6>
+
+<ul class="social-media">
+
+
+    
+    <li>
+        <a title="hungnv950 on Twitter" 
+            href="https://twitter.com/hungnv950" 
+            class="twitter wc-img-replace" target="_blank">Twitter</a>
+    </li>   
+    
+
+    
+    <li>
+        <a title="hungnv950 on Github" 
+            href="https://github.com/hungnv950" 
+            class="github wc-img-replace" target="_blank">Github</a>
+    </li>
+     
+
+    
+    <li>
+        <a title="hungnv950 on Facebook" 
+            href="https://facebook.com/hungnv950" 
+            class="facebook wc-img-replace" target="_blank">Facebook</a>
+    </li>
+    
+
+    
+    <li>
+        <a title="+hungnv950 on Google Plus" 
+            href="https://plus.google.com/+hungnv950" 
+            class="google wc-img-replace" target="_blank">Google</a>
+    </li>
+    
+
+    
+    <li>
+        <a title="gayan on Dribble" 
+            href="https://dribbble.com/gayan" 
+            class="dribble wc-img-replace" target="_blank">Dribble</a>
+    </li> 
+    
+
+    
+
+</ul>
+                </div>
+            </div>
+            <p class="wc-container disclaimer">
+                
+	Made by <a href="http://gayan.me" target="_blank">Gayan Virajith</a> For everyone.      
+
+Powered by <a href="http://jekyllrb.com" target="_blank">Jekyll</a>
+            </p>
+        </footer>
+        <script type="text/javascript">
+          /* To avoid render blocking css */
+          var cb = function() {
+            var l = document.createElement('link'); l.rel = 'stylesheet';
+            l.href = 'http://fonts.googleapis.com/css?family=Ubuntu+Mono&subset=latin';
+            var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
+          };
+          var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+              webkitRequestAnimationFrame || msRequestAnimationFrame;
+          if (raf) raf(cb);
+          else window.addEventListener('load', cb);
+        </script>
+        <!-- jQuery -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <!-- When no internet load JQuery from local -->
+        <script>window.jQuery || document.write('<script src="/assets/js/jquery.min.js"><\/script>')</script>
+        <!-- Site js -->
+        <script src="/assets/js/all.js"></script>
+        <!-- Google analytics  -->
+        
+    </body>        
+</html>

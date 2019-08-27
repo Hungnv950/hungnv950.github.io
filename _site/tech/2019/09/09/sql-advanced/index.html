@@ -3,12 +3,12 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Sample post from harmony</title>
+        <title>Learn SQL advanced</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">        
         <meta name="description" content="Harmony is a free responsive jekyll theme by Gayan Virajith and Maheshika Lakmali. Sourced on Github -  https://github.com/gayanvirajith/harmony
 ">
         <link rel="canonical" 
-        href="http://localhost:4000/sample-post">
+        href="http://localhost:4000/tech/2019/09/09/sql-advanced/">
         
         <!-- styles -->
         <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
@@ -49,76 +49,92 @@
         <div class="page-content wc-container">
 	
 	<div class="post">
-		<h1>Sample post from harmony</h1>
+		<h1>Learn SQL advanced</h1>
 		<p class="post-meta">
 			
       <span class="categories">
-      blog
+      tech
       </span> |
 	    
 	    <span class="post-date">
-    	Aug 20, 2014 
+    	Sep 9, 2019 
 	    </span>
 		</p>		
 		<div class="post">
-			<p>Just a sample post to show some of the <em>typography</em> elements supported from 
-<strong>harmony</strong> theme.</p>
+			<p>The first thing i want tell about the first link i found from google. It make by qoura. Fine, i like it: https://www.quora.com/How-do-I-learn-more-advanced-SQL</p>
 
-<hr />
+<p>Firstly i want learn SQL from basic, because maybe i’m a beginer in every thing. Of course, i dont like this. But some day, when i joined my project, i know i am a chicken. So, if i’m not a bigger, i will be a person.</p>
 
-<p>A blockquote:</p>
+<p>First ez query:</p>
+<pre><code>SELECT * FROM Customers;
+</code></pre>
+<p>This query will select all record with all attributes of Customers.</p>
 
-<blockquote>
-  <p>Donec in mollis eros, nec rutrum turpis. <strong>Curabitur</strong> sem elit, semper nec volutpat quis, laoreet et sapien. In felis erat, rhoncus sed pellentesque mollis, tincidunt quis elit.</p>
-  <ul>
-    <li>By Someone</li>
-  </ul>
-</blockquote>
+<h3 id="select-distinct">SELECT DISTINCT</h3>
+<p>The SQL select distinct statement is used to return only distinct(diffirent) values.
+Inside a table, a column often contains many duplicate values, and sometimes you only want to list the different (distinct) value.</p>
 
-<h2 id="header-2">Header 2</h2>
+<p><code>Syntax:</code></p>
 
-<p>Duis lacinia commodo dui, vel aliquam metus hendrerit eu. Integer et scelerisque dui. Sed nec molestie quam. Donec sit amet nisl a massa commodo ultrices nec quis nunc. Aenean aliquet eu arcu adipiscing dignissim. Nunc dictum elit vitae dolor molestie aliquet.</p>
+<pre><code>SELECT DISTINCT column1, column2,..
+FROM table_name;
+</code></pre>
 
-<p>Example code:</p>
+<p>Example:</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
-  <span class="nb">puts</span> <span class="s2">&quot;Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="k">end</span>
-<span class="n">print_hi</span><span class="p">(</span><span class="s1">&#39;Tom&#39;</span><span class="p">)</span>
-<span class="c1">#=&gt; prints &#39;Hi, Tom&#39; to STDOUT.</span></code></pre></figure>
+<pre><code>SELECT DISTINCT Country FROM Customers;
+</code></pre>
+<p>This query will have result all different Country of customer.</p>
 
-<p>A list:</p>
+<h3 id="where-clause">WHERE Clause</h3>
+<p>The <code>where</code> clause is used to filter records.
+The <code>where</code> clause is used to extract only those records that fulfill a specified condition (Đáp ứng một điều kiện cụ thể).
+<code>Syntax:</code></p>
 
-<ul>
-  <li>Praesent nisi elit, bibendum ut consectetur ac, aliquet in nunc</li>
-  <li>Donec ante est, volutpat in mi et, pulvinar congue dolor.</li>
-  <li>Quisque ultrices pulvinar sollicitudin.</li>
-  <li>Duis elementum odio eu euismod suscipit.</li>
-  <li>Integer enim lorem, interdum sit amet consectetur non, bibendum eget neque.</li>
-</ul>
+<pre><code>SELECT column1, column2
+FROM table_name
+WHERE condition;
+</code></pre>
+<p>This query will return the records of column1 and column2 with condition is <code>condition</code></p>
 
-<p>A numbered list:</p>
+<p>###</p>
 
-<ol>
-  <li>Praesent nisi elit, bibendum ut consectetur ac, aliquet in nunc.</li>
-  <li>Donec ante est, volutpat in mi et, pulvinar congue dolor.</li>
-  <li>Quisque ultrices pulvinar sollicitudin.</li>
-  <li>Duis elementum odio eu euismod suscipit.</li>
-  <li>Integer enim lorem, interdum sit amet consectetur non, bibendum eget neque.</li>
-</ol>
+<h3 id="sql-order-by">SQL ORDER BY</h3>
+<p>The <code>order by</code> key word is used to sort the result-set in ascending or desending order.
+In the default, the <code>order by</code> will sort the records in ascending order by default. To sort records <code>desending</code>, use <code>DESC</code></p>
 
-<p>Definition list:</p>
+<pre><code>SELECT column1, column2, ...
+FROM table_name
+ORDER BY column1, column2, ... ASC|DESC;
+</code></pre>
 
-<dl>
-  <dt>Curabitur cursus magna eu sem cursus</dt>
-  <dd>ac ultrices urna pharetra.</dd>
-  <dd>Duis scelerisque ipsum eu luctus elementum.</dd>
-  <dt>Pellentesque habitant morbi tristique senectus</dt>
-  <dd>Curabitur malesuada lacus ac gravida porttitor</dd>
-  <dd>Duis sodales feugiat lorem et mollis.</dd>
-</dl>
+<h3 id="insert-into">INSERT INTO</h3>
+<p>Used to insert new records in table.</p>
 
-<p>Want me to suggest something? Please <a href="https://github.com/web-create/harmony/issues/new">Send me a request</a></p>
+<pre><code>INSERT INTO table_name (column1, column2, column3, ...)
+VALUES (value1, value2, value3, ...);
+</code></pre>
+
+<p>ex:</p>
+<pre><code>INSERT INTO Customers (CustomerName, ContactName, Address, City, PostalCode, Country)
+VALUES ('Cardinal', 'Tom B. Erichsen', 'Skagen 21', 'Stavanger', '4006', 'Norway');
+</code></pre>
+
+<h3 id="sql-null-value">SQL NULL VALUE</h3>
+<p><em>What is null value?</em>
+A field wit null value is field with no vale.</p>
+
+<p>IS NULL syntax</p>
+<pre><code>SELECT column_names
+FROM table_name
+WHERE column_name IS NULL;
+</code></pre>
+<p>IS NOT NULL syntax</p>
+
+<pre><code>SELECT column_names
+FROM table_name
+WHERE column_name IS NOT NULL;
+</code></pre>
 
 		</div>
 	</div>
@@ -128,6 +144,11 @@
 	<div class="related">
 		<h4>Related Posts</h4>
 		<ul class="posts">
+		    
+		    <li>
+			  <span>09 Sep 2019 &raquo;</span>
+			  <a href="http://localhost:4000/tech/2019/09/09/ruby-inject-vs-each_with_object/">Ruby inject vs each_with_object</a>
+		    </li>
 		    
 		    <li>
 			  <span>27 Aug 2019 &raquo;</span>
@@ -176,13 +197,13 @@
 	<div class="post-footer">
 		<div class="column-1">
 			
-				<span><< Older</span>
+				<a href="http://localhost:4000/tech/2019/08/27/reactjs-jsx/"><< Older</a>
 			
 		</div>
 		<div class="column-2"><a href="http://localhost:4000/ ">Home</a></div>
 		<div class="column-3">
 			
-				<a href="http://localhost:4000/tech/2018/03/21/git-cherry-pick/">Newer >></a>
+				<a href="http://localhost:4000/tech/2019/09/09/ruby-inject-vs-each_with_object/">Newer >></a>
 			
 		</div>
 	</div>

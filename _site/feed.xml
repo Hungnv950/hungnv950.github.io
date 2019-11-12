@@ -5,9 +5,165 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 23 Oct 2019 08:33:37 +0700</pubDate>
-    <lastBuildDate>Wed, 23 Oct 2019 08:33:37 +0700</lastBuildDate>
+    <pubDate>Tue, 12 Nov 2019 14:48:23 +0700</pubDate>
+    <lastBuildDate>Tue, 12 Nov 2019 14:48:23 +0700</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
+    
+      <item>
+        <title>Sử dụng scopes trong Ruby on Rails</title>
+        <description>&lt;p&gt;This article found in: https://www.rubyguides.com/2019/10/scopes-in-ruby-on-rails/&lt;/p&gt;
+
+&lt;p&gt;Let’s begin!&lt;/p&gt;
+
+&lt;p&gt;What is scope in Rails &amp;amp; why is it useful (hữu ích) ?&lt;/p&gt;
+
+&lt;p&gt;Well…&lt;/p&gt;
+
+&lt;p&gt;Scopes are custom queries (Truy vấn tùy chỉnh) that you define inside (bên trong) your Rails models with the &lt;code&gt;scope&lt;/code&gt; method.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Every scope takes two arguments:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;A name, which you use to call this scope in your code&lt;/li&gt;
+  &lt;li&gt;A lambda, which implements the query&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;It looks like this (tương tự với):&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;class Fruit &amp;lt; ApplicationRecord
+  scope :with_juice, -&amp;gt; { where(&quot;juice &amp;gt; 0&quot;) }
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;As a result of calling a scope, you’ll get an &lt;code&gt;ActiveRecord::Relation&lt;/code&gt; object.
+(Kết quả khi sử dụng &lt;code&gt;scope&lt;/code&gt;, bạn sẽ nhận được một &lt;code&gt;ActiveRecord::Relation&lt;/code&gt;)&lt;/p&gt;
+
+&lt;p&gt;Which means you can chain &amp;amp; combine scopes!
+(Điều đó có nghĩa rằng bạn có thể kết hợp các scope lại với nhau)&lt;/p&gt;
+
+&lt;p&gt;Example:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Fruit.with_juice.with_round_shape.first(3)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now:&lt;/p&gt;
+
+&lt;p&gt;There’s more to learn about Rails scopes, so let’s keep exploring the topic.
+(Phần mở rộng)&lt;/p&gt;
+
+&lt;h3 id=&quot;when-to-use-scope--khi-nào-sử-dụng-scope-&quot;&gt;When to use scope ? (Khi nào sử dụng scope ?)&lt;/h3&gt;
+&lt;p&gt;Ok, scopes are cool, but when should you use them?&lt;/p&gt;
+
+&lt;p&gt;Let’s see an example.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;def index
+  @books = Book.where(&quot;LENGTH(title) &amp;gt; 20&quot;)
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This is an index controller action that wants to display books with titles longer than 20 characters.
+(Trong action index trên muốn hiển thị những đối tượng books mà title có độ dài &amp;gt; 20 kí tự)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;It’s fine.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;But if you want to use this query in other places, you’re going to have duplicated code.
+(Nhưng nếu bạn muốn sử dụng lại câu truy vấn trên ở nơi khác, bajnn sẽ lặp lại code)&lt;/p&gt;
+
+&lt;p&gt;Duplicated code makes your project harder to maintain.
+(Lặp lại code khiến dự án của bạn khó khăn cho maintain)&lt;/p&gt;
+
+&lt;p&gt;Let’s move this query into a scope.
+(Hãy di chuyển những câu truy vấn đó vào scope)&lt;/p&gt;
+
+&lt;p&gt;Like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;class Book
+  scope :with_long_title, -&amp;gt; { where(&quot;LENGTH(title) &amp;gt; 20&quot;) }
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now our controller action looks like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;def index
+  @books = Book.with_long_title
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;how-to-use-rails-scopes-with-arguments-sử-dụng-scope-với-đối-số&quot;&gt;How to Use Rails Scopes With Arguments (Sử dụng scope với đối số)&lt;/h3&gt;
+&lt;p&gt;You may want to introduce a variable into a scope so you can make it more flexible.
+(Bạn có thể muốn khai báo &lt;code&gt;biến&lt;/code&gt; trong scope để có thể khiến scope trở nên linh hoạt hơn)&lt;/p&gt;
+
+&lt;p&gt;Here’s how:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;class Book
+  scope :with_long_title, -&amp;gt;(length) { where(&quot;LENGTH(title) &amp;gt; ?&quot;, length) }
+end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The question mark (?) is a placeholder, it’ll be replaced by the value of length. This makes your code safer.
+(Dấu &lt;code&gt;?&lt;/code&gt; là một phần trống, nó sẽ được thay bằng giá trị của chiều dài tức biến truyền vào. Nó làm cho code trở nên an toàn hơn))&lt;/p&gt;
+
+&lt;p&gt;If you want a default value:
+(Khi cần khai báo giá trị mặc định của biến truyền vào:)&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;class Book
+  scope :with_long_title, -&amp;gt;(length = 20) { where(&quot;LENGTH(title) &amp;gt; ?&quot;, length) }
+end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Give it a try!
+(Hãy thử dùng nó)&lt;/p&gt;
+
+&lt;h3 id=&quot;scope-vs-instance-method-so-sánh-scope-và-hàm-instance&quot;&gt;Scope vs Instance Method (So sánh scope và hàm instance)&lt;/h3&gt;
+&lt;p&gt;Scopes aren’t doing anything magical or super special.
+(Scope không làm bất cứ điều gì kỳ diệu hoặc siêu đặc biệt)&lt;/p&gt;
+
+&lt;p&gt;They are just methods.
+(Chúng chỉ là methods)&lt;/p&gt;
+
+&lt;p&gt;In fact… You could do the same thing using class methods!
+(Bạn có thể làm tương tự bằng các sử dụng &lt;code&gt;class methods&lt;/code&gt;)&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;class Fruit
+  def self.with_juice
+    where(&quot;juice &amp;gt; 0&quot;)
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;But there are design advantages to using scopes over class methods.
+(Nhưng có những lợi ích về mặt design để dử dụng scopes hơn là sử dụng &lt;code&gt;class method&lt;/code&gt;)&lt;/p&gt;
+
+&lt;p&gt;Here’s why:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Scopes result in cleaner code because of their syntax
+(Scopes trông sạch sẽ hơn vì cú pháp đơn giản của nó)&lt;/li&gt;
+  &lt;li&gt;Scopes are used for exactly one thing, so you know what you get the moment you see one
+(Scope được sử dụng chính xác cho một mục đích, vì vậy bạn có thể biết ngay mục đích của scope đó ngay khi bạn đọc)&lt;/li&gt;
+  &lt;li&gt;Scopes aren’t mixed with other methods, so they’re easier to spot
+(Scope không trộn lẫn với các &lt;code&gt;methods&lt;/code&gt; khác, vì thế nó dễ dàng có thể được phát hiện ra trong code)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;In terms of functionality, the only difference is that scopes guarantee an ActiveRecord::Relation, and class methods don’t.
+(Về mặt chức năng, điều khác biệt duy nhất mà scope bảo đảm đó chính là trả về một &lt;code&gt;ActiveRecord::Relation&lt;/code&gt; mà &lt;code&gt;class methods&lt;/code&gt; thì không.)&lt;/p&gt;
+
+&lt;p&gt;This helps you avoid errors when your scope returns nothing.
+(Điều đó giuos tránh được lỗi khi &lt;code&gt;scope&lt;/code&gt; không trả về  kết quả)&lt;/p&gt;
+
+&lt;h3 id=&quot;dont-use-default-scopes-không-sử-dụng-default-scope&quot;&gt;Don’t Use Default Scopes (Không sử dụng default scope)&lt;/h3&gt;
+&lt;p&gt;A default scope is one which is automatically applied to your model.
+(Default scope là scope luôn được áp dụng cho model khi khởi tạo)&lt;/p&gt;
+
+&lt;p&gt;Example:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;class Post
+  default_scope { where(published: true) }
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Default scopes are so attractive(hấp dẫn).
+But they’re often the wrong choice (Lựa chọn sai) because you’ll probably forget (có thể quên) you have them defined, run into strange errors (chạy vào những lỗi lạ), and waste precious time (lãng phí thời gian quý báu) debugging.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;With that said…&lt;/strong&gt; (Khắc phục khi sử dụng default scope)
+If you have to work with default scopes, you may need to use the unscoped method to disable all currently applied scopes.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 09 Sep 2019 00:00:00 +0700</pubDate>
+        <link>http://localhost:4000/tech/2019/09/09/how-to-use-scopes-in-ruby-on-rails/</link>
+        <guid isPermaLink="true">http://localhost:4000/tech/2019/09/09/how-to-use-scopes-in-ruby-on-rails/</guid>
+        
+        
+        <category>tech</category>
+        
+      </item>
     
       <item>
         <title>Ruby inject vs each_with_object</title>
@@ -774,64 +930,6 @@ rb_block { |s, r| puts s + ' ' + r
         <pubDate>Wed, 21 Mar 2018 05:48:45 +0700</pubDate>
         <link>http://localhost:4000/tech/2018/03/21/ruby-block-and-yield/</link>
         <guid isPermaLink="true">http://localhost:4000/tech/2018/03/21/ruby-block-and-yield/</guid>
-        
-        
-        <category>tech</category>
-        
-      </item>
-    
-      <item>
-        <title>Git Cherry-pick</title>
-        <description>&lt;h1 id=&quot;git-cherry-pick&quot;&gt;Git Cherry-pick&lt;/h1&gt;
-&lt;p&gt;Đối với junior, khi bắt đầu với Git nâng cao thì có muôn vàn vấn đê cần gặp phải. Và cũng có nhiều khái niệm khi nghe lần đầu chúng ta đều thấy bỡ ngỡ.&lt;/p&gt;
-
-&lt;p&gt;Hôm nay mình xin giới thiệu về &lt;code&gt;git cherry-pick&lt;/code&gt;.&lt;/p&gt;
-&lt;h2 id=&quot;khái-niệm&quot;&gt;Khái niệm:&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;git-cherry-pick - Apply the changes introduced by some existing commits
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Hiểu một cách chi tiết, &lt;code&gt;cherry-pick&lt;/code&gt; là một cách để checkout một commit tại branch nhất định về branch hiện tại.&lt;/p&gt;
-
-&lt;h2 id=&quot;cú-pháp&quot;&gt;Cú pháp&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;git cherry-pick [--edit] [-n] [-m parent-number] [-s] [-x] [--ff]
-		  [-S[&amp;lt;keyid&amp;gt;]] &amp;lt;commit&amp;gt;…​
-git cherry-pick --continue
-git cherry-pick --quit
-git cherry-pick --abort
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&quot;ví-dụ&quot;&gt;Ví dụ&lt;/h2&gt;
-&lt;p&gt;Yêu cầu: apply code từ commit F của nhánh dev về nhánh rel_2.3
-&lt;img src=&quot;https://images.viblo.asia/099e65eb-c8d6-4871-af82-a0b099dce187.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ git checkout rel_2.3 # Đầu tiên ta checkout về nhánh rel_2.3
-$ git cherry-pick dev~2
-#Hoặc cũng có thể viết : 
-$ git cherry-pick F # F ở đây là hash commit
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Kết quả:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://images.viblo.asia/83664572-df3b-42c1-bb99-72d1cd55b217.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Nhánh rel_2.3 đã được apply code từ commit F của nhánh dev.
-Việc cần làm tiếp theo là sửa conflig như rebase và merge bình thường.&lt;/p&gt;
-&lt;h2 id=&quot;cherry-pick-và-merge&quot;&gt;Cherry-pick và Merge&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;Ơ! Nếu thế thì tại sao ta lại không dùng &lt;code&gt;merge&lt;/code&gt; trong trường hợp này nhỉ.&lt;/li&gt;
-  &lt;li&gt;Câu trả lời là: Merge sẽ lấy &lt;code&gt;commit cuối cùng&lt;/code&gt; của nhánh &lt;code&gt;dev&lt;/code&gt; tức &lt;code&gt;H&lt;/code&gt; để áp dụng vào nhánh rel_2.3
-Tức: &lt;img src=&quot;https://images.viblo.asia/ce3195a5-6a80-46c4-92aa-e2e91da9c7e5.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;tài-liệu-tham-khảo&quot;&gt;Tài liệu tham khảo&lt;/h2&gt;
-&lt;p&gt;https://git-scm.com/docs/git-cherry-pick&lt;/p&gt;
-
-&lt;p&gt;https://stackoverflow.com/questions/9339429/what-does-cherry-picking-a-commit-with-git-mean&lt;/p&gt;
-
-&lt;p&gt;https://nathanhoad.net/how-to-cherry-pick-changes-with-git&lt;/p&gt;
-</description>
-        <pubDate>Wed, 21 Mar 2018 05:48:45 +0700</pubDate>
-        <link>http://localhost:4000/tech/2018/03/21/git-cherry-pick/</link>
-        <guid isPermaLink="true">http://localhost:4000/tech/2018/03/21/git-cherry-pick/</guid>
         
         
         <category>tech</category>

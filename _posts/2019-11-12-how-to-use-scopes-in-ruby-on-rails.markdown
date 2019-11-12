@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Sử dụng scopes trong Ruby on Rails"
-date: 2019-09-09
+date: 2019-11-12
 description: "Sử dụng scopes trong Ruby on Rails"
 categories:
 - tech

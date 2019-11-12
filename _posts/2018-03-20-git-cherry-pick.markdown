@@ -10,7 +10,7 @@ categories:
 # Git Cherry-pick
 Đối với junior, khi bắt đầu với Git nâng cao thì có muôn vàn vấn đê cần gặp phải. Và cũng có nhiều khái niệm khi nghe lần đầu chúng ta đều thấy bỡ ngỡ.
 
-Hôm nay mình xin giới thiệu về `git cherry-pick`. 
+Hôm nay mình xin giới thiệu về `git cherry-pick`.
 ## Khái niệm:
 
 ```
@@ -34,7 +34,7 @@ Yêu cầu: apply code từ commit F của nhánh dev về nhánh rel_2.3
 ```
 $ git checkout rel_2.3 # Đầu tiên ta checkout về nhánh rel_2.3
 $ git cherry-pick dev~2
-#Hoặc cũng có thể viết : 
+#Hoặc cũng có thể viết :
 $ git cherry-pick F # F ở đây là hash commit
 ```
 Kết quả:

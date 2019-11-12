@@ -5,9 +5,92 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 12 Nov 2019 14:48:23 +0700</pubDate>
-    <lastBuildDate>Tue, 12 Nov 2019 14:48:23 +0700</lastBuildDate>
+    <pubDate>Tue, 12 Nov 2019 15:19:51 +0700</pubDate>
+    <lastBuildDate>Tue, 12 Nov 2019 15:19:51 +0700</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
+    
+      <item>
+        <title>Rails 6 - Active Storage changes</title>
+        <description>&lt;p&gt;This article found in: https://blog.saeloun.com/2019/11/04/rails-6-active-storage-updates.html&lt;/p&gt;
+
+&lt;p&gt;Active Storage was introduced in Rails 5.2. In rails 6, the are enhancements (nâng cao) done to Active Storage.&lt;/p&gt;
+
+&lt;p&gt;Let’s explore them.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;mini_magick replaced by image_processing gem&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;In rails 5.2, Active Storage was using &lt;code&gt;mini_magick&lt;/code&gt; to handle (xử lý) image resizing(variants) (Kích thước)&lt;/p&gt;
+
+&lt;p&gt;In rails 6, a new gem called &lt;code&gt;image_processing&lt;/code&gt; is used by default to handle image variants
+(Trong rails 6, gem &lt;code&gt;image_processing&lt;/code&gt; được sử dụng làm mặc định để xử lý việc thay đổi kích thước ảnh)&lt;/p&gt;
+
+&lt;p&gt;The &lt;code&gt;image_processing&lt;/code&gt; gem has below advantages(Lợi thế):&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;New methods #resize_to_fit, #resize_to_fill, etc also sharpens the thumbnail (làm sắc nét hình ảnh) after resizing.&lt;/li&gt;
+  &lt;li&gt;It fixes the image orientation automatically (tự động sử đổi hướng hình ảnh).&lt;/li&gt;
+  &lt;li&gt;It provides another backend libvips that has significantly better performance than (Hiệu suất tốt hơn đáng kể) ImageMagick. With ImageMagick, resizing and sharpening (thay đổi kích cỡ và làm nét) a 1600x900 image to 800x800 is 1.87x slower, and to 300x300 is 1.18x slower. On libvips it doesn’t go above 1.20x slower, on average (trung bình) it’s only about 1.10x slower.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;New image variants support&lt;/strong&gt; (Hỗ trợ biến thể hình ảnh mới)
+With addition (việc thêm) of image_processing gem, support for new image variants BMP (PR), TIFF (PR) and progressive JPEG (PR) was introduced (đã được giới thiệu).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Fix for &lt;code&gt;has_many_attached&lt;/code&gt; field in update query&lt;/strong&gt;
+Let’s say we have a User class and it has field images. Users can upload multiple images to their profiles. So we add has_many_attached method to User class as shown below&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;class User &amp;lt; ApplicationRecord
+  has_many_attached :images
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;em&gt;Before Rails 6:&lt;/em&gt;
+We attach (đính kèm)) an image to the user as shown below and verify the count&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;user = User.first
+user.images.attach(filename: &quot;profile_pic.jpg&quot;)
+
+user.images.count
+=&amp;gt; 1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now, when we update the image field, the new image was getting appended to the existing images collection.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;blog = ActiveStorage::Blob.create_after_upload!(filename: &quot;updated_pic.jpg&quot;)
+user.update(images: [blog])
+
+user.images.count
+=&amp;gt; 2
+user.images.first.filename
+=&amp;gt; &quot;profile_pic.jpg&quot;
+user.images.last.filename
+=&amp;gt; &quot;updated_pic.jpg&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This is not consistent (Không thích hợp) with ActiveRecord update, where it replaces the existing value of a record.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;In rails 6:&lt;/em&gt;
+update query replaces the existing collection instead of appending to the collection.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;user.images.attach(filename: &quot;profile_pic.jpg&quot;)
+
+user.images.count
+=&amp;gt; 1
+
+blog = ActiveStorage::Blob.create_after_upload!(filename: &quot;updated_pic.jpg&quot;)
+user.update(images: [blog])
+
+user.images.count
+=&amp;gt; 1
+user.images.first.filename
+=&amp;gt; &quot;updated_pic.jpg&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;We can append files by using the attach function.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 12 Nov 2019 00:00:00 +0700</pubDate>
+        <link>http://localhost:4000/tech/2019/11/12/rails-6-active-storage-changes/</link>
+        <guid isPermaLink="true">http://localhost:4000/tech/2019/11/12/rails-6-active-storage-changes/</guid>
+        
+        
+        <category>tech</category>
+        
+      </item>
     
       <item>
         <title>Sử dụng scopes trong Ruby on Rails</title>
@@ -156,9 +239,9 @@ But they’re often the wrong choice (Lựa chọn sai) because you’ll probabl
 &lt;p&gt;&lt;strong&gt;With that said…&lt;/strong&gt; (Khắc phục khi sử dụng default scope)
 If you have to work with default scopes, you may need to use the unscoped method to disable all currently applied scopes.&lt;/p&gt;
 </description>
-        <pubDate>Mon, 09 Sep 2019 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/tech/2019/09/09/how-to-use-scopes-in-ruby-on-rails/</link>
-        <guid isPermaLink="true">http://localhost:4000/tech/2019/09/09/how-to-use-scopes-in-ruby-on-rails/</guid>
+        <pubDate>Tue, 12 Nov 2019 00:00:00 +0700</pubDate>
+        <link>http://localhost:4000/tech/2019/11/12/how-to-use-scopes-in-ruby-on-rails/</link>
+        <guid isPermaLink="true">http://localhost:4000/tech/2019/11/12/how-to-use-scopes-in-ruby-on-rails/</guid>
         
         
         <category>tech</category>
@@ -819,120 +902,6 @@ Theo mình, câu chuyện không chỉ dừng lại ở việc cách giáo dục
         
         
         <category>blog</category>
-        
-      </item>
-    
-      <item>
-        <title>Block và yield trong ruby</title>
-        <description>&lt;h1 id=&quot;blocks&quot;&gt;&lt;strong&gt;&lt;code&gt;Blocks&lt;/code&gt;&lt;/strong&gt;&lt;/h1&gt;
-&lt;p&gt;Về cơ bản, &lt;code&gt;blocks&lt;/code&gt; trong ruby là một cách để nhóm các câu lệnh sao cho chúng ta có thể kết hợp với các lời gọi phương thức như thể chúng là các tham số.&lt;/p&gt;
-
-&lt;p&gt;Ruby cung cấp hai cách để viết &lt;code&gt;blocks&lt;/code&gt; là:&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;Sử dụng dấu &lt;code&gt;{}&lt;/code&gt; đối với những blocks ngắn gọn có thể viêt trên một dòng.
-    &lt;pre&gt;&lt;code&gt;array = [1,2,3,4]
-&lt;/code&gt;&lt;/pre&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Sử dụng cụm &lt;code&gt;do..end&lt;/code&gt;
-    &lt;pre&gt;&lt;code&gt;array.map! do |n|
-  n * n
-end
-=&amp;gt; [1, 4, 9, 16]
-&lt;/code&gt;&lt;/pre&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;procs&quot;&gt;&lt;strong&gt;&lt;code&gt;Procs&lt;/code&gt;&lt;/strong&gt;&lt;/h2&gt;
-&lt;p&gt;Một proc là một instance của lớp Proc. Proc là &lt;code&gt;object&lt;/code&gt; còn &lt;code&gt;blocks&lt;/code&gt; thì không.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;p = Proc.new { puts &quot;Hello World&quot; }
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Điều này cho phép chúng ta gọi các phương thức trên nó và gán nó cho các biến. Procs cũng có thể gọi lại chính nó.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;p.call  # prints 'Hello World'
-p.class # returns 'Proc'
-a = p   # a now equals p, a Proc instance
-p       # returns a proc object '#&amp;lt;Proc:0x007f96b1a60eb0@(irb):46&amp;gt;'
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&quot;-lambdas&quot;&gt;&lt;code&gt; Lambdas&lt;/code&gt;&lt;/h2&gt;
-&lt;p&gt;Lambda function hầu như giống với Procs nhưng có hai điểm khác biệt:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Thứ nhất: Lambda kiểm tra số lượng phần tử đầu vào. Báo lỗi nếu không chính xác. Còn Procs thì không
-    &lt;pre&gt;&lt;code&gt;l = lambda { &quot;I'm a lambda&quot; }
-l.call
-=&amp;gt; &quot;I'm a lambda&quot;
-l.call('arg')
-ArgumentError: wrong number of arguments (1 for 0)
-&lt;/code&gt;&lt;/pre&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Thứ hai:  Lambdas và Procs xử lý khi gặp từ khóa &lt;code&gt;return&lt;/code&gt; khác nhau:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;def lambda_test
-  lam = lambda { return }
-  lam.call
-  puts &quot;Hello world&quot;
-end
-
-lambda_test                 # calling lambda_test prints 'Hello World'
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;def proc_test
-  proc = Proc.new { return }
-  proc.call
-  puts &quot;Hello world&quot;
-end
-
-proc_test                 # calling proc_test prints nothing
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h1 id=&quot;yield&quot;&gt;&lt;strong&gt;&lt;code&gt;Yield&lt;/code&gt;&lt;/strong&gt;&lt;/h1&gt;
-&lt;p&gt;Yield là một cách rất hay của Ruby để thực hiện một khối trong một phương thức bất kì mà không làm ảnh hưởng. Để hiểu rõ hơn chúng ta cùng theo dõi một ví dụ:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;def rb_block
-  puts 'Start'
-  yield
-  yield
-  puts 'End'
-end
-
-rb_block {puts &quot;We're in the block&quot;}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;code&gt;Kết quả:&lt;/code&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;Start
-We're in the block
-We're in the block
-End
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Dễ hiểu, khi thực thi method &lt;code&gt;rb_block&lt;/code&gt;, ruby thực hiện câu bình thường cho tới khi gặp từ khóa &lt;code&gt;yield&lt;/code&gt; , ruby sẽ dừng và thực hiện block này sau đó sẽ thực thi tiếp tục các logic của method &lt;code&gt;rb_block&lt;/code&gt;&lt;/p&gt;
-&lt;h2 id=&quot;yield-với-tham-số&quot;&gt;Yield với tham số&lt;/h2&gt;
-&lt;p&gt;Để dễ hiểu, ta quan sát ví dụ:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;def rb_block
-    yield('hello', 'ruby')
-end
-
-rb_block { |s, r| puts s + ' ' + r
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;code&gt;Kết quả:&lt;/code&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;hello ruby
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Ta thấy, ruby cho phép truyển tham số vào yield trong các khối. Trong khối, chúng ta liệt kê tên của các đối số để nhận các tham số qua các dấu &lt;code&gt;||&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;Lưu ý:&lt;/code&gt; Khi định nghĩa &lt;code&gt;yield&lt;/code&gt; &lt;code&gt;có tham số&lt;/code&gt;, việc truyền vào tham số bắt buộc. Nếu không nhận được tham số phù hợp ruby sẽ báo lỗi.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;rb_block   #`rb_block': no block given (yield) (LocalJumpError)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h1 id=&quot;tài-liệu-tham-khảo&quot;&gt;Tài liệu tham khảo&lt;/h1&gt;
-&lt;p&gt;http://www.bogotobogo.com/RubyOnRails/RubyOnRails_Blocks_and_Yield.php&lt;/p&gt;
-
-&lt;p&gt;https://code.tutsplus.com/tutorials/ruby-on-rails-study-guide-blocks-procs-and-lambdas–net-29811&lt;/p&gt;
-
-&lt;p&gt;http://awaxman11.github.io/blog/2013/08/05/what-is-the-difference-between-a-block/&lt;/p&gt;
-
-&lt;p&gt;https://viblo.asia/p/thanh-thao-ruby-block-trong-5-phut-L4x5xg2alBM/&lt;/p&gt;
-
-&lt;p&gt;https://viblo.asia/p/block-trong-ruby-wjAM7yNOvmWe&lt;/p&gt;
-</description>
-        <pubDate>Wed, 21 Mar 2018 05:48:45 +0700</pubDate>
-        <link>http://localhost:4000/tech/2018/03/21/ruby-block-and-yield/</link>
-        <guid isPermaLink="true">http://localhost:4000/tech/2018/03/21/ruby-block-and-yield/</guid>
-        
-        
-        <category>tech</category>
         
       </item>
     

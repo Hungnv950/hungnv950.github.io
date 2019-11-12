@@ -3,12 +3,12 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>What is Jekyll!</title>
+        <title>Rails 6 - Active Storage changes</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">        
         <meta name="description" content="Harmony is a free responsive jekyll theme by Gayan Virajith and Maheshika Lakmali. Sourced on Github -  https://github.com/gayanvirajith/harmony
 ">
         <link rel="canonical" 
-        href="http://localhost:4000/blog/2019/07/12/unicode_equivalence/">
+        href="http://localhost:4000/tech/2019/11/12/rails-6-active-storage-changes/">
         
         <!-- styles -->
         <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
@@ -49,19 +49,89 @@
         <div class="page-content wc-container">
 	
 	<div class="post">
-		<h1>What is Jekyll!</h1>
+		<h1>Rails 6 - Active Storage changes</h1>
 		<p class="post-meta">
 			
       <span class="categories">
-      blog
+      tech
       </span> |
 	    
 	    <span class="post-date">
-    	Jul 12, 2019 
+    	Nov 12, 2019 
 	    </span>
 		</p>		
 		<div class="post">
-			
+			<p>This article found in: https://blog.saeloun.com/2019/11/04/rails-6-active-storage-updates.html</p>
+
+<p>Active Storage was introduced in Rails 5.2. In rails 6, the are enhancements (nâng cao) done to Active Storage.</p>
+
+<p>Let’s explore them.</p>
+
+<p><strong>mini_magick replaced by image_processing gem</strong></p>
+
+<p>In rails 5.2, Active Storage was using <code>mini_magick</code> to handle (xử lý) image resizing(variants) (Kích thước)</p>
+
+<p>In rails 6, a new gem called <code>image_processing</code> is used by default to handle image variants
+(Trong rails 6, gem <code>image_processing</code> được sử dụng làm mặc định để xử lý việc thay đổi kích thước ảnh)</p>
+
+<p>The <code>image_processing</code> gem has below advantages(Lợi thế):</p>
+<ol>
+  <li>New methods #resize_to_fit, #resize_to_fill, etc also sharpens the thumbnail (làm sắc nét hình ảnh) after resizing.</li>
+  <li>It fixes the image orientation automatically (tự động sử đổi hướng hình ảnh).</li>
+  <li>It provides another backend libvips that has significantly better performance than (Hiệu suất tốt hơn đáng kể) ImageMagick. With ImageMagick, resizing and sharpening (thay đổi kích cỡ và làm nét) a 1600x900 image to 800x800 is 1.87x slower, and to 300x300 is 1.18x slower. On libvips it doesn’t go above 1.20x slower, on average (trung bình) it’s only about 1.10x slower.</li>
+</ol>
+
+<p><strong>New image variants support</strong> (Hỗ trợ biến thể hình ảnh mới)
+With addition (việc thêm) of image_processing gem, support for new image variants BMP (PR), TIFF (PR) and progressive JPEG (PR) was introduced (đã được giới thiệu).</p>
+
+<p><strong>Fix for <code>has_many_attached</code> field in update query</strong>
+Let’s say we have a User class and it has field images. Users can upload multiple images to their profiles. So we add has_many_attached method to User class as shown below</p>
+<pre><code>class User &lt; ApplicationRecord
+  has_many_attached :images
+end
+</code></pre>
+
+<p><em>Before Rails 6:</em>
+We attach (đính kèm)) an image to the user as shown below and verify the count</p>
+<pre><code>user = User.first
+user.images.attach(filename: "profile_pic.jpg")
+
+user.images.count
+=&gt; 1
+</code></pre>
+
+<p>Now, when we update the image field, the new image was getting appended to the existing images collection.</p>
+<pre><code>blog = ActiveStorage::Blob.create_after_upload!(filename: "updated_pic.jpg")
+user.update(images: [blog])
+
+user.images.count
+=&gt; 2
+user.images.first.filename
+=&gt; "profile_pic.jpg"
+user.images.last.filename
+=&gt; "updated_pic.jpg"
+</code></pre>
+<p>This is not consistent (Không thích hợp) with ActiveRecord update, where it replaces the existing value of a record.</p>
+
+<p><em>In rails 6:</em>
+update query replaces the existing collection instead of appending to the collection.</p>
+<pre><code>user.images.attach(filename: "profile_pic.jpg")
+
+user.images.count
+=&gt; 1
+
+blog = ActiveStorage::Blob.create_after_upload!(filename: "updated_pic.jpg")
+user.update(images: [blog])
+
+user.images.count
+=&gt; 1
+user.images.first.filename
+=&gt; "updated_pic.jpg"
+</code></pre>
+
+<p><strong>Note:</strong></p>
+
+<p>We can append files by using the attach function.</p>
 
 		</div>
 	</div>
@@ -71,11 +141,6 @@
 	<div class="related">
 		<h4>Related Posts</h4>
 		<ul class="posts">
-		    
-		    <li>
-			  <span>12 Nov 2019 &raquo;</span>
-			  <a href="http://localhost:4000/tech/2019/11/12/rails-6-active-storage-changes/">Rails 6 - Active Storage changes</a>
-		    </li>
 		    
 		    <li>
 			  <span>12 Nov 2019 &raquo;</span>
@@ -95,6 +160,11 @@
 		    <li>
 			  <span>27 Aug 2019 &raquo;</span>
 			  <a href="http://localhost:4000/tech/2019/08/27/reactjs-jsx/">Những tricks khi học JSX</a>
+		    </li>
+		    
+		    <li>
+			  <span>12 Jul 2019 &raquo;</span>
+			  <a href="http://localhost:4000/blog/2019/07/12/unicode_equivalence/">What is Jekyll!</a>
 		    </li>
 		    
 		    <li>
@@ -129,13 +199,13 @@
 	<div class="post-footer">
 		<div class="column-1">
 			
-				<a href="http://localhost:4000/2019/07/01/from-third-project/"><< Older</a>
+				<a href="http://localhost:4000/tech/2019/11/12/how-to-use-scopes-in-ruby-on-rails/"><< Older</a>
 			
 		</div>
 		<div class="column-2"><a href="http://localhost:4000/ ">Home</a></div>
 		<div class="column-3">
 			
-				<a href="http://localhost:4000/tech/2019/08/27/reactjs-jsx/">Newer >></a>
+				<span>Newer >></span>
 			
 		</div>
 	</div>

@@ -21,7 +21,7 @@ Scopes are custom queries (Truy vấn tùy chỉnh) that you define inside (bên
 1. A name, which you use to call this scope in your code
 2. A lambda, which implements the query
 
-It looks like this (tương tự với):
+It looks like this (trông như):
 ```
 class Fruit < ApplicationRecord
   scope :with_juice, -> { where("juice > 0") }

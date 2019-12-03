@@ -12,8 +12,8 @@ Where : Là câu lệnh điều kiện trả kết quả đối chiếu với t�
 Having : Là câu lệnh điều kiện trả kết quả đối chiếu cho nhóm (Sum,AVG,COUNT,…)
 
 Vì vậy mà sau GROUP BY thì sẽ chỉ dùng được Having .
-còn Where thì KHÔNG dùng được sau GROUP BY đâu nhé. bạn cứ cmd thì biết liền ý mà.
+còn Where thì KHÔNG dùng được sau GROUP BY.
 
-(HAVING có thể thay thế vị trí dùng cho WHERE. nhưng . ngược lại WHERE thì KHÔNG thể thay thế vị trí cho HAVING nhé bạn)
+(HAVING có thể thay thế vị trí dùng cho WHERE. nhưng . ngược lại WHERE thì KHÔNG thể thay thế vị trí cho HAVING )
 
 ```

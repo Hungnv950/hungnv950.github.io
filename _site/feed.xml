@@ -5,9 +5,1001 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 12 Nov 2019 15:58:33 +0700</pubDate>
-    <lastBuildDate>Tue, 12 Nov 2019 15:58:33 +0700</lastBuildDate>
+    <pubDate>Mon, 23 Dec 2019 23:27:34 +0700</pubDate>
+    <lastBuildDate>Mon, 23 Dec 2019 23:27:34 +0700</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
+    
+      <item>
+        <title>Select muli categories with rails + jquery</title>
+        <description>&lt;section data-markdown=&quot;&quot; style=&quot;text-align: left;&quot;&gt;
+
+## Select muli categories
+
+## sử dụng rails + jquery
+
+- Author: [hungnv950](https://github.com/hungnv950)
+
+- Repo: [https://github.com/Hungnv950/rails-select-multi-categories](https://github.com/Hungnv950/rails-select-multi-categories)
+
+- Representor: [https://hungnv950.github.io/2019/12/14/slect-multy-categories/#/](https://hungnv950.github.io/2019/12/14/slect-multy-categories/#/)
+&lt;/section&gt;
+
+&lt;section data-markdown=&quot;&quot; style=&quot;text-align: left;&quot;&gt;
+
+  ### Vấn đề
+
+  - Hầu hết các dự án out source và dự án rails cho thị trường Nhật nói chung việc làm việc với lựa chọn dữ liệu dùng checkbox là rất phổ biến.
+
+  - ![problem](https://fluidsurveys.com/wp-content/uploads/2009/11/56.png)
+  - Lựa chọn categories cho người dùng
+&lt;/section&gt;
+
+&lt;section data-markdown=&quot;&quot; style=&quot;text-align: left;&quot;&gt;
+
+  ### Cách giải quyết
+
+  ![Vào code dự án cũ để xem lại.](https://as2.ftcdn.net/jpg/01/70/81/05/500_F_170810520_qTnUe8qFYZo6Rc9rcBpXuUvYDl4v1pDi.jpg &quot;Codding&quot;)
+&lt;/section&gt;
+
+&lt;section data-markdown=&quot;&quot; style=&quot;text-align: left;&quot;&gt;
+
+  ### Cách giải quyết
+
+  &lt;p&gt; Vào code dự án cũ để xem lại. &lt;/p&gt;
+  &lt;br /&gt;
+
+  ![Vào code dự án cũ để xem lại.](https://letweb.net/wp-content/uploads/2018/07/Source-Code-M%C3%A3-ngu%E1%BB%93n-l%C3%A0-g%C3%AC.png)
+&lt;/section&gt;
+
+&lt;section data-markdown=&quot;&quot; style=&quot;text-align: left;&quot;&gt;
+
+  ### Cách giải quyết
+
+  ![alt text](https://res.cloudinary.com/drdoqfhly/image/upload/v1530887094/gg-1_synrgy.jpg)
+&lt;/section&gt;
+
+&lt;section data-markdown=&quot;&quot; style=&quot;text-align: left;&quot;&gt;
+
+  ### Cách giải quyết
+
+  Tạo 1 base code:
+   - Đơn giản
+   - Dễ hiểu
+   - Đúng vấn đề
+   - Có thể tái sử dụng
+&lt;/section&gt;
+
+&lt;section style=&quot;text-align: left;&quot;&gt;
+  &lt;h3&gt; Các bước cần làm &lt;/h3&gt;
+  &lt;ol&gt;
+    &lt;li&gt;Tìm hiểu bài toán&lt;/li&gt;
+    &lt;li&gt;Cấu trúc database&lt;/li&gt;
+    &lt;li&gt;Khởi tạo model&lt;/li&gt;
+    &lt;li&gt;Xây dựng form checkbox&lt;/li&gt;
+    &lt;li&gt;Lưu trữ dữ liệu&lt;/li&gt;
+    &lt;li&gt;Lấy giá trị&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/section&gt;
+
+&lt;section data-markdown=&quot;&quot; style=&quot;text-align: left;&quot;&gt;
+
+  ### Tìm hiểu bài toán
+
+  ![problem](https://fluidsurveys.com/wp-content/uploads/2009/11/56.png)
+&lt;/section&gt;
+
+&lt;section data-markdown=&quot;&quot; style=&quot;text-align: left;&quot;&gt;
+
+  ### Cấu trúc database
+
+  ![Select multi categories db](/assets/images/multi-categories-db.png)
+&lt;/section&gt;
+
+&lt;section style=&quot;text-align: left;&quot;&gt;
+  &lt;h3&gt; Khởi tạo model &lt;/h3&gt;
+
+  &lt;pre style=&quot;width: 100%;&quot;&gt;
+  &lt;code data-trim=&quot;&quot; data-noescape=&quot;&quot;&gt;
+    # frozen_string_literal: true
+    class User &amp;lt; ApplicationRecord
+      has_many :users_categories, foreign_key: :user_id, dependent: :destroy
+    end
+	&lt;/code&gt;&lt;/pre&gt;
+
+  &lt;pre style=&quot;width: 100%;&quot;&gt;&lt;code data-trim=&quot;&quot; data-noescape=&quot;&quot;&gt;
+    # frozen_string_literal: true
+    class Category &amp;lt; ApplicationRecord
+      has_many :users_categories, foreign_key: :category_id,
+        dependent: :destroy
+    end
+	&lt;/code&gt;&lt;/pre&gt;
+
+  &lt;pre style=&quot;width: 100%;&quot;&gt;&lt;code data-trim=&quot;&quot; data-noescape=&quot;&quot;&gt;
+    # frozen_string_literal: true
+    class UsersCategory &amp;lt; ApplicationRecord
+      belongs_to :user, foreign_key: :user_id
+      belongs_to :category, class_name: Category.name
+    end
+	&lt;/code&gt;&lt;/pre&gt;
+&lt;/section&gt;
+
+&lt;section data-markdown=&quot;&quot; style=&quot;text-align: left;&quot;&gt;
+
+  ### Xây dựng form checkbox
+
+  Yêu cầu:
+  1. Generate form checkbox với dữ liệu category
+  2. Khi lựa chọn vào &quot;other content&quot; sẽ xuất hiện input để nhập dữ liệu
+  3. Trả lại đúng data khi validate sai
+&lt;/section&gt;
+
+&lt;section data-markdown=&quot;&quot; style=&quot;text-align: left;&quot;&gt;
+
+  ### Xây dựng form checkbox
+
+  #### 1. Generate form checkbox với dữ liệu category
+
+  Sử dụng nested attributes:
+    - accepts_nested_attributes_for
+    - fields_for
+&lt;/section&gt;
+
+&lt;section data-markdown=&quot;&quot; style=&quot;text-align: left;&quot;&gt;
+
+  ### Xây dựng form checkbox
+
+  #### 1. Generate form checkbox với dữ liệu category
+
+  - Thêm đoạn dưới vào model user:
+    ```
+    accepts_nested_attributes_for :users_categories, allow_destroy: true
+    ```
+&lt;/section&gt;
+
+&lt;section style=&quot;text-align: left;&quot;&gt;
+  &lt;h3&gt;  Xây dựng form checkbox &lt;/h3&gt;
+   &lt;h4&gt; 1. Generate form checkbox với dữ liệu category&lt;/h4&gt;
+  - Trong users_controller/new tiến hành build giá trị cho users_categories:
+    &lt;pre style=&quot;width: 100%;&quot;&gt;&lt;code data-trim=&quot;&quot; data-noescape=&quot;&quot;&gt;
+    def new
+      @user = User.new
+      @category_options =
+        Category.all.map do |category|
+          UsersCategory.new category: category, user: @user
+        end
+    end
+    &lt;/code&gt;&lt;/pre&gt;
+&lt;/section&gt;
+
+&lt;section style=&quot;text-align: left;&quot;&gt;
+  &lt;h3&gt;  Xây dựng form checkbox &lt;/h3&gt;
+  &lt;h4&gt; 1. Generate form checkbox với dữ liệu category&lt;/h4&gt;
+  Hiển thị dữ liệu trên view với fields_for:
+  &lt;br /&gt;
+  fields_for(record_name, record_object = nil, options = {}, &amp;amp;block)
+  &lt;br /&gt;
+  check_box(object_name, method, options = {}, checked_value = &quot;1&quot;, unchecked_value = &quot;0&quot;)
+  &lt;pre style=&quot;width: 100%;&quot;&gt;&lt;code data-trim=&quot;&quot; data-noescape=&quot;&quot;&gt;
+&amp;lt;%= form_for @user do |f| %&amp;gt;
+  &amp;lt;%= f.object.errors.full_messages %&amp;gt;
+  username: &amp;lt;%= f.text_field :name %&amp;gt;
+  categories:
+    &amp;lt;%= f.fields_for :users_categories, @category_options do |ff| %&amp;gt;
+      &amp;lt;% category_option = ff.object %&amp;gt;
+      &amp;lt;%= ff.check_box :_destroy, {}, checked_value: &quot;0&quot;, unchecked_value: &quot;1&quot; %&amp;gt;
+      &amp;lt;%= ff.hidden_field :category_id %&amp;gt;
+      &amp;lt;%= category_option.content %&amp;gt;
+    &amp;lt;% end %&amp;gt;
+  &amp;lt;%= f.submit %&amp;gt;
+&amp;lt;% end %&amp;gt;
+    &lt;/code&gt;&lt;/pre&gt;
+&lt;/section&gt;
+
+&lt;section data-markdown=&quot;&quot; style=&quot;text-align: left;&quot;&gt;
+
+  ###  Xây dựng form checkbox
+
+  #### 1. Generate form checkbox với dữ liệu category
+
+  ```
+  &amp;lt;%= ff.check_box :_destroy, {}, checked_value: &quot;0&quot;, unchecked_value: &quot;1&quot; %&amp;gt;
+  ```
+  - Mặc định `check_box` sẽ để `checked_value` = 1 và `unchecked_value` = 0. Nhưng trong trường hợp này những giá trị được checked sẽ đại diện cho `_destroy` có nghĩa là những checkbox nào được tích sẽ bị xóa.
+  - Vì thế nên chúng ta sẽ đổi lại giá trị mặc định `checked_value: &quot;0&quot;` và `unchecked_value: &quot;1&quot;` để giữ lại những `user_categories` được tick.
+&lt;/section&gt;
+
+&lt;section data-markdown=&quot;&quot; style=&quot;text-align: left;&quot;&gt;
+
+  ### Xây dựng form checkbox
+
+  #### 1. Generate form checkbox với dữ liệu category
+
+  - Kết quả:
+    ![Select multi categories db](/assets/images/select-multi-categories-form-checkbox.png)
+&lt;/section&gt;
+
+&lt;section style=&quot;text-align: left;&quot;&gt;
+  &lt;h3&gt;  Xây dựng form checkbox &lt;/h3&gt;
+   &lt;h4&gt; 2. Khi lựa chọn vào &quot;other content&quot; sẽ xuất hiện input để nhập dữ liệu &lt;/h4&gt;
+   &lt;p&gt; - Ý tưởng: Đối với category có key_name = &quot;other_content&quot; sẽ generate ra input và ẩn đi, khi người dùng click vào `other_content` sẽ show và hide &lt;/p&gt;
+      &lt;pre style=&quot;width: 100%;&quot;&gt;&lt;code data-trim=&quot;&quot; data-noescape=&quot;&quot;&gt;
+&amp;lt;%= form_for @user do |f| %&amp;gt;
+  &amp;lt;%= f.object.errors.full_messages %&amp;gt;
+  username: &amp;lt;%= f.text_field :name %&amp;gt;
+  categories:
+    &amp;lt;%= f.fields_for :users_categories, @category_options do |ff| %&amp;gt;
+      &amp;lt;% users_categories = f.object.users_categories %&amp;gt;
+      &amp;lt;% category_option = ff.object %&amp;gt;
+        &amp;lt;%= ff.check_box :_destroy, {}, 0, 1 %&amp;gt;
+        &amp;lt;%= ff.hidden_field :category_id %&amp;gt;
+        &amp;lt;%= category_option.content %&amp;gt;
+
+        # Thêm đoạn
+        &amp;lt;% if category_option.key_name == &quot;other_content&quot; %&amp;gt;
+          &amp;lt;%= ff.text_field :other_content, value: other_content,class: &quot;js-other_content-field hidden&quot; %&amp;gt;
+        &amp;lt;% end %&amp;gt;
+
+    &amp;lt;% end %&amp;gt;
+  &amp;lt;%= f.submit %&amp;gt;
+&amp;lt;% end %&amp;gt;
+    &lt;/code&gt;&lt;/pre&gt;
+&lt;/section&gt;
+
+&lt;section style=&quot;text-align: left;&quot;&gt;
+  &lt;h3&gt;  Xây dựng form checkbox &lt;/h3&gt;
+   &lt;h4&gt; 2. Khi lựa chọn vào &quot;other content&quot; sẽ xuất hiện input để nhập dữ liệu &lt;/h4&gt;
+   &lt;p&gt; - Xử lý một chút JS đơn giản: &lt;/p&gt;
+      &lt;pre style=&quot;width: 100%;&quot;&gt;&lt;code data-trim=&quot;&quot; data-noescape=&quot;&quot;&gt;
+  $(function() {
+    # Xử lý với trường hợp người dùng click vào `other_category`
+    $('.js-select-other_content').change(function () {
+      var self = $(this),
+          otherContent = $('.js-other_content-field');
+      if (self.is(':checked')) {
+        otherContent.removeClass('hidden');
+      } else {
+        otherContent.addClass('hidden');
+      }
+    });
+  });
+    &lt;/code&gt;&lt;/pre&gt;
+&lt;/section&gt;
+
+&lt;section data-markdown=&quot;&quot; style=&quot;text-align: left;&quot;&gt;
+
+  ### Xây dựng form checkbox
+
+  #### 2. Khi lựa chọn vào &quot;other content&quot; sẽ xuất hiện input để nhập dữ liệu
+
+  - Kết quả:
+    ![Select multi categories db](/assets/images/select-multi-categories-click-other.gif)
+&lt;/section&gt;
+
+&lt;section data-markdown=&quot;&quot; style=&quot;text-align: left;&quot;&gt;
+
+  ### Lưu trữ dữ liệu
+&lt;/section&gt;
+
+&lt;section data-markdown=&quot;&quot; style=&quot;text-align: left;&quot;&gt;
+
+  ### Lưu trữ dữ liệu
+
+  - Permit data
+  - Validate
+  - Điền data cũ vào form nếu validate sai
+&lt;/section&gt;
+
+&lt;section style=&quot;text-align: left;&quot;&gt;
+  &lt;h3&gt; Lưu trữ dữ liệu &lt;/h3&gt;
+  &lt;p&gt; 1.Permit data &lt;/p&gt;
+  &lt;pre style=&quot;width: 100%;&quot;&gt;&lt;code data-trim=&quot;&quot; data-noescape=&quot;&quot;&gt;
+  def user_params
+    params.require(:user).permit(
+      :name,
+      users_categories_attributes: [:id, :category_id, :other_content, :_destroy]
+    )
+  end
+    &lt;/code&gt;&lt;/pre&gt;
+&lt;/section&gt;
+
+&lt;section style=&quot;text-align: left;&quot;&gt;
+  &lt;h3&gt; Lưu trữ dữ liệu &lt;/h3&gt;
+  &lt;p&gt; 2. Validate &lt;/p&gt;
+  - số lượng category tối thiểu&lt;br /&gt;
+  - validate nội dung của &quot;other content&quot; khi chọn checkbox này
+&lt;/section&gt;
+
+&lt;section style=&quot;text-align: left;&quot;&gt;
+  &lt;h3&gt; Lưu trữ dữ liệu &lt;/h3&gt;
+  &lt;p&gt; 2. Validate &lt;/p&gt;
+  &lt;pre style=&quot;width: 100%;&quot;&gt;&lt;code data-trim=&quot;&quot; data-noescape=&quot;&quot;&gt;
+    # user.rb
+MIN_SIZE = 1
+# Validate số lượng tối thiểu categories
+validates :users_categories, length: {minimum: MIN_SIZE}
+  &lt;/code&gt;&lt;/pre&gt;
+
+  Hoặc sử dụng custom validate:
+    &lt;pre style=&quot;width: 100%;&quot;&gt;&lt;code data-trim=&quot;&quot; data-noescape=&quot;&quot;&gt;
+      # user.rb
+### Validate số lượng tối thiểu categories
+MIN_SIZE = 1
+validate :validate_users_categories
+
+private
+def validate_users_categories
+  errors.add(:users_categories, :minsize) if(users_categories.size &amp;lt; MIN_SIZE)
+end
+  &lt;/code&gt;&lt;/pre&gt;
+&lt;/section&gt;
+
+&lt;section style=&quot;text-align: left;&quot;&gt;
+  &lt;h3&gt; Lưu trữ dữ liệu &lt;/h3&gt;
+  &lt;p&gt; 2. Validate &lt;/p&gt;
+  &lt;pre style=&quot;width: 100%;&quot;&gt;&lt;code data-trim=&quot;&quot; data-noescape=&quot;&quot;&gt;
+    # users_category.rb
+# Validate nội dung khi chọn &quot;other_content&quot;
+validates :other_content, presence: true, if: lambda { key_name == &quot;other_content&quot;}
+  &lt;/code&gt;&lt;/pre&gt;
+  Hoặc sử dụng custom validate:
+    &lt;pre style=&quot;width: 100%;&quot;&gt;&lt;code data-trim=&quot;&quot; data-noescape=&quot;&quot;&gt;
+    # users_category.rb
+    # Validate nội dung khi chọn &quot;other_content&quot;
+    validate :validate_other_content
+    private
+    def validate_other_content
+      errors.add(:other_content, :blank) if(key_name == OTHER_CONTENT &amp;amp;&amp;amp; other_content.blank?)
+    end
+  &lt;/code&gt;&lt;/pre&gt;
+&lt;/section&gt;
+
+&lt;section data-markdown=&quot;&quot; style=&quot;text-align: left;&quot;&gt;
+
+  ### Lưu trữ dữ liệu
+
+  #### 3. Điền giá trị cũ vào form nếu validate sai
+
+  Có 2 trường hợp cần xử lý:
+    - Checkbox
+    - Nội dung của &quot;other content&quot; nếu người dùng lựa chọn ô này.
+&lt;/section&gt;
+
+&lt;section data-markdown=&quot;&quot; style=&quot;text-align: left;&quot;&gt;
+
+  ### Lưu trữ dữ liệu
+
+  #### 3. Điền giá trị cũ vào form nếu validate sai
+
+  - Checkbox
+    Ý tưởng: Khi submit dữ liệu lên controller, @user đã được gán giá trị khi &quot;@user = User.new user_params&quot;. Khi này, object @user đã được khởi tạo và có association.
+    ![Select multi categories db](/assets/images/select-ml-ct-object-user.png)
+  - Đây chính là những checkbox đã được checked
+&lt;/section&gt;
+
+&lt;section style=&quot;text-align: left;&quot;&gt;
+  &lt;h3&gt; Lưu trữ dữ liệu &lt;/h3&gt;
+  &lt;h4&gt; 3. Điền giá trị cũ vào form nếu validate sai &lt;/h4&gt;
+
+  &lt;pre style=&quot;width: 100%;&quot;&gt;&lt;code data-trim=&quot;&quot; data-noescape=&quot;&quot;&gt;
+    # new.html.rb
+    &amp;lt;%= form_for @user do |f| %&amp;gt;
+      &amp;lt;%= f.object.errors.full_messages %&amp;gt;
+      username: &amp;lt;%= f.text_field :name %&amp;gt;
+      categories:
+        &amp;lt;%= f.fields_for :users_categories, @category_options do |ff| %&amp;gt;
+          &amp;lt;% users_categories = f.object.users_categories %&amp;gt;
+          &amp;lt;% category_option = ff.object %&amp;gt;
+          # Tìm kiếm users_categories có chứa category_option hiện tại hay không
+          &amp;lt;% is_selected = users_categories.map{|c| c.key_name}.include?(category_option.key_name) %&amp;gt;
+          # Lấy giá trị của &quot;Other content&quot;
+          &amp;lt;% other_content = users_categories.select{|c| c.key_name == &quot;other_content&quot;}.first&amp;amp;.other_content %&amp;gt;
+            &amp;lt;%= ff.check_box :_destroy, {checked: is_selected, class: &quot;#{'js-select-other_content' if category_option.key_name == 'other_content'}&quot;}, 0, 1 %&amp;gt;
+            &amp;lt;%= ff.hidden_field :category_id %&amp;gt;
+            &amp;lt;%= category_option.content %&amp;gt;
+            &amp;lt;% if category_option.key_name == &quot;other_content&quot; %&amp;gt;
+              &amp;lt;%= ff.text_field :other_content, value: other_content,class: &quot;js-other_content-field hidden&quot; %&amp;gt;
+            &amp;lt;% end %&amp;gt;
+        &amp;lt;% end %&amp;gt;
+      &amp;lt;%= f.submit %&amp;gt;
+    &amp;lt;% end %&amp;gt;
+  &lt;/code&gt;&lt;/pre&gt;
+&lt;/section&gt;
+
+&lt;section data-markdown=&quot;&quot; style=&quot;text-align: left;&quot;&gt;
+
+  ### Lấy giá trị
+  Có 2 trường hợp:
+    - Nếu user_category có key_name không phải &quot;other content&quot; thì sẽ lấy giá trị &quot;content&quot; từ bảng &quot;category&quot;
+    - Nếu users_category có key_name là &quot;other_content&quot; sẽ tiến hành lấy &quot;other_content&quot; từ trong bảng users_category
+&lt;/section&gt;
+
+&lt;section style=&quot;text-align: left;&quot;&gt;
+  &lt;h3&gt; Lấy giá trị &lt;/h3&gt;
+  &lt;pre style=&quot;width: 100%;&quot;&gt;&lt;code data-trim=&quot;&quot; data-noescape=&quot;&quot;&gt;
+  # users_category.rb
+  def category_name
+    key_name == OTHER_CONTENT ? other_content : content
+  end
+  &lt;/code&gt;&lt;/pre&gt;
+
+  &lt;pre style=&quot;width: 100%;&quot;&gt;&lt;code data-trim=&quot;&quot; data-noescape=&quot;&quot;&gt;
+  # user.rb
+  def show
+    @user = User.find params[:id]
+    @categories = @user.users_categories.map{|c| c.category_name}.join(&quot; ,&quot;)
+  end
+  &lt;/code&gt;&lt;/pre&gt;
+&lt;/section&gt;
+
+&lt;section data-markdown=&quot;&quot; style=&quot;text-align: left;&quot;&gt;
+
+  ### Trường hợp edit
+
+  - Đối với trường hợp edit, khi chúng ta chạy đoạn:
+
+  ```
+is_selected = users_categories.map{|c| c.category_key_name}.include?(category_option.category_key_name)
+  ```
+
+  thì sẽ phải thực hiện truy vấn thông qua database để lấy lại association. Khi đó khi chúng ta cập nhật thay đổi giá trị cho ô select, ô đó sẽ luôn là giá trị cũ
+&lt;/section&gt;
+
+&lt;section data-markdown=&quot;&quot; style=&quot;text-align: left;&quot;&gt;
+
+  ![Select multi categories db](/assets/images/1.png)
+
+&lt;/section&gt;
+
+&lt;section data-markdown=&quot;&quot; style=&quot;text-align: left;&quot;&gt;
+
+  ![Select multi categories db](/assets/images/2.png)
+
+&lt;/section&gt;
+
+&lt;section data-markdown=&quot;&quot; style=&quot;text-align: left;&quot;&gt;
+
+  ![Select multi categories db](/assets/images/3.png)
+
+&lt;/section&gt;
+
+&lt;section data-markdown=&quot;&quot; style=&quot;text-align: left;&quot;&gt;
+
+  ### Edit | Ý tưởng
+
+  - Khi submit params lên chúng ta sẽ lọc được những params có category đã được chọn
+  - Lọc và trả lại những id đó
+
+  ```
+  @selected_ids =
+    users_categories_attributes.values.map {|c| c[:category_id] if c[:_destroy] == &quot;0&quot;}.compact
+  ```
+
+  - Kết quả: Mảng các categories đã selected. Ví dụ: [&quot;1&quot;, &quot;2&quot;]
+
+&lt;/section&gt;
+
+&lt;section data-markdown=&quot;&quot; style=&quot;text-align: left;&quot;&gt;
+
+  ### Edit | Ý tưởng
+
+  - Edit một chút trong view:
+
+  ```
+    selected_ids = @selected_ids ||
+    users_categories.map{|c| c.category_id.to_s}
+  ```
+
+  ```
+  is_selected = selected_ids.include?(category_option.category_id.to_s)
+  ```
+
+  - Kết quả: Mảng các categories đã selected. Ví dụ: [&quot;1&quot;, &quot;2&quot;]
+&lt;/section&gt;
+
+&lt;section data-markdown=&quot;&quot; style=&quot;text-align: left;&quot;&gt;
+
+  ### Lưu ý
+
+  - Khi cập nhật dữ liệu cần phải permit id của nested params để tránh tình trạng tạo thêm bản ghi mới giống bản ghi cũ.
+
+  - Trong file edit.html.slim thêm hidden_field cho id của users_category.
+
+  ```
+  &amp;lt;%= ff.hidden_field :id, value: users_categories.select{|c| c.key_name == category.key_name}.first&amp;amp;.id %&amp;gt;
+  ```
+  Về bản chất neseted_attributes đã hỗ trợ tự điền id vào form nested nhưng trong trường hợp này giá trị của nested form được build ra không phải là giá trị trong quan hệ mà là giá trị của object `@category_options` chúng ta truyền vào nên cần phải lọc ra như trên.
+  - Vị trí của categories(Đối với ;): Tìm hiểu kĩ design để khi import master
+&lt;/section&gt;
+
+&lt;section data-markdown=&quot;&quot; style=&quot;text-align: left;&quot;&gt;
+
+  ### End.
+
+  #### Cảm ơn mọi người đã lắng nghe!
+
+&lt;/section&gt;
+</description>
+        <pubDate>Sat, 14 Dec 2019 00:00:00 +0700</pubDate>
+        <link>http://localhost:4000/2019/12/14/select-multy-categories/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/12/14/select-multy-categories/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>SQL WHERE vs HAVING</title>
+        <description>&lt;pre&gt;&lt;code&gt;Where : Là câu lệnh điều kiện trả kết quả đối chiếu với từng dòng .
+Having : Là câu lệnh điều kiện trả kết quả đối chiếu cho nhóm (Sum,AVG,COUNT,…)
+
+Vì vậy mà sau GROUP BY thì sẽ chỉ dùng được Having .
+còn Where thì KHÔNG dùng được sau GROUP BY.
+
+(HAVING có thể thay thế vị trí dùng cho WHERE. nhưng . ngược lại WHERE thì KHÔNG thể thay thế vị trí cho HAVING )
+
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+        <pubDate>Fri, 29 Nov 2019 00:00:00 +0700</pubDate>
+        <link>http://localhost:4000/tech/2019/11/29/where-vs-having/</link>
+        <guid isPermaLink="true">http://localhost:4000/tech/2019/11/29/where-vs-having/</guid>
+        
+        
+        <category>tech</category>
+        
+      </item>
+    
+      <item>
+        <title>Restful webservice</title>
+        <description>&lt;p&gt;&lt;em&gt;Rest là gì ?&lt;/em&gt;
+Vậy REST là gì?&lt;/p&gt;
+
+&lt;p&gt;REST là viết tắt của Representational State Transfer&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;là một kiểu kiến trúc lập trình, nó định nghĩa các quy tắc để thiết kết các web service chú trọng vào tài nguyên hệ thống.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Trong kiến trúc REST mọi thứ đều được coi là tài nguyên, chúng có thể là: tệp văn bản, ảnh, trang html, video, hoặc dữ liệu động… REST server cung cấp quyền truy cập vào các tài nguyên, REST client truy cập và thay đổi các tài nguyên đó. Ở đây các tài nguyên được định danh dựa vào URI, REST sử dụng một vài đại diện để biểu diễn các tài nguyên như văn bản, JSON, XML.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Để tạo một tài nguyên trên server ta dùng phương thức POST.&lt;/li&gt;
+  &lt;li&gt;Để lấy(đọc) tài nguyên trên server ta dùng phương thức GET.&lt;/li&gt;
+  &lt;li&gt;Để update tài nguyên trên server ta dùng phương thức PUT.&lt;/li&gt;
+  &lt;li&gt;Để xóa tài nguyển trên server ta dùng phương thức DELETE.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;PUT VS PATH&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;PUT (UPDATE): Cập nhật thông tin cho Resource.&lt;/li&gt;
+  &lt;li&gt;PATCH (UPDATE): Cập nhật một thành phần, thuộc tính của Resource.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Fri, 29 Nov 2019 00:00:00 +0700</pubDate>
+        <link>http://localhost:4000/tech/2019/11/29/resful-web-service/</link>
+        <guid isPermaLink="true">http://localhost:4000/tech/2019/11/29/resful-web-service/</guid>
+        
+        
+        <category>tech</category>
+        
+      </item>
+    
+      <item>
+        <title>form_with — Building HTML forms in Rails 5.1</title>
+        <description>&lt;p&gt;https://medium.com/@tinchorb/form-with-building-html-forms-in-rails-5-1-f30bd60ef52d&lt;/p&gt;
+</description>
+        <pubDate>Fri, 29 Nov 2019 00:00:00 +0700</pubDate>
+        <link>http://localhost:4000/tech/2019/11/29/form_with-vs-form_tag/</link>
+        <guid isPermaLink="true">http://localhost:4000/tech/2019/11/29/form_with-vs-form_tag/</guid>
+        
+        
+        <category>tech</category>
+        
+      </item>
+    
+      <item>
+        <title>Multi dynamic nested attributes trong rails</title>
+        <description>&lt;p&gt;Chào mọi người, không như những bài trước mình đi từ lí thuyết tới thực hành mà bài viết này mình sẽ đưa ra một bài toán cụ thể mà chúng ta thường gặp phải để giải quyết.&lt;/p&gt;
+
+&lt;h4 id=&quot;bài-toán&quot;&gt;Bài toán:&lt;/h4&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Hệ thống của chúng ta muốn tạo bài test trong đó có thể tùy ý thay đổi số lượng câu hỏi, trong mỗi câu hỏi sẽ có thể tùy ý thay đổi số lượng câu trả lời tương ứng.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Sau một hồi research và nghe ngóng anh em thì mình đã được đưa ra một giải pháp là sử dụng nested attributes + kết hợp sử dụng gem &lt;a href=&quot;https://github.com/nathanvda/cocoon&quot;&gt;Cocoon&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Để giải quyết bài toán đề ra, chúng ta cần tìm hiểu một số vấn đề:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Nested attributes là gì ? Và cách sử dụng&lt;/li&gt;
+  &lt;li&gt;Gem cocoon là gì và tại sao sử dụng&lt;/li&gt;
+  &lt;li&gt;Áp dụng sử dụng cho bài toán multi nested attributes&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;1-nested-attributes-là-gì-&quot;&gt;1. Nested attributes là gì ?&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://api.rubyonrails.org/classes/ActiveRecord/NestedAttributes/ClassMethods.html&quot;&gt;Nested attributes&lt;/a&gt; cho phép bạn lưu những thuộc tính của các bản ghi liên quan thông qua các bản ghi cha mẹ. Mặc định trong rails nested attributes được tắt và bạn có thể bật nó lên bằng lệnh &lt;code&gt;accepts_nested_attributes_for&lt;/code&gt; trong model.&lt;/p&gt;
+
+&lt;h4 id=&quot;11-cách-khai-báo&quot;&gt;1.1 Cách khai báo&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;Quan hệ one-to-one&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;accepts_nested_attributes_for :attribute_name&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Ví dụ mỗi user có một avatar, trong model user ta khai báo:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;class User &amp;lt; ActiveRecord::Base
+  has_one :avatar
+  accepts_nested_attributes_for :avatar
+end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Khi kích hoạt nested attributes trong liên kết one-to-one cho phép bạn tạo User và Avatar trong một lần:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;params = { user: { name: 'Jack', avatar_attributes: { icon: 'avatar_default' } } }
+user = User.create(params[:user])
+user.avatar.id # =&amp;gt; 2
+user.avatar.icon # =&amp;gt; 'avatar_default'
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;em&gt;Tương tự khi update&lt;/em&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;params = { user: { avatar_attributes: { id: '2', icon: 'sad' } } }
+user.update params[:user]
+user.avatar.icon # =&amp;gt; 'sad'
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Quan hệ one-to-many&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;accepts_nested_attributes_for :attribute_names&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Ví dụ ta có mỗi user có nhiều bài posts:&lt;/p&gt;
+
+&lt;p&gt;Ta tiến hành khai báo trong model:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;class User &amp;lt; ActiveRecord::Base
+  has_many :posts
+  accepts_nested_attributes_for :posts
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Ví dụ params khi tạo user đồng thời tạo luôn bài posts:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;params = { user: {
+  name: 'joe', posts_attributes: [
+    { title: 'Kari, the awesome Ruby documentation browser!' },
+    { title: 'The egalitarian assumption of the modern citizen' }
+  ]
+}}
+
+user = User.create(params[:user])
+user.posts.length # =&amp;gt; 2
+user.posts.first.title # =&amp;gt; 'Kari, the awesome Ruby documentation browser!'
+user.posts.second.title # =&amp;gt; 'The egalitarian assumption of the modern citizen'
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&quot;12-instance-public-methods&quot;&gt;1.2 Instance Public methods&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;code&gt;:allow_destroy&lt;/code&gt;
+Với option này, các thành phần của params gửi lên gửi kèm giá trị với key &lt;code&gt;_destroy&lt;/code&gt; và value à &lt;code&gt;true&lt;/code&gt; sẽ bị xóa.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Ví dụ:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;member.avatar_attributes = { id: '2', _destroy: '1' }
+member.avatar.marked_for_destruction? # =&amp;gt; true
+member.save
+member.reload.avatar # =&amp;gt; nil
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ở ví dụ trên, avatar với id = 2 đã được xóa thành công.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;code&gt;:reject_if&lt;/code&gt;
+Với option này. Rails cho phép bạn sử dụng &lt;code&gt;Proc&lt;/code&gt; hoặc &lt;code&gt;Symbol&lt;/code&gt; để trỏ đến một phương thức để kiểm tra xem giá trị của &lt;code&gt;attributes&lt;/code&gt; có thỏa mãn hay không.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Ví dụ sử dụng proc:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;class Member &amp;lt; ActiveRecord::Base
+  has_many :posts
+  accepts_nested_attributes_for :posts, reject_if: proc { |attributes| attributes['title'].blank? }
+end
+
+params = { member: {
+  name: 'joe', posts_attributes: [
+    { title: 'Kari, the awesome Ruby documentation browser!' },
+    { title: 'The egalitarian assumption of the modern citizen' },
+    { title: '' } # bản ghi này sẽ k đc lưu do không thỏa mãn điều kiện được định nghĩa trên `:reject_if`
+  ]
+}}
+member = Member.create(params[:member])
+member.posts.length # =&amp;gt; 2
+member.posts.first.title # =&amp;gt; 'Kari, the awesome Ruby documentation browser!'
+member.posts.second.title # =&amp;gt; 'The egalitarian assumption of the modern citizen'
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Ví dụ sử dụng &lt;code&gt;Symbol&lt;/code&gt; để khai báo hàm cần thực thi của &lt;code&gt;:reject_if&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;class Member &amp;lt; ActiveRecord::Base
+  has_many :posts
+  accepts_nested_attributes_for :posts, reject_if: :new_record?
+end
+
+class Member &amp;lt; ActiveRecord::Base
+  has_many :posts
+  accepts_nested_attributes_for :posts, reject_if: :reject_posts
+
+  def reject_posts(attributes)
+    attributes['title'].blank?
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;code&gt;:limit&lt;/code&gt;
+Option này cho phép bạn chỉ định số lượng bản ghi liên quan tối đa có thể được xử lý.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Ví dụ:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;class Member &amp;lt; ActiveRecord::Base
+  has_many :posts
+  accepts_nested_attributes_for :posts, limit: 4
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;code&gt;:update_only&lt;/code&gt;
+Đối với quan hệ &lt;code&gt;one-to-one&lt;/code&gt;, option này cho phép bạn chỉ định cách xử lý đối với trường hợp bản ghi liên kết đã tồn tại. Thông thường, một bàn ghi tồn tại có thể được cập nhật giá bằng cách cập nhật giá trị mới cho nó hoặc chính nó được thay thế bằng bản ghi mới với giá trị cần cập nhật.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Mặc định thì &lt;code&gt;update_only&lt;/code&gt; là &lt;code&gt;false&lt;/code&gt; và nested attributes được sử dụng để cập nhật vào bản ghi nếu bản ghi đó tồn tại &lt;code&gt;id&lt;/code&gt;. Nếu không thì một bản ghi mới sẽ được khởi tạo để thay thế bản ghi hiện có. Tuy nhiên, nếu &lt;code&gt;:update_only&lt;/code&gt; option là &lt;code&gt;true&lt;/code&gt;, nested attributess sẽ luôn được sử dụng để cập nhật các giá trị của bản ghi nếu thuộc tính &lt;code&gt;:id&lt;/code&gt; đó đang tồn tại.&lt;/p&gt;
+
+&lt;p&gt;*tips: khi sử dụng &lt;code&gt;update_only: true&lt;/code&gt;, bạn có thể cập nhật giá trị cho bản ghi con mà không cần thiết phải truyền &lt;code&gt;id&lt;/code&gt; lên trong params.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;class Member &amp;lt; ActiveRecord::Base
+  has_one :avatar
+  accepts_nested_attributes_for :avatar, update_only: true
+end
+
+params = { member: { avatar_attributes: { icon: 'sad' } } }
+member.update params[:member]
+member.avatar.id # =&amp;gt; 2
+member.avatar.icon # =&amp;gt; 'sad'
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;2gem-cocoon-là-gì-và-tại-sao-sử-dụng-&quot;&gt;2.Gem cocoon là gì và tại sao sử dụng ?&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Cocoon makes it easier to handle nested forms.&lt;/p&gt;
+
+  &lt;p&gt;Nested forms are forms that handle nested models and attributes in one form; e.g. a project with its tasks or an invoice with its line items.&lt;/p&gt;
+
+  &lt;p&gt;Cocoon is form builder-agnostic, so it works with standard Rails, Formtastic, or SimpleForm. It is compatible with rails 3, 4 and 5.&lt;/p&gt;
+
+  &lt;p&gt;This project is not related to Apache Cocoon.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Hiểu đơn giản, Gem &lt;code&gt;cocoon&lt;/code&gt; cũng như các gem khác của rails đều sinh ra để đáp ứng một nhu cầu cụ thể để có thể tối ưu và sử dụng lại. Ở đây, gem cocoon giúp người dùng có thể dễ dàng tương tác với nested forrms(form lồng nhau) thay vì phải ngồi viết những thứ js dài dòng để build ra form với attributes tương ứng (lazy time)&lt;/p&gt;
+
+&lt;h4 id=&quot;21-cài-đặt&quot;&gt;2.1 Cài đặt&lt;/h4&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Thêm &lt;code&gt;gem &quot;concoon&quot;&lt;/code&gt; vào &lt;code&gt;Gemfile&lt;/code&gt; và chạy &lt;code&gt;bundle install&lt;/code&gt; để update gem của bạn.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Đối với rails 5, thêm dòng dưới vào file &lt;code&gt;application.js&lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;//= require cocoon&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;22-cocoon-helper-functions&quot;&gt;2.2 Cocoon helper functions&lt;/h4&gt;
+&lt;p&gt;Cocoon định nghĩa 2 helper functions:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/nathanvda/cocoon#link_to_add_association&quot;&gt;link_to_add_association&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/nathanvda/cocoon#link_to_remove_association&quot;&gt;link_to_remove_association&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h5 id=&quot;221-link_to_add_association&quot;&gt;2.2.1 link_to_add_association&lt;/h5&gt;
+
+&lt;p&gt;Hàm này thêm một liên kết vào phần hiển thị của bạn, khi click vào liên kết sẽ tự động sinh ra một partial form đã được chúng ta định nghĩa sẵn.&lt;/p&gt;
+
+&lt;p&gt;Ví dụ:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;= form_for @project do |f|
+  .field
+    = f.label :name_badge:
+  %h3 Tasks
+  #tasks
+    = f.fields_for :tasks do |task|
+      = render 'task_fields', f: task
+    .links
+      = link_to_add_association 'add task', f, :tasks
+  = f.submit
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Chúng ta cần khai báo thêm partial form với tên: &lt;code&gt;_task_fields&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; .nested-fields
+  .field
+    = f.label :description
+    %br
+    = f.text_field :description
+  .field
+    = f.check_box :done
+    = f.label :done
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;= link_to_add_association 'add task', f, :tasks&lt;/code&gt; sẽ tạo ra 1 thẻ &lt;code&gt;a&lt;/code&gt;, khi ta click vào thẻ này, &lt;code&gt;cocoon&lt;/code&gt; sẽ tự động giúp chúng ta tạo ra một form &lt;code&gt;task_field&lt;/code&gt; mới với giá trị &lt;code&gt;id&lt;/code&gt; được build tự động, giúp chúng ta dễ dàng hơn trong việc sử dụng nested form.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://images.viblo.asia/bfe044cc-df93-488f-8690-a5349c26b382.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;link_to_add_association&lt;/code&gt; gồm 4 tham số:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;name: text sẽ hiển thị của link&lt;/li&gt;
+  &lt;li&gt;f: form builder&lt;/li&gt;
+  &lt;li&gt;association: tên của association (phải là số nhiều) - đối tượng mới cần được thêm vào.&lt;/li&gt;
+  &lt;li&gt;html_options: là mở rộng của html-options (&lt;a href=&quot;https://api.rubyonrails.org/classes/ActionView/Helpers/UrlHelper.html#method-i-link_to&quot;&gt;link_to&lt;/a&gt;). Và thêm một số tùy chỉnh đặc biệt của &lt;code&gt;cocoon&lt;/code&gt;:
+    &lt;ul&gt;
+      &lt;li&gt;data-association-insertion-traversal : phuơng thức &lt;code&gt;jquery traversal&lt;/code&gt; cho phép lựa chọn vị trí của partial khi được render. Có 3 option: &lt;code&gt;closest&lt;/code&gt;, &lt;code&gt;next&lt;/code&gt;, &lt;code&gt;children&lt;/code&gt;.&lt;/li&gt;
+      &lt;li&gt;data-association-insertion-node : Có thể hiểu đây là node mà field sẽ được chèn vào sau sự kiện clcik vào &lt;code&gt;link_to_add_association&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;data-association-insertion-method : quy định cách chèn field. Các option tương tự như jquery như:  before, after, append, prepend, etc. Mặc định sẽ là &lt;code&gt;before&lt;/code&gt;.&lt;/li&gt;
+      &lt;li&gt;data-association-insertion-position : phương thức cũ quy định nơi chèn dữ liệu mới( Hàm này sẽ được xóa trong version mới nên có lẽ không nên dùng các bác ạ :)) )&lt;/li&gt;
+      &lt;li&gt;partial: tên của partial sẽ được sử dụng.&lt;/li&gt;
+      &lt;li&gt;render_options: các tùy chọn chuyển qua form-builder.&lt;/li&gt;
+      &lt;li&gt;wrap_object: một Proc sẽ cho phép bọc đối tượng của bạn, đặc biệt hữu ích nếu bạn đang sử dụng decorator (gem draper)&lt;/li&gt;
+      &lt;li&gt;form_name : tên của tham số form truyền vào nested partial. Mặc định là &lt;code&gt;f&lt;/code&gt;.&lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;count:  số lượng mặc định nested items được chèn vào mỗi lần. Mặc định là 1.&lt;/p&gt;
+
+        &lt;p&gt;Ví dụ: Bạn muốn chèn field partial vào một &lt;code&gt;div#parent&lt;/code&gt; nhất định, các partial sẽ nối tiếp nhau, mỗi lần nhấn vào link sẽ tạo ra 3 partial mới. &lt;code&gt;link_to_add_association&lt;/code&gt; sẽ có dạng:&lt;/p&gt;
+        &lt;pre&gt;&lt;code&gt;  = link_to_add_association &quot;add node&quot;, f, :questions,
+    data: {&quot;association-insertion-node&quot;: &quot;#parent_table&quot;,
+    &quot;association-insertion-method&quot;: &quot;append&quot;}, count: 3
+&lt;/code&gt;&lt;/pre&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;render_options:  Bên trong &lt;code&gt;html_options&lt;/code&gt; bạn có thể thêm tùy chọn &lt;code&gt;:render_option&lt;/code&gt;và hàm băm chứa sẽ được chuyển xuống trình tạo biểu mẫu cho biểu mẫu được chèn.&lt;/p&gt;
+
+        &lt;p&gt;Ví dụ:
+   Khi dùng &lt;code&gt;simple_fields_for&lt;/code&gt; cần option &lt;code&gt;wrapper: 'inline'&lt;/code&gt; ta sẽ làm tương tự:&lt;/p&gt;
+        &lt;pre&gt;&lt;code&gt;   = link_to_add_association 'add something', f, :something,
+       render_options: { wrapper: 'inline' }
+&lt;/code&gt;&lt;/pre&gt;
+
+        &lt;p&gt;Hoặc muốn truyền biến xuống p&lt;/p&gt;
+        &lt;pre&gt;&lt;code&gt;   = link_to_add_association 'add something', f, :something,
+       render_options: {locals: { sherlock: 'Holmes' }}
+&lt;/code&gt;&lt;/pre&gt;
+      &lt;/li&gt;
+      &lt;li&gt;partial: Để định nghĩa là partial mặc định.
+        &lt;pre&gt;&lt;code&gt;    = link_to_add_association 'add something', f, :something,
+    partial: 'shared/something_fields'
+&lt;/code&gt;&lt;/pre&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;wrap_object: Nếu bạn sử dụng decorator, khởi tạo bình thường của đối tượng liên quan sẽ không đủ. Bạn thực sự muốn tạo ra các đối tượng đã được decorate.&lt;/p&gt;
+
+        &lt;p&gt;Ví dụ:&lt;/p&gt;
+        &lt;pre&gt;&lt;code&gt;    = link_to_add_association('add something', @form_obj, :comments,
+        wrap_object: Proc.new {|comment| CommentDecorator.new(comment) })
+&lt;/code&gt;&lt;/pre&gt;
+
+        &lt;p&gt;Hoặc có thể sử dụng &lt;code&gt;:wrap_object&lt;/code&gt; để truyền thêm biến đã được xử lý xuống partial:&lt;/p&gt;
+        &lt;pre&gt;&lt;code&gt; = link_to_add_association('add something', @form_obj, :comments,
+   wrap_object: Proc.new { |comment| comment.name = current_user.name; comment })
+&lt;/code&gt;&lt;/pre&gt;
+        &lt;h5 id=&quot;222-link_to_remove_association&quot;&gt;2.2.2 link_to_remove_association&lt;/h5&gt;
+        &lt;p&gt;Hàm này sẽ thêm 1 link vào phần hiển thị của bạn, khi click sẽ loại bỏ partial đó.&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Thành phần chính:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;name: text hiển thị tên nút, sử dụng tương tự như &lt;code&gt;link_to&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;f: đối tượng form hiện tại&lt;/li&gt;
+  &lt;li&gt;html_options: tương tự html_options của &lt;code&gt;link_to&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;3-áp-dụng-sử-dụng-cho-bài-toán-multi-nested-attributes&quot;&gt;3. Áp dụng sử dụng cho bài toán multi nested attributes&lt;/h3&gt;
+&lt;p&gt;Với bài toán multi nested (nhiều form lồng), chúng ta cần nắm rõ để có thể sử dụng linh hoạt gem &lt;code&gt;cocoon&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Trong trường hợp này mình sẽ đưa ra một ví dụ cụ thể:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Khi tạo 1 bài kiểm tra(exam) chúng ta cần tạo luôn các câu hỏi(question) và câu trả lời (answer) cho bài kiểm tra này.&lt;/p&gt;
+
+&lt;/blockquote&gt;
+
+&lt;p&gt;Khởi tạo các model:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;exam.rb&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# frozen_string_literal: true
+
+class Exam &amp;lt; ApplicationRecord
+  has_many :questions
+
+  accepts_nested_attributes_for :questions, allow_destroy: true, reject_if: :all_blank
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;question.rb&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# frozen_string_literal: true
+
+class Question &amp;lt; ApplicationRecord
+  belongs_to :exam
+
+  has_many :answers
+
+  accepts_nested_attributes_for :answers, allow_destroy: true, reject_if: :all_blank
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;answer.rb&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# frozen_string_literal: true
+
+class Answer &amp;lt; ApplicationRecord
+  belongs_to :question
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;exams_controller.rb&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;def new
+  @exam = Exam.new
+  @exam.questions.build
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Tiếp đó trong view:
+&lt;code&gt;exams/new.html.slim&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;= form_for @exam, url: exams_url do |f|
+ .form-group.row
+      label.col-md-3.form-control-label.text-primary.font-weight-bold Exam description
+      #parent_table.col-md-9
+        = f.fields_for :questions do |question|
+      .js-new-question.ml-5
+        = link_to_add_association f, :questions do
+          span.fa.fa-plus
+          span.ml-2 Add question
+    = f.submit t(&quot;.save&quot;),class: &quot;btn btn-primary my-2&quot;
+
+javascript:
+  $(document).ready(function() {
+    $(&quot;.js-new-question a.add_fields&quot;).
+      data(&quot;association-insertion-method&quot;, 'append').
+      data(&quot;association-insertion-node&quot;, '#parent_table');
+  });
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Tiếp theo trong &lt;code&gt;_question_fields.html.slim&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;.container-fluid.nested-fields
+  .line
+  .form-group.row
+    .col-11
+      = f.text_area :content, class: &quot;form-control&quot;
+    .col-1
+      = link_to_remove_association f do
+        span.fa.fa-minus-square title=&quot;Remove question&quot;
+    .question.col-md-9
+      = link_to_add_association f, :answers, class: &quot;btn btn-info btn-sm mt-2&quot; do # chúng ta sẽ tiến hành khai báo để  tạo partial `answer` bên trong mỗi question.
+        span.fa.fa-plus-circle
+        span.ml-2 Add answer
+      = f.fields_for :answers do |answer|
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Cuối cùng là &lt;code&gt;answer_fields.html.slim&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;.col-6
+  .row.pt-2
+    .col-10
+      = f.text_field :content, class: &quot;form-control&quot;
+    .col-1
+      = link_to_remove_association f do
+        span.fa.fa-minus-square title=&quot;Remove question&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;*Ở trên mình dùng slim và một số class bootstrap 4 cho code của mình, chú ý: phần data đã được di chuyển ra bên ngoài form và để trong đoạn &lt;code&gt;javascript&lt;/code&gt; do khi chúng ta tạo ra nhiều form lồng, ta cần định nghĩa class cha của chúng (ở đây mình định nghĩa là &lt;code&gt;js-new-question&lt;/code&gt;) để khi oncick vào &lt;code&gt;link_to_remove_association&lt;/code&gt; *&lt;/p&gt;
+
+&lt;p&gt;Demo:
+&lt;img src=&quot;https://images.viblo.asia/792519e2-fe73-42c6-9124-b2c09b329ea8.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Tham khảo:&lt;/p&gt;
+
+&lt;p&gt;https://github.com/nathanvda/cocoon#link_to_remove_association
+https://api.rubyonrails.org/classes/ActiveRecord/NestedAttributes/ClassMethods.html&lt;/p&gt;
+</description>
+        <pubDate>Tue, 12 Nov 2019 00:00:00 +0700</pubDate>
+        <link>http://localhost:4000/tech/2019/11/12/multi-nested-fields-rails/</link>
+        <guid isPermaLink="true">http://localhost:4000/tech/2019/11/12/multi-nested-fields-rails/</guid>
+        
+        
+        <category>tech</category>
+        
+      </item>
     
       <item>
         <title>Rails 6 - Active Storage changes</title>
@@ -686,222 +1678,6 @@ const owlCat = (
         
         
         <category>tech</category>
-        
-      </item>
-    
-      <item>
-        <title>What is Jekyll!</title>
-        <description>
-</description>
-        <pubDate>Fri, 12 Jul 2019 05:48:45 +0700</pubDate>
-        <link>http://localhost:4000/blog/2019/07/12/unicode_equivalence/</link>
-        <guid isPermaLink="true">http://localhost:4000/blog/2019/07/12/unicode_equivalence/</guid>
-        
-        
-        <category>blog</category>
-        
-      </item>
-    
-      <item>
-        <title>From Third Project</title>
-        <description>&lt;h2 id=&quot;những-điều-thú-vị&quot;&gt;Những điều thú vị&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;From 1/7/2019&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;regex-tìm-mọi-khoảng-trắng-unicode-tiếng-anh-và-tiếng-nhật&quot;&gt;Regex tìm mọi khoảng trắng unicode tiếng Anh và tiếng Nhật&lt;/h3&gt;
-&lt;pre&gt;&lt;code&gt;/[[:space:]]|\s+/
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Sử dụng gem ransack để tìm kiếm với full_name&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;  ransacker :full_name,
-    formatter: proc { |v|
-      v.gsub(/[[:space:]]|\s+/, &quot;&quot;)
-    } do |parent|
-    Arel::Nodes::NamedFunction.new(&quot;CONCAT_WS&quot;,
-      [
-        Arel::Nodes::SqlLiteral.new('&quot;&quot;'),
-        parent.table[:last_name], parent.table[:first_name]
-      ])
-  end
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Change author in commit&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;git filter-branch --commit-filter '
-        if [ &quot;$GIT_COMMITTER_NAME&quot; = &quot;&amp;lt;hungnv950&amp;gt;&quot; ];
-        then
-                GIT_COMMITTER_NAME=&quot;&amp;lt;hungbnv-1225&amp;gt;&quot;;
-                GIT_AUTHOR_NAME=&quot;&amp;lt;hungbnv-1225&amp;gt;&quot;;
-                GIT_COMMITTER_EMAIL=&quot;&amp;lt;nguyen.van.hungb@sun-asterisk.com&amp;gt;&quot;;
-                GIT_AUTHOR_EMAIL=&quot;&amp;lt;nguyen.van.hungb@sun-asterisk.com&amp;gt;&quot;;
-                git commit-tree &quot;$@&quot;;
-        else
-                git commit-tree &quot;$@&quot;;
-        fi' HEAD
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;  scope :wait_admin_approve, lambda {
-    candidate = Candidate.arel_table
-    flu = Influencer.arel_table
-    left_joins(:influencer).where(candidate[:status].eq(&quot;applied&quot;).and(flu[:company_id].eq(nil)).or(
-                                    candidate[:status].eq(&quot;office_approved&quot;).and(flu[:company_id].not_eq(nil))
-                                  ))
-  }
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-        <pubDate>Mon, 01 Jul 2019 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/2019/07/01/from-third-project/</link>
-        <guid isPermaLink="true">http://localhost:4000/2019/07/01/from-third-project/</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>Sử dụng nhiều tài khoản github trên cùng một máy tính cá nhân</title>
-        <description>&lt;h3 id=&quot;step-1-tạo-ssh-key-mới-cho-tài-khoản-công-việc&quot;&gt;Step 1: Tạo ssh key mới cho tài khoản công việc&lt;/h3&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;ssh-keygen -t rsa -C “github-email-address”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Khi màn hình hiện &lt;code&gt;Enter file in which to save the key (/home/&amp;lt;user&amp;gt;/.ssh/id_rsa):&lt;/code&gt;  Nhập user cho công việc của bạn, ví dụ mình sẽ nhập là &lt;code&gt;id_rsa_sun&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Kiểm tra xem id_rsa_sun đã được sinh ra chưa.&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;cd cd ~/.ssh&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;ls&lt;/p&gt;
-
-  &lt;p&gt;Danh sách các file đã được sinh ra:&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;pre&gt;&lt;code&gt;id_rsa_sun  id_rsa_sun.pub  id_rsa  id_rsa.pub
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&quot;step-2-cài-đặt-ssh-key-trên-github&quot;&gt;Step 2: Cài đặt ssh key trên github&lt;/h3&gt;
-
-&lt;p&gt;Lấy id_rsa của email mới bạn vừa tạo.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;cat id_rsa_sun.pub&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Sau đó nhập vào ssh-key cuả tài khoản git công việc tại https://github.com/settings/keys&lt;/p&gt;
-
-&lt;h3 id=&quot;bước-3-cài-đặt-github-host&quot;&gt;Bước 3: Cài đặt Github Host&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;touch ~/.ssh/config&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;nano ~/.ssh/config&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Sửa file config của bạn thành dạng:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# Tài khoản git cá nhân vẫn dùng của bạn
-Host github.com-username
-    HostName github.com
-    User git
-    IdentityFile ~/.ssh/id_rsa
-# Tài khoản công việc
-Host github.com-sun # config này sẽ dùng để xử lý xác định khi cấu hình remote
-    HostName github.com
-    User git
-    IdentityFile ~/.ssh/id_rsa_sun  # id_rsa_sun mà chúng ta vừa tạo
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Sau khi tạo 1 project trên github với tài khoản khác. Khi bạn &lt;code&gt;add remote&lt;/code&gt; nên chú ý user khi add.
-Ví dụ khi clone repo mới:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;git clone git@github.com-sun:&amp;lt;&lt;strong&gt;user&lt;/strong&gt;&amp;gt;/sample_ruby.git&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;git config user.email “&amp;lt;&lt;strong&gt;emai dùng để sinh id_rsa_sun ở trên&lt;/strong&gt;&amp;gt;”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Sau đó bạn có thể add và commit bình thường.&lt;/p&gt;
-
-&lt;p&gt;Add remote với repo mới:&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;git remote add origin git@github.com-sun:&amp;lt;&lt;strong&gt;user&lt;/strong&gt;&amp;gt;/sample_ruby.git&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Note: &lt;code&gt;sun&lt;/code&gt; ở đây là user của mình đặt ra, các bạn có thể thay đổi theo user công việc hoặc nick name bạn muốn cho phù hợp.&lt;/p&gt;
-
-&lt;h3 id=&quot;nguồn-git-push--pull-with-two-different-accounts-and-two-different-users-on-the-same-machine&quot;&gt;Nguồn: &lt;a href=&quot;https://medium.com/@therajanmaurya/git-push-pull-with-two-different-account-and-two-different-user-on-same-machine-a85f9ee7ec61&quot;&gt;Git Push &amp;amp; Pull with Two different accounts and Two different users on the same machine&lt;/a&gt;&lt;/h3&gt;
-</description>
-        <pubDate>Wed, 26 Jun 2019 05:48:45 +0700</pubDate>
-        <link>http://localhost:4000/tech/2019/06/26/su-dung-nhieu-tai-khoan-github-tren-cung-mot-may-tinh-ca-nhan/</link>
-        <guid isPermaLink="true">http://localhost:4000/tech/2019/06/26/su-dung-nhieu-tai-khoan-github-tren-cung-mot-may-tinh-ca-nhan/</guid>
-        
-        
-        <category>tech</category>
-        
-      </item>
-    
-      <item>
-        <title>Cha đã quên</title>
-        <description>&lt;p&gt;&lt;strong&gt;Cha đã quên&lt;/strong&gt; - một câu chuyện ngắn của tác giả &lt;em&gt;W.Livingston Larned&lt;/em&gt; trích từ cuốn (&lt;strong&gt;Đắc Nhân Tâm&lt;/strong&gt; - &lt;em&gt;Dale Carnegie&lt;/em&gt;)&lt;/p&gt;
-
-&lt;p&gt;Con trai yêu quý, con hãy nghe những lời ân hận của cha đây. Cha đã lẻn vào phòng con khi con đang chìm vào giấc ngủ trẻ thơ. Nhìn kìa, một tay con đặt dưới gò má, những lọn tóc hung đẫm mồ hôi bám chặt vào vầng trán ẩm ướt. Chỉ cách đây vài phút thôi, khi cha ngồi trong phòng đọc sách và xem lại bài viết của mình, nỗi hối hận dâng ngập hồn cha. Và cha đã chạy đến phòng con để nói lời xin lỗi.&lt;/p&gt;
-
-&lt;p&gt;Con ơi, cha đã tức giận, quát mắng khi con cầm khăn lau mặt qua quýt trong lúc thay quần áo đi học, lúc con để đôi giày dơ bẩn hay thấy con vứt vật dụng lung tung trong nhà. Cha luôn chăm chăm nhìn thấy toàn là lỗi lầm của con. Buổi sáng cha thấy con không ngăn nắp khi ngủ dậy, lại còn ăn uống vội vàng và lấy một lúc quá nhiều thức ăn vào đĩa. Vì chỉ nhìn thấy lỗi lầm nên khi con chào cha xin phép ra ngoài chơi, cha chỉ cau mày và trả lời cộc lốc không chút thiện cảm: “Hừm! Liệu mà về sớm đấy!”.&lt;/p&gt;
-
-&lt;p&gt;Buổi chiều, cha cũng tức giận với những sơ suất của con. Khi thấy đôi vớ của con rách, cha đã làm con phải mất mặt trước bạn bè khi lôi con về nhà. Con thật sự đã làm cha rất giận dữ vì đã không tiết kiệm, không chịu giữ gìn những món đồ mà cha đã phải vất vả làm việc dành dụm mua cho con.&lt;/p&gt;
-
-&lt;p&gt;Khi cha đang đọc báo, con rụt rè bước tới ngước nhìn cha với ánh mắt ngây thơ trong sáng, cha lại quát lên: “Mày muốn cái gì?”. Và trái tim cha đã xúc động biết dường nào khi con chỉ im lặng chạy đến, vòng tay bé bỏng ôm cổ cha thật chặt với tất cả yêu thương trìu mến rồi lại chạy biến thật nhanh ra ngoài.&lt;/p&gt;
-
-&lt;p&gt;Con thương yêu!&lt;/p&gt;
-
-&lt;p&gt;Con có biết không, tờ báo đã rời khỏi tay cha trong yên lặng và một nỗi sợ lẫn đau xót ngẹn ngào xâm chiếm cõi lòng cha. Cha đã làm gì thế này? Cha đã biến mình thành một người cha suốt ngày chỉ xăm soi tội lỗi của con mình. Một người cha chỉ toàn kiếm cái xấu của con mình để chê trách và đây là phần thưởng mà cha dành cho con như một đứa trẻ ư? Cha chỉ muốn con phải thế này thế nọ, cha chỉ muốn con phải cư xử như người lớn. Cha đã đo con bằng cây thước dành cho một người trưởng thành, bằng cả những năm tháng tuổi đời và sự trải nghiệm già dặn của cha.&lt;/p&gt;
-
-&lt;p&gt;Con yêu của cha!&lt;/p&gt;
-
-&lt;p&gt;Trong khi cha nhìn con bằng đôi mắt già cỗi và muộn phiền, đầy thành kiến, soi mói ấy, cha chẳng thèm biết đến những cái tốt, điều hay và sự chân thành, hồn nhiên trong tư chất của con. Trái tim nhỏ bé của con nồng ấm và to lớn như ánh rạng đông đang tặng bao tia nắng ấm cho ngọn đồi bao la. Con đã hồn nhiên lao vào hôn chúc cha ngủ ngon mà không hề vướng bận việc cha đã la mắng con cả ngày và hằn học với con vì những lý do không chính đáng.&lt;/p&gt;
-
-&lt;p&gt;Con thương yêu!&lt;/p&gt;
-
-&lt;p&gt;Cha không thể đợi thêm nữa. Cha phải nhanh chóng bước đến bên con, quỳ xuống cạnh chiếc giường nhỏ bé và nhìn khuôn mặt thơ ngây của con trong giấc ngủ với một niềm ân hận vô cùng. Có thể, con còn quá bé bỏng để hiểu nhưng cảm xúc đang tràn ngập lòng cha. Cha hứa với con, ngay từ giây phút này, cha sẽ trở lại là người cha đích thực và luôn biết trân trọng tình yêu của con ngay cả trong giây phút nóng giận bừng bừng. Cha sẽ là người bạn trung thành của con, sẽ đau khổ khi con gặp bất hạnh, sẽ cười vui khi con gặp may mắn sung sướng. Cha sẽ cắn chặt môi để không thốt ra những lời gắt gỏng mỗi khi con quỷ giận dữ trỗi dậy trong lòng cha. Cha sẽ tự bảo mình rằng con vẫn còn bé bỏng.&lt;/p&gt;
-
-&lt;p&gt;Ôi, hình như cha đã nhìn đứa con thơ dại của cha như nhìn một con người trưởng thành thật sự. Giờ đây, nhìn con cuộn mình trong chăn và mệt mỏi ngủ yên trên chiếc giường bé xíu, Cha chợt nhận ra rằng con chỉ là một đứa trẻ thơ ngây. Sáng sáng, con vẫn nũng nịu trong vòng tay trìu mến của mẹ. Mái tóc tơ mềm mại của con còn vướng víu trên bờ vai mẹ, cần được che chở trong cảm giác được yêu thương. Vậy mà, Cha đã đòi hỏi ở con quá nhiều…..&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;Sự thực, người cha chưa từng đứng ở lập trường của một cậu bé để hiểu về cuộc sống như thế nào, hoặc ông ấy đã quên mất. Và cũng thật bất ngờ khi một đứa bé trước những sự đối xử của cha thì em vẫn rất mực yêu thương cha với sự chân thành. 
-
-Theo mình, câu chuyện không chỉ dừng lại ở việc cách giáo dục con cái của cá bậc cha mẹ mà nó còn để lại nhiều bài học về cách sống và cách tiếp nhận cuộc sống. Ai cũng sẽ là những đứa trẻ trong lĩnh vực mới của mình và nếu chân thành như cách mà đứa trẻ đối xử với người cha ắt sẽ thành công. Và hi vọng những người anh - người cha vẫn luôn sẵn lòng đứng ở vị trí newbee để có thể cùng nhau hoàn thành công việc một cách tốt nhất.
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-        <pubDate>Wed, 26 Jun 2019 05:48:45 +0700</pubDate>
-        <link>http://localhost:4000/life/2019/06/26/morning-speech-cha-da-quen/</link>
-        <guid isPermaLink="true">http://localhost:4000/life/2019/06/26/morning-speech-cha-da-quen/</guid>
-        
-        
-        <category>life</category>
-        
-      </item>
-    
-      <item>
-        <title>What is Jekyll!</title>
-        <description>&lt;p&gt;&lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt; is a static site generator, an open-source tool for creating simple yet powerful websites of all shapes and sizes. Here is a little quote from the official website:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;It takes a template directory containing raw text files in various formats, runs it through &lt;a href=&quot;http://daringfireball.net/projects/markdown/&quot;&gt;Markdown&lt;/a&gt; (or &lt;a href=&quot;http://redcloth.org/textile&quot;&gt;Textile&lt;/a&gt;) and Liquid converters, and spits out a complete, ready-to-publish static website suitable for serving with your favorite web server. Jekyll also happens to be the engine behind &lt;a href=&quot;http://pages.github.com/&quot;&gt;GitHub Pages&lt;/a&gt;, which means you can use Jekyll to host your project’s page, blog, or website from GitHub’s servers for free.&lt;/p&gt;
-  &lt;ul&gt;
-    &lt;li&gt;jekyllrb.com&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/mojombo/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;.&lt;/p&gt;
-
-</description>
-        <pubDate>Wed, 29 May 2019 05:48:45 +0700</pubDate>
-        <link>http://localhost:4000/blog/2019/05/29/welcome-to-jekyll/</link>
-        <guid isPermaLink="true">http://localhost:4000/blog/2019/05/29/welcome-to-jekyll/</guid>
-        
-        
-        <category>blog</category>
         
       </item>
     

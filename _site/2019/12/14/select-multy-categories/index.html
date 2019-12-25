@@ -536,8 +536,16 @@ is_selected = users_categories.map{|c| c.category_key_name}.include?(category_op
   ```
   &lt;%= ff.hidden_field :id, value: users_categories.select{|c| c.key_name == category.key_name}.first&amp;.id %&gt;
   ```
-  Về bản chất neseted_attributes đã hỗ trợ tự điền id vào form nested nhưng trong trường hợp này giá trị của nested form được build ra không phải là giá trị trong quan hệ mà là giá trị của object `@category_options` chúng ta truyền vào nên cần phải lọc ra như trên.
-  - Vị trí của categories(Đối với ;): Tìm hiểu kĩ design để khi import master
+
+  - Về bản chất neseted_attributes đã hỗ trợ tự điền id vào form nested nhưng trong trường hợp này giá trị của nested form được build ra không phải là giá trị trong quan hệ mà là giá trị của object `@category_options` chúng ta truyền vào nên cần phải lọc ra như trên.
+  - Vị trí của categories: Thông thường vị trí của trường `other_content` sẽ là ở cuối danh sách. Nhưng không hẳn master data nào cũng chuẩn hoặc category được sinh tự động. Có một mẹo là chúng ta sẽ luôn để `other_content` ở đầu tiên của mảng (bản ghi đầu tiên) và dùng hàm `rotate(1)` để dịch bản ghi đó xuống cuối mảng
+
+  ```
+  a = [ "a", "b", "c", "d" ]
+  a.rotate         #=&gt; ["b", "c", "d", "a"]
+  ```
+
+  - Tìm hiểu kĩ design để khi import master
 </section>
 
 <section data-markdown="" style="text-align: left;">

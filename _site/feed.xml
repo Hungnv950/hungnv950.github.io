@@ -5,9 +5,35 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 23 Dec 2019 23:27:34 +0700</pubDate>
-    <lastBuildDate>Mon, 23 Dec 2019 23:27:34 +0700</lastBuildDate>
+    <pubDate>Tue, 24 Dec 2019 00:05:41 +0700</pubDate>
+    <lastBuildDate>Tue, 24 Dec 2019 00:05:41 +0700</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
+    
+      <item>
+        <title>Tất tần tật về array trong ruby</title>
+        <description>&lt;p&gt;Bài viết dựa trên nguồn &lt;a href=&quot;https://apidock.com/ruby/Array&quot;&gt;apidoc.com&lt;/a&gt; và một số ví dụ mình sưu tầm được. Hi vọng sẽ giúp đỡ được mình và mọi người trên con đường làm chủ Ruby.&lt;/p&gt;
+
+&lt;h1 id=&quot;class-methods-3&quot;&gt;Class methods (3)&lt;/h1&gt;
+
+&lt;h2 id=&quot;1-args-public&quot;&gt;1. [](*args) public&lt;/h2&gt;
+&lt;p&gt;Trả về một mảng với các đối tượng truyền vào.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Array.[]( 1, 'a', /^A/ ) # =&amp;gt; [1, &quot;a&quot;, /^A/]
+Array[ 1, 'a', /^A/ ]    # =&amp;gt; [1, &quot;a&quot;, /^A/]
+[ 1, 'a', /^A/ ]         # =&amp;gt; [1, &quot;a&quot;, /^A/]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;2-newp1--v1-p2--v2-public&quot;&gt;2. new(p1 = v1, p2 = v2) public&lt;/h2&gt;
+&lt;p&gt;Trả về một mảng mới.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 22 Dec 2019 00:00:00 +0700</pubDate>
+        <link>http://localhost:4000/tech/2019/12/22/tat-tan-tat-ve-array-trong-ruby/</link>
+        <guid isPermaLink="true">http://localhost:4000/tech/2019/12/22/tat-tan-tat-ve-array-trong-ruby/</guid>
+        
+        
+        <category>tech</category>
+        
+      </item>
     
       <item>
         <title>Select muli categories with rails + jquery</title>
@@ -507,8 +533,16 @@ is_selected = users_categories.map{|c| c.category_key_name}.include?(category_op
   ```
   &amp;lt;%= ff.hidden_field :id, value: users_categories.select{|c| c.key_name == category.key_name}.first&amp;amp;.id %&amp;gt;
   ```
-  Về bản chất neseted_attributes đã hỗ trợ tự điền id vào form nested nhưng trong trường hợp này giá trị của nested form được build ra không phải là giá trị trong quan hệ mà là giá trị của object `@category_options` chúng ta truyền vào nên cần phải lọc ra như trên.
-  - Vị trí của categories(Đối với ;): Tìm hiểu kĩ design để khi import master
+
+  - Về bản chất neseted_attributes đã hỗ trợ tự điền id vào form nested nhưng trong trường hợp này giá trị của nested form được build ra không phải là giá trị trong quan hệ mà là giá trị của object `@category_options` chúng ta truyền vào nên cần phải lọc ra như trên.
+  - Vị trí của categories: Thông thường vị trí của trường `other_content` sẽ là ở cuối danh sách. Nhưng không hẳn master data nào cũng chuẩn hoặc category được sinh tự động. Có một mẹo là chúng ta sẽ luôn để `other_content` ở đầu tiên của mảng (bản ghi đầu tiên) và dùng hàm `rotate(1)` để dịch bản ghi đó xuống cuối mảng
+
+  ```
+  a = [ &quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot; ]
+  a.rotate         #=&amp;gt; [&quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;a&quot;]
+  ```
+
+  - Tìm hiểu kĩ design để khi import master
 &lt;/section&gt;
 
 &lt;section data-markdown=&quot;&quot; style=&quot;text-align: left;&quot;&gt;
@@ -1506,175 +1540,6 @@ WHERE column_name IS NOT NULL;
         <pubDate>Mon, 09 Sep 2019 00:00:00 +0700</pubDate>
         <link>http://localhost:4000/tech/2019/09/09/sql-advanced/</link>
         <guid isPermaLink="true">http://localhost:4000/tech/2019/09/09/sql-advanced/</guid>
-        
-        
-        <category>tech</category>
-        
-      </item>
-    
-      <item>
-        <title>Những tricks khi học JSX</title>
-        <description>&lt;ul&gt;
-  &lt;li&gt;Nội dung bài viết xoay quanh khóa học trên &lt;a href=&quot;https://www.codecademy.com/courses/react-101/lessons/react-jsx-advanced/exercises/self-closing-tags?action=resume_content_item&quot;&gt;Codecademy&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;class-vs-classname&quot;&gt;class vs className&lt;/h3&gt;
-&lt;p&gt;Trong HTML, &lt;code&gt;class&lt;/code&gt; thường được sử dụng để đặt tên cho thuộc tính của đối tượng&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;h1 class=&quot;big&quot;&amp;gt;Hey&amp;lt;/h1&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Trong JSX, chúng ta không thể sử dụng &lt;code&gt;class&lt;/code&gt; mà phải sử dụng &lt;code&gt;className&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;h1 className=&quot;big&quot;&amp;gt;Hey&amp;lt;/h1&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This is because JSX gets translated into (được định dạng sang) JavaScript, and class is a reserved word (danh từ riêng) in JavaScript. Khi JSX rendered (được biểu diễn) JSX &lt;code&gt;className&lt;/code&gt; attributes (thuộc tính) are automatically rendered as &lt;code&gt;class&lt;/code&gt; attributes.&lt;/p&gt;
-
-&lt;p&gt;Example:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;import React from 'react';
-import ReactDOM from 'react-dom';
-
-// Write code here:
-const myDiv = (
-	&amp;lt;div className=&quot;big&quot;&amp;gt;
-    I AM A BIG DIV
-  &amp;lt;/div&amp;gt;
-)
-
-ReactDOM.render(myDiv, document.getElementById('app'))
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&quot;self-closing-tags&quot;&gt;Self-Closing Tags&lt;/h3&gt;
-&lt;p&gt;Another JSX ‘gotcha’ (Một bất ngờ của JSX) involves (liên quan) self-closing tags (các thẻ tự động đóng).&lt;/p&gt;
-
-&lt;p&gt;What’s a self-closing tag?&lt;/p&gt;
-
-&lt;p&gt;Most (phần lớn) HTML elements(thành phần) use two tags: an opening tag (&lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt;), and a closing tag (&lt;code&gt;&amp;lt;/div&amp;gt;&lt;/code&gt;). However, some HTML elements such as (như là) &lt;code&gt;&amp;lt;img&amp;gt;&lt;/code&gt; and &lt;code&gt;&amp;lt;input&amp;gt;&lt;/code&gt; use only one tag. The tag that belongs to(thuộc về) a single-tag element isn’t an opening tag nor a closing tag; it’s a self-closing tag.&lt;/p&gt;
-
-&lt;p&gt;When you write a self-closing tag in HTML, it is optional to include a forward-slash (dấu gạch chéo) immediately before (ngay trước) the final angle-bracket (dấu ngoặc nhọn cuối cùng):&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;Fine in HTML with a slash:
-
-  &amp;lt;br /&amp;gt;
-
-Also fine, without the slash:
-
-  &amp;lt;br&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;But!&lt;/p&gt;
-
-&lt;p&gt;In JSX, you have to include (phải bao gồm) the slash (dấu gạch chéo). If you write a self-closing tag in JSX and forget the slash (quên dấu gạch chéo), you will raise (nhận) an error:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;Fine in JSX:
-
-  &amp;lt;br /&amp;gt;
-
-NOT FINE AT ALL in JSX:
-
-  &amp;lt;br&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&quot;curly-braces-dấu-ngoặc-nhọn-in-jsx&quot;&gt;Curly Braces (Dấu ngoặc nhọn) in JSX&lt;/h3&gt;
-
-&lt;p&gt;Any code in between (nằm giữa) the tags of a JSX element will be read as JSX (đọc dưới dạng JSX), not as regular (cú pháp) JavaScript! JSX doesn’t add numbers - it reads them as text, just like HTML.&lt;/p&gt;
-
-&lt;p&gt;You need a way to write code that says, “Even though I am located in between JSX tags, treat me like ordinary JavaScript and not like JSX.”&lt;/p&gt;
-
-&lt;p&gt;You can do this by wrapping (đóng gói) your code in curly braces (dấu ngoặc nhọn).&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# 5
-&amp;lt;h1&amp;gt;{2 + 3}&amp;lt;/h1&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&quot;variables-biến-in-jsx&quot;&gt;Variables (biến) in JSX&lt;/h3&gt;
-
-&lt;p&gt;When you inject (đưa) JavaScript into JSX, that JavaScript is part of the same environment (một phần của môi trường tương ứng) as the rest (phần còn lại) of the JavaScript in your file.&lt;/p&gt;
-
-&lt;p&gt;That means that you can access (truy cập) variables while inside (trong khi bên trong) of a JSX expression, even if those (ngay cả khi) variables were declared (được khai báo) on the outside.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;// Declare a variable:
-const name = 'Gerdo';
-
-// Access your variable
-// from inside of a JSX expression:
-const greeting = &amp;lt;p&amp;gt;Hello, {name}!&amp;lt;/p&amp;gt;;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&quot;variable-attributes-các-thuộc-tính-biến-in-jsx&quot;&gt;Variable Attributes (các thuộc tính biến) in JSX&lt;/h3&gt;
-
-&lt;p&gt;When writing JSX, it’s common to use variables (các biến) to set attributes (các thuộc tính).&lt;/p&gt;
-
-&lt;p&gt;Here’s an example of how that might work (cách nó hoạt động):&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;// Use a variable to set the `height` and `width` attributes:
-
-const sideLength = &quot;200px&quot;;
-
-const panda = (
-  &amp;lt;img
-    src=&quot;images/panda.jpg&quot;
-    alt=&quot;panda&quot;
-    height={sideLength}
-    width={sideLength} /&amp;gt;
-);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Notice how in this example, the &lt;code&gt;&amp;lt;img /&amp;gt;&lt;/code&gt;‘s attributes each get their own line. This can make your code more readable (dễ đọc) if you have a lot of attributes (có nhiều thuộc tính) on one element (thành phần).&lt;/p&gt;
-
-&lt;p&gt;Object properties (thuộc tính đối tượng) are also often used to set attributes (đặt thuộc tính):&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;const pics = {
-  panda: &quot;http://bit.ly/1Tqltv5&quot;,
-  owl: &quot;http://bit.ly/1XGtkM3&quot;,
-  owlCat: &quot;http://bit.ly/1Upbczi&quot;
-};
-
-const panda = (
-  &amp;lt;img
-    src={pics.panda}
-    alt=&quot;Lazy Panda&quot; /&amp;gt;
-);
-
-const owl = (
-  &amp;lt;img
-    src={pics.owl}
-    alt=&quot;Unimpressed Owl&quot; /&amp;gt;
-);
-
-const owlCat = (
-  &amp;lt;img
-    src={pics.owlCat}
-    alt=&quot;Ghastly Abomination&quot; /&amp;gt;
-);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&quot;event-sự-kiện-listeners--lắng-nghe-in-jsx&quot;&gt;Event (sự kiện) Listeners  (lắng nghe) in JSX&lt;/h3&gt;
-&lt;p&gt;https://www.codecademy.com/courses/react-101/lessons/react-jsx-advanced/exercises/jsx-event-listeners?action=resume_content_item&lt;/p&gt;
-
-&lt;p&gt;JSX elements (các phần tử ) can have event listeners (sự kiện lắng nghe), just like HTML elements can. Programming (lập trình) in React means constantly working (liên tục làm việc) with event listeners.&lt;/p&gt;
-
-&lt;p&gt;You create an event listener by giving a (cung cấp) JSX element a special attribute (thuộc tính đặc biệt). Here’s an example:&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;&amp;lt;img onClick={myFunc} /&amp;gt;&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;An event listener attribute’s name should be something like onClick or onMouseOver: the word on, plus the type of event that you’re listening for. You can see a list of valid event names here.&lt;/p&gt;
-
-&lt;p&gt;An event listener attribute’s value should be a function. The above example would only work if myFunc were a valid function that had been defined elsewhere:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;function myFunc() {
-  alert('Make myFunc the pFunc... omg that was horrible i am so sorry');
-}
-
-&amp;lt;img onClick={myFunc} /&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Note that in HTML, event listener names are written in all lowercase, such as onclick or onmouseover. In JSX, event listener names are written in camelCase, such as onClick or onMouseOver.&lt;/p&gt;
-</description>
-        <pubDate>Tue, 27 Aug 2019 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/tech/2019/08/27/reactjs-jsx/</link>
-        <guid isPermaLink="true">http://localhost:4000/tech/2019/08/27/reactjs-jsx/</guid>
         
         
         <category>tech</category>

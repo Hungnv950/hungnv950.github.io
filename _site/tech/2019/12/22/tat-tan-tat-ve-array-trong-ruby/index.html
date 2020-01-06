@@ -61,20 +61,246 @@
 	    </span>
 		</p>		
 		<div class="post">
-			<p>Bài viết dựa trên nguồn <a href="https://apidock.com/ruby/Array">apidoc.com</a> và một số ví dụ mình sưu tầm được. Hi vọng sẽ giúp đỡ được mình và mọi người trên con đường làm chủ Ruby.</p>
+			<p>Bài viết dựa trên nguồn <a href="https://ruby-doc.org/core-2.4.1/Array.html">ruby-doc.org</a> và một số ví dụ mình sưu tầm được. Hi vọng sẽ giúp đỡ được mình và mọi người trên con đường làm chủ Ruby.</p>
 
-<h1 id="class-methods-3">Class methods (3)</h1>
+<h1 id="array-mảng">Array (mảng)</h1>
 
-<h2 id="1-args-public">1. [](*args) public</h2>
-<p>Trả về một mảng với các đối tượng truyền vào.</p>
+<ul>
+  <li>
+    <p>Array là kiểu dữ liệu được sắp xếp, đánh chỉ mục số nguyên (chỉ số) của bất kì đối tượng nào</p>
+  </li>
+  <li>
+    <p>Array có chỉ số bắt đầu từ 0, tương tự như C hoặc Java. Một chỉ số âm được coi là có liên quan đến cuối của mảng là chỉ só <code>-1</code> chỉ ra phần tử cuối cùng của mảng, <code>-2</code> là phần tử tiếp theo cuối cùng trong mảng, và cứ thế tiếp tục <code>-3</code>, ..</p>
+  </li>
+</ul>
 
-<pre><code>Array.[]( 1, 'a', /^A/ ) # =&gt; [1, "a", /^A/]
-Array[ 1, 'a', /^A/ ]    # =&gt; [1, "a", /^A/]
-[ 1, 'a', /^A/ ]         # =&gt; [1, "a", /^A/]
+<h1 id="tạo-mới-arrays">Tạo mới Arrays</h1>
+<ul>
+  <li>Một mảng mới có thể được tạo bằng cách sử dụng kí tự khởi tạo: <code>[]</code>. Như ví dụ dưới, mảng được tạo bao gồm kiểu dữ liệu <code>Integer</code>, <code>String</code> và <code>Float</code>:</li>
+</ul>
+
+<pre><code>arr = [1, "two", 3.0] #=&gt; [1, "two", 3.0]
 </code></pre>
 
-<h2 id="2-newp1--v1-p2--v2-public">2. new(p1 = v1, p2 = v2) public</h2>
-<p>Trả về một mảng mới.</p>
+<ul>
+  <li>Một array có thể được tạo bằng cách gọi rõ ràng lệnh <code>::new</code> với không, một (khởi tạo độ dài của mảng) hoặc hai phần tử (khởi tạo độ dài và giá trị mặc định của đối tượng)</li>
+</ul>
+
+<pre><code>arr = Array.new     #=&gt; []
+Array.new(3)        #=&gt; [nil, nil, nil]
+Array.new(3, true)  #=&gt; [true, true, true]
+</code></pre>
+<ul>
+  <li>
+    <p>Chú ý rằng phần thử thứ hai điền vào mảng với các tham chiếu tới cùng một đối tượng. Do đó, cách này nên dùng trong các trường hợp bạn cần khởi tạo các mảng với các đối tượng bất biến như là <code>Symbols</code>, <code>numbers</code>, <code>true</code> hoặc <code>false</code></p>
+  </li>
+  <li>
+    <p>Để taọ một mảng với các đối tượng riêng biệt, chúng ta có thể sử dụng block. Phương pháp này an toàn khi sử dụng với các đối tượng có thể thay đoỏi, chẳng hạn như <code>hashes</code>, <code>strings</code> hoặc <code>arrays</code>.</p>
+  </li>
+</ul>
+
+<pre><code>Array.new(4) { Hash.new }   #=&gt; [{}, {}, {}, {}]
+</code></pre>
+
+<ul>
+  <li>Một cách nhanh để tạo các mảng đa chiều:</li>
+</ul>
+
+<pre><code>empty_table - Array.new(3) { Array.new(3) }
+
+#=&gt; [[nil, nil, nil], [nil, nil, nil], [nil, nil, nil]]
+</code></pre>
+
+<ul>
+  <li>Một array có thể tạo bằng cách sử dụng phương thức <code>Array()</code>, cung cấp bởi Kernel, nơi mà chúng sẽ được gọi <code>to_ary</code> sau đó <code>to_a</code> trong mỗi phần tử của chúng:</li>
+</ul>
+
+<pre><code>Array({:a =&gt; "a"}, :b =&gt; "b")   #=&gt; [[:a, "a"], [:b, "b"]]
+</code></pre>
+
+<h1 id="truy-cập-các-phần-tử">Truy cập các phần tử</h1>
+<ul>
+  <li>Các phần tử trong array cso thể được lấy bằng cách sử dụng phương thức <code>[]</code>. Nó có thể lấy thông qua chỉ số một giá trị duy nhất, cũng có thể lấy một phần trong khoảng (chỉ số bắt đầu và độ dài).</li>
+  <li>Các chỉ số âm bắt đầu từ cuối, với <code>-1</code> là phần tử cuối cùng.</li>
+</ul>
+
+<pre><code>arr = [1, 2, 3, 4, 5, 6]
+arr[2]      #=&gt; 3
+arr[100]    #=&gt; nil
+arr[-3]     #=&gt; 4
+arr[2, 3]   #=&gt; [3, 4, 5]
+arr[1..4]   #=&gt; [2, 3, 4, 5]
+arr[1..-3]  #=&gt; [2, 3, 4]
+</code></pre>
+
+<ul>
+  <li>Một cách khác để truy cập một phần tử cụ thể của mảng là sử dụng phương thức <code>at</code>.</li>
+</ul>
+
+<pre><code>arr.at(0)   #=&gt; 1
+</code></pre>
+
+<p>**Để hiển thị ra lỗi cho trường hợp chỉ số nhập vào vượt ra bên ngoài của mảng hoặc đặt giá trị mặc định khi điều đó xảy ra, chúng ta sử dụng <code>fetch</code> **</p>
+
+<pre><code>arr = ['a', 'b', 'c', 'd', 'e', 'f']
+
+arr.fetch(100) #=&gt; IndexError: index 100 outside of array bounds: -6...6
+
+arr.fetch(100, "oops") #=&gt; "oops"
+arr.fetch(100, 'g') #=&gt; "g"
+
+</code></pre>
+
+<ul>
+  <li>Phương thức <code>first</code> và <code>last</code> sẽ trả về giá trị đầu tiên và cuối cùng của mảng tương ứng</li>
+</ul>
+
+<pre><code>arr.first #=&gt; 1
+arr.last  #=&gt; 6
+
+</code></pre>
+
+<ul>
+  <li>Để trả về <code>n</code> phần tử của mảng, sử dụng <code>take</code>.</li>
+</ul>
+
+<pre><code>arr.take(3) #=&gt; [1, 2, 3]
+</code></pre>
+
+<ul>
+  <li><code>drop</code> thực hiện ngược lại với <code>take</code>, nó sẽ trả lại mảng với <code>n</code> phần tử đã bị hủy</li>
+</ul>
+
+<h1 id="lấy-thông-tin-của-một-array">Lấy thông tin của một Array</h1>
+
+<ul>
+  <li>Arrays luôn theo dõi độ dài của chúng. Để truy vấn một mảng về số lượng phần tử mà nó chứa, sử dụng <code>length</code>, <code>count</code> hoặc <code>size</code>.</li>
+</ul>
+
+<pre><code>browsers = ['Chrome', 'Firefox', 'Safari', 'Opera', 'IE']
+browsers.length #=&gt; 5
+browsers.count #=&gt; 5
+browsers.size #=&gt; 5
+</code></pre>
+
+<ul>
+  <li>Để kiểm mảng có chứa bất kì một phần tử nào không chúng ta sử dụng <code>empty?</code></li>
+</ul>
+
+<pre><code>browsers.empty?   #=&gt; false
+</code></pre>
+
+<ul>
+  <li>Để kiểm tra một phần tử có nằm trong array ta sử dụng hàm <code>include?</code>:
+    <pre><code>browsers.include?('Konqueror') #=&gt; false
+</code></pre>
+  </li>
+</ul>
+
+<h1 id="thêm-phần-tử-vào-mảng">Thêm phần tử vào mảng</h1>
+<ul>
+  <li>Các phần tử có thể được thêm vào cuối mảng bàng cách sử dụng <code>push</code> hoặc <code>&lt;&lt;</code></li>
+</ul>
+
+<pre><code>arr = [1, 2, 3, 4]
+arr.push(5) #=&gt; [1, 2, 3, 4, 5]
+arr &lt;&lt; 6    #=&gt; [1, 2, 3, 4, 5, 6]
+</code></pre>
+
+<ul>
+  <li><code>unshift</code> sẽ thêm phần tử mới vào đầu mảng.</li>
+</ul>
+
+<pre><code>arr.unshift(0) #=&gt; [0, 1, 2, 3, 4, 5, 6]
+</code></pre>
+
+<ul>
+  <li>Với <code>insert</code> bạn có thể thêm phần tử vào array với vị trí chỉ định</li>
+</ul>
+
+<pre><code>arr.insert(3, 'apple')  #=&gt; [0, 1, 2, 'apple', 3, 4, 5, 6]
+</code></pre>
+
+<ul>
+  <li>Khi sử dụng <code>insert</code> chúng ta có thể thêm nhiều phần tử cùng 1 lúc trong 1 lần.</li>
+</ul>
+
+<pre><code>arr.insert(3, 'orange', 'pear', 'grapefruit')
+#=&gt; [0, 1, 2, "orange", "pear", "grapefruit", "apple", 3, 4, 5, 6]
+</code></pre>
+
+<h1 id="xóa-phần-tử-khỏi-mảng">Xóa phần tử khỏi mảng</h1>
+<ul>
+  <li>Phương thức <code>pop</code> xóa phần tử cuối cùng khỏi mảng và trả về mảng đó.</li>
+</ul>
+
+<pre><code>arr =  [1, 2, 3, 4, 5, 6]
+arr.pop #=&gt; 6
+arr #=&gt; [1, 2, 3, 4, 5]
+</code></pre>
+
+<ul>
+  <li>Để truy xuất đồng thời xóa phần tử đầu tiên, sử dụng <code>shift</code></li>
+</ul>
+
+<pre><code>arr.shift #=&gt; 1
+arr #=&gt; [2, 3, 4, 5]
+</code></pre>
+
+<ul>
+  <li>XÓa một phần tử tại vị trí xác định:</li>
+</ul>
+
+<pre><code>arr.delete_at(2) #=&gt; 4
+arr #=&gt; [2, 3, 5]
+</code></pre>
+
+<ul>
+  <li>Xóa một phần tử tại bất kì vị trí nào trong mảng, sử dụng <code>delete</code>:</li>
+</ul>
+
+<pre><code>arr = [1,2,2,3,2]
+arr.delete(2) #=&gt; 2
+arr           #=&gt; [1, 3]
+</code></pre>
+
+<ul>
+  <li>Sử dụng <code>compact</code> và <code>compact!</code> để xóa giá trị <code>nil</code> trong mảng:</li>
+</ul>
+
+<pre><code>arr = ['foo', 0, nil, 'bar', 7, 'baz', nil]
+arr.compact  #=&gt; ['foo', 0, 'bar', 7, 'baz']
+arr          #=&gt; ['foo', 0, nil, 'bar', 7, 'baz', nil]
+arr.compact! #=&gt; ['foo', 0, 'bar', 7, 'baz']
+arr          #=&gt; ['foo', 0, 'bar', 7, 'baz']
+</code></pre>
+
+<ul>
+  <li>Để xóa các phần tử trùng lặp trong mảng, sử dụng <code>uniq</code> và <code>uniq!</code></li>
+</ul>
+
+<pre><code>arr = [2, 5, 6, 556, 6, 6, 8, 9, 0, 123, 556]
+arr.uniq #=&gt; [2, 5, 6, 556, 8, 9, 0, 123]
+arr      #=&gt; [2, 5, 6, 556, 6, 6, 8, 9, 0, 123, 556]
+arr.uniq! #=&gt; [2, 5, 6, 556, 8, 9, 0, 123]
+arr      #=&gt; [2, 5, 6, 556, 8, 9, 0, 123]
+</code></pre>
+
+<h1 id="lặp-mảng">Lặp mảng</h1>
+<ul>
+  <li>Tương tự các lớp khác bao gồm module <code>Enumerable</code>, Array có một phương thức <code>each</code>, định nghĩa các phần tử nào sẽ được lặp và làm thế nào. Trong trường hợp <code>each</code> của Array, tất cả các phần tử trong đối tượng Array đều được đưa vào khối theo trình tự.</li>
+  <li>Lưu ý rằng thao tác này không làm thay đổi giá trị của mảng.</li>
+</ul>
+
+<pre><code>arr = [1, 2, 3, 4, 5]
+arr.each { |a| print a -= 10, " " }
+# prints: -9 -8 -7 -6 -5
+#=&gt; [1, 2, 3, 4, 5]
+</code></pre>
+
+<ul>
+  <li>Một phương thức lặp đôi khi cũng hữu ích là</li>
+</ul>
 
 		</div>
 	</div>
@@ -84,6 +310,21 @@ Array[ 1, 'a', /^A/ ]    # =&gt; [1, "a", /^A/]
 	<div class="related">
 		<h4>Related Posts</h4>
 		<ul class="posts">
+		    
+		    <li>
+			  <span>06 Jan 2020 &raquo;</span>
+			  <a href="http://localhost:4000/life/2020/01/06/the-x-y-problem/">The X-Y problem</a>
+		    </li>
+		    
+		    <li>
+			  <span>06 Jan 2020 &raquo;</span>
+			  <a href="http://localhost:4000/tech/2020/01/06/login-and-messaging-with-line/">Ruby - Login and messaging with line</a>
+		    </li>
+		    
+		    <li>
+			  <span>22 Dec 2019 &raquo;</span>
+			  <a href="http://localhost:4000/tech/2019/12/22/rails-namespace-vs-scopes/">Rails routes namespace vs scopes</a>
+		    </li>
 		    
 		    <li>
 			  <span>14 Dec 2019 &raquo;</span>
@@ -120,21 +361,6 @@ Array[ 1, 'a', /^A/ ]    # =&gt; [1, "a", /^A/]
 			  <a href="http://localhost:4000/tech/2019/11/12/how-to-use-scopes-in-ruby-on-rails/">Sử dụng scopes trong Ruby on Rails</a>
 		    </li>
 		    
-		    <li>
-			  <span>09 Sep 2019 &raquo;</span>
-			  <a href="http://localhost:4000/tech/2019/09/09/ruby-inject-vs-each_with_object/">Ruby inject vs each_with_object</a>
-		    </li>
-		    
-		    <li>
-			  <span>09 Sep 2019 &raquo;</span>
-			  <a href="http://localhost:4000/tech/2019/09/09/sql-advanced/">Learn SQL advanced</a>
-		    </li>
-		    
-		    <li>
-			  <span>27 Aug 2019 &raquo;</span>
-			  <a href="http://localhost:4000/tech/2019/08/27/reactjs-jsx/">Những tricks khi học JSX</a>
-		    </li>
-		    
 		</ul>
 	</div>
 	
@@ -148,7 +374,7 @@ Array[ 1, 'a', /^A/ ]    # =&gt; [1, "a", /^A/]
 		<div class="column-2"><a href="http://localhost:4000/ ">Home</a></div>
 		<div class="column-3">
 			
-				<span>Newer >></span>
+				<a href="http://localhost:4000/tech/2019/12/22/rails-namespace-vs-scopes/">Newer >></a>
 			
 		</div>
 	</div>

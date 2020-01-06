@@ -45,3 +45,6 @@ git filter-branch --commit-filter '
                                   ))
   }
 ```
+
+- Cách kế thừa 1 gem: Viết theo thứ tự đúng của module đó trong cây thư mục sẽ có thể kế thừa và overide.
+- Nhớ include trong extension.rb

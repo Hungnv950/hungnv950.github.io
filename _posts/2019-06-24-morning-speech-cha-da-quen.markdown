@@ -31,6 +31,6 @@ Cha không thể đợi thêm nữa. Cha phải nhanh chóng bước đến bên
 
 Ôi, hình như cha đã nhìn đứa con thơ dại của cha như nhìn một con người trưởng thành thật sự. Giờ đây, nhìn con cuộn mình trong chăn và mệt mỏi ngủ yên trên chiếc giường bé xíu, Cha chợt nhận ra rằng con chỉ là một đứa trẻ thơ ngây. Sáng sáng, con vẫn nũng nịu trong vòng tay trìu mến của mẹ. Mái tóc tơ mềm mại của con còn vướng víu trên bờ vai mẹ, cần được che chở trong cảm giác được yêu thương. Vậy mà, Cha đã đòi hỏi ở con quá nhiều…..
 
-	Sự thực, người cha chưa từng đứng ở lập trường của một cậu bé để hiểu về cuộc sống như thế nào, hoặc ông ấy đã quên mất. Và cũng thật bất ngờ khi một đứa bé trước những sự đối xử của cha thì em vẫn rất mực yêu thương cha với sự chân thành. 
+	Sự thực, người cha chưa từng đứng ở lập trường của một cậu bé để hiểu về cuộc sống như thế nào, hoặc ông ấy đã quên mất. Và cũng thật bất ngờ khi một đứa bé trước những sự đối xử của cha thì em vẫn rất mực yêu thương cha với sự chân thành.
 
     Theo mình, câu chuyện không chỉ dừng lại ở việc cách giáo dục con cái của cá bậc cha mẹ mà nó còn để lại nhiều bài học về cách sống và cách tiếp nhận cuộc sống. Ai cũng sẽ là những đứa trẻ trong lĩnh vực mới của mình và nếu chân thành như cách mà đứa trẻ đối xử với người cha ắt sẽ thành công. Và hi vọng những người anh - người cha vẫn luôn sẵn lòng đứng ở vị trí newbee để có thể cùng nhau hoàn thành công việc một cách tốt nhất.

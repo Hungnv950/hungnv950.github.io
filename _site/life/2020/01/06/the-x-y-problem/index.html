@@ -3,12 +3,12 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Block và yield trong ruby</title>
+        <title>The X-Y problem</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">        
         <meta name="description" content="Harmony is a free responsive jekyll theme by Gayan Virajith and Maheshika Lakmali. Sourced on Github -  https://github.com/gayanvirajith/harmony
 ">
         <link rel="canonical" 
-        href="http://localhost:4000/tech/2018/03/21/ruby-block-and-yield/">
+        href="http://localhost:4000/life/2020/01/06/the-x-y-problem/">
         
         <!-- styles -->
         <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
@@ -49,120 +49,76 @@
         <div class="page-content wc-container">
 	
 	<div class="post">
-		<h1>Block và yield trong ruby</h1>
+		<h1>The X-Y problem</h1>
 		<p class="post-meta">
 			
       <span class="categories">
-      tech
+      life
       </span> |
 	    
 	    <span class="post-date">
-    	Mar 21, 2018 
+    	Jan 6, 2020 
 	    </span>
 		</p>		
 		<div class="post">
-			<h1 id="blocks"><strong><code>Blocks</code></strong></h1>
-<p>Về cơ bản, <code>blocks</code> trong ruby là một cách để nhóm các câu lệnh sao cho chúng ta có thể kết hợp với các lời gọi phương thức như thể chúng là các tham số.</p>
+			<blockquote>
+  <p>XY problem là một vấn đề nan giải mà bất cứ ai hoặc bất cứ ngành nghề nào cũng có thể sẽ mắc phải trong công việc và cuộc sống.
+Mình biết tới vấn đề này thông qua một người anh trong team dự án - <a href="https://ttuan.github.io/">Tuấn Trần</a>, hi vọng bài viết sẽ đem lại cho bạn một cách nhìn nhận khác khi đối mặt với bất kì vấn đề nào trong cuộc sống :D</p>
+</blockquote>
 
-<p>Ruby cung cấp hai cách để viết <code>blocks</code> là:</p>
+<p>Source: <a href="http://xyproblem.info/">The XY Problem</a></p>
+
+<h3 id="what-is-it-">What is it ?</h3>
+<blockquote>
+  <p>Vấn đề XY xảy ra khi bạn muốn đặt câu hỏi về vấn đề X nhưng bạn lại đặt câu hỏi về  những giải pháp bạn đưa ra để giải quyết vấn đề X đó. Điều đó dẫn tới nhiều lãng phí về thời gian và năng lượng, bao gồm người hỏi và người muốn giúp đỡ.</p>
+</blockquote>
+
+<p>Để dễ hiểu có thể tham khảo ví dụ:</p>
 <ol>
-  <li>Sử dụng dấu <code>{}</code> đối với những blocks ngắn gọn có thể viêt trên một dòng.
-    <pre><code>array = [1,2,3,4]
-</code></pre>
-  </li>
-  <li>Sử dụng cụm <code>do..end</code>
-    <pre><code>array.map! do |n|
-  n * n
-end
-=&gt; [1, 4, 9, 16]
-</code></pre>
-  </li>
+  <li>Bạn muốn giải quyết vấn đề X</li>
+  <li>Bạn không biết làm thế nào để giải quyết X, nhưng nghĩ rằng bạn có thể tìm ra cách giải quyết vấn đề X nếu bạn làm được Y.</li>
+  <li>Bạn tiếp tục không biết làm thế nào để giải quyết Y.</li>
+  <li>Người khác giúp bạn giải quyết Y nhưng lại <code>confused</code> bởi vì Y dường như là 1 vấn đề lạ và không liên quan tới X cho lắm =))</li>
+  <li>Sau rất nhiều tương tác và thời gian lãng phí, cuối cùng bạn cũng hiểu được rằng bạn muốn được giúp đỡ giải quyết vấn đề X, và bạn cũng hiểu ra rằng Y cũng không liên quan tới X cho là mấy :v</li>
 </ol>
 
-<h2 id="procs"><strong><code>Procs</code></strong></h2>
-<p>Một proc là một instance của lớp Proc. Proc là <code>object</code> còn <code>blocks</code> thì không.</p>
-<pre><code>p = Proc.new { puts "Hello World" }
-</code></pre>
-<p>Điều này cho phép chúng ta gọi các phương thức trên nó và gán nó cho các biến. Procs cũng có thể gọi lại chính nó.</p>
-<pre><code>p.call  # prints 'Hello World'
-p.class # returns 'Proc'
-a = p   # a now equals p, a Proc instance
-p       # returns a proc object '#&lt;Proc:0x007f96b1a60eb0@(irb):46&gt;'
-</code></pre>
-<h2 id="-lambdas"><code> Lambdas</code></h2>
-<p>Lambda function hầu như giống với Procs nhưng có hai điểm khác biệt:</p>
-<ul>
-  <li>Thứ nhất: Lambda kiểm tra số lượng phần tử đầu vào. Báo lỗi nếu không chính xác. Còn Procs thì không
-    <pre><code>l = lambda { "I'm a lambda" }
-l.call
-=&gt; "I'm a lambda"
-l.call('arg')
-ArgumentError: wrong number of arguments (1 for 0)
-</code></pre>
-  </li>
-  <li>Thứ hai:  Lambdas và Procs xử lý khi gặp từ khóa <code>return</code> khác nhau:</li>
-</ul>
+<p>Vấn đề này xảy ra khi mà chúng ta bị mắc kẹt vào những vấn đề mà chúng ta tin đó là giải pháp và không thể quay lại bước trước đó để có thể hiểu vấn đề chính một cách rõ ràng.</p>
 
-<pre><code>def lambda_test
-  lam = lambda { return }
-  lam.call
-  puts "Hello world"
-end
+<h3 id="what-to-do-about-it">What to do about it?</h3>
+<p>Vậy thì chúng ta cần phải làm gì ?? Câu hỏi tương đối khó bởi vì khi chìm sâu vào 1 vấn đề chúng ta luôn tìm cách giải quyết nó chứ ít khi chúng ta tìm hiểu nguyên nhân vấn đề đó tại sao lại xảy ra.</p>
 
-lambda_test                 # calling lambda_test prints 'Hello World'
+<ol>
+  <li>Luôn nhìn vấn đề ở một bức tranh rộng hơn và đi cùng nó là những giải pháp.</li>
+  <li>Nếu ai đó yêu cầu thêm về thông tin, hãy cung cấp nó một cách đầy đủ và chi tiết.</li>
+  <li>Loại trừ những giải pháp đã được sử dụng, chia sẻ lý do bạn loại trừ chúng. Điều này sẽ cung cấp thêm thông tin về yêu cầu của bạn.</li>
+</ol>
+
+<p><em>Nên nhớ rằng nếu bạn luôn đoán đúng, bạn không cần phải hỏi bất cứ ai cả ^^</em></p>
+
+<h3 id="examples">Examples</h3>
+<h4 id="example-1">Example 1</h4>
+<p>n00b không thực sự muốn 3 kí tự cuối cùng trong filename, anh ta muốn <code>file extensions</code>, vậy tại sao anh ấy lại hỏi về 3 kí tự cuối cùng ??</p>
+
+<pre><code>&lt;n00b&gt; Làm thế nào tôi có thể in ra 3 kí tự cuối cùng của filename ?
+&lt;feline&gt; Nếu chúng đang trong 1 biến, bạn có thể dùng: echo ${foo: -3}
+&lt;feline&gt; Tại sao lại là 3 kí tự ? Đó có thực sự là điều bạn muốn ?
+&lt;feline&gt; Có phải bạn đang muốn phần mở rộng của file ?
+&lt;n00b&gt; Đúng :)
+&lt;feline&gt; Không có gì đảm bảo rằng mọi filename sẽ có phần mở rộng là 3 kí tự cả, vì vậy cứ bám theo sự mù quáng rằng 3 kí tự sẽ không thể giải quyết được vấn đề
+&lt;feline&gt; echo ${foo##*.}
 </code></pre>
-<pre><code>def proc_test
-  proc = Proc.new { return }
-  proc.call
-  puts "Hello world"
-end
+<h4 id="example-2">Example 2</h4>
+<p>Nếu Angela chỉ bắt đầu giải thích bằng cách giải thích thì cô ấy muốn ngăn người khác phát hiện hệ điều hành của mình, cuộc thảo luận đáng nhẽ ra có thể ngắn hơn rất nhiều.</p>
 
-proc_test                 # calling proc_test prints nothing
+<pre><code>Angela: 'nmap -O -A 127.0.0.1' trả về một số dòng bắt đầu với 'OS:'. Làm thế nào để thay đổi nó ?
+Obama: Nhìn vào sourcecode của nmap, tìm cách nó tìm ra phần Linux, sau đó viết lại TCP/IP của bạn để nó không vận hành theo theo cách mà nmap hoạt động.
+Angela: Đúng, nhưng tôi không biết về hệ thống api linux
+Obama: Well, địa chỉ của nmap dựa trên cách hoạt động của ngăn xếp TCP/IP, không có cách nào ngoại trừ viết lại các phần thích hợp của ngăn xếp đó.
+Angela: Tôi thực sự mcaanf phải tránh những tin nhắn này. Những IP nào có thể làm công việc này ?
+Obama: Well, không sử dụng việc quyét hệ điều hành hoặc quét các phiên bản.
+Angela: Tôi muốn ngăn người khác biết hệ điều hành của tôi.....
 </code></pre>
-<h1 id="yield"><strong><code>Yield</code></strong></h1>
-<p>Yield là một cách rất hay của Ruby để thực hiện một khối trong một phương thức bất kì mà không làm ảnh hưởng. Để hiểu rõ hơn chúng ta cùng theo dõi một ví dụ:</p>
-<pre><code>def rb_block
-  puts 'Start'
-  yield
-  yield
-  puts 'End'
-end
-
-rb_block {puts "We're in the block"}
-</code></pre>
-<p><code>Kết quả:</code></p>
-<pre><code>Start
-We're in the block
-We're in the block
-End
-</code></pre>
-<p>Dễ hiểu, khi thực thi method <code>rb_block</code>, ruby thực hiện câu bình thường cho tới khi gặp từ khóa <code>yield</code> , ruby sẽ dừng và thực hiện block này sau đó sẽ thực thi tiếp tục các logic của method <code>rb_block</code></p>
-<h2 id="yield-với-tham-số">Yield với tham số</h2>
-<p>Để dễ hiểu, ta quan sát ví dụ:</p>
-<pre><code>def rb_block
-    yield('hello', 'ruby')
-end
-
-rb_block { |s, r| puts s + ' ' + r
-</code></pre>
-<p><code>Kết quả:</code></p>
-<pre><code>hello ruby
-</code></pre>
-<p>Ta thấy, ruby cho phép truyển tham số vào yield trong các khối. Trong khối, chúng ta liệt kê tên của các đối số để nhận các tham số qua các dấu <code>||</code></p>
-
-<p><code>Lưu ý:</code> Khi định nghĩa <code>yield</code> <code>có tham số</code>, việc truyền vào tham số bắt buộc. Nếu không nhận được tham số phù hợp ruby sẽ báo lỗi.</p>
-<pre><code>rb_block   #`rb_block': no block given (yield) (LocalJumpError)
-</code></pre>
-<h1 id="tài-liệu-tham-khảo">Tài liệu tham khảo</h1>
-<p>http://www.bogotobogo.com/RubyOnRails/RubyOnRails_Blocks_and_Yield.php</p>
-
-<p>https://code.tutsplus.com/tutorials/ruby-on-rails-study-guide-blocks-procs-and-lambdas–net-29811</p>
-
-<p>http://awaxman11.github.io/blog/2013/08/05/what-is-the-difference-between-a-block/</p>
-
-<p>https://viblo.asia/p/thanh-thao-ruby-block-trong-5-phut-L4x5xg2alBM/</p>
-
-<p>https://viblo.asia/p/block-trong-ruby-wjAM7yNOvmWe</p>
+<p>:v :v</p>
 
 		</div>
 	</div>
@@ -172,11 +128,6 @@ rb_block { |s, r| puts s + ' ' + r
 	<div class="related">
 		<h4>Related Posts</h4>
 		<ul class="posts">
-		    
-		    <li>
-			  <span>06 Jan 2020 &raquo;</span>
-			  <a href="http://localhost:4000/life/2020/01/06/the-x-y-problem/">The X-Y problem</a>
-		    </li>
 		    
 		    <li>
 			  <span>06 Jan 2020 &raquo;</span>
@@ -223,6 +174,11 @@ rb_block { |s, r| puts s + ' ' + r
 			  <a href="http://localhost:4000/tech/2019/11/12/rails-6-active-storage-changes/">Rails 6 - Active Storage changes</a>
 		    </li>
 		    
+		    <li>
+			  <span>12 Nov 2019 &raquo;</span>
+			  <a href="http://localhost:4000/tech/2019/11/12/how-to-use-scopes-in-ruby-on-rails/">Sử dụng scopes trong Ruby on Rails</a>
+		    </li>
+		    
 		</ul>
 	</div>
 	
@@ -230,13 +186,13 @@ rb_block { |s, r| puts s + ' ' + r
 	<div class="post-footer">
 		<div class="column-1">
 			
-				<a href="http://localhost:4000/tech/2018/03/21/git-cherry-pick/"><< Older</a>
+				<a href="http://localhost:4000/tech/2020/01/06/login-and-messaging-with-line/"><< Older</a>
 			
 		</div>
 		<div class="column-2"><a href="http://localhost:4000/ ">Home</a></div>
 		<div class="column-3">
 			
-				<a href="http://localhost:4000/life/2019/06/26/morning-speech-cha-da-quen/">Newer >></a>
+				<span>Newer >></span>
 			
 		</div>
 	</div>

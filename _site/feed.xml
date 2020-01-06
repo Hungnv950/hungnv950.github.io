@@ -5,26 +5,375 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 24 Dec 2019 00:05:41 +0700</pubDate>
-    <lastBuildDate>Tue, 24 Dec 2019 00:05:41 +0700</lastBuildDate>
+    <pubDate>Tue, 07 Jan 2020 15:43:26 +0700</pubDate>
+    <lastBuildDate>Tue, 07 Jan 2020 15:43:26 +0700</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
     
       <item>
+        <title>The X-Y problem</title>
+        <description>&lt;blockquote&gt;
+  &lt;p&gt;XY problem là một vấn đề nan giải mà bất cứ ai hoặc bất cứ ngành nghề nào cũng có thể sẽ mắc phải trong công việc và cuộc sống.
+Mình biết tới vấn đề này thông qua một người anh trong team dự án - &lt;a href=&quot;https://ttuan.github.io/&quot;&gt;Tuấn Trần&lt;/a&gt;, hi vọng bài viết sẽ đem lại cho bạn một cách nhìn nhận khác khi đối mặt với bất kì vấn đề nào trong cuộc sống :D&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Source: &lt;a href=&quot;http://xyproblem.info/&quot;&gt;The XY Problem&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;what-is-it-&quot;&gt;What is it ?&lt;/h3&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Vấn đề XY xảy ra khi bạn muốn đặt câu hỏi về vấn đề X nhưng bạn lại đặt câu hỏi về  những giải pháp bạn đưa ra để giải quyết vấn đề X đó. Điều đó dẫn tới nhiều lãng phí về thời gian và năng lượng, bao gồm người hỏi và người muốn giúp đỡ.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Để dễ hiểu có thể tham khảo ví dụ:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Bạn muốn giải quyết vấn đề X&lt;/li&gt;
+  &lt;li&gt;Bạn không biết làm thế nào để giải quyết X, nhưng nghĩ rằng bạn có thể tìm ra cách giải quyết vấn đề X nếu bạn làm được Y.&lt;/li&gt;
+  &lt;li&gt;Bạn tiếp tục không biết làm thế nào để giải quyết Y.&lt;/li&gt;
+  &lt;li&gt;Người khác giúp bạn giải quyết Y nhưng lại &lt;code&gt;confused&lt;/code&gt; bởi vì Y dường như là 1 vấn đề lạ và không liên quan tới X cho lắm =))&lt;/li&gt;
+  &lt;li&gt;Sau rất nhiều tương tác và thời gian lãng phí, cuối cùng bạn cũng hiểu được rằng bạn muốn được giúp đỡ giải quyết vấn đề X, và bạn cũng hiểu ra rằng Y cũng không liên quan tới X cho là mấy :v&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Vấn đề này xảy ra khi mà chúng ta bị mắc kẹt vào những vấn đề mà chúng ta tin đó là giải pháp và không thể quay lại bước trước đó để có thể hiểu vấn đề chính một cách rõ ràng.&lt;/p&gt;
+
+&lt;h3 id=&quot;what-to-do-about-it&quot;&gt;What to do about it?&lt;/h3&gt;
+&lt;p&gt;Vậy thì chúng ta cần phải làm gì ?? Câu hỏi tương đối khó bởi vì khi chìm sâu vào 1 vấn đề chúng ta luôn tìm cách giải quyết nó chứ ít khi chúng ta tìm hiểu nguyên nhân vấn đề đó tại sao lại xảy ra.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Luôn nhìn vấn đề ở một bức tranh rộng hơn và đi cùng nó là những giải pháp.&lt;/li&gt;
+  &lt;li&gt;Nếu ai đó yêu cầu thêm về thông tin, hãy cung cấp nó một cách đầy đủ và chi tiết.&lt;/li&gt;
+  &lt;li&gt;Loại trừ những giải pháp đã được sử dụng, chia sẻ lý do bạn loại trừ chúng. Điều này sẽ cung cấp thêm thông tin về yêu cầu của bạn.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;em&gt;Nên nhớ rằng nếu bạn luôn đoán đúng, bạn không cần phải hỏi bất cứ ai cả ^^&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;examples&quot;&gt;Examples&lt;/h3&gt;
+&lt;h4 id=&quot;example-1&quot;&gt;Example 1&lt;/h4&gt;
+&lt;p&gt;n00b không thực sự muốn 3 kí tự cuối cùng trong filename, anh ta muốn &lt;code&gt;file extensions&lt;/code&gt;, vậy tại sao anh ấy lại hỏi về 3 kí tự cuối cùng ??&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;n00b&amp;gt; Làm thế nào tôi có thể in ra 3 kí tự cuối cùng của filename ?
+&amp;lt;feline&amp;gt; Nếu chúng đang trong 1 biến, bạn có thể dùng: echo ${foo: -3}
+&amp;lt;feline&amp;gt; Tại sao lại là 3 kí tự ? Đó có thực sự là điều bạn muốn ?
+&amp;lt;feline&amp;gt; Có phải bạn đang muốn phần mở rộng của file ?
+&amp;lt;n00b&amp;gt; Đúng :)
+&amp;lt;feline&amp;gt; Không có gì đảm bảo rằng mọi filename sẽ có phần mở rộng là 3 kí tự cả, vì vậy cứ bám theo sự mù quáng rằng 3 kí tự sẽ không thể giải quyết được vấn đề
+&amp;lt;feline&amp;gt; echo ${foo##*.}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&quot;example-2&quot;&gt;Example 2&lt;/h4&gt;
+&lt;p&gt;Nếu Angela chỉ bắt đầu giải thích bằng cách giải thích thì cô ấy muốn ngăn người khác phát hiện hệ điều hành của mình, cuộc thảo luận đáng nhẽ ra có thể ngắn hơn rất nhiều.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Angela: 'nmap -O -A 127.0.0.1' trả về một số dòng bắt đầu với 'OS:'. Làm thế nào để thay đổi nó ?
+Obama: Nhìn vào sourcecode của nmap, tìm cách nó tìm ra phần Linux, sau đó viết lại TCP/IP của bạn để nó không vận hành theo theo cách mà nmap hoạt động.
+Angela: Đúng, nhưng tôi không biết về hệ thống api linux
+Obama: Well, địa chỉ của nmap dựa trên cách hoạt động của ngăn xếp TCP/IP, không có cách nào ngoại trừ viết lại các phần thích hợp của ngăn xếp đó.
+Angela: Tôi thực sự mcaanf phải tránh những tin nhắn này. Những IP nào có thể làm công việc này ?
+Obama: Well, không sử dụng việc quyét hệ điều hành hoặc quét các phiên bản.
+Angela: Tôi muốn ngăn người khác biết hệ điều hành của tôi.....
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;:v :v&lt;/p&gt;
+</description>
+        <pubDate>Mon, 06 Jan 2020 00:00:00 +0700</pubDate>
+        <link>http://localhost:4000/life/2020/01/06/the-x-y-problem/</link>
+        <guid isPermaLink="true">http://localhost:4000/life/2020/01/06/the-x-y-problem/</guid>
+        
+        
+        <category>life</category>
+        
+      </item>
+    
+      <item>
+        <title>Ruby - Login and messaging with line</title>
+        <description>&lt;blockquote&gt;
+  &lt;p&gt;Gần đây mình có gặp lại task liên quan tới việc implement tính năng đăng nhập và nhắn tin thông qua mạng xã hội Line.&lt;/p&gt;
+
+  &lt;p&gt;Tuy cách đây 1 năm mình cũng đã gặp task này nhưng khi gặp lại cũng còn khá nhiều bỡ ngỡ nên mình quyết định xây 1 chiếc base nhỏ cùng những &lt;code&gt;noob&lt;/code&gt; của mình để biết đâu sau này mình hoặc bạn có thể tránh phải&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;1-đặt-vấn-đề&quot;&gt;1. Đặt vấn đề&lt;/h3&gt;
+&lt;p&gt;Để làm bất cứ task nào mà mình chưa biết thì việc tự &lt;code&gt;research&lt;/code&gt; là vô cùng quan trọng. Như thường lệ, các câu hỏi đặt ra là: &lt;code&gt;what&lt;/code&gt;, &lt;code&gt;why&lt;/code&gt;, &lt;code&gt;when&lt;/code&gt;, &lt;code&gt;where&lt;/code&gt; và &lt;code&gt;how&lt;/code&gt;. Và chúng ta sẽ trả lời câu hỏi đó&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;what ? Chúng ta sẽ thực hiện chức năng login bằng Line và nhắn tin cho người dùng sử dụng Line&lt;/li&gt;
+  &lt;li&gt;why ? Do có nhu cầu từ KH hoặc là vì &lt;code&gt;mình thích&lt;/code&gt; =))&lt;/li&gt;
+  &lt;li&gt;when ? Khi người dùng muốn đồng bộ hoặc sử dụng thông tin tài khoản cá nhân Line của mình với hệ thống mà không tốn thời gian đăng nhập + nhận thông báo của hệ thống thông qua line. Để sâu hơn, bạn có thể tìm hiểu về &lt;a href=&quot;https://oauth.net/2/&quot;&gt;OAuth-2&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;where ? Phần này mình nghĩ sẽ liên quan tới &lt;code&gt;how&lt;/code&gt; nhiều hơn nhưng không sao, chúng ta vẫn có thể tìm kiếm mọi thứ thông qua internet hoặc thông qua &lt;em&gt;&lt;code&gt;người thân&lt;/code&gt;&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;how ?
+    &lt;ul&gt;
+      &lt;li&gt;Xác định vấn đề: Các bước trên đã có vẻ clear :D&lt;/li&gt;
+      &lt;li&gt;Giải quyết vấn đề: Để giải quyết được các vấn đề, với mình thì nên đặt ra các câu hỏi đúng để có thể trả lời từng câu hỏi đó dẫn tới việc giải quyết bài toán. Bạn có thể tham khảo &lt;a href=&quot;/life/2020/01/06/the-x-y-problem/&quot; target=&quot;_blank&quot;&gt;X-Y problem&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;Khi một service sinh ra để cung cấp tính năng thì chắc chắn nhà cung cấp phải cung cấp đi kèm service đó một document cụ thể. =&amp;gt; Tài liệu nên tìm hiểu và đọc của Line service&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;aaa&quot;&gt;aaa&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;Line login:&lt;/li&gt;
+  &lt;li&gt;Line message:&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Mon, 06 Jan 2020 00:00:00 +0700</pubDate>
+        <link>http://localhost:4000/tech/2020/01/06/login-and-messaging-with-line/</link>
+        <guid isPermaLink="true">http://localhost:4000/tech/2020/01/06/login-and-messaging-with-line/</guid>
+        
+        
+        <category>tech</category>
+        
+      </item>
+    
+      <item>
+        <title>Rails routes namespace vs scopes</title>
+        <description>&lt;p&gt;https://devblast.com/b/rails-5-routes-scope-vs-namespace&lt;/p&gt;
+</description>
+        <pubDate>Sun, 22 Dec 2019 00:00:00 +0700</pubDate>
+        <link>http://localhost:4000/tech/2019/12/22/rails-namespace-vs-scopes/</link>
+        <guid isPermaLink="true">http://localhost:4000/tech/2019/12/22/rails-namespace-vs-scopes/</guid>
+        
+        
+        <category>tech</category>
+        
+      </item>
+    
+      <item>
         <title>Tất tần tật về array trong ruby</title>
-        <description>&lt;p&gt;Bài viết dựa trên nguồn &lt;a href=&quot;https://apidock.com/ruby/Array&quot;&gt;apidoc.com&lt;/a&gt; và một số ví dụ mình sưu tầm được. Hi vọng sẽ giúp đỡ được mình và mọi người trên con đường làm chủ Ruby.&lt;/p&gt;
+        <description>&lt;p&gt;Bài viết dựa trên nguồn &lt;a href=&quot;https://ruby-doc.org/core-2.4.1/Array.html&quot;&gt;ruby-doc.org&lt;/a&gt; và một số ví dụ mình sưu tầm được. Hi vọng sẽ giúp đỡ được mình và mọi người trên con đường làm chủ Ruby.&lt;/p&gt;
 
-&lt;h1 id=&quot;class-methods-3&quot;&gt;Class methods (3)&lt;/h1&gt;
+&lt;h1 id=&quot;array-mảng&quot;&gt;Array (mảng)&lt;/h1&gt;
 
-&lt;h2 id=&quot;1-args-public&quot;&gt;1. [](*args) public&lt;/h2&gt;
-&lt;p&gt;Trả về một mảng với các đối tượng truyền vào.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Array là kiểu dữ liệu được sắp xếp, đánh chỉ mục số nguyên (chỉ số) của bất kì đối tượng nào&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Array có chỉ số bắt đầu từ 0, tương tự như C hoặc Java. Một chỉ số âm được coi là có liên quan đến cuối của mảng là chỉ só &lt;code&gt;-1&lt;/code&gt; chỉ ra phần tử cuối cùng của mảng, &lt;code&gt;-2&lt;/code&gt; là phần tử tiếp theo cuối cùng trong mảng, và cứ thế tiếp tục &lt;code&gt;-3&lt;/code&gt;, ..&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;pre&gt;&lt;code&gt;Array.[]( 1, 'a', /^A/ ) # =&amp;gt; [1, &quot;a&quot;, /^A/]
-Array[ 1, 'a', /^A/ ]    # =&amp;gt; [1, &quot;a&quot;, /^A/]
-[ 1, 'a', /^A/ ]         # =&amp;gt; [1, &quot;a&quot;, /^A/]
+&lt;h1 id=&quot;tạo-mới-arrays&quot;&gt;Tạo mới Arrays&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;Một mảng mới có thể được tạo bằng cách sử dụng kí tự khởi tạo: &lt;code&gt;[]&lt;/code&gt;. Như ví dụ dưới, mảng được tạo bao gồm kiểu dữ liệu &lt;code&gt;Integer&lt;/code&gt;, &lt;code&gt;String&lt;/code&gt; và &lt;code&gt;Float&lt;/code&gt;:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;arr = [1, &quot;two&quot;, 3.0] #=&amp;gt; [1, &quot;two&quot;, 3.0]
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&quot;2-newp1--v1-p2--v2-public&quot;&gt;2. new(p1 = v1, p2 = v2) public&lt;/h2&gt;
-&lt;p&gt;Trả về một mảng mới.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Một array có thể được tạo bằng cách gọi rõ ràng lệnh &lt;code&gt;::new&lt;/code&gt; với không, một (khởi tạo độ dài của mảng) hoặc hai phần tử (khởi tạo độ dài và giá trị mặc định của đối tượng)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;arr = Array.new     #=&amp;gt; []
+Array.new(3)        #=&amp;gt; [nil, nil, nil]
+Array.new(3, true)  #=&amp;gt; [true, true, true]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Chú ý rằng phần thử thứ hai điền vào mảng với các tham chiếu tới cùng một đối tượng. Do đó, cách này nên dùng trong các trường hợp bạn cần khởi tạo các mảng với các đối tượng bất biến như là &lt;code&gt;Symbols&lt;/code&gt;, &lt;code&gt;numbers&lt;/code&gt;, &lt;code&gt;true&lt;/code&gt; hoặc &lt;code&gt;false&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Để taọ một mảng với các đối tượng riêng biệt, chúng ta có thể sử dụng block. Phương pháp này an toàn khi sử dụng với các đối tượng có thể thay đoỏi, chẳng hạn như &lt;code&gt;hashes&lt;/code&gt;, &lt;code&gt;strings&lt;/code&gt; hoặc &lt;code&gt;arrays&lt;/code&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;Array.new(4) { Hash.new }   #=&amp;gt; [{}, {}, {}, {}]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Một cách nhanh để tạo các mảng đa chiều:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;empty_table - Array.new(3) { Array.new(3) }
+
+#=&amp;gt; [[nil, nil, nil], [nil, nil, nil], [nil, nil, nil]]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Một array có thể tạo bằng cách sử dụng phương thức &lt;code&gt;Array()&lt;/code&gt;, cung cấp bởi Kernel, nơi mà chúng sẽ được gọi &lt;code&gt;to_ary&lt;/code&gt; sau đó &lt;code&gt;to_a&lt;/code&gt; trong mỗi phần tử của chúng:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;Array({:a =&amp;gt; &quot;a&quot;}, :b =&amp;gt; &quot;b&quot;)   #=&amp;gt; [[:a, &quot;a&quot;], [:b, &quot;b&quot;]]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&quot;truy-cập-các-phần-tử&quot;&gt;Truy cập các phần tử&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;Các phần tử trong array cso thể được lấy bằng cách sử dụng phương thức &lt;code&gt;[]&lt;/code&gt;. Nó có thể lấy thông qua chỉ số một giá trị duy nhất, cũng có thể lấy một phần trong khoảng (chỉ số bắt đầu và độ dài).&lt;/li&gt;
+  &lt;li&gt;Các chỉ số âm bắt đầu từ cuối, với &lt;code&gt;-1&lt;/code&gt; là phần tử cuối cùng.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;arr = [1, 2, 3, 4, 5, 6]
+arr[2]      #=&amp;gt; 3
+arr[100]    #=&amp;gt; nil
+arr[-3]     #=&amp;gt; 4
+arr[2, 3]   #=&amp;gt; [3, 4, 5]
+arr[1..4]   #=&amp;gt; [2, 3, 4, 5]
+arr[1..-3]  #=&amp;gt; [2, 3, 4]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Một cách khác để truy cập một phần tử cụ thể của mảng là sử dụng phương thức &lt;code&gt;at&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;arr.at(0)   #=&amp;gt; 1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;**Để hiển thị ra lỗi cho trường hợp chỉ số nhập vào vượt ra bên ngoài của mảng hoặc đặt giá trị mặc định khi điều đó xảy ra, chúng ta sử dụng &lt;code&gt;fetch&lt;/code&gt; **&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;arr = ['a', 'b', 'c', 'd', 'e', 'f']
+
+arr.fetch(100) #=&amp;gt; IndexError: index 100 outside of array bounds: -6...6
+
+arr.fetch(100, &quot;oops&quot;) #=&amp;gt; &quot;oops&quot;
+arr.fetch(100, 'g') #=&amp;gt; &quot;g&quot;
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Phương thức &lt;code&gt;first&lt;/code&gt; và &lt;code&gt;last&lt;/code&gt; sẽ trả về giá trị đầu tiên và cuối cùng của mảng tương ứng&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;arr.first #=&amp;gt; 1
+arr.last  #=&amp;gt; 6
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Để trả về &lt;code&gt;n&lt;/code&gt; phần tử của mảng, sử dụng &lt;code&gt;take&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;arr.take(3) #=&amp;gt; [1, 2, 3]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code&gt;drop&lt;/code&gt; thực hiện ngược lại với &lt;code&gt;take&lt;/code&gt;, nó sẽ trả lại mảng với &lt;code&gt;n&lt;/code&gt; phần tử đã bị hủy&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;lấy-thông-tin-của-một-array&quot;&gt;Lấy thông tin của một Array&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Arrays luôn theo dõi độ dài của chúng. Để truy vấn một mảng về số lượng phần tử mà nó chứa, sử dụng &lt;code&gt;length&lt;/code&gt;, &lt;code&gt;count&lt;/code&gt; hoặc &lt;code&gt;size&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;browsers = ['Chrome', 'Firefox', 'Safari', 'Opera', 'IE']
+browsers.length #=&amp;gt; 5
+browsers.count #=&amp;gt; 5
+browsers.size #=&amp;gt; 5
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Để kiểm mảng có chứa bất kì một phần tử nào không chúng ta sử dụng &lt;code&gt;empty?&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;browsers.empty?   #=&amp;gt; false
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Để kiểm tra một phần tử có nằm trong array ta sử dụng hàm &lt;code&gt;include?&lt;/code&gt;:
+    &lt;pre&gt;&lt;code&gt;browsers.include?('Konqueror') #=&amp;gt; false
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;thêm-phần-tử-vào-mảng&quot;&gt;Thêm phần tử vào mảng&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;Các phần tử có thể được thêm vào cuối mảng bàng cách sử dụng &lt;code&gt;push&lt;/code&gt; hoặc &lt;code&gt;&amp;lt;&amp;lt;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;arr = [1, 2, 3, 4]
+arr.push(5) #=&amp;gt; [1, 2, 3, 4, 5]
+arr &amp;lt;&amp;lt; 6    #=&amp;gt; [1, 2, 3, 4, 5, 6]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code&gt;unshift&lt;/code&gt; sẽ thêm phần tử mới vào đầu mảng.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;arr.unshift(0) #=&amp;gt; [0, 1, 2, 3, 4, 5, 6]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Với &lt;code&gt;insert&lt;/code&gt; bạn có thể thêm phần tử vào array với vị trí chỉ định&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;arr.insert(3, 'apple')  #=&amp;gt; [0, 1, 2, 'apple', 3, 4, 5, 6]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Khi sử dụng &lt;code&gt;insert&lt;/code&gt; chúng ta có thể thêm nhiều phần tử cùng 1 lúc trong 1 lần.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;arr.insert(3, 'orange', 'pear', 'grapefruit')
+#=&amp;gt; [0, 1, 2, &quot;orange&quot;, &quot;pear&quot;, &quot;grapefruit&quot;, &quot;apple&quot;, 3, 4, 5, 6]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&quot;xóa-phần-tử-khỏi-mảng&quot;&gt;Xóa phần tử khỏi mảng&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;Phương thức &lt;code&gt;pop&lt;/code&gt; xóa phần tử cuối cùng khỏi mảng và trả về mảng đó.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;arr =  [1, 2, 3, 4, 5, 6]
+arr.pop #=&amp;gt; 6
+arr #=&amp;gt; [1, 2, 3, 4, 5]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Để truy xuất đồng thời xóa phần tử đầu tiên, sử dụng &lt;code&gt;shift&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;arr.shift #=&amp;gt; 1
+arr #=&amp;gt; [2, 3, 4, 5]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;XÓa một phần tử tại vị trí xác định:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;arr.delete_at(2) #=&amp;gt; 4
+arr #=&amp;gt; [2, 3, 5]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Xóa một phần tử tại bất kì vị trí nào trong mảng, sử dụng &lt;code&gt;delete&lt;/code&gt;:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;arr = [1,2,2,3,2]
+arr.delete(2) #=&amp;gt; 2
+arr           #=&amp;gt; [1, 3]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Sử dụng &lt;code&gt;compact&lt;/code&gt; và &lt;code&gt;compact!&lt;/code&gt; để xóa giá trị &lt;code&gt;nil&lt;/code&gt; trong mảng:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;arr = ['foo', 0, nil, 'bar', 7, 'baz', nil]
+arr.compact  #=&amp;gt; ['foo', 0, 'bar', 7, 'baz']
+arr          #=&amp;gt; ['foo', 0, nil, 'bar', 7, 'baz', nil]
+arr.compact! #=&amp;gt; ['foo', 0, 'bar', 7, 'baz']
+arr          #=&amp;gt; ['foo', 0, 'bar', 7, 'baz']
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Để xóa các phần tử trùng lặp trong mảng, sử dụng &lt;code&gt;uniq&lt;/code&gt; và &lt;code&gt;uniq!&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;arr = [2, 5, 6, 556, 6, 6, 8, 9, 0, 123, 556]
+arr.uniq #=&amp;gt; [2, 5, 6, 556, 8, 9, 0, 123]
+arr      #=&amp;gt; [2, 5, 6, 556, 6, 6, 8, 9, 0, 123, 556]
+arr.uniq! #=&amp;gt; [2, 5, 6, 556, 8, 9, 0, 123]
+arr      #=&amp;gt; [2, 5, 6, 556, 8, 9, 0, 123]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&quot;lặp-mảng&quot;&gt;Lặp mảng&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tương tự các lớp khác bao gồm module &lt;code&gt;Enumerable&lt;/code&gt;, Array có một phương thức &lt;code&gt;each&lt;/code&gt;, định nghĩa các phần tử nào sẽ được lặp và làm thế nào. Trong trường hợp &lt;code&gt;each&lt;/code&gt; của Array, tất cả các phần tử trong đối tượng Array đều được đưa vào khối theo trình tự.&lt;/li&gt;
+  &lt;li&gt;Lưu ý rằng thao tác này không làm thay đổi giá trị của mảng.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;arr = [1, 2, 3, 4, 5]
+arr.each { |a| print a -= 10, &quot; &quot; }
+# prints: -9 -8 -7 -6 -5
+#=&amp;gt; [1, 2, 3, 4, 5]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Một phương thức lặp đôi khi cũng hữu ích là&lt;/li&gt;
+&lt;/ul&gt;
 </description>
         <pubDate>Sun, 22 Dec 2019 00:00:00 +0700</pubDate>
         <link>http://localhost:4000/tech/2019/12/22/tat-tan-tat-ve-array-trong-ruby/</link>
@@ -1112,434 +1461,6 @@ user.images.first.filename
         <pubDate>Tue, 12 Nov 2019 00:00:00 +0700</pubDate>
         <link>http://localhost:4000/tech/2019/11/12/rails-6-active-storage-changes/</link>
         <guid isPermaLink="true">http://localhost:4000/tech/2019/11/12/rails-6-active-storage-changes/</guid>
-        
-        
-        <category>tech</category>
-        
-      </item>
-    
-      <item>
-        <title>Sử dụng scopes trong Ruby on Rails</title>
-        <description>&lt;p&gt;This article found in: https://www.rubyguides.com/2019/10/scopes-in-ruby-on-rails/&lt;/p&gt;
-
-&lt;p&gt;Let’s begin!&lt;/p&gt;
-
-&lt;p&gt;What is scope in Rails &amp;amp; why is it useful (hữu ích) ?&lt;/p&gt;
-
-&lt;p&gt;Well…&lt;/p&gt;
-
-&lt;p&gt;Scopes are custom queries (Truy vấn tùy chỉnh) that you define inside (bên trong) your Rails models with the &lt;code&gt;scope&lt;/code&gt; method.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Every scope takes two arguments:&lt;/strong&gt;&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;A name, which you use to call this scope in your code&lt;/li&gt;
-  &lt;li&gt;A lambda, which implements the query&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;It looks like this (trông như):&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;class Fruit &amp;lt; ApplicationRecord
-  scope :with_juice, -&amp;gt; { where(&quot;juice &amp;gt; 0&quot;) }
-end
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;As a result of calling a scope, you’ll get an &lt;code&gt;ActiveRecord::Relation&lt;/code&gt; object.
-(Kết quả khi sử dụng &lt;code&gt;scope&lt;/code&gt;, bạn sẽ nhận được một &lt;code&gt;ActiveRecord::Relation&lt;/code&gt;)&lt;/p&gt;
-
-&lt;p&gt;Which means you can chain &amp;amp; combine scopes!
-(Điều đó có nghĩa rằng bạn có thể kết hợp các scope lại với nhau)&lt;/p&gt;
-
-&lt;p&gt;Example:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;Fruit.with_juice.with_round_shape.first(3)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Now:&lt;/p&gt;
-
-&lt;p&gt;There’s more to learn about Rails scopes, so let’s keep exploring the topic.
-(Phần mở rộng)&lt;/p&gt;
-
-&lt;h3 id=&quot;when-to-use-scope--khi-nào-sử-dụng-scope-&quot;&gt;When to use scope ? (Khi nào sử dụng scope ?)&lt;/h3&gt;
-&lt;p&gt;Ok, scopes are cool, but when should you use them?&lt;/p&gt;
-
-&lt;p&gt;Let’s see an example.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;def index
-  @books = Book.where(&quot;LENGTH(title) &amp;gt; 20&quot;)
-end
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This is an index controller action that wants to display books with titles longer than 20 characters.
-(Trong action index trên muốn hiển thị những đối tượng books mà title có độ dài &amp;gt; 20 kí tự)&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;It’s fine.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;But if you want to use this query in other places, you’re going to have duplicated code.
-(Nhưng nếu bạn muốn sử dụng lại câu truy vấn trên ở nơi khác, bajnn sẽ lặp lại code)&lt;/p&gt;
-
-&lt;p&gt;Duplicated code makes your project harder to maintain.
-(Lặp lại code khiến dự án của bạn khó khăn cho maintain)&lt;/p&gt;
-
-&lt;p&gt;Let’s move this query into a scope.
-(Hãy di chuyển những câu truy vấn đó vào scope)&lt;/p&gt;
-
-&lt;p&gt;Like this:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;class Book
-  scope :with_long_title, -&amp;gt; { where(&quot;LENGTH(title) &amp;gt; 20&quot;) }
-end
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Now our controller action looks like this:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;def index
-  @books = Book.with_long_title
-end
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&quot;how-to-use-rails-scopes-with-arguments-sử-dụng-scope-với-đối-số&quot;&gt;How to Use Rails Scopes With Arguments (Sử dụng scope với đối số)&lt;/h3&gt;
-&lt;p&gt;You may want to introduce a variable into a scope so you can make it more flexible.
-(Bạn có thể muốn khai báo &lt;code&gt;biến&lt;/code&gt; trong scope để có thể khiến scope trở nên linh hoạt hơn)&lt;/p&gt;
-
-&lt;p&gt;Here’s how:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;class Book
-  scope :with_long_title, -&amp;gt;(length) { where(&quot;LENGTH(title) &amp;gt; ?&quot;, length) }
-end
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The question mark (?) is a placeholder, it’ll be replaced by the value of length. This makes your code safer.
-(Dấu &lt;code&gt;?&lt;/code&gt; là một phần trống, nó sẽ được thay bằng giá trị của chiều dài tức biến truyền vào. Nó làm cho code trở nên an toàn hơn))&lt;/p&gt;
-
-&lt;p&gt;If you want a default value:
-(Khi cần khai báo giá trị mặc định của biến truyền vào:)&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;class Book
-  scope :with_long_title, -&amp;gt;(length = 20) { where(&quot;LENGTH(title) &amp;gt; ?&quot;, length) }
-end
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Give it a try!
-(Hãy thử dùng nó)&lt;/p&gt;
-
-&lt;h3 id=&quot;scope-vs-instance-method-so-sánh-scope-và-hàm-instance&quot;&gt;Scope vs Instance Method (So sánh scope và hàm instance)&lt;/h3&gt;
-&lt;p&gt;Scopes aren’t doing anything magical or super special.
-(Scope không làm bất cứ điều gì kỳ diệu hoặc siêu đặc biệt)&lt;/p&gt;
-
-&lt;p&gt;They are just methods.
-(Chúng chỉ là methods)&lt;/p&gt;
-
-&lt;p&gt;In fact… You could do the same thing using class methods!
-(Bạn có thể làm tương tự bằng các sử dụng &lt;code&gt;class methods&lt;/code&gt;)&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;class Fruit
-  def self.with_juice
-    where(&quot;juice &amp;gt; 0&quot;)
-  end
-end
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;But there are design advantages to using scopes over class methods.
-(Nhưng có những lợi ích về mặt design để dử dụng scopes hơn là sử dụng &lt;code&gt;class method&lt;/code&gt;)&lt;/p&gt;
-
-&lt;p&gt;Here’s why:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Scopes result in cleaner code because of their syntax
-(Scopes trông sạch sẽ hơn vì cú pháp đơn giản của nó)&lt;/li&gt;
-  &lt;li&gt;Scopes are used for exactly one thing, so you know what you get the moment you see one
-(Scope được sử dụng chính xác cho một mục đích, vì vậy bạn có thể biết ngay mục đích của scope đó ngay khi bạn đọc)&lt;/li&gt;
-  &lt;li&gt;Scopes aren’t mixed with other methods, so they’re easier to spot
-(Scope không trộn lẫn với các &lt;code&gt;methods&lt;/code&gt; khác, vì thế nó dễ dàng có thể được phát hiện ra trong code)&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;In terms of functionality, the only difference is that scopes guarantee an ActiveRecord::Relation, and class methods don’t.
-(Về mặt chức năng, điều khác biệt duy nhất mà scope bảo đảm đó chính là trả về một &lt;code&gt;ActiveRecord::Relation&lt;/code&gt; mà &lt;code&gt;class methods&lt;/code&gt; thì không.)&lt;/p&gt;
-
-&lt;p&gt;This helps you avoid errors when your scope returns nothing.
-(Điều đó giuos tránh được lỗi khi &lt;code&gt;scope&lt;/code&gt; không trả về  kết quả)&lt;/p&gt;
-
-&lt;h3 id=&quot;dont-use-default-scopes-không-sử-dụng-default-scope&quot;&gt;Don’t Use Default Scopes (Không sử dụng default scope)&lt;/h3&gt;
-&lt;p&gt;A default scope is one which is automatically applied to your model.
-(Default scope là scope luôn được áp dụng cho model khi khởi tạo)&lt;/p&gt;
-
-&lt;p&gt;Example:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;class Post
-  default_scope { where(published: true) }
-end
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Default scopes are so attractive(hấp dẫn).
-But they’re often the wrong choice (Lựa chọn sai) because you’ll probably forget (có thể quên) you have them defined, run into strange errors (chạy vào những lỗi lạ), and waste precious time (lãng phí thời gian quý báu) debugging.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;With that said…&lt;/strong&gt; (Khắc phục khi sử dụng default scope)
-If you have to work with default scopes, you may need to use the unscoped method to disable all currently applied scopes.&lt;/p&gt;
-</description>
-        <pubDate>Tue, 12 Nov 2019 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/tech/2019/11/12/how-to-use-scopes-in-ruby-on-rails/</link>
-        <guid isPermaLink="true">http://localhost:4000/tech/2019/11/12/how-to-use-scopes-in-ruby-on-rails/</guid>
-        
-        
-        <category>tech</category>
-        
-      </item>
-    
-      <item>
-        <title>Ruby inject vs each_with_object</title>
-        <description>&lt;p&gt;Có thể bạn đã nghe qua hoặc đã dùng thử với &lt;code&gt;inject&lt;/code&gt; và &lt;code&gt;each_with_object&lt;/code&gt; nhưng chưa thực sự hiểu sâu về chúng mà chỉ đọc qua guide về cách sử dụng căn bản. Hôm nay chúng ta sẽ đi sâu tìm hiểu để có một cái nhìn sâu hơn về &lt;code&gt;inject&lt;/code&gt; và &lt;code&gt;each_with_object&lt;/code&gt; thông qua các ví dụ trực quan.&lt;/p&gt;
-
-&lt;h3 id=&quot;inject&quot;&gt;inject&lt;/h3&gt;
-&lt;p&gt;Định nghĩa trên trang  &lt;a href=&quot;https://apidock.com/rails/Enumerable/inject&quot;&gt;apidock&lt;/a&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;inject(p1 = v1, p2 = v2)&lt;/p&gt;
-
-  &lt;p&gt;Combines all elements of enum by applying a binary operation, specified by a block or a symbol that names a method or operator.&lt;/p&gt;
-
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Tốt hơn cho các hoạt động trên các đối tượng/collections có thể thay đổi giá trị và trả về một giá trị mới&lt;/li&gt;
-  &lt;li&gt;Tốt cho các đối tượng nguyên thủy và các đối tượng mà trả về giá trị mới khi thay đổi.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;each_with_object&quot;&gt;each_with_object&lt;/h3&gt;
-&lt;p&gt;Định nghĩa trên trang  &lt;a href=&quot;https://apidock.com/rails/Enumerable/each_with_object&quot;&gt;apidock&lt;/a&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;each_with_object(memo) public&lt;/p&gt;
-
-  &lt;p&gt;Iterates over a collection, passing the current element and the memo to the block. Handy for building up hashes or reducing collections down to one object.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Tốt hơn cho các hoạt động có thể thay đổi trên các đối tượng như là Hash hoặc Array&lt;/li&gt;
-  &lt;li&gt;Khi sử dụng chúng ta cần cung cấp một đối tượng mới để bắt đầu và sử dụng đối tượng nó. Và dĩ nhiên sẽ không hữu dụng nếu bạn muốn sửa đổi trên 1 đối tượng hiện tại.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;em&gt;Bây giờ chúng ta sẽ cùng nhau đi vào ví dụ để làm rõ những luận điểm trên!&lt;/em&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;vd1&quot;&gt;VD1:&lt;/h3&gt;
-&lt;p&gt;Hãy chú ý tới các ví dụ khác nhau. Tưởng tượng bạn có một tập hợp các đối tượng và bạn muốn tạo ra một &lt;code&gt;hash&lt;/code&gt; sử dụng chúng và thực hiện một số loại ánh xạ khác nhau.&lt;/p&gt;
-
-&lt;p&gt;Cùng tìm hiểu vấn đề:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Bạn muốn xây dựng một đối tượng mới (Hash `lower_to_upper)&lt;/li&gt;
-  &lt;li&gt;Bắt đầu với hash trống &lt;code&gt;{}&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Trong trường hợp này, &lt;code&gt;each_with_object&lt;/code&gt; rất tiện lợi:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;lower = 'a'..'z'
-lower_to_upper = lower.each_with_object({}) do |char, hash|
-  hash[char] = char.upcase
-end
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Cùng xem sử dụng &lt;code&gt;inject&lt;/code&gt; nhưng có vẻ không tiện lợi bằng việc sử dụng &lt;code&gt;each_with_object&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;lower = 'a'..'z'
-lower_to_upper = lower.inject({}) do |hash, char|
-  hash[char] = char.upcase
-  hash
-end
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;nguyên nhân vì &lt;code&gt;inject&lt;/code&gt; yêu cầu giá trị để ghi nhớ cho block trong các lần sử dungj tiếp theo (&lt;code&gt;hash&lt;/code&gt; được khởi tạo với &lt;code&gt;{}&lt;/code&gt;) được trả về sau mỗi lần lặp qua &lt;code&gt;block&lt;/code&gt;. Vì vậy mặc dù bạn liên tục hoạt động trên cùng một đối tượng, bạn luôn cần nó được trả về ở cuối của khối.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;each_with_object&lt;/code&gt; mặt khác luôn gọi khối có cùng một đối tượng ban đầu được truyền làm đối số đầu tiên cho method.&lt;/p&gt;
-
-&lt;h3 id=&quot;vd2&quot;&gt;VD2&lt;/h3&gt;
-&lt;p&gt;Nhưng với trường hợp bạn đã có một đối tượng hiện để thay đổi. Trong trường hợp như vậy, thông thường bạn nên sử dụng &lt;code&gt;each&lt;/code&gt; thay vì &lt;code&gt;each_with_object&lt;/code&gt; nhưng &lt;code&gt;each_with_object&lt;/code&gt; có thể ngắn hơn một chút nếu bạn vẫn cần trả về đối tượng đã thay đổi.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Sử dụng each:&lt;/em&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;mapping = {'ż' =&amp;gt; 'Ż', 'ó' =&amp;gt; 'Ó'}
-lower = 'a'..'z'
-lower.each do |char|
-  mapping[char] = char.upcase
-end
-return mapping # optionally
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;em&gt;Sử dụng &lt;code&gt;each_with_object&lt;/code&gt;:&lt;/em&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;mapping = {'ż' =&amp;gt; 'Ż', 'ó' =&amp;gt; 'Ó'}
-lower = 'a'..'z'
-lower.each_with_object(mapping) do |char, hash|
-  hash[char] = char.upcase
-end
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;mapping = {'ż' =&amp;gt; 'Ż', 'ó' =&amp;gt; 'Ó'}
-lower = 'a'..'z'
-lower.each_with_object(mapping) do |char|
-  mapping[char] = char.upcase
-end
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Nhấn mạnh ở đây &lt;code&gt;each&lt;/code&gt; sẽ tốt hơn nếu bạn muốn thay đổi một tập hợp hiện có, bởi vì thông thường bạn không cần phải &lt;code&gt;return&lt;/code&gt;. Sau cùng, bất cứ khi nào đối tượng làm đối số, cho dù xuất phát từ đâu, có thể vẫn đang có đối tượng tham chiếu đến đối tượng này.&lt;/p&gt;
-
-&lt;h3 id=&quot;vd3&quot;&gt;VD3&lt;/h3&gt;
-&lt;p&gt;Trong ví dụ tiếp theo sẽ không thay đổi trạng thái bên trong của đối tượng mà luôn tạo ra một đối tượng mới. Pháp tóan sử dụng sẽ luôn trả về một đối tượng mới.&lt;/p&gt;
-
-&lt;p&gt;Ví dụ đơn giản nhất là toán tử &lt;code&gt;+&lt;/code&gt; số.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;a = 1
-b = 2
-
-a.frozen?
-# =&amp;gt; true
-b.frozen?
-# =&amp;gt; true
-
-c = a + b
-# =&amp;gt; 3
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Không có cách nào để thay đổi đối tượng &lt;code&gt;integer&lt;/code&gt; được tham chiếu bởi biến a thành 3. ĐIều duy nhất có thể làm là gán một đối tượng khác cho biến a hoặc bằn b hoặc c.&lt;/p&gt;
-
-&lt;p&gt;Tiếp theo là một ví dụ rõ ràng hơn:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;require 'date'
-d = Date.new(2017, 10, 10)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Nếu bạn muốn một ngày khác, bạn không thể thay đổi instance &lt;code&gt;Date&lt;/code&gt; hiện tại. Bạn cần tạo một instance mới.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;d.day=12
-# =&amp;gt; NoMethodError: undefined method `day=' for #&amp;lt;Date:
-
-e = Date.new(2017, 10, 12)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Hey, sau một vài ví dụ đơn giản chúng ta đã phần nào hiểu được chúng ta có gì khi làm chủ được &lt;code&gt;inject&lt;/code&gt; nếu bạn có một đối tượng bất biến, &lt;code&gt;inject&lt;/code&gt; là sự lựa chọn hoàn hảo.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(5..10).inject(:+)
-(5..10).inject(0, :+)
-(5..10).inject{|sum, n| sum + n }
-
-(5..10).inject(1, :*)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Hoặc:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;starting_date = Date.new(2019,10,20)
-result = [1, 10].inject(starting_date) do |date, delay|
-  date + delay
-end
-# =&amp;gt; Date.new(2017,10,31)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&quot;vd4&quot;&gt;VD4&lt;/h3&gt;
-&lt;p&gt;Làn này chúng ta sẽ tạo một đối tượng mới môi lần nhưng không phải vì có thể thay đổi trạng thái bên trong mà bởi vì phương thức đó nhất định sẽ trả về một đối tượng mới.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;result = [
- {1 =&amp;gt; 2},
- {2 =&amp;gt; 3},
- {3 =&amp;gt; 4},
- {1 =&amp;gt; 5},
-].inject(:merge)
-# =&amp;gt; {1=&amp;gt;5, 2=&amp;gt;3, 3=&amp;gt;4}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code&gt;Hash#merge&lt;/code&gt; gộp hai hashes và trả về hash mới. Điều đó giải thích vì sao chúng ta có thể dễ dàng sử dụng với &lt;code&gt;inject&lt;/code&gt;
-Sẽ ngắn gọn hơn so với:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;[
- {1 =&amp;gt; 2},
- {2 =&amp;gt; 3},
- {3 =&amp;gt; 4},
- {1 =&amp;gt; 5},
-].each_with_object({}) {|element, hash| hash.merge!(element) }
-# =&amp;gt; {1=&amp;gt;5, 2=&amp;gt;3, 3=&amp;gt;4}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;Funny&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Có một điều lạ là các phần tử truyền vào block của &lt;code&gt;inject&lt;/code&gt; và &lt;code&gt;each_with_object&lt;/code&gt; đảo ngược nhau.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;lower_to_upper = lower.each_with_object({}) do |char, `hash`|
-  hash[char] = char.upcase
-end
-
-lower_to_upper = lower.inject({}) do |`hash`, char|
-  hash[char] = char.upcase
-  hash
-end
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Hi vọng sau bài này các bạn có thể hiểu thêm về &lt;code&gt;inject&lt;/code&gt; và &lt;code&gt;each_with_object&lt;/code&gt;. Chúc các bạn một ngày vui vẻ :D&lt;/p&gt;
-
-&lt;p&gt;Nguồn: https://blog.arkency.com/inject-vs-each-with-object/&lt;/p&gt;
-</description>
-        <pubDate>Mon, 09 Sep 2019 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/tech/2019/09/09/ruby-inject-vs-each_with_object/</link>
-        <guid isPermaLink="true">http://localhost:4000/tech/2019/09/09/ruby-inject-vs-each_with_object/</guid>
-        
-        
-        <category>tech</category>
-        
-      </item>
-    
-      <item>
-        <title>Learn SQL advanced</title>
-        <description>&lt;p&gt;The first thing i want tell about the first link i found from google. It make by qoura. Fine, i like it: https://www.quora.com/How-do-I-learn-more-advanced-SQL&lt;/p&gt;
-
-&lt;p&gt;Firstly i want learn SQL from basic, because maybe i’m a beginer in every thing. Of course, i dont like this. But some day, when i joined my project, i know i am a chicken. So, if i’m not a bigger, i will be a person.&lt;/p&gt;
-
-&lt;p&gt;First ez query:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;SELECT * FROM Customers;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This query will select all record with all attributes of Customers.&lt;/p&gt;
-
-&lt;h3 id=&quot;select-distinct&quot;&gt;SELECT DISTINCT&lt;/h3&gt;
-&lt;p&gt;The SQL select distinct statement is used to return only distinct(diffirent) values.
-Inside a table, a column often contains many duplicate values, and sometimes you only want to list the different (distinct) value.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;Syntax:&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;SELECT DISTINCT column1, column2,..
-FROM table_name;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Example:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;SELECT DISTINCT Country FROM Customers;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This query will have result all different Country of customer.&lt;/p&gt;
-
-&lt;h3 id=&quot;where-clause&quot;&gt;WHERE Clause&lt;/h3&gt;
-&lt;p&gt;The &lt;code&gt;where&lt;/code&gt; clause is used to filter records.
-The &lt;code&gt;where&lt;/code&gt; clause is used to extract only those records that fulfill a specified condition (Đáp ứng một điều kiện cụ thể).
-&lt;code&gt;Syntax:&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;SELECT column1, column2
-FROM table_name
-WHERE condition;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This query will return the records of column1 and column2 with condition is &lt;code&gt;condition&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;###&lt;/p&gt;
-
-&lt;h3 id=&quot;sql-order-by&quot;&gt;SQL ORDER BY&lt;/h3&gt;
-&lt;p&gt;The &lt;code&gt;order by&lt;/code&gt; key word is used to sort the result-set in ascending or desending order.
-In the default, the &lt;code&gt;order by&lt;/code&gt; will sort the records in ascending order by default. To sort records &lt;code&gt;desending&lt;/code&gt;, use &lt;code&gt;DESC&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;SELECT column1, column2, ...
-FROM table_name
-ORDER BY column1, column2, ... ASC|DESC;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&quot;insert-into&quot;&gt;INSERT INTO&lt;/h3&gt;
-&lt;p&gt;Used to insert new records in table.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;INSERT INTO table_name (column1, column2, column3, ...)
-VALUES (value1, value2, value3, ...);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;ex:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;INSERT INTO Customers (CustomerName, ContactName, Address, City, PostalCode, Country)
-VALUES ('Cardinal', 'Tom B. Erichsen', 'Skagen 21', 'Stavanger', '4006', 'Norway');
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&quot;sql-null-value&quot;&gt;SQL NULL VALUE&lt;/h3&gt;
-&lt;p&gt;&lt;em&gt;What is null value?&lt;/em&gt;
-A field wit null value is field with no vale.&lt;/p&gt;
-
-&lt;p&gt;IS NULL syntax&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;SELECT column_names
-FROM table_name
-WHERE column_name IS NULL;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;IS NOT NULL syntax&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;SELECT column_names
-FROM table_name
-WHERE column_name IS NOT NULL;
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-        <pubDate>Mon, 09 Sep 2019 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/tech/2019/09/09/sql-advanced/</link>
-        <guid isPermaLink="true">http://localhost:4000/tech/2019/09/09/sql-advanced/</guid>
         
         
         <category>tech</category>

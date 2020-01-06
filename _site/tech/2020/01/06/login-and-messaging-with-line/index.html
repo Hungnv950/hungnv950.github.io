@@ -3,12 +3,12 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Block và yield trong ruby</title>
+        <title>Ruby - Login and messaging with line</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">        
         <meta name="description" content="Harmony is a free responsive jekyll theme by Gayan Virajith and Maheshika Lakmali. Sourced on Github -  https://github.com/gayanvirajith/harmony
 ">
         <link rel="canonical" 
-        href="http://localhost:4000/tech/2018/03/21/ruby-block-and-yield/">
+        href="http://localhost:4000/tech/2020/01/06/login-and-messaging-with-line/">
         
         <!-- styles -->
         <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
@@ -49,7 +49,7 @@
         <div class="page-content wc-container">
 	
 	<div class="post">
-		<h1>Block và yield trong ruby</h1>
+		<h1>Ruby - Login and messaging with line</h1>
 		<p class="post-meta">
 			
       <span class="categories">
@@ -57,112 +57,38 @@
       </span> |
 	    
 	    <span class="post-date">
-    	Mar 21, 2018 
+    	Jan 6, 2020 
 	    </span>
 		</p>		
 		<div class="post">
-			<h1 id="blocks"><strong><code>Blocks</code></strong></h1>
-<p>Về cơ bản, <code>blocks</code> trong ruby là một cách để nhóm các câu lệnh sao cho chúng ta có thể kết hợp với các lời gọi phương thức như thể chúng là các tham số.</p>
+			<blockquote>
+  <p>Gần đây mình có gặp lại task liên quan tới việc implement tính năng đăng nhập và nhắn tin thông qua mạng xã hội Line.</p>
 
-<p>Ruby cung cấp hai cách để viết <code>blocks</code> là:</p>
-<ol>
-  <li>Sử dụng dấu <code>{}</code> đối với những blocks ngắn gọn có thể viêt trên một dòng.
-    <pre><code>array = [1,2,3,4]
-</code></pre>
-  </li>
-  <li>Sử dụng cụm <code>do..end</code>
-    <pre><code>array.map! do |n|
-  n * n
-end
-=&gt; [1, 4, 9, 16]
-</code></pre>
-  </li>
-</ol>
+  <p>Tuy cách đây 1 năm mình cũng đã gặp task này nhưng khi gặp lại cũng còn khá nhiều bỡ ngỡ nên mình quyết định xây 1 chiếc base nhỏ cùng những <code>noob</code> của mình để biết đâu sau này mình hoặc bạn có thể tránh phải</p>
+</blockquote>
 
-<h2 id="procs"><strong><code>Procs</code></strong></h2>
-<p>Một proc là một instance của lớp Proc. Proc là <code>object</code> còn <code>blocks</code> thì không.</p>
-<pre><code>p = Proc.new { puts "Hello World" }
-</code></pre>
-<p>Điều này cho phép chúng ta gọi các phương thức trên nó và gán nó cho các biến. Procs cũng có thể gọi lại chính nó.</p>
-<pre><code>p.call  # prints 'Hello World'
-p.class # returns 'Proc'
-a = p   # a now equals p, a Proc instance
-p       # returns a proc object '#&lt;Proc:0x007f96b1a60eb0@(irb):46&gt;'
-</code></pre>
-<h2 id="-lambdas"><code> Lambdas</code></h2>
-<p>Lambda function hầu như giống với Procs nhưng có hai điểm khác biệt:</p>
+<h3 id="1-đặt-vấn-đề">1. Đặt vấn đề</h3>
+<p>Để làm bất cứ task nào mà mình chưa biết thì việc tự <code>research</code> là vô cùng quan trọng. Như thường lệ, các câu hỏi đặt ra là: <code>what</code>, <code>why</code>, <code>when</code>, <code>where</code> và <code>how</code>. Và chúng ta sẽ trả lời câu hỏi đó</p>
+
 <ul>
-  <li>Thứ nhất: Lambda kiểm tra số lượng phần tử đầu vào. Báo lỗi nếu không chính xác. Còn Procs thì không
-    <pre><code>l = lambda { "I'm a lambda" }
-l.call
-=&gt; "I'm a lambda"
-l.call('arg')
-ArgumentError: wrong number of arguments (1 for 0)
-</code></pre>
+  <li>what ? Chúng ta sẽ thực hiện chức năng login bằng Line và nhắn tin cho người dùng sử dụng Line</li>
+  <li>why ? Do có nhu cầu từ KH hoặc là vì <code>mình thích</code> =))</li>
+  <li>when ? Khi người dùng muốn đồng bộ hoặc sử dụng thông tin tài khoản cá nhân Line của mình với hệ thống mà không tốn thời gian đăng nhập + nhận thông báo của hệ thống thông qua line. Để sâu hơn, bạn có thể tìm hiểu về <a href="https://oauth.net/2/">OAuth-2</a></li>
+  <li>where ? Phần này mình nghĩ sẽ liên quan tới <code>how</code> nhiều hơn nhưng không sao, chúng ta vẫn có thể tìm kiếm mọi thứ thông qua internet hoặc thông qua <em><code>người thân</code></em></li>
+  <li>how ?
+    <ul>
+      <li>Xác định vấn đề: Các bước trên đã có vẻ clear :D</li>
+      <li>Giải quyết vấn đề: Để giải quyết được các vấn đề, với mình thì nên đặt ra các câu hỏi đúng để có thể trả lời từng câu hỏi đó dẫn tới việc giải quyết bài toán. Bạn có thể tham khảo <a href="/life/2020/01/06/the-x-y-problem/" target="_blank">X-Y problem</a></li>
+      <li>Khi một service sinh ra để cung cấp tính năng thì chắc chắn nhà cung cấp phải cung cấp đi kèm service đó một document cụ thể. =&gt; Tài liệu nên tìm hiểu và đọc của Line service</li>
+    </ul>
   </li>
-  <li>Thứ hai:  Lambdas và Procs xử lý khi gặp từ khóa <code>return</code> khác nhau:</li>
 </ul>
 
-<pre><code>def lambda_test
-  lam = lambda { return }
-  lam.call
-  puts "Hello world"
-end
-
-lambda_test                 # calling lambda_test prints 'Hello World'
-</code></pre>
-<pre><code>def proc_test
-  proc = Proc.new { return }
-  proc.call
-  puts "Hello world"
-end
-
-proc_test                 # calling proc_test prints nothing
-</code></pre>
-<h1 id="yield"><strong><code>Yield</code></strong></h1>
-<p>Yield là một cách rất hay của Ruby để thực hiện một khối trong một phương thức bất kì mà không làm ảnh hưởng. Để hiểu rõ hơn chúng ta cùng theo dõi một ví dụ:</p>
-<pre><code>def rb_block
-  puts 'Start'
-  yield
-  yield
-  puts 'End'
-end
-
-rb_block {puts "We're in the block"}
-</code></pre>
-<p><code>Kết quả:</code></p>
-<pre><code>Start
-We're in the block
-We're in the block
-End
-</code></pre>
-<p>Dễ hiểu, khi thực thi method <code>rb_block</code>, ruby thực hiện câu bình thường cho tới khi gặp từ khóa <code>yield</code> , ruby sẽ dừng và thực hiện block này sau đó sẽ thực thi tiếp tục các logic của method <code>rb_block</code></p>
-<h2 id="yield-với-tham-số">Yield với tham số</h2>
-<p>Để dễ hiểu, ta quan sát ví dụ:</p>
-<pre><code>def rb_block
-    yield('hello', 'ruby')
-end
-
-rb_block { |s, r| puts s + ' ' + r
-</code></pre>
-<p><code>Kết quả:</code></p>
-<pre><code>hello ruby
-</code></pre>
-<p>Ta thấy, ruby cho phép truyển tham số vào yield trong các khối. Trong khối, chúng ta liệt kê tên của các đối số để nhận các tham số qua các dấu <code>||</code></p>
-
-<p><code>Lưu ý:</code> Khi định nghĩa <code>yield</code> <code>có tham số</code>, việc truyền vào tham số bắt buộc. Nếu không nhận được tham số phù hợp ruby sẽ báo lỗi.</p>
-<pre><code>rb_block   #`rb_block': no block given (yield) (LocalJumpError)
-</code></pre>
-<h1 id="tài-liệu-tham-khảo">Tài liệu tham khảo</h1>
-<p>http://www.bogotobogo.com/RubyOnRails/RubyOnRails_Blocks_and_Yield.php</p>
-
-<p>https://code.tutsplus.com/tutorials/ruby-on-rails-study-guide-blocks-procs-and-lambdas–net-29811</p>
-
-<p>http://awaxman11.github.io/blog/2013/08/05/what-is-the-difference-between-a-block/</p>
-
-<p>https://viblo.asia/p/thanh-thao-ruby-block-trong-5-phut-L4x5xg2alBM/</p>
-
-<p>https://viblo.asia/p/block-trong-ruby-wjAM7yNOvmWe</p>
+<h1 id="aaa">aaa</h1>
+<ul>
+  <li>Line login:</li>
+  <li>Line message:</li>
+</ul>
 
 		</div>
 	</div>
@@ -176,11 +102,6 @@ rb_block { |s, r| puts s + ' ' + r
 		    <li>
 			  <span>06 Jan 2020 &raquo;</span>
 			  <a href="http://localhost:4000/life/2020/01/06/the-x-y-problem/">The X-Y problem</a>
-		    </li>
-		    
-		    <li>
-			  <span>06 Jan 2020 &raquo;</span>
-			  <a href="http://localhost:4000/tech/2020/01/06/login-and-messaging-with-line/">Ruby - Login and messaging with line</a>
 		    </li>
 		    
 		    <li>
@@ -223,6 +144,11 @@ rb_block { |s, r| puts s + ' ' + r
 			  <a href="http://localhost:4000/tech/2019/11/12/rails-6-active-storage-changes/">Rails 6 - Active Storage changes</a>
 		    </li>
 		    
+		    <li>
+			  <span>12 Nov 2019 &raquo;</span>
+			  <a href="http://localhost:4000/tech/2019/11/12/how-to-use-scopes-in-ruby-on-rails/">Sử dụng scopes trong Ruby on Rails</a>
+		    </li>
+		    
 		</ul>
 	</div>
 	
@@ -230,13 +156,13 @@ rb_block { |s, r| puts s + ' ' + r
 	<div class="post-footer">
 		<div class="column-1">
 			
-				<a href="http://localhost:4000/tech/2018/03/21/git-cherry-pick/"><< Older</a>
+				<a href="http://localhost:4000/tech/2019/12/22/rails-namespace-vs-scopes/"><< Older</a>
 			
 		</div>
 		<div class="column-2"><a href="http://localhost:4000/ ">Home</a></div>
 		<div class="column-3">
 			
-				<a href="http://localhost:4000/life/2019/06/26/morning-speech-cha-da-quen/">Newer >></a>
+				<a href="http://localhost:4000/life/2020/01/06/the-x-y-problem/">Newer >></a>
 			
 		</div>
 	</div>

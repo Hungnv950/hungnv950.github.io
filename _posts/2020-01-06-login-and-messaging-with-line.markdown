@@ -1,3 +1,9 @@
+---
+layout: post
+title: Ruby - Login and messaging with line
+categories:
+- tech
+---
 
 > Gần đây mình có gặp lại task liên quan tới việc implement tính năng đăng nhập và nhắn tin thông qua mạng xã hội Line.
 
@@ -82,25 +88,26 @@ Ví dụ trong môi trường development: http://localhost:3000/auth/line/callb
 	  - Để xác thực người dùng và yêu cầu quyền của ứng dụng của bạn, hãy chuyển hướng người dùng đến URL ủy quyền sau với các tham số truy vấn bắt buộc. Bạn có thể chuyển hướng người dùng bằng nút [Đăng nhập LINE](https://developers.line.biz/en/docs/line-login/login-button/) hoặc bằng liên kết trực tiếp.
 	- Các tham số cần thiết trong url được generate ra:
 
-| Tham số        | Kiểu dữ liệu           | Bắt buộc  | Mô tả  |
-| ------------- |:-------------:| -----:| -----:|
-| response_type | String | Bắt buộc | `code`. Tham số này để thông báo cho Line Platform biết được cần trả về `authoration code` |
-| client_id | String | Bắt buộc | `Channel ID`. Định danh duy nhất mà Line cung cấp cho channel của bạn, tham số này đuợc cung cấp trong trang quản lý login channel.
-| redirect_uri | String | Bắt buộc | `Callback URL`. Là `url` bạn cung cấp trong setting của line channel như đã `chu ý ở trên` |
-| state | String | Bắt buộc | Một chuỗi ký tự chữ và số duy nhất được sử dụng để ngăn chặn giả mạo yêu cầu giữa các trang web. Giá trị này sẽ được tạo ngẫu nhiên bởi ứng dụng của bạn. Không thể là một chuỗi được mã hóa URL. |
-| scope | String | Bắt buộc | Quyền được cấp bởi người dùng. Bạn có thể chỉ định nhiều phạm vi bằng ký tự khoảng trắng được mã hóa URL (% 20). Thông thường, scope bao gồm: profile, openid và email|
-| nonce | String | Không bắt buộc | Một chuỗi được sử dụng để ngăn chặn các cuộc tấn công phát lại. Giá trị này được trả về trong mã thông báo ID. |
-| prompt | String | Không bắt buộc | `consent`. Được sử dụng để buộc màn hình chấp thuận được hiển thị ngay cả khi người dùng đã cấp tất cả các quyền được yêu cầu. |
-| max_age | Number | Không bắt buộc | Thời gian cho phép trôi qua tính bằng giây kể từ lần cuối cùng người dùng được xác thực. Tương ứng với tham số max_age được xác định trong phần "Yêu cầu xác thực" của OpenID Connect Core 1.0. |
-| ui_locales | String | Optional | Ngôn ngữ hiển thị cho màn hình Đăng nhập LINE. Chỉ định là một hoặc nhiều thẻ ngôn ngữ RFC 5646 (BCP 47), được phân tách bằng dấu cách, theo thứ tự ưu tiên. Tương ứng với tham số ui_locales được xác định trong phần "Yêu cầu xác thực" của OpenID Connect Core 1.0. |
-| bot_prompt | String | Không bắt buộc | Hiển thị tùy chọn để thêm tài khoản chính thức LINE làm bạn bè trong khi đăng nhập. Đặt giá trị `normal` thường hoặc `aggressive`. Để biết thêm thông tin, hãy xem [Liên kết tài khoản chính thức LINE với kênh Đăng nhập LINE của bạn.](https://developers.line.biz/en/docs/line-login/web/link-a-bot/) |
+        | Tham số        | Kiểu dữ liệu           | Bắt buộc  | Mô tả  |
+        | ------------- |:-------------:| -----:| -----:|
+        | response_type | String | Bắt buộc | `code`. Tham số này để thông báo cho Line Platform biết được cần trả về `authoration code` |
+        | client_id | String | Bắt buộc | `Channel ID`. Định danh duy nhất mà Line cung cấp cho channel của bạn, tham số này đuợc cung cấp trong trang quản lý login channel.
+        | redirect_uri | String | Bắt buộc | `Callback URL`. Là `url` bạn cung cấp trong setting của line channel như đã `chu ý ở trên` |
+        | state | String | Bắt buộc | Một chuỗi ký tự chữ và số duy nhất được sử dụng để ngăn chặn giả mạo yêu cầu giữa các trang web. Giá trị này sẽ được tạo ngẫu nhiên bởi ứng dụng của bạn. Không thể là một chuỗi được mã hóa URL. |
+        | scope | String | Bắt buộc | Quyền được cấp bởi người dùng. Bạn có thể chỉ định nhiều phạm vi bằng ký tự khoảng trắng được mã hóa URL (% 20). Thông thường, scope bao gồm: profile, openid và email|
+        | nonce | String | Không bắt buộc | Một chuỗi được sử dụng để ngăn chặn các cuộc tấn công phát lại. Giá trị này được trả về trong mã thông báo ID. |
+        | prompt | String | Không bắt buộc | `consent`. Được sử dụng để buộc màn hình chấp thuận được hiển thị ngay cả khi người dùng đã cấp tất cả các quyền được yêu cầu. |
+        | max_age | Number | Không bắt buộc | Thời gian cho phép trôi qua tính bằng giây kể từ lần cuối cùng người dùng được xác thực. Tương ứng với tham số max_age được xác định trong phần "Yêu cầu xác thực" của OpenID Connect Core 1.0. |
+        | ui_locales | String | Optional | Ngôn ngữ hiển thị cho màn hình Đăng nhập LINE. Chỉ định là một hoặc nhiều thẻ ngôn ngữ RFC 5646 (BCP 47), được phân tách bằng dấu cách, theo thứ tự ưu tiên. Tương ứng với tham số ui_locales được xác định trong phần "Yêu cầu xác thực" của OpenID Connect Core 1.0. |
+        | bot_prompt | String | Không bắt buộc | Hiển thị tùy chọn để thêm tài khoản chính thức LINE làm bạn bè trong khi đăng nhập. Đặt giá trị `normal` thường hoặc `aggressive`. Để biết thêm thông tin, hãy xem [Liên kết tài khoản chính thức LINE với kênh Đăng nhập LINE của bạn.](https://developers.line.biz/en/docs/line-login/web/link-a-bot/) |
+
 - Sau khi tạo reques url thành công, khi di chuyển vào link đã được tạo ra, người dùng sẽ đuợc di chuyển sang trang của Line để tiến hành đăng nhập và xác thực. Nếu xác thực thành công, Line Platform sẽ redirect tới server của bạn với confir callback đã khai báo từ trước kèm them tham số là `code`, `state` và `friendship_status_changed`
--  
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| code | String | Mã ủy quyền được sử dụng để nhận mã thông báo truy cập. Có giá trị trong `10 phút`. Mã ủy quyền này chỉ có thể được sử dụng một lần.|
-| state | String | tham số  `state` được bao gồm trong URL ủy quyền của yêu cầu ban đầu. Ứng dụng của bạn nên xác minh rằng giá trị này khớp với giá trị trong yêu cầu ban đầu.|
-| friendship_status_changed | Boolean | `true` nếu trạng thái tình bạn giữa người dùng và tài khoản chính thức LINE thay đổi trong quá trình đăng nhập. Nếu không, `false`. Giá trị này chỉ được trả về nếu tham số truy vấn bot_prompt được chỉ định trong yêu cầu cấp phép và màn hình chấp thuận với tùy chọn thêm tài khoản chính thức LINE của bạn khi bạn bè được hiển thị cho người dùng.|
+    
+    | Tables        | Are           | Cool  |
+    | ------------- |:-------------:| -----:|
+    | code | String | Mã ủy quyền được sử dụng để nhận mã thông báo truy cập. Có giá trị trong `10 phút`. Mã ủy quyền này chỉ có thể được sử dụng một lần.|
+    | state | String | tham số  `state` được bao gồm trong URL ủy quyền của yêu cầu ban đầu. Ứng dụng của bạn nên xác minh rằng giá trị này khớp với giá trị trong yêu cầu ban đầu.|
+    | friendship_status_changed | Boolean | `true` nếu trạng thái tình bạn giữa người dùng và tài khoản chính thức LINE thay đổi trong quá trình đăng nhập. Nếu không, `false`. Giá trị này chỉ được trả về nếu tham số truy vấn bot_prompt được chỉ định trong yêu cầu cấp phép và màn hình chấp thuận với tùy chọn thêm tài khoản chính thức LINE của bạn khi bạn bè được hiển thị cho người dùng.|
 
 Ví dụ về một response của Line trả về:
 ```
@@ -118,16 +125,17 @@ Location : https://client.example.org/cb?code=abcd1234&state=0987poi&friendship_
 		| Content-Type | application/x-www-form-urlencoded |
 	- Request body
 	
-Parameters | Type | Required | Description |
---------- | :----: | ------: | ---------: |
-grant_type| String| Required| authorization_code. |
-code| String| Required| Authorization code |
-redirect_uri| String| Required| Callback URL |
-client_id| String| Required| Channel ID. Found in the console. |
-client_secret| String| Required| Channel secret. Found in the console. |
+        Parameters | Type | Required | Description |
+        --------- | :----: | ------: | ---------: |
+        grant_type| String| Required| authorization_code. |
+        code| String| Required| Authorization code |
+        redirect_uri| String| Required| Callback URL |
+        client_id| String| Required| Channel ID. Found in the console. |
+        client_secret| String| Required| Channel secret. Found in the console. |
 
-	- Response: Sau khi request, nếu thông tin truyền lên valid, Line sẽ trả về `access_token` và một số thông tin đi kèm.
-	- Chúng ta sẽ sử dụng accesstoken đó để request lên [LINE social enpoint](https://developers.line.biz/en/docs/line-login/web/integrate-line-login/#use-endpoint) để sử dụng các thông tin mà Line cung cấp.
+
+- Response: Sau khi request, nếu thông tin truyền lên valid, Line sẽ trả về `access_token` và một số thông tin đi kèm.
+- Chúng ta sẽ sử dụng accesstoken đó để request lên [LINE social enpoint](https://developers.line.biz/en/docs/line-login/web/integrate-line-login/#use-endpoint) để sử dụng các thông tin mà Line cung cấp.
 		
 #### 2.2. Nhắn tin sử dụng line channel
 
@@ -148,18 +156,18 @@ Hướng dẫn sử dụng tính năng `push_message`:
 
 - Request headers
 
-Request header  |	Description
---- | ---
-Content-Type	 | application/json
-Authorization |	Bearer {channel access token}
+    Request header  |	Description
+    --- | ---
+    Content-Type	 | application/json
+    Authorization |	Bearer {channel access token}
 
 - Request body
 
-Property	| Type |	Required	Description
---- | --- | ---
-to |	String	| Required |	ID của người nhận mục tiêu. Sử dụng giá trị userId, groupId hoặc roomId được trả về trong một đối tượng sự kiện webhook. Không sử dụng ID LINE được tìm thấy trên LINE.
-messages |	Array của các đối tượng tin nhắn |	Required	Messages, Tối đa: 5
-notificationDisabled	| Boolean |	Optional
+    Property	| Type |	Required	Description
+    --- | --- | ---
+    to |	String	| Required |	ID của người nhận mục tiêu. Sử dụng giá trị userId, groupId hoặc roomId được trả về trong một đối tượng sự kiện webhook. Không sử dụng ID LINE được tìm thấy trên LINE.
+    messages |	Array của các đối tượng tin nhắn |	Required	Messages, Tối đa: 5
+    notificationDisabled	| Boolean |	Optional
 
 Ví dụ khi thực hiện request sử dụng `curl` :
 ```

@@ -3,12 +3,12 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>What is Jekyll!</title>
+        <title>Sử dụng nhiều tài khoản github trên cùng một máy tính cá nhân</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">        
         <meta name="description" content="Harmony is a free responsive jekyll theme by Gayan Virajith and Maheshika Lakmali. Sourced on Github -  https://github.com/gayanvirajith/harmony
 ">
         <link rel="canonical" 
-        href="http://localhost:4000/blog/2019/07/12/unicode_equivalence/">
+        href="http://localhost:4000/tech/2019/06/25/su-dung-nhieu-tai-khoan-github-tren-cung-mot-may-tinh-ca-nhan/">
         
         <!-- styles -->
         <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
@@ -49,19 +49,94 @@
         <div class="page-content wc-container">
 	
 	<div class="post">
-		<h1>What is Jekyll!</h1>
+		<h1>Sử dụng nhiều tài khoản github trên cùng một máy tính cá nhân</h1>
 		<p class="post-meta">
 			
       <span class="categories">
-      blog
+      tech
       </span> |
 	    
 	    <span class="post-date">
-    	Jul 12, 2019 
+    	Jun 25, 2019 
 	    </span>
 		</p>		
 		<div class="post">
-			
+			<h3 id="step-1-tạo-ssh-key-mới-cho-tài-khoản-công-việc">Step 1: Tạo ssh key mới cho tài khoản công việc</h3>
+<blockquote>
+  <p>ssh-keygen -t rsa -C “github-email-address”</p>
+</blockquote>
+
+<p>Khi màn hình hiện <code>Enter file in which to save the key (/home/&lt;user&gt;/.ssh/id_rsa):</code>  Nhập user cho công việc của bạn, ví dụ mình sẽ nhập là <code>id_rsa_sun</code></p>
+
+<p>Kiểm tra xem id_rsa_sun đã được sinh ra chưa.</p>
+<blockquote>
+  <p>cd cd ~/.ssh</p>
+</blockquote>
+
+<blockquote>
+  <p>ls</p>
+
+  <p>Danh sách các file đã được sinh ra:</p>
+</blockquote>
+
+<pre><code>id_rsa_sun  id_rsa_sun.pub  id_rsa  id_rsa.pub
+</code></pre>
+
+<h3 id="step-2-cài-đặt-ssh-key-trên-github">Step 2: Cài đặt ssh key trên github</h3>
+
+<p>Lấy id_rsa của email mới bạn vừa tạo.</p>
+
+<blockquote>
+  <p>cat id_rsa_sun.pub</p>
+</blockquote>
+
+<p>Sau đó nhập vào ssh-key cuả tài khoản git công việc tại https://github.com/settings/keys</p>
+
+<h3 id="bước-3-cài-đặt-github-host">Bước 3: Cài đặt Github Host</h3>
+
+<blockquote>
+  <p>touch ~/.ssh/config</p>
+</blockquote>
+
+<blockquote>
+  <p>nano ~/.ssh/config</p>
+</blockquote>
+
+<p>Sửa file config của bạn thành dạng:</p>
+
+<pre><code># Tài khoản git cá nhân vẫn dùng của bạn
+Host github.com-username
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_rsa
+# Tài khoản công việc
+Host github.com-sun # config này sẽ dùng để xử lý xác định khi cấu hình remote
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_rsa_sun  # id_rsa_sun mà chúng ta vừa tạo
+</code></pre>
+
+<p>Sau khi tạo 1 project trên github với tài khoản khác. Khi bạn <code>add remote</code> nên chú ý user khi add.
+Ví dụ khi clone repo mới:</p>
+
+<blockquote>
+  <p>git clone git@github.com-sun:&lt;<strong>user</strong>&gt;/sample_ruby.git</p>
+</blockquote>
+
+<blockquote>
+  <p>git config user.email “&lt;<strong>emai dùng để sinh id_rsa_sun ở trên</strong>&gt;”</p>
+</blockquote>
+
+<p>Sau đó bạn có thể add và commit bình thường.</p>
+
+<p>Add remote với repo mới:</p>
+<blockquote>
+  <p>git remote add origin git@github.com-sun:&lt;<strong>user</strong>&gt;/sample_ruby.git</p>
+</blockquote>
+
+<p>Note: <code>sun</code> ở đây là user của mình đặt ra, các bạn có thể thay đổi theo user công việc hoặc nick name bạn muốn cho phù hợp.</p>
+
+<h3 id="nguồn-git-push--pull-with-two-different-accounts-and-two-different-users-on-the-same-machine">Nguồn: <a href="https://medium.com/@therajanmaurya/git-push-pull-with-two-different-account-and-two-different-user-on-same-machine-a85f9ee7ec61">Git Push &amp; Pull with Two different accounts and Two different users on the same machine</a></h3>
 
 		</div>
 	</div>
@@ -129,13 +204,13 @@
 	<div class="post-footer">
 		<div class="column-1">
 			
-				<a href="http://localhost:4000/2019/07/01/from-third-project/"><< Older</a>
+				<a href="http://localhost:4000/life/2019/06/25/morning-speech-cha-da-quen/"><< Older</a>
 			
 		</div>
 		<div class="column-2"><a href="http://localhost:4000/ ">Home</a></div>
 		<div class="column-3">
 			
-				<a href="http://localhost:4000/tech/2019/08/27/reactjs-jsx/">Newer >></a>
+				<a href="http://localhost:4000/2019/07/01/from-third-project/">Newer >></a>
 			
 		</div>
 	</div>

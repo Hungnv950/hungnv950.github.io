@@ -5,8 +5,8 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 07 Jan 2020 15:43:26 +0700</pubDate>
-    <lastBuildDate>Tue, 07 Jan 2020 15:43:26 +0700</lastBuildDate>
+    <pubDate>Fri, 17 Jan 2020 07:13:00 +0000</pubDate>
+    <lastBuildDate>Fri, 17 Jan 2020 07:13:00 +0000</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
     
       <item>
@@ -70,7 +70,7 @@ Angela: Tôi muốn ngăn người khác biết hệ điều hành của tôi...
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;:v :v&lt;/p&gt;
 </description>
-        <pubDate>Mon, 06 Jan 2020 00:00:00 +0700</pubDate>
+        <pubDate>Mon, 06 Jan 2020 00:00:00 +0000</pubDate>
         <link>http://localhost:4000/life/2020/01/06/the-x-y-problem/</link>
         <guid isPermaLink="true">http://localhost:4000/life/2020/01/06/the-x-y-problem/</guid>
         
@@ -83,34 +83,373 @@ Angela: Tôi muốn ngăn người khác biết hệ điều hành của tôi...
         <title>Ruby - Login and messaging with line</title>
         <description>&lt;blockquote&gt;
   &lt;p&gt;Gần đây mình có gặp lại task liên quan tới việc implement tính năng đăng nhập và nhắn tin thông qua mạng xã hội Line.&lt;/p&gt;
+&lt;/blockquote&gt;
 
+&lt;blockquote&gt;
+
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
   &lt;p&gt;Tuy cách đây 1 năm mình cũng đã gặp task này nhưng khi gặp lại cũng còn khá nhiều bỡ ngỡ nên mình quyết định xây 1 chiếc base nhỏ cùng những &lt;code&gt;noob&lt;/code&gt; của mình để biết đâu sau này mình hoặc bạn có thể tránh phải&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h3 id=&quot;1-đặt-vấn-đề&quot;&gt;1. Đặt vấn đề&lt;/h3&gt;
+
 &lt;p&gt;Để làm bất cứ task nào mà mình chưa biết thì việc tự &lt;code&gt;research&lt;/code&gt; là vô cùng quan trọng. Như thường lệ, các câu hỏi đặt ra là: &lt;code&gt;what&lt;/code&gt;, &lt;code&gt;why&lt;/code&gt;, &lt;code&gt;when&lt;/code&gt;, &lt;code&gt;where&lt;/code&gt; và &lt;code&gt;how&lt;/code&gt;. Và chúng ta sẽ trả lời câu hỏi đó&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;what ? Chúng ta sẽ thực hiện chức năng login bằng Line và nhắn tin cho người dùng sử dụng Line&lt;/li&gt;
-  &lt;li&gt;why ? Do có nhu cầu từ KH hoặc là vì &lt;code&gt;mình thích&lt;/code&gt; =))&lt;/li&gt;
-  &lt;li&gt;when ? Khi người dùng muốn đồng bộ hoặc sử dụng thông tin tài khoản cá nhân Line của mình với hệ thống mà không tốn thời gian đăng nhập + nhận thông báo của hệ thống thông qua line. Để sâu hơn, bạn có thể tìm hiểu về &lt;a href=&quot;https://oauth.net/2/&quot;&gt;OAuth-2&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;where ? Phần này mình nghĩ sẽ liên quan tới &lt;code&gt;how&lt;/code&gt; nhiều hơn nhưng không sao, chúng ta vẫn có thể tìm kiếm mọi thứ thông qua internet hoặc thông qua &lt;em&gt;&lt;code&gt;người thân&lt;/code&gt;&lt;/em&gt;&lt;/li&gt;
-  &lt;li&gt;how ?
-    &lt;ul&gt;
-      &lt;li&gt;Xác định vấn đề: Các bước trên đã có vẻ clear :D&lt;/li&gt;
-      &lt;li&gt;Giải quyết vấn đề: Để giải quyết được các vấn đề, với mình thì nên đặt ra các câu hỏi đúng để có thể trả lời từng câu hỏi đó dẫn tới việc giải quyết bài toán. Bạn có thể tham khảo &lt;a href=&quot;/life/2020/01/06/the-x-y-problem/&quot; target=&quot;_blank&quot;&gt;X-Y problem&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;Khi một service sinh ra để cung cấp tính năng thì chắc chắn nhà cung cấp phải cung cấp đi kèm service đó một document cụ thể. =&amp;gt; Tài liệu nên tìm hiểu và đọc của Line service&lt;/li&gt;
-    &lt;/ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;what ? Chúng ta sẽ thực hiện chức năng login bằng Line và nhắn tin cho người dùng sử dụng Line&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;why ? Do có nhu cầu từ KH hoặc là vì &lt;code&gt;mình thích&lt;/code&gt; =))&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;when ? Khi người dùng muốn đồng bộ hoặc sử dụng thông tin tài khoản cá nhân Line của mình với hệ thống mà không tốn thời gian đăng nhập + nhận thông báo của hệ thống thông qua line. Để sâu hơn, bạn có thể tìm hiểu về &lt;a href=&quot;https://oauth.net/2/&quot;&gt;OAuth-2&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;where ? Phần này mình nghĩ sẽ liên quan tới &lt;code&gt;how&lt;/code&gt; nhiều hơn nhưng không sao, chúng ta vẫn có thể tìm kiếm mọi thứ thông qua internet hoặc thông qua &lt;em&gt;&lt;code&gt;người thân&lt;/code&gt;&lt;/em&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;how ?&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Xác định vấn đề: Các bước trên đã có vẻ clear :D&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Giải quyết vấn đề: Để giải quyết được các vấn đề, với mình thì nên đặt ra các câu hỏi đúng để có thể trả lời từng câu hỏi đó dẫn tới việc giải quyết bài toán. Bạn có thể tham khảo &lt;a href=&quot;/life/2020/01/06/the-x-y-problem/&quot; target=&quot;_blank&quot;&gt;X-Y problem&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Khi một service sinh ra để cung cấp tính năng thì chắc chắn nhà cung cấp phải cung cấp đi kèm service đó một document cụ thể. =&amp;gt; Tài liệu nên tìm hiểu và đọc của Line service&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h1 id=&quot;aaa&quot;&gt;aaa&lt;/h1&gt;
+&lt;h3 id=&quot;2-giải-quyết-vấn-đề&quot;&gt;2. Giải quyết vấn đề&lt;/h3&gt;
+
+&lt;h4 id=&quot;21-đăng-nhập-với-tài-khoản-sử-dụng-thông-tin-đăng-nhập-từ-tài-khoản-line&quot;&gt;2.1. Đăng nhập với tài khoản sử dụng thông tin đăng nhập từ tài khoản Line&lt;/h4&gt;
+
+&lt;p&gt;Document hướng dẫn của Line: [Integrating LINE Login with your web app&lt;/p&gt;
+
+&lt;p&gt;](https://developers.line.biz/en/docs/line-login/web/integrate-line-login/)&lt;/p&gt;
+
+&lt;p&gt;Quá trình Đăng nhập LINE cho web (đăng nhập web) dựa trên luồng cấp mã ủy quyền OAuth 2.0 và giao thức OpenID Connect. Ứng dụng của bạn phải có khả năng thực hiện yêu cầu phía máy chủ và nhận dữ liệu từ Nền tảng LINE. Sau đây là tổng quan về dòng đăng nhập web:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://images.viblo.asia/18f9795d-8ce2-4550-8be5-ebca1f98b7fd.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Flow đăng nhập web sử dụng Line:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Ứng dụng của bạn hướng người dùng đến URL ủy quyền Đăng nhập LINE với các tham số truy vấn bắt buộc (tham khảo bên dưới).&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Hộp thoại Đăng nhập LINE được mở trong trình duyệt và người dùng đăng nhập để được xác thực. Sau khi Nền tảng LINE xác thực thông tin đăng nhập của người dùng, người dùng cũng phải đồng ý cấp các quyền được yêu cầu cho ứng dụng của bạn.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Nền tảng LINE chuyển hướng người dùng quay lại ứng dụng của bạn thông qua redirect_uri với mã ủy quyền và trạng thái trong chuỗi truy vấn.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Ứng dụng của bạn yêu cầu mã thông báo truy cập từ https://api.line.me/oauth2/v2.1/token endpoint với mã ủy quyền.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Nền tảng LINE xác nhận yêu cầu của ứng dụng của bạn và trả về mã thông báo truy cập.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Khi bạn đã truy xuất mã thông báo truy cập, bạn có thể sử dụng mã này để gọi API đến các thông tin cần thiế để sử dụng.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Trước khi bắt đầu bạn cần đăng kí tài khoản line channel của bạn: tại &lt;a href=&quot;https://developers.line.biz/en/docs/line-login/getting-started/&quot;&gt;https://developers.line.biz/en/docs/line-login/getting-started/&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
 &lt;ul&gt;
-  &lt;li&gt;Line login:&lt;/li&gt;
-  &lt;li&gt;Line message:&lt;/li&gt;
+  &lt;li&gt;Lưu ý: trong phần &lt;code&gt;Callback URL&lt;/code&gt; bạn cần khai báo địa url trong project của bạn mà sau khi line validate thành công sẽ redirect về project kèm theo params của Line cung cấp.
+Ví dụ trong môi trường development: http://localhost:3000/auth/line/callback&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developers.line.biz/media/line-login/integrate-login-web/redirect-settings-cd7e32a6.png&quot; alt=&quot;image-callback &quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Tạo request url:
+    &lt;ul&gt;
+      &lt;li&gt;Để xác thực người dùng và yêu cầu quyền của ứng dụng của bạn, hãy chuyển hướng người dùng đến URL ủy quyền sau với các tham số truy vấn bắt buộc. Bạn có thể chuyển hướng người dùng bằng nút &lt;a href=&quot;https://developers.line.biz/en/docs/line-login/login-button/&quot;&gt;Đăng nhập LINE&lt;/a&gt; hoặc bằng liên kết trực tiếp.&lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;Các tham số cần thiết trong url được generate ra:&lt;/p&gt;
+
+        &lt;table&gt;
+          &lt;thead&gt;
+            &lt;tr&gt;
+              &lt;th&gt;Tham số&lt;/th&gt;
+              &lt;th style=&quot;text-align: center&quot;&gt;Kiểu dữ liệu&lt;/th&gt;
+              &lt;th style=&quot;text-align: right&quot;&gt;Bắt buộc&lt;/th&gt;
+              &lt;th style=&quot;text-align: right&quot;&gt;Mô tả&lt;/th&gt;
+            &lt;/tr&gt;
+          &lt;/thead&gt;
+          &lt;tbody&gt;
+            &lt;tr&gt;
+              &lt;td&gt;response_type&lt;/td&gt;
+              &lt;td style=&quot;text-align: center&quot;&gt;String&lt;/td&gt;
+              &lt;td style=&quot;text-align: right&quot;&gt;Bắt buộc&lt;/td&gt;
+              &lt;td style=&quot;text-align: right&quot;&gt;&lt;code&gt;code&lt;/code&gt;. Tham số này để thông báo cho Line Platform biết được cần trả về &lt;code&gt;authoration code&lt;/code&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+              &lt;td&gt;client_id&lt;/td&gt;
+              &lt;td style=&quot;text-align: center&quot;&gt;String&lt;/td&gt;
+              &lt;td style=&quot;text-align: right&quot;&gt;Bắt buộc&lt;/td&gt;
+              &lt;td style=&quot;text-align: right&quot;&gt;&lt;code&gt;Channel ID&lt;/code&gt;. Định danh duy nhất mà Line cung cấp cho channel của bạn, tham số này đuợc cung cấp trong trang quản lý login channel.&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+              &lt;td&gt;redirect_uri&lt;/td&gt;
+              &lt;td style=&quot;text-align: center&quot;&gt;String&lt;/td&gt;
+              &lt;td style=&quot;text-align: right&quot;&gt;Bắt buộc&lt;/td&gt;
+              &lt;td style=&quot;text-align: right&quot;&gt;&lt;code&gt;Callback URL&lt;/code&gt;. Là &lt;code&gt;url&lt;/code&gt; bạn cung cấp trong setting của line channel như đã &lt;code&gt;chu ý ở trên&lt;/code&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+              &lt;td&gt;state&lt;/td&gt;
+              &lt;td style=&quot;text-align: center&quot;&gt;String&lt;/td&gt;
+              &lt;td style=&quot;text-align: right&quot;&gt;Bắt buộc&lt;/td&gt;
+              &lt;td style=&quot;text-align: right&quot;&gt;Một chuỗi ký tự chữ và số duy nhất được sử dụng để ngăn chặn giả mạo yêu cầu giữa các trang web. Giá trị này sẽ được tạo ngẫu nhiên bởi ứng dụng của bạn. Không thể là một chuỗi được mã hóa URL.&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+              &lt;td&gt;scope&lt;/td&gt;
+              &lt;td style=&quot;text-align: center&quot;&gt;String&lt;/td&gt;
+              &lt;td style=&quot;text-align: right&quot;&gt;Bắt buộc&lt;/td&gt;
+              &lt;td style=&quot;text-align: right&quot;&gt;Quyền được cấp bởi người dùng. Bạn có thể chỉ định nhiều phạm vi bằng ký tự khoảng trắng được mã hóa URL (% 20). Thông thường, scope bao gồm: profile, openid và email&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+              &lt;td&gt;nonce&lt;/td&gt;
+              &lt;td style=&quot;text-align: center&quot;&gt;String&lt;/td&gt;
+              &lt;td style=&quot;text-align: right&quot;&gt;Không bắt buộc&lt;/td&gt;
+              &lt;td style=&quot;text-align: right&quot;&gt;Một chuỗi được sử dụng để ngăn chặn các cuộc tấn công phát lại. Giá trị này được trả về trong mã thông báo ID.&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+              &lt;td&gt;prompt&lt;/td&gt;
+              &lt;td style=&quot;text-align: center&quot;&gt;String&lt;/td&gt;
+              &lt;td style=&quot;text-align: right&quot;&gt;Không bắt buộc&lt;/td&gt;
+              &lt;td style=&quot;text-align: right&quot;&gt;&lt;code&gt;consent&lt;/code&gt;. Được sử dụng để buộc màn hình chấp thuận được hiển thị ngay cả khi người dùng đã cấp tất cả các quyền được yêu cầu.&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+              &lt;td&gt;max_age&lt;/td&gt;
+              &lt;td style=&quot;text-align: center&quot;&gt;Number&lt;/td&gt;
+              &lt;td style=&quot;text-align: right&quot;&gt;Không bắt buộc&lt;/td&gt;
+              &lt;td style=&quot;text-align: right&quot;&gt;Thời gian cho phép trôi qua tính bằng giây kể từ lần cuối cùng người dùng được xác thực. Tương ứng với tham số max_age được xác định trong phần “Yêu cầu xác thực” của OpenID Connect Core 1.0.&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+              &lt;td&gt;ui_locales&lt;/td&gt;
+              &lt;td style=&quot;text-align: center&quot;&gt;String&lt;/td&gt;
+              &lt;td style=&quot;text-align: right&quot;&gt;Optional&lt;/td&gt;
+              &lt;td style=&quot;text-align: right&quot;&gt;Ngôn ngữ hiển thị cho màn hình Đăng nhập LINE. Chỉ định là một hoặc nhiều thẻ ngôn ngữ RFC 5646 (BCP 47), được phân tách bằng dấu cách, theo thứ tự ưu tiên. Tương ứng với tham số ui_locales được xác định trong phần “Yêu cầu xác thực” của OpenID Connect Core 1.0.&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+              &lt;td&gt;bot_prompt&lt;/td&gt;
+              &lt;td style=&quot;text-align: center&quot;&gt;String&lt;/td&gt;
+              &lt;td style=&quot;text-align: right&quot;&gt;Không bắt buộc&lt;/td&gt;
+              &lt;td style=&quot;text-align: right&quot;&gt;Hiển thị tùy chọn để thêm tài khoản chính thức LINE làm bạn bè trong khi đăng nhập. Đặt giá trị &lt;code&gt;normal&lt;/code&gt; thường hoặc &lt;code&gt;aggressive&lt;/code&gt;. Để biết thêm thông tin, hãy xem &lt;a href=&quot;https://developers.line.biz/en/docs/line-login/web/link-a-bot/&quot;&gt;Liên kết tài khoản chính thức LINE với kênh Đăng nhập LINE của bạn.&lt;/a&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+          &lt;/tbody&gt;
+        &lt;/table&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Sau khi tạo reques url thành công, khi di chuyển vào link đã được tạo ra, người dùng sẽ đuợc di chuyển sang trang của Line để tiến hành đăng nhập và xác thực. Nếu xác thực thành công, Line Platform sẽ redirect tới server của bạn với confir callback đã khai báo từ trước kèm them tham số là &lt;code&gt;code&lt;/code&gt;, &lt;code&gt;state&lt;/code&gt; và &lt;code&gt;friendship_status_changed&lt;/code&gt;&lt;/p&gt;
+
+    &lt;table&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th&gt;Tables&lt;/th&gt;
+          &lt;th style=&quot;text-align: center&quot;&gt;Are&lt;/th&gt;
+          &lt;th style=&quot;text-align: right&quot;&gt;Cool&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;code&lt;/td&gt;
+          &lt;td style=&quot;text-align: center&quot;&gt;String&lt;/td&gt;
+          &lt;td style=&quot;text-align: right&quot;&gt;Mã ủy quyền được sử dụng để nhận mã thông báo truy cập. Có giá trị trong &lt;code&gt;10 phút&lt;/code&gt;. Mã ủy quyền này chỉ có thể được sử dụng một lần.&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;state&lt;/td&gt;
+          &lt;td style=&quot;text-align: center&quot;&gt;String&lt;/td&gt;
+          &lt;td style=&quot;text-align: right&quot;&gt;tham số  &lt;code&gt;state&lt;/code&gt; được bao gồm trong URL ủy quyền của yêu cầu ban đầu. Ứng dụng của bạn nên xác minh rằng giá trị này khớp với giá trị trong yêu cầu ban đầu.&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;friendship_status_changed&lt;/td&gt;
+          &lt;td style=&quot;text-align: center&quot;&gt;Boolean&lt;/td&gt;
+          &lt;td style=&quot;text-align: right&quot;&gt;&lt;code&gt;true&lt;/code&gt; nếu trạng thái tình bạn giữa người dùng và tài khoản chính thức LINE thay đổi trong quá trình đăng nhập. Nếu không, &lt;code&gt;false&lt;/code&gt;. Giá trị này chỉ được trả về nếu tham số truy vấn bot_prompt được chỉ định trong yêu cầu cấp phép và màn hình chấp thuận với tùy chọn thêm tài khoản chính thức LINE của bạn khi bạn bè được hiển thị cho người dùng.&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Ví dụ về một response của Line trả về:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;HTTP/1.1 302 Found
+Location : https://client.example.org/cb?code=abcd1234&amp;amp;state=0987poi&amp;amp;friendship_status_changed=true
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Lấy access token:
+  Để lấy accesstoken, hãy tạo một yêu cầu POST HTTP với mã ủy quyền. Khi bạn có mã thông báo truy cập, bạn có thể sử dụng nó để thực hiện các cuộc gọi API. Mã thông báo truy cập được phát hành tại điểm cuối sau.
+    &lt;ul&gt;
+      &lt;li&gt;Request
+        &lt;blockquote&gt;
+          &lt;p&gt;POST https://api.line.me/oauth2/v2.1/token&lt;/p&gt;
+        &lt;/blockquote&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Request header:
+  | Request header        | Mô tả           | 
+  | ————- |:————-:| 
+  | Content-Type | application/x-www-form-urlencoded |&lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;Request body&lt;/p&gt;
+
+        &lt;table&gt;
+          &lt;thead&gt;
+            &lt;tr&gt;
+              &lt;th&gt;Parameters&lt;/th&gt;
+              &lt;th style=&quot;text-align: center&quot;&gt;Type&lt;/th&gt;
+              &lt;th style=&quot;text-align: right&quot;&gt;Required&lt;/th&gt;
+              &lt;th style=&quot;text-align: right&quot;&gt;Description&lt;/th&gt;
+            &lt;/tr&gt;
+          &lt;/thead&gt;
+          &lt;tbody&gt;
+            &lt;tr&gt;
+              &lt;td&gt;grant_type&lt;/td&gt;
+              &lt;td style=&quot;text-align: center&quot;&gt;String&lt;/td&gt;
+              &lt;td style=&quot;text-align: right&quot;&gt;Required&lt;/td&gt;
+              &lt;td style=&quot;text-align: right&quot;&gt;authorization_code.&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+              &lt;td&gt;code&lt;/td&gt;
+              &lt;td style=&quot;text-align: center&quot;&gt;String&lt;/td&gt;
+              &lt;td style=&quot;text-align: right&quot;&gt;Required&lt;/td&gt;
+              &lt;td style=&quot;text-align: right&quot;&gt;Authorization code&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+              &lt;td&gt;redirect_uri&lt;/td&gt;
+              &lt;td style=&quot;text-align: center&quot;&gt;String&lt;/td&gt;
+              &lt;td style=&quot;text-align: right&quot;&gt;Required&lt;/td&gt;
+              &lt;td style=&quot;text-align: right&quot;&gt;Callback URL&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+              &lt;td&gt;client_id&lt;/td&gt;
+              &lt;td style=&quot;text-align: center&quot;&gt;String&lt;/td&gt;
+              &lt;td style=&quot;text-align: right&quot;&gt;Required&lt;/td&gt;
+              &lt;td style=&quot;text-align: right&quot;&gt;Channel ID. Found in the console.&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+              &lt;td&gt;client_secret&lt;/td&gt;
+              &lt;td style=&quot;text-align: center&quot;&gt;String&lt;/td&gt;
+              &lt;td style=&quot;text-align: right&quot;&gt;Required&lt;/td&gt;
+              &lt;td style=&quot;text-align: right&quot;&gt;Channel secret. Found in the console.&lt;/td&gt;
+            &lt;/tr&gt;
+          &lt;/tbody&gt;
+        &lt;/table&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Response: Sau khi request, nếu thông tin truyền lên valid, Line sẽ trả về &lt;code&gt;access_token&lt;/code&gt; và một số thông tin đi kèm.&lt;/li&gt;
+  &lt;li&gt;Chúng ta sẽ sử dụng accesstoken đó để request lên &lt;a href=&quot;https://developers.line.biz/en/docs/line-login/web/integrate-line-login/#use-endpoint&quot;&gt;LINE social enpoint&lt;/a&gt; để sử dụng các thông tin mà Line cung cấp.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;22-nhắn-tin-sử-dụng-line-channel&quot;&gt;2.2. Nhắn tin sử dụng line channel&lt;/h4&gt;
+
+&lt;p&gt;Để sử dụng tính năng nhắn tin Line, bạn cần phải tạo một channel để nhắn tin tại: &lt;a href=&quot;https://developers.line.biz/console/&quot;&gt;Line console&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Các lưu ý:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Sử dụng channel access token: Accesstoken là token tồn tại lâu dài phải được đặt trong tiêu đề ủy quyền khi thực hiện các cuộc gọi API. Bạn có thể phát hành lại mã thông báo truy cập kênh bất cứ lúc nào thông qua bảng điều khiển.&lt;/li&gt;
+  &lt;li&gt;Để sử dụng một access token, click vào &lt;code&gt;issue&lt;/code&gt; bên dưới phần &lt;code&gt;**Channel access token (long-lived)**&lt;/code&gt; trong tab &lt;code&gt;Messaging API&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Mặc định, BOT không thể nhắn tin cho người dùng mà chưa kết bạn hoặc chưa từng tuơng tác với người dùng. Vì thế bạn cần chắc chắn là bot channel của mình đã kết bạn với người dùng.  Có nhiều cách như trên trang chủ  &lt;a href=&quot;https://developers.line.biz/en/docs/messaging-api/building-bot/#sending-reply-messages&quot;&gt;LINE&lt;/a&gt; đã cung cấp. Trong phần này mình sẽ hướng dẫn bạn sử dụng tính năng &lt;code&gt;push_message&lt;/code&gt;
+&lt;em&gt;Chú ý: để có thể hiển thị tính năng kết bạn sau khi người dùng chấp nhận ủy quyền thông tin của Line, bạn cần liên kết Line bot messaging với Line login: Trong tab &lt;strong&gt;## LINE Login settings&lt;/strong&gt; &amp;gt; &lt;strong&gt;### General settings&lt;/strong&gt; &amp;gt; &lt;strong&gt;Linked OA&lt;/strong&gt; chọn app liên kết là Line bot messaging bạn vừa tạo.&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Hướng dẫn sử dụng tính năng &lt;code&gt;push_message&lt;/code&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;HTTP request
+  POST https://api.line.me/v2/bot/message/push&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Request headers&lt;/p&gt;
+
+    &lt;table&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th&gt;Request header&lt;/th&gt;
+          &lt;th&gt;Description&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;Content-Type&lt;/td&gt;
+          &lt;td&gt;application/json&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;Authorization&lt;/td&gt;
+          &lt;td&gt;Bearer {channel access token}&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Request body&lt;/p&gt;
+
+    &lt;table&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th&gt;Property&lt;/th&gt;
+          &lt;th&gt;Type&lt;/th&gt;
+          &lt;th&gt;Required	Description&lt;/th&gt;
+          &lt;th&gt; &lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;to&lt;/td&gt;
+          &lt;td&gt;String&lt;/td&gt;
+          &lt;td&gt;Required&lt;/td&gt;
+          &lt;td&gt;ID của người nhận mục tiêu. Sử dụng giá trị userId, groupId hoặc roomId được trả về trong một đối tượng sự kiện webhook. Không sử dụng ID LINE được tìm thấy trên LINE.&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;messages&lt;/td&gt;
+          &lt;td&gt;Array của các đối tượng tin nhắn&lt;/td&gt;
+          &lt;td&gt;Required	Messages, Tối đa: 5&lt;/td&gt;
+          &lt;td&gt; &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;notificationDisabled&lt;/td&gt;
+          &lt;td&gt;Boolean&lt;/td&gt;
+          &lt;td&gt;Optional&lt;/td&gt;
+          &lt;td&gt; &lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Ví dụ khi thực hiện request sử dụng &lt;code&gt;curl&lt;/code&gt; :&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;curl -v -X POST https://api.line.me/v2/bot/message/push \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer {channel access token}' \
+-d '{
+    &quot;to&quot;: &quot;U4af4980629...&quot;,
+    &quot;messages&quot;:[
+        {
+            &quot;type&quot;:&quot;text&quot;,
+            &quot;text&quot;:&quot;Hello, world1&quot;
+        },
+        {
+            &quot;type&quot;:&quot;text&quot;,
+            &quot;text&quot;:&quot;Hello, world2&quot;
+        }
+    ]
+}'
+&lt;/code&gt;&lt;/pre&gt;
 </description>
-        <pubDate>Mon, 06 Jan 2020 00:00:00 +0700</pubDate>
+        <pubDate>Mon, 06 Jan 2020 00:00:00 +0000</pubDate>
         <link>http://localhost:4000/tech/2020/01/06/login-and-messaging-with-line/</link>
         <guid isPermaLink="true">http://localhost:4000/tech/2020/01/06/login-and-messaging-with-line/</guid>
         
@@ -123,7 +462,7 @@ Angela: Tôi muốn ngăn người khác biết hệ điều hành của tôi...
         <title>Rails routes namespace vs scopes</title>
         <description>&lt;p&gt;https://devblast.com/b/rails-5-routes-scope-vs-namespace&lt;/p&gt;
 </description>
-        <pubDate>Sun, 22 Dec 2019 00:00:00 +0700</pubDate>
+        <pubDate>Sun, 22 Dec 2019 00:00:00 +0000</pubDate>
         <link>http://localhost:4000/tech/2019/12/22/rails-namespace-vs-scopes/</link>
         <guid isPermaLink="true">http://localhost:4000/tech/2019/12/22/rails-namespace-vs-scopes/</guid>
         
@@ -375,7 +714,7 @@ arr.each { |a| print a -= 10, &quot; &quot; }
   &lt;li&gt;Một phương thức lặp đôi khi cũng hữu ích là&lt;/li&gt;
 &lt;/ul&gt;
 </description>
-        <pubDate>Sun, 22 Dec 2019 00:00:00 +0700</pubDate>
+        <pubDate>Sun, 22 Dec 2019 00:00:00 +0000</pubDate>
         <link>http://localhost:4000/tech/2019/12/22/tat-tan-tat-ve-array-trong-ruby/</link>
         <guid isPermaLink="true">http://localhost:4000/tech/2019/12/22/tat-tan-tat-ve-array-trong-ruby/</guid>
         
@@ -902,7 +1241,7 @@ is_selected = users_categories.map{|c| c.category_key_name}.include?(category_op
 
 &lt;/section&gt;
 </description>
-        <pubDate>Sat, 14 Dec 2019 00:00:00 +0700</pubDate>
+        <pubDate>Sat, 14 Dec 2019 00:00:00 +0000</pubDate>
         <link>http://localhost:4000/2019/12/14/select-multy-categories/</link>
         <guid isPermaLink="true">http://localhost:4000/2019/12/14/select-multy-categories/</guid>
         
@@ -921,7 +1260,7 @@ còn Where thì KHÔNG dùng được sau GROUP BY.
 
 &lt;/code&gt;&lt;/pre&gt;
 </description>
-        <pubDate>Fri, 29 Nov 2019 00:00:00 +0700</pubDate>
+        <pubDate>Fri, 29 Nov 2019 00:00:00 +0000</pubDate>
         <link>http://localhost:4000/tech/2019/11/29/where-vs-having/</link>
         <guid isPermaLink="true">http://localhost:4000/tech/2019/11/29/where-vs-having/</guid>
         
@@ -956,7 +1295,7 @@ Vậy REST là gì?&lt;/p&gt;
   &lt;li&gt;PATCH (UPDATE): Cập nhật một thành phần, thuộc tính của Resource.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
-        <pubDate>Fri, 29 Nov 2019 00:00:00 +0700</pubDate>
+        <pubDate>Fri, 29 Nov 2019 00:00:00 +0000</pubDate>
         <link>http://localhost:4000/tech/2019/11/29/resful-web-service/</link>
         <guid isPermaLink="true">http://localhost:4000/tech/2019/11/29/resful-web-service/</guid>
         
@@ -969,7 +1308,7 @@ Vậy REST là gì?&lt;/p&gt;
         <title>form_with — Building HTML forms in Rails 5.1</title>
         <description>&lt;p&gt;https://medium.com/@tinchorb/form-with-building-html-forms-in-rails-5-1-f30bd60ef52d&lt;/p&gt;
 </description>
-        <pubDate>Fri, 29 Nov 2019 00:00:00 +0700</pubDate>
+        <pubDate>Fri, 29 Nov 2019 00:00:00 +0000</pubDate>
         <link>http://localhost:4000/tech/2019/11/29/form_with-vs-form_tag/</link>
         <guid isPermaLink="true">http://localhost:4000/tech/2019/11/29/form_with-vs-form_tag/</guid>
         
@@ -1375,7 +1714,7 @@ javascript:
 &lt;p&gt;https://github.com/nathanvda/cocoon#link_to_remove_association
 https://api.rubyonrails.org/classes/ActiveRecord/NestedAttributes/ClassMethods.html&lt;/p&gt;
 </description>
-        <pubDate>Tue, 12 Nov 2019 00:00:00 +0700</pubDate>
+        <pubDate>Tue, 12 Nov 2019 00:00:00 +0000</pubDate>
         <link>http://localhost:4000/tech/2019/11/12/multi-nested-fields-rails/</link>
         <guid isPermaLink="true">http://localhost:4000/tech/2019/11/12/multi-nested-fields-rails/</guid>
         
@@ -1458,7 +1797,7 @@ user.images.first.filename
 
 &lt;p&gt;We can append files by using the attach function.&lt;/p&gt;
 </description>
-        <pubDate>Tue, 12 Nov 2019 00:00:00 +0700</pubDate>
+        <pubDate>Tue, 12 Nov 2019 00:00:00 +0000</pubDate>
         <link>http://localhost:4000/tech/2019/11/12/rails-6-active-storage-changes/</link>
         <guid isPermaLink="true">http://localhost:4000/tech/2019/11/12/rails-6-active-storage-changes/</guid>
         

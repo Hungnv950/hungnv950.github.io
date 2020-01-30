@@ -29,11 +29,11 @@ categories:
 
 - how ?
 
-- Xác định vấn đề: Các bước trên đã có vẻ clear :D
+    - Xác định vấn đề: Các bước trên đã có vẻ clear :D
 
-- Giải quyết vấn đề: Để giải quyết được các vấn đề, với mình thì nên đặt ra các câu hỏi đúng để có thể trả lời từng câu hỏi đó dẫn tới việc giải quyết bài toán. Bạn có thể tham khảo [X-Y problem](/life/2020/01/06/the-x-y-problem/){:target="_blank"}
+    - Giải quyết vấn đề: Để giải quyết được các vấn đề, với mình thì nên đặt ra các câu hỏi đúng để có thể trả lời từng câu hỏi đó dẫn tới việc giải quyết bài toán. Bạn có thể tham khảo [X-Y problem](/life/2020/01/06/the-x-y-problem/){:target="_blank"}
 
-- Khi một service sinh ra để cung cấp tính năng thì chắc chắn nhà cung cấp phải cung cấp đi kèm service đó một document cụ thể. => Tài liệu nên tìm hiểu và đọc của Line service
+    - Khi một service sinh ra để cung cấp tính năng thì chắc chắn nhà cung cấp phải cung cấp đi kèm service đó một document cụ thể. => Tài liệu nên tìm hiểu và đọc của Line service
 
   
 

@@ -3,12 +3,12 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Block và yield trong ruby</title>
+        <title>Sử dụng nhiều tài khoản github trên cùng một máy tính cá nhân</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">        
         <meta name="description" content="Harmony is a free responsive jekyll theme by Gayan Virajith and Maheshika Lakmali. Sourced on Github -  https://github.com/gayanvirajith/harmony
 ">
         <link rel="canonical" 
-        href="http://localhost:4000/tech/2018/03/20/ruby-block-and-yield/">
+        href="http://localhost:4000/tech/2019/06/26/su-dung-nhieu-tai-khoan-github-tren-cung-mot-may-tinh-ca-nhan/">
         
         <!-- styles -->
         <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
@@ -49,7 +49,7 @@
         <div class="page-content wc-container">
 	
 	<div class="post">
-		<h1>Block và yield trong ruby</h1>
+		<h1>Sử dụng nhiều tài khoản github trên cùng một máy tính cá nhân</h1>
 		<p class="post-meta">
 			
       <span class="categories">
@@ -57,112 +57,86 @@
       </span> |
 	    
 	    <span class="post-date">
-    	Mar 20, 2018 
+    	Jun 26, 2019 
 	    </span>
 		</p>		
 		<div class="post">
-			<h1 id="blocks"><strong><code>Blocks</code></strong></h1>
-<p>Về cơ bản, <code>blocks</code> trong ruby là một cách để nhóm các câu lệnh sao cho chúng ta có thể kết hợp với các lời gọi phương thức như thể chúng là các tham số.</p>
+			<h3 id="step-1-tạo-ssh-key-mới-cho-tài-khoản-công-việc">Step 1: Tạo ssh key mới cho tài khoản công việc</h3>
+<blockquote>
+  <p>ssh-keygen -t rsa -C “github-email-address”</p>
+</blockquote>
 
-<p>Ruby cung cấp hai cách để viết <code>blocks</code> là:</p>
-<ol>
-  <li>Sử dụng dấu <code>{}</code> đối với những blocks ngắn gọn có thể viêt trên một dòng.
-    <pre><code>array = [1,2,3,4]
-</code></pre>
-  </li>
-  <li>Sử dụng cụm <code>do..end</code>
-    <pre><code>array.map! do |n|
-  n * n
-end
-=&gt; [1, 4, 9, 16]
-</code></pre>
-  </li>
-</ol>
+<p>Khi màn hình hiện <code>Enter file in which to save the key (/home/&lt;user&gt;/.ssh/id_rsa):</code>  Nhập user cho công việc của bạn, ví dụ mình sẽ nhập là <code>id_rsa_sun</code></p>
 
-<h2 id="procs"><strong><code>Procs</code></strong></h2>
-<p>Một proc là một instance của lớp Proc. Proc là <code>object</code> còn <code>blocks</code> thì không.</p>
-<pre><code>p = Proc.new { puts "Hello World" }
-</code></pre>
-<p>Điều này cho phép chúng ta gọi các phương thức trên nó và gán nó cho các biến. Procs cũng có thể gọi lại chính nó.</p>
-<pre><code>p.call  # prints 'Hello World'
-p.class # returns 'Proc'
-a = p   # a now equals p, a Proc instance
-p       # returns a proc object '#&lt;Proc:0x007f96b1a60eb0@(irb):46&gt;'
-</code></pre>
-<h2 id="-lambdas"><code> Lambdas</code></h2>
-<p>Lambda function hầu như giống với Procs nhưng có hai điểm khác biệt:</p>
-<ul>
-  <li>Thứ nhất: Lambda kiểm tra số lượng phần tử đầu vào. Báo lỗi nếu không chính xác. Còn Procs thì không
-    <pre><code>l = lambda { "I'm a lambda" }
-l.call
-=&gt; "I'm a lambda"
-l.call('arg')
-ArgumentError: wrong number of arguments (1 for 0)
-</code></pre>
-  </li>
-  <li>Thứ hai:  Lambdas và Procs xử lý khi gặp từ khóa <code>return</code> khác nhau:</li>
-</ul>
+<p>Kiểm tra xem id_rsa_sun đã được sinh ra chưa.</p>
+<blockquote>
+  <p>cd cd ~/.ssh</p>
+</blockquote>
 
-<pre><code>def lambda_test
-  lam = lambda { return }
-  lam.call
-  puts "Hello world"
-end
+<blockquote>
+  <p>ls</p>
 
-lambda_test                 # calling lambda_test prints 'Hello World'
+  <p>Danh sách các file đã được sinh ra:</p>
+</blockquote>
+
+<pre><code>id_rsa_sun  id_rsa_sun.pub  id_rsa  id_rsa.pub
 </code></pre>
-<pre><code>def proc_test
-  proc = Proc.new { return }
-  proc.call
-  puts "Hello world"
-end
 
-proc_test                 # calling proc_test prints nothing
+<h3 id="step-2-cài-đặt-ssh-key-trên-github">Step 2: Cài đặt ssh key trên github</h3>
+
+<p>Lấy id_rsa của email mới bạn vừa tạo.</p>
+
+<blockquote>
+  <p>cat id_rsa_sun.pub</p>
+</blockquote>
+
+<p>Sau đó nhập vào ssh-key cuả tài khoản git công việc tại https://github.com/settings/keys</p>
+
+<h3 id="bước-3-cài-đặt-github-host">Bước 3: Cài đặt Github Host</h3>
+
+<blockquote>
+  <p>touch ~/.ssh/config</p>
+</blockquote>
+
+<blockquote>
+  <p>nano ~/.ssh/config</p>
+</blockquote>
+
+<p>Sửa file config của bạn thành dạng:</p>
+
+<pre><code># Tài khoản git cá nhân vẫn dùng của bạn
+Host github.com-username
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_rsa
+# Tài khoản công việc
+Host github.com-sun # config này sẽ dùng để xử lý xác định khi cấu hình remote
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_rsa_sun  # id_rsa_sun mà chúng ta vừa tạo
 </code></pre>
-<h1 id="yield"><strong><code>Yield</code></strong></h1>
-<p>Yield là một cách rất hay của Ruby để thực hiện một khối trong một phương thức bất kì mà không làm ảnh hưởng. Để hiểu rõ hơn chúng ta cùng theo dõi một ví dụ:</p>
-<pre><code>def rb_block
-  puts 'Start'
-  yield
-  yield
-  puts 'End'
-end
 
-rb_block {puts "We're in the block"}
-</code></pre>
-<p><code>Kết quả:</code></p>
-<pre><code>Start
-We're in the block
-We're in the block
-End
-</code></pre>
-<p>Dễ hiểu, khi thực thi method <code>rb_block</code>, ruby thực hiện câu bình thường cho tới khi gặp từ khóa <code>yield</code> , ruby sẽ dừng và thực hiện block này sau đó sẽ thực thi tiếp tục các logic của method <code>rb_block</code></p>
-<h2 id="yield-với-tham-số">Yield với tham số</h2>
-<p>Để dễ hiểu, ta quan sát ví dụ:</p>
-<pre><code>def rb_block
-    yield('hello', 'ruby')
-end
+<p>Sau khi tạo 1 project trên github với tài khoản khác. Khi bạn <code>add remote</code> nên chú ý user khi add.
+Ví dụ khi clone repo mới:</p>
 
-rb_block { |s, r| puts s + ' ' + r
-</code></pre>
-<p><code>Kết quả:</code></p>
-<pre><code>hello ruby
-</code></pre>
-<p>Ta thấy, ruby cho phép truyển tham số vào yield trong các khối. Trong khối, chúng ta liệt kê tên của các đối số để nhận các tham số qua các dấu <code>||</code></p>
+<blockquote>
+  <p>git clone git@github.com-sun:&lt;<strong>user</strong>&gt;/sample_ruby.git</p>
+</blockquote>
 
-<p><code>Lưu ý:</code> Khi định nghĩa <code>yield</code> <code>có tham số</code>, việc truyền vào tham số bắt buộc. Nếu không nhận được tham số phù hợp ruby sẽ báo lỗi.</p>
-<pre><code>rb_block   #`rb_block': no block given (yield) (LocalJumpError)
-</code></pre>
-<h1 id="tài-liệu-tham-khảo">Tài liệu tham khảo</h1>
-<p>http://www.bogotobogo.com/RubyOnRails/RubyOnRails_Blocks_and_Yield.php</p>
+<blockquote>
+  <p>git config user.email “&lt;<strong>emai dùng để sinh id_rsa_sun ở trên</strong>&gt;”</p>
+</blockquote>
 
-<p>https://code.tutsplus.com/tutorials/ruby-on-rails-study-guide-blocks-procs-and-lambdas–net-29811</p>
+<p>Sau đó bạn có thể add và commit bình thường.</p>
 
-<p>http://awaxman11.github.io/blog/2013/08/05/what-is-the-difference-between-a-block/</p>
+<p>Add remote với repo mới:</p>
+<blockquote>
+  <p>git remote add origin git@github.com-sun:&lt;<strong>user</strong>&gt;/sample_ruby.git</p>
+</blockquote>
 
-<p>https://viblo.asia/p/thanh-thao-ruby-block-trong-5-phut-L4x5xg2alBM/</p>
+<p>Note: <code>sun</code> ở đây là user của mình đặt ra, các bạn có thể thay đổi theo user công việc hoặc nick name bạn muốn cho phù hợp.</p>
 
-<p>https://viblo.asia/p/block-trong-ruby-wjAM7yNOvmWe</p>
+<h3 id="nguồn-git-push--pull-with-two-different-accounts-and-two-different-users-on-the-same-machine">Nguồn: <a href="https://medium.com/@therajanmaurya/git-push-pull-with-two-different-account-and-two-different-user-on-same-machine-a85f9ee7ec61">Git Push &amp; Pull with Two different accounts and Two different users on the same machine</a></h3>
 
 		</div>
 	</div>
@@ -172,6 +146,16 @@ rb_block { |s, r| puts s + ' ' + r
 	<div class="related">
 		<h4>Related Posts</h4>
 		<ul class="posts">
+		    
+		    <li>
+			  <span>25 Feb 2020 &raquo;</span>
+			  <a href="http://localhost:4000/tech/2020/02/25/clean-code-function/">Clean code - function</a>
+		    </li>
+		    
+		    <li>
+			  <span>30 Jan 2020 &raquo;</span>
+			  <a href="http://localhost:4000/post/2020/01/30/ruby-notes/">Ruby Notes</a>
+		    </li>
 		    
 		    <li>
 			  <span>06 Jan 2020 &raquo;</span>
@@ -213,16 +197,6 @@ rb_block { |s, r| puts s + ' ' + r
 			  <a href="http://localhost:4000/tech/2019/11/29/form_with-vs-form_tag/">form_with — Building HTML forms in Rails 5.1</a>
 		    </li>
 		    
-		    <li>
-			  <span>12 Nov 2019 &raquo;</span>
-			  <a href="http://localhost:4000/tech/2019/11/12/multi-nested-fields-rails/">Multi dynamic nested attributes trong rails</a>
-		    </li>
-		    
-		    <li>
-			  <span>12 Nov 2019 &raquo;</span>
-			  <a href="http://localhost:4000/tech/2019/11/12/rails-6-active-storage-changes/">Rails 6 - Active Storage changes</a>
-		    </li>
-		    
 		</ul>
 	</div>
 	
@@ -230,13 +204,13 @@ rb_block { |s, r| puts s + ' ' + r
 	<div class="post-footer">
 		<div class="column-1">
 			
-				<a href="http://localhost:4000/tech/2018/03/20/git-cherry-pick/"><< Older</a>
+				<a href="http://localhost:4000/life/2019/06/26/morning-speech-cha-da-quen/"><< Older</a>
 			
 		</div>
 		<div class="column-2"><a href="http://localhost:4000/ ">Home</a></div>
 		<div class="column-3">
 			
-				<a href="http://localhost:4000/life/2019/06/25/morning-speech-cha-da-quen/">Newer >></a>
+				<a href="http://localhost:4000/2019/07/01/from-third-project/">Newer >></a>
 			
 		</div>
 	</div>

@@ -5,9 +5,125 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 17 Jan 2020 07:13:00 +0000</pubDate>
-    <lastBuildDate>Fri, 17 Jan 2020 07:13:00 +0000</lastBuildDate>
+    <pubDate>Wed, 26 Feb 2020 09:55:33 +0700</pubDate>
+    <lastBuildDate>Wed, 26 Feb 2020 09:55:33 +0700</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
+    
+      <item>
+        <title>Clean code - function</title>
+        <description>&lt;hr /&gt;
+
+&lt;h3 id=&quot;function-là-động-từ-class-là-danh-từ-nghệ-thuật-của-lập-trình-là-nghệ-thuật-của-ngôn-ngữ-thiết-kế&quot;&gt;Function là động từ, class là danh từ. Nghệ thuật của lập trình là nghệ thuật của ngôn ngữ thiết kế.&lt;/h3&gt;
+
+&lt;h3 id=&quot;các-lập-trình-viên-bậc-thầy-nghĩ-rằng-các-hệ-thống-như-một-câu-chuyện-để-kể-chứ-không-phải-là-một-chương-trình-để-viết-một-cách-thuần-tuý&quot;&gt;Các lập trình viên bậc thầy nghĩ rằng các hệ thống như một câu chuyện để kể chứ không phải là một chương trình để viết một cách thuần tuý.&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Small: Nguyên tắc đầu tiên của function là chúng càn phải nhỏ. Nguyên tắc thứ 2 là chúng cần phải nhỏ hơn nữa. (function không nên dài quá 20 dòng, mỗi dòng không nên dài quá 150 kí tự)&lt;/li&gt;
+  &lt;li&gt;Những khối lệnh if, else, while nên đặt trên cùng 1 dòng và những dòng này nên đặt tới 1 lời gọi tới hàm khác.&lt;/li&gt;
+  &lt;li&gt;Mức thụt lề của function nên ở mức 1 hoặc 2. Nếu quá mức này, hãy nghĩ tới việc tách function mới.&lt;/li&gt;
+  &lt;li&gt;Do one thing: Function chỉ nên thực hiện một thứ. Nó nên thực hiện điều đó cho tốt. Nó nên thực hiện 1 điều duy nhất.&lt;/li&gt;
+  &lt;li&gt;One level of Abstraction per Function: Để đảm bảo chắc chắn rằng function đang làm 1 việc duy nhất cần đảm bảo các câu lệnh trong function đang cùng nằm ở 1 mức độ trừu tượng.&lt;/li&gt;
+  &lt;li&gt;Reading code from top to bottom (the StepDown rule): Chúng ta muốn đọc code như một câu chuyện từ trên xuống. Mỗi function được sắp xếp đều được tuân theo mức độ của sự trừu tượng từ trên xuống. Giảm dần mức độ trừu tượng từ trên xuống.&lt;/li&gt;
+  &lt;li&gt;Use Descriptive Names: Sử dụng tên mô tả những gì function làm. Đừng ngần ngại vì đó là một cái tên dài. Tên mô tả dài sẽ tốt hơn là 1 tên mô tả ngắn và bí ẩn, tên mô tả dài sẽ tốt hơn là một đoạn comment bình luận để mô tả về function đó.&lt;/li&gt;
+  &lt;li&gt;Function arguments: Số lượng tham số lý tưởng trong 1 funciton là = 0 (niladic), tiếp đến là 1 (monadic), 2 (dyadic), 3 (triadic) thì nên tránh nếu có thể. Nhiều hơn 3 (polyadic) thì cần phải có một lý do đặc biệt và không nên sử dụng.&lt;/li&gt;
+  &lt;li&gt;Common Monadic Form:
+Hai hình thức phổ biến khi sử dụng function 1 tham số là:
+    &lt;ul&gt;
+      &lt;li&gt;Một hàm lý luận, trả về true hoặc false&lt;/li&gt;
+      &lt;li&gt;Một hàm lập luận, biến nó thành một thứ gì khác và trả về giá trị&lt;/li&gt;
+      &lt;li&gt;Một hình thức ít phổ biến hơn là hàm xử lý sự kiện, có 1 tham số đầu vào nhưng không có tham số đầu ra.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Flag argument: Nên tách nó thành 2 hàm, bởi vì hàm này đã làm hơn 1 điều: 1 là flag có giá trị đúng, hai là flag có giá trị sai.&lt;/li&gt;
+  &lt;li&gt;Dyalic function: Hai tham số phải có sự gắn kết tự nhiên hoặc là sắp xếp của một trật tự tự nhiên.&lt;/li&gt;
+  &lt;li&gt;Triads: Những hàm phải đưa ra tới 3 đối số càng khó để hiểu hơn là hai. Khuyên bạn nên thực sự cẩn thận khi đưa ra một hàm với một bộ 3 tham số.&lt;/li&gt;
+  &lt;li&gt;Argument Object: Khi một số hàm thực sự cần nhiều hơn 2 hay 3 tham số, có khả năng một số trong những args đó có thể được gói gọn trong 1 lớp chứa các tham số đó.&lt;/li&gt;
+  &lt;li&gt;Argument List: Đôi khi chúng ta muốn vượt qua số lượng biến số của tham số vào 1 hàm. Nếu các tham số đều được đối xử tương tự nhau, có thể gộp chung lại thành một tham số đơn kiểu List.&lt;/li&gt;
+  &lt;li&gt;Verbs and Keywords: Trong trường hợp là 1 monad function, hàm và tham số nên tạo thành 1 động từ hoặc danh từ đẹp. Ví dụ: assertEquals có thể được viết tốt hơn là assertExpectedEqualsActual(expected, actual), điều này giảm nhẹ vấn đề phải nhớ thứ tự các tham số.&lt;/li&gt;
+  &lt;li&gt;Have no sideeffecs:
+    &lt;ul&gt;
+      &lt;li&gt;Do one thinh&lt;/li&gt;
+      &lt;li&gt;Tránh các tham số đầu ra nếu sử dụng được this/self.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Comman query separation (Tách lệnh truy vấn): Hàm nên thực hiện hoặc làm 1 điều gì đó hoặc trả lời một điều gì đó, nhưng không bao gồm cả hai. Hàm của bạn nên thay đổi trạng thái của một đối tượng hoặc trả về thông tin của một đối tượng. Làm cả hai sẽ gây ra nhầm lẫn.&lt;/li&gt;
+  &lt;li&gt;Prefer exceptions to returning erros code:
+Trả về đoạn code báo lỗi bên trong các câu lệnh của hàm là một sự vi phạm tới việc tách câu lệnh truy vấn.&lt;/li&gt;
+  &lt;li&gt;Extract Try/Catch blocks:
+Tách các khối xử lý Try/Catch ra khỏi các thành phần chức năng riêng của chính nó.&lt;/li&gt;
+  &lt;li&gt;Errors handing Is one thing:
+Function nên làm một việc, xử lý lỗi nên làm một việc. Vậy nên một chức năng xử lý lỗi thì không nên làm bất cứ điều gì nữa.&lt;/li&gt;
+  &lt;li&gt;The Error.java Dependency Magnet:
+Một class hoặc enum chứa tất cả các định nghĩa lỗi. Khi sử dụng chúng thì các class khác đều phụ thuộc vào class định nghĩa này. Nhưng khi danh sách lỗi này được thay đổi thì tất cả các class khác cần được biên dịch và bố trí lại.
+=&amp;gt; Nên sử dụng các exception hơn là errors code.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Don’t repeat your self&lt;/strong&gt;:
+Sự trùng lặp là một vấn đề vì nó thổi phồng mã lên và sẽ phải yêu cầu thay đổi nhiều lần nếu thuật toán có sự thay đổi. Nó cũng cấp số nhân nhiều lần cho một lỗi thiếu sót nào đó.&lt;/p&gt;
+
+    &lt;p&gt;Mục tiêu là giảm thiểu sự trùng lặp.&lt;/p&gt;
+
+    &lt;p&gt;Trùng lặp có thể là gốc rễ mọi tội lỗi ở trong phần mềm. Nhiều nguyên tắc và thông lệ được tạo ra nhằm kiếm soát và hạn chế sự trùng lặp đó. Lập trình hướng đối tượng, lập trình cấu trúc,…&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Structed Programing: Nguyên tắc Dijktra trong lập trình cấu trúc: Mọi function và mọi block ở trong function nên có một đầu vào và một đầu ra. Điều đó có nghĩa là chỉ nên có một statement trả về trong hàm, không có break hay continue trong một vòng lặp, và không bao giờ có ever hay bất cứ phát biểu goto nào.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;How do you write function like this ?
+Viết phần mềm cũng như đang viết một bài văn vậy. Khi bạn viết một bài văn hay một bài báo, bạn sẽ có những ý tưởng đầu tiên, sau đó sẽ uốn nắn đề có thể đọc được tốt hơn. Phác thảo đầu tiên có thể vụng về và thiếu tổ chức. Nhưng bạn có thẻ rèn câu cú, tái cấu trúc và sàng lọc cho đến khi nó đọc được theo cách mà bạn muốn.&lt;/p&gt;
+
+    &lt;p&gt;Khi viết một hàm, nó bắt đầu rất dài và phức tạp, nó có nhiều phần chưa rõ ràng và vòng lặp lồng nhau. Nó có một danh sách dài các tham số. Tên thì tuỳ tiện và code thì trùng lặp. Và chắc chắn là đi cùng nó là một bộ unit test để cover hết đống lộn xộn đó.&lt;/p&gt;
+
+    &lt;p&gt;Vì vậy, uốn nắn và sàng lọc code, phân chia các chức năng, thay đổi tên, loại bỏ sự trùng lặp. Co gọn các phương pháp để rút ngắn lại. Đôi khi sẽ xảy ra việc tạo ra rất nhiều class. Nhưng đừng quên giữ cho pass các Unit test trước đó nhé =))&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Tue, 25 Feb 2020 00:00:00 +0700</pubDate>
+        <link>http://localhost:4000/tech/2020/02/25/clean-code-function/</link>
+        <guid isPermaLink="true">http://localhost:4000/tech/2020/02/25/clean-code-function/</guid>
+        
+        
+        <category>tech</category>
+        
+      </item>
+    
+      <item>
+        <title>Ruby Notes</title>
+        <description>&lt;h3 id=&quot;developer-roadmap&quot;&gt;Developer roadmap&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/kamranahmedse/developer-roadmap&quot;&gt;https://github.com/kamranahmedse/developer-roadmap&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;namming&quot;&gt;Namming&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;Global variables start with &lt;code&gt;$&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Class variables start with &lt;code&gt;@@&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Instance variables start with &lt;code&gt;@&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Local variables must begin with a lowercase or an under score&lt;/li&gt;
+  &lt;li&gt;Constants start with an upper case letter&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Ruby variablse names must begin with a lowercase letter or underscore, and many contain only letters, numbers, and underscore characters.&lt;/p&gt;
+
+&lt;p&gt;Variable names must not conflict with keywords (e.g. you cannot have variable called &lt;code&gt;class&lt;/code&gt;), but unambiguous name that contain reserved worlds are acceptable (i.e. both &lt;code&gt;classy&lt;/code&gt; and &lt;code&gt;_class&lt;/code&gt; are valid Ruby variable names)&lt;/p&gt;
+
+&lt;h3 id=&quot;variable&quot;&gt;Variable&lt;/h3&gt;
+&lt;p&gt;With instance variables, class variables or Global variables, we can use &lt;code&gt;#$&lt;/code&gt;, &lt;code&gt;#@&lt;/code&gt; or &lt;code&gt;#@@&lt;/code&gt; to puts this values with string.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#{$x} ~ #$x
+#{@x} ~ #@x
+#{@@x} ~ #@@x
+
+#{x} != #x =&amp;gt; not working
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+        <pubDate>Thu, 30 Jan 2020 00:00:00 +0700</pubDate>
+        <link>http://localhost:4000/post/2020/01/30/ruby-notes/</link>
+        <guid isPermaLink="true">http://localhost:4000/post/2020/01/30/ruby-notes/</guid>
+        
+        
+        <category>post</category>
+        
+      </item>
     
       <item>
         <title>The X-Y problem</title>
@@ -70,7 +186,7 @@ Angela: Tôi muốn ngăn người khác biết hệ điều hành của tôi...
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;:v :v&lt;/p&gt;
 </description>
-        <pubDate>Mon, 06 Jan 2020 00:00:00 +0000</pubDate>
+        <pubDate>Mon, 06 Jan 2020 00:00:00 +0700</pubDate>
         <link>http://localhost:4000/life/2020/01/06/the-x-y-problem/</link>
         <guid isPermaLink="true">http://localhost:4000/life/2020/01/06/the-x-y-problem/</guid>
         
@@ -112,15 +228,18 @@ Angela: Tôi muốn ngăn người khác biết hệ điều hành của tôi...
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;how ?&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Xác định vấn đề: Các bước trên đã có vẻ clear :D&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Giải quyết vấn đề: Để giải quyết được các vấn đề, với mình thì nên đặt ra các câu hỏi đúng để có thể trả lời từng câu hỏi đó dẫn tới việc giải quyết bài toán. Bạn có thể tham khảo &lt;a href=&quot;/life/2020/01/06/the-x-y-problem/&quot; target=&quot;_blank&quot;&gt;X-Y problem&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Khi một service sinh ra để cung cấp tính năng thì chắc chắn nhà cung cấp phải cung cấp đi kèm service đó một document cụ thể. =&amp;gt; Tài liệu nên tìm hiểu và đọc của Line service&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;Xác định vấn đề: Các bước trên đã có vẻ clear :D&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;Giải quyết vấn đề: Để giải quyết được các vấn đề, với mình thì nên đặt ra các câu hỏi đúng để có thể trả lời từng câu hỏi đó dẫn tới việc giải quyết bài toán. Bạn có thể tham khảo &lt;a href=&quot;/life/2020/01/06/the-x-y-problem/&quot; target=&quot;_blank&quot;&gt;X-Y problem&lt;/a&gt;&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;Khi một service sinh ra để cung cấp tính năng thì chắc chắn nhà cung cấp phải cung cấp đi kèm service đó một document cụ thể. =&amp;gt; Tài liệu nên tìm hiểu và đọc của Line service&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
@@ -449,7 +568,7 @@ Location : https://client.example.org/cb?code=abcd1234&amp;amp;state=0987poi&amp
 }'
 &lt;/code&gt;&lt;/pre&gt;
 </description>
-        <pubDate>Mon, 06 Jan 2020 00:00:00 +0000</pubDate>
+        <pubDate>Mon, 06 Jan 2020 00:00:00 +0700</pubDate>
         <link>http://localhost:4000/tech/2020/01/06/login-and-messaging-with-line/</link>
         <guid isPermaLink="true">http://localhost:4000/tech/2020/01/06/login-and-messaging-with-line/</guid>
         
@@ -462,7 +581,7 @@ Location : https://client.example.org/cb?code=abcd1234&amp;amp;state=0987poi&amp
         <title>Rails routes namespace vs scopes</title>
         <description>&lt;p&gt;https://devblast.com/b/rails-5-routes-scope-vs-namespace&lt;/p&gt;
 </description>
-        <pubDate>Sun, 22 Dec 2019 00:00:00 +0000</pubDate>
+        <pubDate>Sun, 22 Dec 2019 00:00:00 +0700</pubDate>
         <link>http://localhost:4000/tech/2019/12/22/rails-namespace-vs-scopes/</link>
         <guid isPermaLink="true">http://localhost:4000/tech/2019/12/22/rails-namespace-vs-scopes/</guid>
         
@@ -714,7 +833,7 @@ arr.each { |a| print a -= 10, &quot; &quot; }
   &lt;li&gt;Một phương thức lặp đôi khi cũng hữu ích là&lt;/li&gt;
 &lt;/ul&gt;
 </description>
-        <pubDate>Sun, 22 Dec 2019 00:00:00 +0000</pubDate>
+        <pubDate>Sun, 22 Dec 2019 00:00:00 +0700</pubDate>
         <link>http://localhost:4000/tech/2019/12/22/tat-tan-tat-ve-array-trong-ruby/</link>
         <guid isPermaLink="true">http://localhost:4000/tech/2019/12/22/tat-tan-tat-ve-array-trong-ruby/</guid>
         
@@ -1241,7 +1360,7 @@ is_selected = users_categories.map{|c| c.category_key_name}.include?(category_op
 
 &lt;/section&gt;
 </description>
-        <pubDate>Sat, 14 Dec 2019 00:00:00 +0000</pubDate>
+        <pubDate>Sat, 14 Dec 2019 00:00:00 +0700</pubDate>
         <link>http://localhost:4000/2019/12/14/select-multy-categories/</link>
         <guid isPermaLink="true">http://localhost:4000/2019/12/14/select-multy-categories/</guid>
         
@@ -1260,7 +1379,7 @@ còn Where thì KHÔNG dùng được sau GROUP BY.
 
 &lt;/code&gt;&lt;/pre&gt;
 </description>
-        <pubDate>Fri, 29 Nov 2019 00:00:00 +0000</pubDate>
+        <pubDate>Fri, 29 Nov 2019 00:00:00 +0700</pubDate>
         <link>http://localhost:4000/tech/2019/11/29/where-vs-having/</link>
         <guid isPermaLink="true">http://localhost:4000/tech/2019/11/29/where-vs-having/</guid>
         
@@ -1295,7 +1414,7 @@ Vậy REST là gì?&lt;/p&gt;
   &lt;li&gt;PATCH (UPDATE): Cập nhật một thành phần, thuộc tính của Resource.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
-        <pubDate>Fri, 29 Nov 2019 00:00:00 +0000</pubDate>
+        <pubDate>Fri, 29 Nov 2019 00:00:00 +0700</pubDate>
         <link>http://localhost:4000/tech/2019/11/29/resful-web-service/</link>
         <guid isPermaLink="true">http://localhost:4000/tech/2019/11/29/resful-web-service/</guid>
         
@@ -1308,498 +1427,9 @@ Vậy REST là gì?&lt;/p&gt;
         <title>form_with — Building HTML forms in Rails 5.1</title>
         <description>&lt;p&gt;https://medium.com/@tinchorb/form-with-building-html-forms-in-rails-5-1-f30bd60ef52d&lt;/p&gt;
 </description>
-        <pubDate>Fri, 29 Nov 2019 00:00:00 +0000</pubDate>
+        <pubDate>Fri, 29 Nov 2019 00:00:00 +0700</pubDate>
         <link>http://localhost:4000/tech/2019/11/29/form_with-vs-form_tag/</link>
         <guid isPermaLink="true">http://localhost:4000/tech/2019/11/29/form_with-vs-form_tag/</guid>
-        
-        
-        <category>tech</category>
-        
-      </item>
-    
-      <item>
-        <title>Multi dynamic nested attributes trong rails</title>
-        <description>&lt;p&gt;Chào mọi người, không như những bài trước mình đi từ lí thuyết tới thực hành mà bài viết này mình sẽ đưa ra một bài toán cụ thể mà chúng ta thường gặp phải để giải quyết.&lt;/p&gt;
-
-&lt;h4 id=&quot;bài-toán&quot;&gt;Bài toán:&lt;/h4&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;Hệ thống của chúng ta muốn tạo bài test trong đó có thể tùy ý thay đổi số lượng câu hỏi, trong mỗi câu hỏi sẽ có thể tùy ý thay đổi số lượng câu trả lời tương ứng.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Sau một hồi research và nghe ngóng anh em thì mình đã được đưa ra một giải pháp là sử dụng nested attributes + kết hợp sử dụng gem &lt;a href=&quot;https://github.com/nathanvda/cocoon&quot;&gt;Cocoon&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Để giải quyết bài toán đề ra, chúng ta cần tìm hiểu một số vấn đề:&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;Nested attributes là gì ? Và cách sử dụng&lt;/li&gt;
-  &lt;li&gt;Gem cocoon là gì và tại sao sử dụng&lt;/li&gt;
-  &lt;li&gt;Áp dụng sử dụng cho bài toán multi nested attributes&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;1-nested-attributes-là-gì-&quot;&gt;1. Nested attributes là gì ?&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&quot;https://api.rubyonrails.org/classes/ActiveRecord/NestedAttributes/ClassMethods.html&quot;&gt;Nested attributes&lt;/a&gt; cho phép bạn lưu những thuộc tính của các bản ghi liên quan thông qua các bản ghi cha mẹ. Mặc định trong rails nested attributes được tắt và bạn có thể bật nó lên bằng lệnh &lt;code&gt;accepts_nested_attributes_for&lt;/code&gt; trong model.&lt;/p&gt;
-
-&lt;h4 id=&quot;11-cách-khai-báo&quot;&gt;1.1 Cách khai báo&lt;/h4&gt;
-&lt;p&gt;&lt;strong&gt;Quan hệ one-to-one&lt;/strong&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;accepts_nested_attributes_for :attribute_name&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Ví dụ mỗi user có một avatar, trong model user ta khai báo:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;class User &amp;lt; ActiveRecord::Base
-  has_one :avatar
-  accepts_nested_attributes_for :avatar
-end
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Khi kích hoạt nested attributes trong liên kết one-to-one cho phép bạn tạo User và Avatar trong một lần:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;params = { user: { name: 'Jack', avatar_attributes: { icon: 'avatar_default' } } }
-user = User.create(params[:user])
-user.avatar.id # =&amp;gt; 2
-user.avatar.icon # =&amp;gt; 'avatar_default'
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;em&gt;Tương tự khi update&lt;/em&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;params = { user: { avatar_attributes: { id: '2', icon: 'sad' } } }
-user.update params[:user]
-user.avatar.icon # =&amp;gt; 'sad'
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;strong&gt;Quan hệ one-to-many&lt;/strong&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;accepts_nested_attributes_for :attribute_names&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Ví dụ ta có mỗi user có nhiều bài posts:&lt;/p&gt;
-
-&lt;p&gt;Ta tiến hành khai báo trong model:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;class User &amp;lt; ActiveRecord::Base
-  has_many :posts
-  accepts_nested_attributes_for :posts
-end
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Ví dụ params khi tạo user đồng thời tạo luôn bài posts:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;params = { user: {
-  name: 'joe', posts_attributes: [
-    { title: 'Kari, the awesome Ruby documentation browser!' },
-    { title: 'The egalitarian assumption of the modern citizen' }
-  ]
-}}
-
-user = User.create(params[:user])
-user.posts.length # =&amp;gt; 2
-user.posts.first.title # =&amp;gt; 'Kari, the awesome Ruby documentation browser!'
-user.posts.second.title # =&amp;gt; 'The egalitarian assumption of the modern citizen'
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id=&quot;12-instance-public-methods&quot;&gt;1.2 Instance Public methods&lt;/h4&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;code&gt;:allow_destroy&lt;/code&gt;
-Với option này, các thành phần của params gửi lên gửi kèm giá trị với key &lt;code&gt;_destroy&lt;/code&gt; và value à &lt;code&gt;true&lt;/code&gt; sẽ bị xóa.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Ví dụ:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;member.avatar_attributes = { id: '2', _destroy: '1' }
-member.avatar.marked_for_destruction? # =&amp;gt; true
-member.save
-member.reload.avatar # =&amp;gt; nil
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Ở ví dụ trên, avatar với id = 2 đã được xóa thành công.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;code&gt;:reject_if&lt;/code&gt;
-Với option này. Rails cho phép bạn sử dụng &lt;code&gt;Proc&lt;/code&gt; hoặc &lt;code&gt;Symbol&lt;/code&gt; để trỏ đến một phương thức để kiểm tra xem giá trị của &lt;code&gt;attributes&lt;/code&gt; có thỏa mãn hay không.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Ví dụ sử dụng proc:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;class Member &amp;lt; ActiveRecord::Base
-  has_many :posts
-  accepts_nested_attributes_for :posts, reject_if: proc { |attributes| attributes['title'].blank? }
-end
-
-params = { member: {
-  name: 'joe', posts_attributes: [
-    { title: 'Kari, the awesome Ruby documentation browser!' },
-    { title: 'The egalitarian assumption of the modern citizen' },
-    { title: '' } # bản ghi này sẽ k đc lưu do không thỏa mãn điều kiện được định nghĩa trên `:reject_if`
-  ]
-}}
-member = Member.create(params[:member])
-member.posts.length # =&amp;gt; 2
-member.posts.first.title # =&amp;gt; 'Kari, the awesome Ruby documentation browser!'
-member.posts.second.title # =&amp;gt; 'The egalitarian assumption of the modern citizen'
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Ví dụ sử dụng &lt;code&gt;Symbol&lt;/code&gt; để khai báo hàm cần thực thi của &lt;code&gt;:reject_if&lt;/code&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;class Member &amp;lt; ActiveRecord::Base
-  has_many :posts
-  accepts_nested_attributes_for :posts, reject_if: :new_record?
-end
-
-class Member &amp;lt; ActiveRecord::Base
-  has_many :posts
-  accepts_nested_attributes_for :posts, reject_if: :reject_posts
-
-  def reject_posts(attributes)
-    attributes['title'].blank?
-  end
-end
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ol&gt;
-  &lt;li&gt;&lt;code&gt;:limit&lt;/code&gt;
-Option này cho phép bạn chỉ định số lượng bản ghi liên quan tối đa có thể được xử lý.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Ví dụ:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;class Member &amp;lt; ActiveRecord::Base
-  has_many :posts
-  accepts_nested_attributes_for :posts, limit: 4
-end
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;code&gt;:update_only&lt;/code&gt;
-Đối với quan hệ &lt;code&gt;one-to-one&lt;/code&gt;, option này cho phép bạn chỉ định cách xử lý đối với trường hợp bản ghi liên kết đã tồn tại. Thông thường, một bàn ghi tồn tại có thể được cập nhật giá bằng cách cập nhật giá trị mới cho nó hoặc chính nó được thay thế bằng bản ghi mới với giá trị cần cập nhật.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Mặc định thì &lt;code&gt;update_only&lt;/code&gt; là &lt;code&gt;false&lt;/code&gt; và nested attributes được sử dụng để cập nhật vào bản ghi nếu bản ghi đó tồn tại &lt;code&gt;id&lt;/code&gt;. Nếu không thì một bản ghi mới sẽ được khởi tạo để thay thế bản ghi hiện có. Tuy nhiên, nếu &lt;code&gt;:update_only&lt;/code&gt; option là &lt;code&gt;true&lt;/code&gt;, nested attributess sẽ luôn được sử dụng để cập nhật các giá trị của bản ghi nếu thuộc tính &lt;code&gt;:id&lt;/code&gt; đó đang tồn tại.&lt;/p&gt;
-
-&lt;p&gt;*tips: khi sử dụng &lt;code&gt;update_only: true&lt;/code&gt;, bạn có thể cập nhật giá trị cho bản ghi con mà không cần thiết phải truyền &lt;code&gt;id&lt;/code&gt; lên trong params.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;class Member &amp;lt; ActiveRecord::Base
-  has_one :avatar
-  accepts_nested_attributes_for :avatar, update_only: true
-end
-
-params = { member: { avatar_attributes: { icon: 'sad' } } }
-member.update params[:member]
-member.avatar.id # =&amp;gt; 2
-member.avatar.icon # =&amp;gt; 'sad'
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&quot;2gem-cocoon-là-gì-và-tại-sao-sử-dụng-&quot;&gt;2.Gem cocoon là gì và tại sao sử dụng ?&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Cocoon makes it easier to handle nested forms.&lt;/p&gt;
-
-  &lt;p&gt;Nested forms are forms that handle nested models and attributes in one form; e.g. a project with its tasks or an invoice with its line items.&lt;/p&gt;
-
-  &lt;p&gt;Cocoon is form builder-agnostic, so it works with standard Rails, Formtastic, or SimpleForm. It is compatible with rails 3, 4 and 5.&lt;/p&gt;
-
-  &lt;p&gt;This project is not related to Apache Cocoon.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Hiểu đơn giản, Gem &lt;code&gt;cocoon&lt;/code&gt; cũng như các gem khác của rails đều sinh ra để đáp ứng một nhu cầu cụ thể để có thể tối ưu và sử dụng lại. Ở đây, gem cocoon giúp người dùng có thể dễ dàng tương tác với nested forrms(form lồng nhau) thay vì phải ngồi viết những thứ js dài dòng để build ra form với attributes tương ứng (lazy time)&lt;/p&gt;
-
-&lt;h4 id=&quot;21-cài-đặt&quot;&gt;2.1 Cài đặt&lt;/h4&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Thêm &lt;code&gt;gem &quot;concoon&quot;&lt;/code&gt; vào &lt;code&gt;Gemfile&lt;/code&gt; và chạy &lt;code&gt;bundle install&lt;/code&gt; để update gem của bạn.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Đối với rails 5, thêm dòng dưới vào file &lt;code&gt;application.js&lt;/code&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;//= require cocoon&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h4 id=&quot;22-cocoon-helper-functions&quot;&gt;2.2 Cocoon helper functions&lt;/h4&gt;
-&lt;p&gt;Cocoon định nghĩa 2 helper functions:&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/nathanvda/cocoon#link_to_add_association&quot;&gt;link_to_add_association&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/nathanvda/cocoon#link_to_remove_association&quot;&gt;link_to_remove_association&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h5 id=&quot;221-link_to_add_association&quot;&gt;2.2.1 link_to_add_association&lt;/h5&gt;
-
-&lt;p&gt;Hàm này thêm một liên kết vào phần hiển thị của bạn, khi click vào liên kết sẽ tự động sinh ra một partial form đã được chúng ta định nghĩa sẵn.&lt;/p&gt;
-
-&lt;p&gt;Ví dụ:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;= form_for @project do |f|
-  .field
-    = f.label :name_badge:
-  %h3 Tasks
-  #tasks
-    = f.fields_for :tasks do |task|
-      = render 'task_fields', f: task
-    .links
-      = link_to_add_association 'add task', f, :tasks
-  = f.submit
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Chúng ta cần khai báo thêm partial form với tên: &lt;code&gt;_task_fields&lt;/code&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt; .nested-fields
-  .field
-    = f.label :description
-    %br
-    = f.text_field :description
-  .field
-    = f.check_box :done
-    = f.label :done
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code&gt;= link_to_add_association 'add task', f, :tasks&lt;/code&gt; sẽ tạo ra 1 thẻ &lt;code&gt;a&lt;/code&gt;, khi ta click vào thẻ này, &lt;code&gt;cocoon&lt;/code&gt; sẽ tự động giúp chúng ta tạo ra một form &lt;code&gt;task_field&lt;/code&gt; mới với giá trị &lt;code&gt;id&lt;/code&gt; được build tự động, giúp chúng ta dễ dàng hơn trong việc sử dụng nested form.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://images.viblo.asia/bfe044cc-df93-488f-8690-a5349c26b382.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;link_to_add_association&lt;/code&gt; gồm 4 tham số:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;name: text sẽ hiển thị của link&lt;/li&gt;
-  &lt;li&gt;f: form builder&lt;/li&gt;
-  &lt;li&gt;association: tên của association (phải là số nhiều) - đối tượng mới cần được thêm vào.&lt;/li&gt;
-  &lt;li&gt;html_options: là mở rộng của html-options (&lt;a href=&quot;https://api.rubyonrails.org/classes/ActionView/Helpers/UrlHelper.html#method-i-link_to&quot;&gt;link_to&lt;/a&gt;). Và thêm một số tùy chỉnh đặc biệt của &lt;code&gt;cocoon&lt;/code&gt;:
-    &lt;ul&gt;
-      &lt;li&gt;data-association-insertion-traversal : phuơng thức &lt;code&gt;jquery traversal&lt;/code&gt; cho phép lựa chọn vị trí của partial khi được render. Có 3 option: &lt;code&gt;closest&lt;/code&gt;, &lt;code&gt;next&lt;/code&gt;, &lt;code&gt;children&lt;/code&gt;.&lt;/li&gt;
-      &lt;li&gt;data-association-insertion-node : Có thể hiểu đây là node mà field sẽ được chèn vào sau sự kiện clcik vào &lt;code&gt;link_to_add_association&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;data-association-insertion-method : quy định cách chèn field. Các option tương tự như jquery như:  before, after, append, prepend, etc. Mặc định sẽ là &lt;code&gt;before&lt;/code&gt;.&lt;/li&gt;
-      &lt;li&gt;data-association-insertion-position : phương thức cũ quy định nơi chèn dữ liệu mới( Hàm này sẽ được xóa trong version mới nên có lẽ không nên dùng các bác ạ :)) )&lt;/li&gt;
-      &lt;li&gt;partial: tên của partial sẽ được sử dụng.&lt;/li&gt;
-      &lt;li&gt;render_options: các tùy chọn chuyển qua form-builder.&lt;/li&gt;
-      &lt;li&gt;wrap_object: một Proc sẽ cho phép bọc đối tượng của bạn, đặc biệt hữu ích nếu bạn đang sử dụng decorator (gem draper)&lt;/li&gt;
-      &lt;li&gt;form_name : tên của tham số form truyền vào nested partial. Mặc định là &lt;code&gt;f&lt;/code&gt;.&lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;count:  số lượng mặc định nested items được chèn vào mỗi lần. Mặc định là 1.&lt;/p&gt;
-
-        &lt;p&gt;Ví dụ: Bạn muốn chèn field partial vào một &lt;code&gt;div#parent&lt;/code&gt; nhất định, các partial sẽ nối tiếp nhau, mỗi lần nhấn vào link sẽ tạo ra 3 partial mới. &lt;code&gt;link_to_add_association&lt;/code&gt; sẽ có dạng:&lt;/p&gt;
-        &lt;pre&gt;&lt;code&gt;  = link_to_add_association &quot;add node&quot;, f, :questions,
-    data: {&quot;association-insertion-node&quot;: &quot;#parent_table&quot;,
-    &quot;association-insertion-method&quot;: &quot;append&quot;}, count: 3
-&lt;/code&gt;&lt;/pre&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;render_options:  Bên trong &lt;code&gt;html_options&lt;/code&gt; bạn có thể thêm tùy chọn &lt;code&gt;:render_option&lt;/code&gt;và hàm băm chứa sẽ được chuyển xuống trình tạo biểu mẫu cho biểu mẫu được chèn.&lt;/p&gt;
-
-        &lt;p&gt;Ví dụ:
-   Khi dùng &lt;code&gt;simple_fields_for&lt;/code&gt; cần option &lt;code&gt;wrapper: 'inline'&lt;/code&gt; ta sẽ làm tương tự:&lt;/p&gt;
-        &lt;pre&gt;&lt;code&gt;   = link_to_add_association 'add something', f, :something,
-       render_options: { wrapper: 'inline' }
-&lt;/code&gt;&lt;/pre&gt;
-
-        &lt;p&gt;Hoặc muốn truyền biến xuống p&lt;/p&gt;
-        &lt;pre&gt;&lt;code&gt;   = link_to_add_association 'add something', f, :something,
-       render_options: {locals: { sherlock: 'Holmes' }}
-&lt;/code&gt;&lt;/pre&gt;
-      &lt;/li&gt;
-      &lt;li&gt;partial: Để định nghĩa là partial mặc định.
-        &lt;pre&gt;&lt;code&gt;    = link_to_add_association 'add something', f, :something,
-    partial: 'shared/something_fields'
-&lt;/code&gt;&lt;/pre&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;wrap_object: Nếu bạn sử dụng decorator, khởi tạo bình thường của đối tượng liên quan sẽ không đủ. Bạn thực sự muốn tạo ra các đối tượng đã được decorate.&lt;/p&gt;
-
-        &lt;p&gt;Ví dụ:&lt;/p&gt;
-        &lt;pre&gt;&lt;code&gt;    = link_to_add_association('add something', @form_obj, :comments,
-        wrap_object: Proc.new {|comment| CommentDecorator.new(comment) })
-&lt;/code&gt;&lt;/pre&gt;
-
-        &lt;p&gt;Hoặc có thể sử dụng &lt;code&gt;:wrap_object&lt;/code&gt; để truyền thêm biến đã được xử lý xuống partial:&lt;/p&gt;
-        &lt;pre&gt;&lt;code&gt; = link_to_add_association('add something', @form_obj, :comments,
-   wrap_object: Proc.new { |comment| comment.name = current_user.name; comment })
-&lt;/code&gt;&lt;/pre&gt;
-        &lt;h5 id=&quot;222-link_to_remove_association&quot;&gt;2.2.2 link_to_remove_association&lt;/h5&gt;
-        &lt;p&gt;Hàm này sẽ thêm 1 link vào phần hiển thị của bạn, khi click sẽ loại bỏ partial đó.&lt;/p&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Thành phần chính:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;name: text hiển thị tên nút, sử dụng tương tự như &lt;code&gt;link_to&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;f: đối tượng form hiện tại&lt;/li&gt;
-  &lt;li&gt;html_options: tương tự html_options của &lt;code&gt;link_to&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;3-áp-dụng-sử-dụng-cho-bài-toán-multi-nested-attributes&quot;&gt;3. Áp dụng sử dụng cho bài toán multi nested attributes&lt;/h3&gt;
-&lt;p&gt;Với bài toán multi nested (nhiều form lồng), chúng ta cần nắm rõ để có thể sử dụng linh hoạt gem &lt;code&gt;cocoon&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Trong trường hợp này mình sẽ đưa ra một ví dụ cụ thể:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Khi tạo 1 bài kiểm tra(exam) chúng ta cần tạo luôn các câu hỏi(question) và câu trả lời (answer) cho bài kiểm tra này.&lt;/p&gt;
-
-&lt;/blockquote&gt;
-
-&lt;p&gt;Khởi tạo các model:&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;exam.rb&lt;/code&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;# frozen_string_literal: true
-
-class Exam &amp;lt; ApplicationRecord
-  has_many :questions
-
-  accepts_nested_attributes_for :questions, allow_destroy: true, reject_if: :all_blank
-end
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code&gt;question.rb&lt;/code&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;# frozen_string_literal: true
-
-class Question &amp;lt; ApplicationRecord
-  belongs_to :exam
-
-  has_many :answers
-
-  accepts_nested_attributes_for :answers, allow_destroy: true, reject_if: :all_blank
-end
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code&gt;answer.rb&lt;/code&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;# frozen_string_literal: true
-
-class Answer &amp;lt; ApplicationRecord
-  belongs_to :question
-end
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code&gt;exams_controller.rb&lt;/code&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;def new
-  @exam = Exam.new
-  @exam.questions.build
-end
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Tiếp đó trong view:
-&lt;code&gt;exams/new.html.slim&lt;/code&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;= form_for @exam, url: exams_url do |f|
- .form-group.row
-      label.col-md-3.form-control-label.text-primary.font-weight-bold Exam description
-      #parent_table.col-md-9
-        = f.fields_for :questions do |question|
-      .js-new-question.ml-5
-        = link_to_add_association f, :questions do
-          span.fa.fa-plus
-          span.ml-2 Add question
-    = f.submit t(&quot;.save&quot;),class: &quot;btn btn-primary my-2&quot;
-
-javascript:
-  $(document).ready(function() {
-    $(&quot;.js-new-question a.add_fields&quot;).
-      data(&quot;association-insertion-method&quot;, 'append').
-      data(&quot;association-insertion-node&quot;, '#parent_table');
-  });
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Tiếp theo trong &lt;code&gt;_question_fields.html.slim&lt;/code&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;.container-fluid.nested-fields
-  .line
-  .form-group.row
-    .col-11
-      = f.text_area :content, class: &quot;form-control&quot;
-    .col-1
-      = link_to_remove_association f do
-        span.fa.fa-minus-square title=&quot;Remove question&quot;
-    .question.col-md-9
-      = link_to_add_association f, :answers, class: &quot;btn btn-info btn-sm mt-2&quot; do # chúng ta sẽ tiến hành khai báo để  tạo partial `answer` bên trong mỗi question.
-        span.fa.fa-plus-circle
-        span.ml-2 Add answer
-      = f.fields_for :answers do |answer|
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Cuối cùng là &lt;code&gt;answer_fields.html.slim&lt;/code&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;.col-6
-  .row.pt-2
-    .col-10
-      = f.text_field :content, class: &quot;form-control&quot;
-    .col-1
-      = link_to_remove_association f do
-        span.fa.fa-minus-square title=&quot;Remove question&quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;*Ở trên mình dùng slim và một số class bootstrap 4 cho code của mình, chú ý: phần data đã được di chuyển ra bên ngoài form và để trong đoạn &lt;code&gt;javascript&lt;/code&gt; do khi chúng ta tạo ra nhiều form lồng, ta cần định nghĩa class cha của chúng (ở đây mình định nghĩa là &lt;code&gt;js-new-question&lt;/code&gt;) để khi oncick vào &lt;code&gt;link_to_remove_association&lt;/code&gt; *&lt;/p&gt;
-
-&lt;p&gt;Demo:
-&lt;img src=&quot;https://images.viblo.asia/792519e2-fe73-42c6-9124-b2c09b329ea8.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Tham khảo:&lt;/p&gt;
-
-&lt;p&gt;https://github.com/nathanvda/cocoon#link_to_remove_association
-https://api.rubyonrails.org/classes/ActiveRecord/NestedAttributes/ClassMethods.html&lt;/p&gt;
-</description>
-        <pubDate>Tue, 12 Nov 2019 00:00:00 +0000</pubDate>
-        <link>http://localhost:4000/tech/2019/11/12/multi-nested-fields-rails/</link>
-        <guid isPermaLink="true">http://localhost:4000/tech/2019/11/12/multi-nested-fields-rails/</guid>
-        
-        
-        <category>tech</category>
-        
-      </item>
-    
-      <item>
-        <title>Rails 6 - Active Storage changes</title>
-        <description>&lt;p&gt;This article found in: https://blog.saeloun.com/2019/11/04/rails-6-active-storage-updates.html&lt;/p&gt;
-
-&lt;p&gt;Active Storage was introduced in Rails 5.2. In rails 6, the are enhancements (nâng cao) done to Active Storage.&lt;/p&gt;
-
-&lt;p&gt;Let’s explore them.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;mini_magick replaced by image_processing gem&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;In rails 5.2, Active Storage was using &lt;code&gt;mini_magick&lt;/code&gt; to handle (xử lý) image resizing(variants) (Kích thước)&lt;/p&gt;
-
-&lt;p&gt;In rails 6, a new gem called &lt;code&gt;image_processing&lt;/code&gt; is used by default to handle image variants
-(Trong rails 6, gem &lt;code&gt;image_processing&lt;/code&gt; được sử dụng làm mặc định để xử lý việc thay đổi kích thước ảnh)&lt;/p&gt;
-
-&lt;p&gt;The &lt;code&gt;image_processing&lt;/code&gt; gem has below advantages(Lợi thế):&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;New methods #resize_to_fit, #resize_to_fill, etc also sharpens the thumbnail (làm sắc nét hình ảnh) after resizing.&lt;/li&gt;
-  &lt;li&gt;It fixes the image orientation automatically (tự động sử đổi hướng hình ảnh).&lt;/li&gt;
-  &lt;li&gt;It provides another backend libvips that has significantly better performance than (Hiệu suất tốt hơn đáng kể) ImageMagick. With ImageMagick, resizing and sharpening (thay đổi kích cỡ và làm nét) a 1600x900 image to 800x800 is 1.87x slower, and to 300x300 is 1.18x slower. On libvips it doesn’t go above 1.20x slower, on average (trung bình) it’s only about 1.10x slower.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;strong&gt;New image variants support&lt;/strong&gt; (Hỗ trợ biến thể hình ảnh mới)
-With addition (việc thêm) of image_processing gem, support for new image variants BMP (PR), TIFF (PR) and progressive JPEG (PR) was introduced (đã được giới thiệu).&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Fix for &lt;code&gt;has_many_attached&lt;/code&gt; field in update query&lt;/strong&gt;
-Let’s say we have a User class and it has field images. Users can upload multiple images to their profiles. So we add has_many_attached method to User class as shown below&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;class User &amp;lt; ApplicationRecord
-  has_many_attached :images
-end
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;em&gt;Before Rails 6:&lt;/em&gt;
-We attach (đính kèm)) an image to the user as shown below and verify the count&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;user = User.first
-user.images.attach(filename: &quot;profile_pic.jpg&quot;)
-
-user.images.count
-=&amp;gt; 1
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Now, when we update the image field, the new image was getting appended to the existing images collection.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;blog = ActiveStorage::Blob.create_after_upload!(filename: &quot;updated_pic.jpg&quot;)
-user.update(images: [blog])
-
-user.images.count
-=&amp;gt; 2
-user.images.first.filename
-=&amp;gt; &quot;profile_pic.jpg&quot;
-user.images.last.filename
-=&amp;gt; &quot;updated_pic.jpg&quot;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This is not consistent (Không thích hợp) with ActiveRecord update, where it replaces the existing value of a record.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;In rails 6:&lt;/em&gt;
-update query replaces the existing collection instead of appending to the collection.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;user.images.attach(filename: &quot;profile_pic.jpg&quot;)
-
-user.images.count
-=&amp;gt; 1
-
-blog = ActiveStorage::Blob.create_after_upload!(filename: &quot;updated_pic.jpg&quot;)
-user.update(images: [blog])
-
-user.images.count
-=&amp;gt; 1
-user.images.first.filename
-=&amp;gt; &quot;updated_pic.jpg&quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;We can append files by using the attach function.&lt;/p&gt;
-</description>
-        <pubDate>Tue, 12 Nov 2019 00:00:00 +0000</pubDate>
-        <link>http://localhost:4000/tech/2019/11/12/rails-6-active-storage-changes/</link>
-        <guid isPermaLink="true">http://localhost:4000/tech/2019/11/12/rails-6-active-storage-changes/</guid>
         
         
         <category>tech</category>

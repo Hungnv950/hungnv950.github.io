@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  Ruby Notes
+date:   2020-02-24
 description: Ruby Notes
 categories:
 - post

@@ -5,8 +5,8 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 07 Mar 2020 22:23:25 +0700</pubDate>
-    <lastBuildDate>Sat, 07 Mar 2020 22:23:25 +0700</lastBuildDate>
+    <pubDate>Sun, 08 Mar 2020 01:26:11 +0700</pubDate>
+    <lastBuildDate>Sun, 08 Mar 2020 01:26:11 +0700</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
     
       <item>
@@ -642,7 +642,153 @@ Location : https://client.example.org/cb?code=abcd1234&amp;amp;state=0987poi&amp
     
       <item>
         <title>Rails routes namespace vs scopes</title>
-        <description>&lt;p&gt;https://devblast.com/b/rails-5-routes-scope-vs-namespace&lt;/p&gt;
+        <description>&lt;p&gt;Bài viết được dịch từ nguồn: https://devblast.com/b/rails-5-routes-scope-vs-namespace&lt;/p&gt;
+
+&lt;p&gt;You may be wondering (tự hỏi) about the difference between scope and namespace for the routes in your Rails application. It’s important to know the difference, because they affect (có ảnh hưởng tới) the path of your resources and the controllers.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Bạn có thể tự hỏi về sự khác biệt giữa &lt;code&gt;scope&lt;/code&gt; và &lt;code&gt;namespace&lt;/code&gt; của router trong Rails ?. Đó là một sự khác biệt quan trọng bởi vì nó sẽ ảnh hưởng tới &lt;code&gt;path&lt;/code&gt; của &lt;code&gt;resources&lt;/code&gt; và &lt;code&gt;controller&lt;/code&gt; trong hệ thống của bạn.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;1-namespace&quot;&gt;1. namespace&lt;/h2&gt;
+
+&lt;p&gt;This is the simple option. When you use namespace, it will prefix the URL path for the specified resources (nó sẽ thêm tiền tố url cho các resources được chỉ định), and try to locate the controller under a module named in the same manner as the namespace. (và nó sẽ cố gắng để định vị controller của bạn nằm bên trong một module với tên tương tự như tên của namespace bạn vừa đặt).&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;code&gt;namespace&lt;/code&gt; là một cài đặt đơn giản. Khi bạn sử dụng namespace, nó sẽ sử dụng một đoạn &lt;code&gt;prefix&lt;/code&gt; (tiền tố) bên trước &lt;code&gt;path&lt;/code&gt; của &lt;code&gt;resources&lt;/code&gt; (dạng như thêm một tiền tố bên trước path vào controller) và đồng thời controller của bạn sẽ phải định nghĩa bên trong module với tên là tên của &lt;code&gt;namespace&lt;/code&gt; bạn vừa đặt.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;With the following code in the routes.rb file,&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;namespace :admin do
+  resources :users
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You will end up with the following routes:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Prefix Verb         URI Pattern               Controller#Action
+admin_users GET    /admin/users(.:format)     admin/users#index
+            POST   /admin/users(.:format)     admin/users#create
+admin_user  GET    /admin/users/:id(.:format) admin/users#show
+            PATCH  /admin/users/:id(.:format) admin/users#update
+            PUT    /admin/users/:id(.:format) admin/users#update
+            DELETE /admin/users/:id(.:format) admin/users#destroy
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;As you can see, &lt;code&gt;admin&lt;/code&gt; was added as a prefix in the URI path (&lt;code&gt;/admin/users)&lt;/code&gt; and as a module containing (chứa) the controller (&lt;code&gt;admin/users#index&lt;/code&gt;). With this code, Rails will expect &lt;code&gt;Admin::UsersController&lt;/code&gt; to be located at &lt;code&gt;app/controllers/admin/users_controller&lt;/code&gt;.rb.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Bạn có thể thấy &lt;code&gt;admin&lt;/code&gt; đã được thêm vào dưới dạng &lt;code&gt;prefix&lt;/code&gt; của URI path: &lt;code&gt;/admin/users&lt;/code&gt; và module chứa controller &lt;code&gt;admin/users_controller&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;2-scope&quot;&gt;2. scope&lt;/h2&gt;
+
+&lt;h3 id=&quot;21-khi-scope-không-có-options-đi-kèm&quot;&gt;2.1 Khi scope không có options đi kèm&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;scope&lt;/code&gt; is a bit more complex - but the advantage is that it gives you more options to fine-tune exactly what you want to do.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;code&gt;scope&lt;/code&gt; thì phức tạp hơn nhưng có lợi thế là sẽ mang lại cho bạn nhiều lựa chọn để bạn có thể tinh chỉnh theo ý muốn.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;# routes.rb
+scope :admin do
+  resources :users
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Here are the generated routes:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Prefix Verb   URI Pattern                Controller#Action
+ users GET    /admin/users(.:format)     users#index
+       POST   /admin/users(.:format)     users#create
+  user GET    /admin/users/:id(.:format) users#show
+       PATCH  /admin/users/:id(.:format) users#update
+       PUT    /admin/users/:id(.:format) users#update
+       DELETE /admin/users/:id(.:format) users#destroy
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;As you can see, &lt;code&gt;/admin&lt;/code&gt; was added as a prefix before &lt;code&gt;/users&lt;/code&gt;, but users controller doesn’n have to be inside any module.&lt;/p&gt;
+
+&lt;p&gt;Như chúng ta thấy. &lt;code&gt;/admin&lt;/code&gt; đã được thêm vào tiền tố trước &lt;code&gt;/users&lt;/code&gt;, nhưng &lt;code&gt;users_controller&lt;/code&gt; không cần thiết phải nằm trong module nào cả.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Túm cái váy lại, khi dùng &lt;code&gt;namespace&lt;/code&gt; thì router của controller phải nằm trong một thứ gọi là &lt;code&gt;prefix&lt;/code&gt; (tiền tố) tương ứng với tên của module (thư mục) chứa controller đó.
+Còn với scope thì không cần thiết, nó sẽ cho phép bạn định nghĩa được &lt;code&gt;prefix&lt;/code&gt; router của bạn là gì mà không cần phải tạo thêm &lt;code&gt;module&lt;/code&gt; cho controller của bạn.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;22-scope-đi-kèm-với-option&quot;&gt;2.2 scope đi kèm với option&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;scope&lt;/code&gt; supports three options: &lt;code&gt;module&lt;/code&gt;, &lt;code&gt;path&lt;/code&gt;, &lt;code&gt;as&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h4 id=&quot;module&quot;&gt;module&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;module&lt;/code&gt; let us define in which module the controller for the embedded resources will live.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;code&gt;module&lt;/code&gt; cho phép chúng ta định nghĩa tên của module chứa resources - tức &lt;code&gt;controller&lt;/code&gt; của chúng ta.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;scope module: 'admin' do
+  resources :users
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;Prefix Verb   URI Pattern          Controller#Action
+ users GET    /users(.:format)     admin/users#index
+       POST   /users(.:format)     admin/users#create
+  user GET    /users/:id(.:format) admin/users#show
+       PATCH  /users/:id(.:format) admin/users#update
+       PUT    /users/:id(.:format) admin/users#update
+       DELETE /users/:id(.:format) admin/users#destroy
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;=&amp;gt; Để ý &lt;code&gt;router&lt;/code&gt; của &lt;code&gt;users&lt;/code&gt; không cần phải đặt sau một chiếc &lt;code&gt;prefix&lt;/code&gt; nào cả.&lt;/p&gt;
+
+&lt;h4 id=&quot;path&quot;&gt;path&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;path&lt;/code&gt; allows us to set the prefix that will appear in the URI, before the resource name.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;code&gt;path&lt;/code&gt; cho phép chúng ta định nghĩa &lt;code&gt;prefix&lt;/code&gt; đứng trước &lt;code&gt;resources&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;scope module: 'admin', path: 'fu' do
+  resources :users
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;Prefix Verb   URI Pattern             Controller#Action
+ users GET    /fu/users(.:format)     admin/users#index
+       POST   /fu/users(.:format)     admin/users#create
+  user GET    /fu/users/:id(.:format) admin/users#show
+       PATCH  /fu/users/:id(.:format) admin/users#update
+       PUT    /fu/users/:id(.:format) admin/users#update
+       DELETE /fu/users/:id(.:format) admin/users#destroy
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;as&quot;&gt;as&lt;/h4&gt;
+
+&lt;p&gt;Finally, &lt;code&gt;as&lt;/code&gt; can be used to change the name of the path method used to identify the resources.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;code&gt;as&lt;/code&gt; được sử dụng để thay đổi tên của &lt;code&gt;path&lt;/code&gt; của &lt;code&gt;resources&lt;/code&gt; sử dụng khi định danh &lt;code&gt;resources&lt;/code&gt; như khi sử dụng &lt;code&gt;redirect&lt;/code&gt; hoặc gọi trên controller.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;scope module: 'admin', path: 'fu', as: 'cool' do
+  resources :users
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In this case, we now have cool as a prefix for the path names cool_users and cool_user.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Trong case này, chúng ta đã có &lt;code&gt;prefix&lt;/code&gt; &lt;code&gt;fu&lt;/code&gt; cho controller &lt;code&gt;admin/users_controller&lt;/code&gt; với &lt;code&gt;path&lt;/code&gt; là &lt;code&gt;cool_users&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;Prefix Verb   URI Pattern             Controller#Action
+cool_users GET    /fu/users(.:format)     admin/users#index
+           POST   /fu/users(.:format)     admin/users#create
+cool_user  GET    /fu/users/:id(.:format) admin/users#show
+           PATCH  /fu/users/:id(.:format) admin/users#update
+           PUT    /fu/users/:id(.:format) admin/users#update
+           DELETE /fu/users/:id(.:format) admin/users#destroy
+&lt;/code&gt;&lt;/pre&gt;
 </description>
         <pubDate>Sun, 22 Dec 2019 00:00:00 +0700</pubDate>
         <link>http://localhost:4000/tech/2019/12/22/rails-namespace-vs-scopes/</link>

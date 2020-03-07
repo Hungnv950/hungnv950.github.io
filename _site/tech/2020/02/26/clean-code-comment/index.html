@@ -3,12 +3,12 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>SQL WHERE vs HAVING</title>
+        <title>Clean code - Comment</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">        
         <meta name="description" content="Harmony is a free responsive jekyll theme by Gayan Virajith and Maheshika Lakmali. Sourced on Github -  https://github.com/gayanvirajith/harmony
 ">
         <link rel="canonical" 
-        href="http://localhost:4000/tech/2019/11/29/where-vs-having/">
+        href="http://localhost:4000/tech/2020/02/26/clean-code-comment/">
         
         <!-- styles -->
         <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
@@ -49,7 +49,7 @@
         <div class="page-content wc-container">
 	
 	<div class="post">
-		<h1>SQL WHERE vs HAVING</h1>
+		<h1>Clean code - Comment</h1>
 		<p class="post-meta">
 			
       <span class="categories">
@@ -57,19 +57,48 @@
       </span> |
 	    
 	    <span class="post-date">
-    	Nov 29, 2019 
+    	Feb 26, 2020 
 	    </span>
 		</p>		
 		<div class="post">
-			<pre><code>Where : Là câu lệnh điều kiện trả kết quả đối chiếu với từng dòng .
-Having : Là câu lệnh điều kiện trả kết quả đối chiếu cho nhóm (Sum,AVG,COUNT,…)
+			<hr />
 
-Vì vậy mà sau GROUP BY thì sẽ chỉ dùng được Having .
-còn Where thì KHÔNG dùng được sau GROUP BY.
+<p>Đừng bình luận trên code xấu, hãy viết lại nó.
+-Brian W.Kernighan và P.J.Plaugher-</p>
 
-(HAVING có thể thay thế vị trí dùng cho WHERE. nhưng . ngược lại WHERE thì KHÔNG thể thay thế vị trí cho HAVING )
+<hr />
 
+<ol>
+  <li>Comment donot make up for bad code.
+  Thay vì dành thời gian cho việc viết bình luận cho một đống lộn xộn, bạn nên dọn dẹp nó.</li>
+  <li>Explain your self in code.
+  Code luôn là lời giải thích tốt nhất. Trong nhiều trường hợp, bạn nên thay thế hoặc tạo thêm những hàm mới để có thể nói lên những lời mà comment của bạn thể hiện.</li>
+  <li>Good comment.
+    <ul>
+      <li>Legal comments (Bình luận pháp lý)</li>
+      <li>Informative comments (Bình luận thông tin)</li>
+      <li>Explanation of Intent (Giải thích về mục đích)</li>
+      <li>Clarification (Làm sáng tỏ)</li>
+      <li>Warning of Consquences (Cảnh báo về hậu quả)
+        <pre><code> // Don't run unless you
+ // have some time to kill.
 </code></pre>
+      </li>
+      <li>TODO comments: Khi có thời gian rảnh nên quay lại giải quyết các vấn đề mà đã TODO từ trước.</li>
+      <li>Amplification (Phóng đại)</li>
+    </ul>
+  </li>
+  <li>Bad comments: Tất cả những gì không phải good comments.
+    <ul>
+      <li>Mumbling (lẩm bẩm): Đưa ra một comment chỉ vì bạn cảm thấy nên hoặc vì quá trình yêu cầu nó, vì hack. Nếu bạn quyết định viết comment thì hãy giành thời gian để đảm bảo nó là comment tốt nhất bạn có thể viết.</li>
+      <li>Redundant Comment (Comment dư thừa):</li>
+      <li>Misleading comments (Comment sai lệch):</li>
+      <li>Mandated comments (Comment bắt buộc): Thật là ngớ ngẩn khi có một quy tắc nói rằng mọi hàm phải có javadoc hoặc mọi biến phải có một comment. Những comment như thế này chỉ làm lộn xộn mã, tuyên truyền những lời nói dối và để gây nhầm lẫn và vô tổ chức.</li>
+      <li>Jounal comments:Đôi khi mọi người thêm một comment vào đầu module mỗi khi họ chỉnh sửa nó. Những comment này tích lũy như một loại tạp chí, hoặc nhật ký, của mọi thay đổi đã từng được thực hiện. Tuy nhiên ngày nay những comment loại như này chỉ làm cho module trở nên xáo trộn hơn mà thôi.
+  -</li>
+    </ul>
+  </li>
+</ol>
 
 		</div>
 	</div>
@@ -79,11 +108,6 @@ còn Where thì KHÔNG dùng được sau GROUP BY.
 	<div class="related">
 		<h4>Related Posts</h4>
 		<ul class="posts">
-		    
-		    <li>
-			  <span>26 Feb 2020 &raquo;</span>
-			  <a href="http://localhost:4000/tech/2020/02/26/clean-code-comment/">Clean code - Comment</a>
-		    </li>
 		    
 		    <li>
 			  <span>25 Feb 2020 &raquo;</span>
@@ -127,6 +151,11 @@ còn Where thì KHÔNG dùng được sau GROUP BY.
 		    
 		    <li>
 			  <span>29 Nov 2019 &raquo;</span>
+			  <a href="http://localhost:4000/tech/2019/11/29/where-vs-having/">SQL WHERE vs HAVING</a>
+		    </li>
+		    
+		    <li>
+			  <span>29 Nov 2019 &raquo;</span>
 			  <a href="http://localhost:4000/tech/2019/11/29/resful-web-service/">Restful webservice</a>
 		    </li>
 		    
@@ -137,13 +166,13 @@ còn Where thì KHÔNG dùng được sau GROUP BY.
 	<div class="post-footer">
 		<div class="column-1">
 			
-				<a href="http://localhost:4000/tech/2019/11/29/resful-web-service/"><< Older</a>
+				<a href="http://localhost:4000/tech/2020/02/25/clean-code-function/"><< Older</a>
 			
 		</div>
 		<div class="column-2"><a href="http://localhost:4000/ ">Home</a></div>
 		<div class="column-3">
 			
-				<a href="http://localhost:4000/2019/12/14/select-multy-categories/">Newer >></a>
+				<span>Newer >></span>
 			
 		</div>
 	</div>

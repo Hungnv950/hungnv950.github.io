@@ -3,12 +3,12 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>SQL WHERE vs HAVING</title>
+        <title>Ruby Notes</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">        
         <meta name="description" content="Harmony is a free responsive jekyll theme by Gayan Virajith and Maheshika Lakmali. Sourced on Github -  https://github.com/gayanvirajith/harmony
 ">
         <link rel="canonical" 
-        href="http://localhost:4000/tech/2019/11/29/where-vs-having/">
+        href="http://localhost:4000/tech/2020/02/24/ruby-notes/">
         
         <!-- styles -->
         <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
@@ -49,7 +49,7 @@
         <div class="page-content wc-container">
 	
 	<div class="post">
-		<h1>SQL WHERE vs HAVING</h1>
+		<h1>Ruby Notes</h1>
 		<p class="post-meta">
 			
       <span class="categories">
@@ -57,18 +57,36 @@
       </span> |
 	    
 	    <span class="post-date">
-    	Nov 29, 2019 
+    	Feb 24, 2020 
 	    </span>
 		</p>		
 		<div class="post">
-			<pre><code>Where : Là câu lệnh điều kiện trả kết quả đối chiếu với từng dòng .
-Having : Là câu lệnh điều kiện trả kết quả đối chiếu cho nhóm (Sum,AVG,COUNT,…)
+			<h3 id="developer-roadmap">Developer roadmap</h3>
+<ul>
+  <li><a href="https://github.com/kamranahmedse/developer-roadmap">https://github.com/kamranahmedse/developer-roadmap</a></li>
+</ul>
 
-Vì vậy mà sau GROUP BY thì sẽ chỉ dùng được Having .
-còn Where thì KHÔNG dùng được sau GROUP BY.
+<h3 id="namming">Namming</h3>
+<ol>
+  <li>Global variables start with <code>$</code></li>
+  <li>Class variables start with <code>@@</code></li>
+  <li>Instance variables start with <code>@</code></li>
+  <li>Local variables must begin with a lowercase or an under score</li>
+  <li>Constants start with an upper case letter</li>
+</ol>
 
-(HAVING có thể thay thế vị trí dùng cho WHERE. nhưng . ngược lại WHERE thì KHÔNG thể thay thế vị trí cho HAVING )
+<p>Ruby variablse names must begin with a lowercase letter or underscore, and many contain only letters, numbers, and underscore characters.</p>
 
+<p>Variable names must not conflict with keywords (e.g. you cannot have variable called <code>class</code>), but unambiguous name that contain reserved worlds are acceptable (i.e. both <code>classy</code> and <code>_class</code> are valid Ruby variable names)</p>
+
+<h3 id="variable">Variable</h3>
+<p>With instance variables, class variables or Global variables, we can use <code>#$</code>, <code>#@</code> or <code>#@@</code> to puts this values with string.</p>
+
+<pre><code>#{$x} ~ #$x
+#{@x} ~ #@x
+#{@@x} ~ #@@x
+
+#{x} != #x =&gt; not working
 </code></pre>
 
 		</div>
@@ -93,11 +111,6 @@ còn Where thì KHÔNG dùng được sau GROUP BY.
 		    <li>
 			  <span>24 Feb 2020 &raquo;</span>
 			  <a href="http://localhost:4000/post/2020/02/24/gem-sidekiq/">Ruby gem - Sidekiq</a>
-		    </li>
-		    
-		    <li>
-			  <span>24 Feb 2020 &raquo;</span>
-			  <a href="http://localhost:4000/tech/2020/02/24/ruby-notes/">Ruby Notes</a>
 		    </li>
 		    
 		    <li>
@@ -127,6 +140,11 @@ còn Where thì KHÔNG dùng được sau GROUP BY.
 		    
 		    <li>
 			  <span>29 Nov 2019 &raquo;</span>
+			  <a href="http://localhost:4000/tech/2019/11/29/where-vs-having/">SQL WHERE vs HAVING</a>
+		    </li>
+		    
+		    <li>
+			  <span>29 Nov 2019 &raquo;</span>
 			  <a href="http://localhost:4000/tech/2019/11/29/resful-web-service/">Restful webservice</a>
 		    </li>
 		    
@@ -137,13 +155,13 @@ còn Where thì KHÔNG dùng được sau GROUP BY.
 	<div class="post-footer">
 		<div class="column-1">
 			
-				<a href="http://localhost:4000/tech/2019/11/29/resful-web-service/"><< Older</a>
+				<a href="http://localhost:4000/life/2020/01/06/the-x-y-problem/"><< Older</a>
 			
 		</div>
 		<div class="column-2"><a href="http://localhost:4000/ ">Home</a></div>
 		<div class="column-3">
 			
-				<a href="http://localhost:4000/2019/12/14/select-multy-categories/">Newer >></a>
+				<a href="http://localhost:4000/post/2020/02/24/gem-sidekiq/">Newer >></a>
 			
 		</div>
 	</div>

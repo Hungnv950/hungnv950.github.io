@@ -5,9 +5,59 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 26 Feb 2020 10:04:26 +0700</pubDate>
-    <lastBuildDate>Wed, 26 Feb 2020 10:04:26 +0700</lastBuildDate>
+    <pubDate>Sat, 07 Mar 2020 22:23:25 +0700</pubDate>
+    <lastBuildDate>Sat, 07 Mar 2020 22:23:25 +0700</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
+    
+      <item>
+        <title>Clean code - Comment</title>
+        <description>&lt;hr /&gt;
+
+&lt;p&gt;Đừng bình luận trên code xấu, hãy viết lại nó.
+-Brian W.Kernighan và P.J.Plaugher-&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Comment donot make up for bad code.
+  Thay vì dành thời gian cho việc viết bình luận cho một đống lộn xộn, bạn nên dọn dẹp nó.&lt;/li&gt;
+  &lt;li&gt;Explain your self in code.
+  Code luôn là lời giải thích tốt nhất. Trong nhiều trường hợp, bạn nên thay thế hoặc tạo thêm những hàm mới để có thể nói lên những lời mà comment của bạn thể hiện.&lt;/li&gt;
+  &lt;li&gt;Good comment.
+    &lt;ul&gt;
+      &lt;li&gt;Legal comments (Bình luận pháp lý)&lt;/li&gt;
+      &lt;li&gt;Informative comments (Bình luận thông tin)&lt;/li&gt;
+      &lt;li&gt;Explanation of Intent (Giải thích về mục đích)&lt;/li&gt;
+      &lt;li&gt;Clarification (Làm sáng tỏ)&lt;/li&gt;
+      &lt;li&gt;Warning of Consquences (Cảnh báo về hậu quả)
+        &lt;pre&gt;&lt;code&gt; // Don't run unless you
+ // have some time to kill.
+&lt;/code&gt;&lt;/pre&gt;
+      &lt;/li&gt;
+      &lt;li&gt;TODO comments: Khi có thời gian rảnh nên quay lại giải quyết các vấn đề mà đã TODO từ trước.&lt;/li&gt;
+      &lt;li&gt;Amplification (Phóng đại)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Bad comments: Tất cả những gì không phải good comments.
+    &lt;ul&gt;
+      &lt;li&gt;Mumbling (lẩm bẩm): Đưa ra một comment chỉ vì bạn cảm thấy nên hoặc vì quá trình yêu cầu nó, vì hack. Nếu bạn quyết định viết comment thì hãy giành thời gian để đảm bảo nó là comment tốt nhất bạn có thể viết.&lt;/li&gt;
+      &lt;li&gt;Redundant Comment (Comment dư thừa):&lt;/li&gt;
+      &lt;li&gt;Misleading comments (Comment sai lệch):&lt;/li&gt;
+      &lt;li&gt;Mandated comments (Comment bắt buộc): Thật là ngớ ngẩn khi có một quy tắc nói rằng mọi hàm phải có javadoc hoặc mọi biến phải có một comment. Những comment như thế này chỉ làm lộn xộn mã, tuyên truyền những lời nói dối và để gây nhầm lẫn và vô tổ chức.&lt;/li&gt;
+      &lt;li&gt;Jounal comments:Đôi khi mọi người thêm một comment vào đầu module mỗi khi họ chỉnh sửa nó. Những comment này tích lũy như một loại tạp chí, hoặc nhật ký, của mọi thay đổi đã từng được thực hiện. Tuy nhiên ngày nay những comment loại như này chỉ làm cho module trở nên xáo trộn hơn mà thôi.
+  -&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Wed, 26 Feb 2020 00:00:00 +0700</pubDate>
+        <link>http://localhost:4000/tech/2020/02/26/clean-code-comment/</link>
+        <guid isPermaLink="true">http://localhost:4000/tech/2020/02/26/clean-code-comment/</guid>
+        
+        
+        <category>tech</category>
+        
+      </item>
     
       <item>
         <title>Clean code - function</title>
@@ -87,6 +137,19 @@ Viết phần mềm cũng như đang viết một bài văn vậy. Khi bạn vi�
       </item>
     
       <item>
+        <title>Ruby gem - Sidekiq</title>
+        <description>&lt;h1 id=&quot;sidekiq&quot;&gt;Sidekiq&lt;/h1&gt;
+</description>
+        <pubDate>Mon, 24 Feb 2020 00:00:00 +0700</pubDate>
+        <link>http://localhost:4000/post/2020/02/24/gem-sidekiq/</link>
+        <guid isPermaLink="true">http://localhost:4000/post/2020/02/24/gem-sidekiq/</guid>
+        
+        
+        <category>post</category>
+        
+      </item>
+    
+      <item>
         <title>Ruby Notes</title>
         <description>&lt;h3 id=&quot;developer-roadmap&quot;&gt;Developer roadmap&lt;/h3&gt;
 &lt;ul&gt;
@@ -117,11 +180,11 @@ Viết phần mềm cũng như đang viết một bài văn vậy. Khi bạn vi�
 &lt;/code&gt;&lt;/pre&gt;
 </description>
         <pubDate>Mon, 24 Feb 2020 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/post/2020/02/24/ruby-notes/</link>
-        <guid isPermaLink="true">http://localhost:4000/post/2020/02/24/ruby-notes/</guid>
+        <link>http://localhost:4000/tech/2020/02/24/ruby-notes/</link>
+        <guid isPermaLink="true">http://localhost:4000/tech/2020/02/24/ruby-notes/</guid>
         
         
-        <category>post</category>
+        <category>tech</category>
         
       </item>
     
@@ -1382,54 +1445,6 @@ còn Where thì KHÔNG dùng được sau GROUP BY.
         <pubDate>Fri, 29 Nov 2019 00:00:00 +0700</pubDate>
         <link>http://localhost:4000/tech/2019/11/29/where-vs-having/</link>
         <guid isPermaLink="true">http://localhost:4000/tech/2019/11/29/where-vs-having/</guid>
-        
-        
-        <category>tech</category>
-        
-      </item>
-    
-      <item>
-        <title>Restful webservice</title>
-        <description>&lt;p&gt;&lt;em&gt;Rest là gì ?&lt;/em&gt;
-Vậy REST là gì?&lt;/p&gt;
-
-&lt;p&gt;REST là viết tắt của Representational State Transfer&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;là một kiểu kiến trúc lập trình, nó định nghĩa các quy tắc để thiết kết các web service chú trọng vào tài nguyên hệ thống.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Trong kiến trúc REST mọi thứ đều được coi là tài nguyên, chúng có thể là: tệp văn bản, ảnh, trang html, video, hoặc dữ liệu động… REST server cung cấp quyền truy cập vào các tài nguyên, REST client truy cập và thay đổi các tài nguyên đó. Ở đây các tài nguyên được định danh dựa vào URI, REST sử dụng một vài đại diện để biểu diễn các tài nguyên như văn bản, JSON, XML.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Để tạo một tài nguyên trên server ta dùng phương thức POST.&lt;/li&gt;
-  &lt;li&gt;Để lấy(đọc) tài nguyên trên server ta dùng phương thức GET.&lt;/li&gt;
-  &lt;li&gt;Để update tài nguyên trên server ta dùng phương thức PUT.&lt;/li&gt;
-  &lt;li&gt;Để xóa tài nguyển trên server ta dùng phương thức DELETE.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;em&gt;PUT VS PATH&lt;/em&gt;&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;PUT (UPDATE): Cập nhật thông tin cho Resource.&lt;/li&gt;
-  &lt;li&gt;PATCH (UPDATE): Cập nhật một thành phần, thuộc tính của Resource.&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        <pubDate>Fri, 29 Nov 2019 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/tech/2019/11/29/resful-web-service/</link>
-        <guid isPermaLink="true">http://localhost:4000/tech/2019/11/29/resful-web-service/</guid>
-        
-        
-        <category>tech</category>
-        
-      </item>
-    
-      <item>
-        <title>form_with — Building HTML forms in Rails 5.1</title>
-        <description>&lt;p&gt;https://medium.com/@tinchorb/form-with-building-html-forms-in-rails-5-1-f30bd60ef52d&lt;/p&gt;
-</description>
-        <pubDate>Fri, 29 Nov 2019 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/tech/2019/11/29/form_with-vs-form_tag/</link>
-        <guid isPermaLink="true">http://localhost:4000/tech/2019/11/29/form_with-vs-form_tag/</guid>
         
         
         <category>tech</category>

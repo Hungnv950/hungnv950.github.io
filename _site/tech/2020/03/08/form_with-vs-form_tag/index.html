@@ -8,7 +8,7 @@
         <meta name="description" content="Harmony is a free responsive jekyll theme by Gayan Virajith and Maheshika Lakmali. Sourced on Github -  https://github.com/gayanvirajith/harmony
 ">
         <link rel="canonical" 
-        href="http://localhost:4000/tech/2019/11/29/form_with-vs-form_tag/">
+        href="http://localhost:4000/tech/2020/03/08/form_with-vs-form_tag/">
         
         <!-- styles -->
         <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
@@ -57,11 +57,77 @@
       </span> |
 	    
 	    <span class="post-date">
-    	Nov 29, 2019 
+    	Mar 8, 2020 
 	    </span>
 		</p>		
 		<div class="post">
-			<p>https://medium.com/@tinchorb/form-with-building-html-forms-in-rails-5-1-f30bd60ef52d</p>
+			<blockquote>
+  <p>Bài viết lấy nguồn từ bài viết <a href="https://medium.com/@tinchorb/form-with-building-html-forms-in-rails-5-1-f30bd60ef52d">form_with — Building HTML forms in Rails 5.1
+</a></p>
+</blockquote>
+
+<p>A couple of months ago a PR created by kaspth was merged to rails 5.1, introducing the form_with view helper. The idea behind it is to unify the interface of form_tag and form_for by extracting both implementations to a common object. As long as developers start using this new helper, form_tag and form_for will softly get deprecated.</p>
+
+<blockquote>
+  <p>Một vài tháng trước, một pull request <a href="https://github.com/rails/rails/pull/26976">Pr</a> được tạo bởi một thím với nickname <code>kasspth</code> đã được merge vào rails 5.1 (Thời điểm tôi dịch bài này thì rails 6 đã release và sắp ra rails 7 mất rồi =))). Giới thiệu về <code>form_with</code> trong phần hỗ trợ hiển thị. Ý tưởng đằng sau là thống nhất lại giao diện của <code>form_tag</code> và <code>form_for</code>bằng cách trích xuất cả hai triển khai trên vào một đối tượng chung. Miễn là các lập trình viên bắt đầu sử dụng helper mới này, <code>form_tag</code> và <code>form_for</code> sẽ dần dần được lãng quên.</p>
+</blockquote>
+
+<h3 id="1-a-litte-bit-of-background">1. A litte bit of background</h3>
+<p>(Chém gió một chút về bối cảnh)</p>
+
+<p>Let’s say that you have a Post model and want to create a new instance of it. In Rails 4, the form_for view helper allows you to create a form for it:</p>
+
+<blockquote>
+  <p>Hãy tưởng tượng bạn có một model <code>Post</code> và muốn tạo thêm đối tượng cho nó. Trong rails 4, <code>form_for</code> đã hỗ trợ tận răng và cho phép bạn tạo form cho nó như sau:</p>
+</blockquote>
+
+<pre><code>&lt;%= form_for @post do |form| %&gt;
+ &lt;%= form.text_field :author %&gt;
+ &lt;%= form.submit “Create” %&gt;
+&lt;% end %&gt;
+</code></pre>
+
+<p>Một view tương ứng html sẽ được sinh ra (a view html will be created)</p>
+
+<pre><code>&lt;form class=”new_post” id=”new_post” action=”/posts” accept-charset=”UTF-8" method=”post”&gt;
+ &lt;input name=”utf8" type=”hidden” value=”✓”&gt;
+ &lt;input type=”hidden” name=”authenticity_token” value=”…”&gt;
+ &lt;input type=”text” name=”post[author]” id=”post_author”&gt;
+ &lt;input type=”submit” name=”commit” value=”Create” data-disable-with=”Create”&gt;
+&lt;/form&gt;
+</code></pre>
+
+<p>The variable form yielded to the block is a FormBuilder object that incorporates the knowledge about the model object represented by :post passed to form_for.</p>
+
+<blockquote>
+  <p>Các giá trị trong block form là đối tượng được tạo ra bởi đối tượng <code>FormBuilder</code> kết hợp với thông tin được cung cấp bởi <code>:post</code> truyền vào <code>form_for</code></p>
+</blockquote>
+
+<p>What happens when you need to create a form but you don’t have an underlying model instance? Rails provides us with the form_tag helper:</p>
+
+<blockquote>
+  <p>ĐIều gì sẽ xảy ra nếu bạn muốn tạo một <code>form</code> mà không muốn cung cấp một đối tượng của model ? Khi đó rails sẽ cung cấp <code>form_tag</code> helper.</p>
+</blockquote>
+
+<pre><code>&lt;%= form_tag “/posts” do %&gt;
+ &lt;%= text_field_tag “post[author]” %&gt;
+ &lt;%= submit_tag “Create” %&gt;
+&lt;% end %&gt;
+</code></pre>
+
+<pre><code>&lt;form action=”/posts” accept-charset=”UTF-8" method=”post”&gt;
+ &lt;input name=”utf8" type=”hidden” value=”✓”&gt;
+ &lt;input type=”hidden” name=”authenticity_token” value=”…”&gt;
+ &lt;input type=”text” name=“post[author]” id=“post_author”&gt;
+ &lt;input type=”submit” name=”commit” value=“Create” data-disable-with=“Create”&gt;
+&lt;/form&gt;
+</code></pre>
+
+<p>There is no FormBuilder object in this second form. For each field that you need to add to the form, you need to use the correspondent input tag, such as text_field_tag.</p>
+
+<blockquote>
+  <p>Không có object <code>FormBuilder</code> trên form thứ hai.</p>
+</blockquote>
 
 		</div>
 	</div>
@@ -129,13 +195,13 @@
 	<div class="post-footer">
 		<div class="column-1">
 			
-				<a href="http://localhost:4000/tech/2019/11/12/multi-nested-fields-rails/"><< Older</a>
+				<a href="http://localhost:4000/tech/2020/02/26/clean-code-comment/"><< Older</a>
 			
 		</div>
 		<div class="column-2"><a href="http://localhost:4000/ ">Home</a></div>
 		<div class="column-3">
 			
-				<a href="http://localhost:4000/tech/2019/11/29/resful-web-service/">Newer >></a>
+				<span>Newer >></span>
 			
 		</div>
 	</div>

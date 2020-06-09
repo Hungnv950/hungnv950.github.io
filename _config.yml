@@ -1,4 +1,4 @@
-# Harmony Jekyll theme general configurations 
+# Harmony Jekyll theme general configurations
 
 # Base URL
 baseurl:
@@ -6,19 +6,19 @@ baseurl:
 # Site live URL
 url: https://hungnv950.github.io
 
-# Localhost 
-# url: http://127.0.0.1:4000  
+# Localhost
+# url: http://127.0.0.1:4000
 
 # Harmony theme configuration. Please change accordingly.
-name: Lang thang
+name: A litte of Hưng
 # Little description about your site
-description: A litte of Hưng.
+description: Hãy sống hết mình bạn nhé!
 # 'meta_description:' Write an awesome description for your new site here.
-# It will appear in your document head meta (for Google search results) and 
+# It will appear in your document head meta (for Google search results) and
 # in your feed.xml site description.
-meta_description: > # 
+meta_description: > #
   Harmony is a free responsive jekyll theme by Gayan Virajith
-  and Maheshika Lakmali. Sourced on Github - 
+  and Maheshika Lakmali. Sourced on Github -
   https://github.com/gayanvirajith/harmony
 basetheme: theme-base-01 # pre defined thmes are darken, blue-water, redish.
 author: # Author details
@@ -30,25 +30,25 @@ author: # Author details
 google_analytics_key: UA-xxxx-x
 
 # Profile links, leave blank to ignore
-social: 
+social:
   github: hungnv950
   twitter: hungnv950
   facebook: hungnv950
   gplus: +hungnv950
   dribble: gayan
-  pinterest: 
+  pinterest:
 # Toggle disclaimer in footer
 show_disclaimer: true
 
-# Conversion / Build settings 
+# Conversion / Build settings
 markdown:    kramdown
 # This is how you put pygments config in jekyll 2.0 instead of pygments: true
-highlighter: pygments 
+highlighter: pygments
 
 # Permalinks
 permalink:        pretty
 
-exclude: 
+exclude:
   - CNAME
   - Gemfile
   - Rakefile

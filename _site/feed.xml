@@ -5,9 +5,213 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 08 Mar 2020 16:45:57 +0700</pubDate>
-    <lastBuildDate>Sun, 08 Mar 2020 16:45:57 +0700</lastBuildDate>
-    <generator>Jekyll v3.8.5</generator>
+    <pubDate>Wed, 03 Mar 2021 17:44:58 +0700</pubDate>
+    <lastBuildDate>Wed, 03 Mar 2021 17:44:58 +0700</lastBuildDate>
+    <generator>Jekyll v3.9.0</generator>
+    
+      <item>
+        <title>10 Error status codes khi xây dựng API và cách giải quyết chúng</title>
+        <description>&lt;p&gt;Link bài viết gốc: https://www.moesif.com/blog/technical/monitoring/10-Error-Status-Codes-When-Building-APIs-For-The-First-Time-And-How-To-Fix-Them/
+10 Error Status Codes When Building APIs For The First Time And How To Fix Them&lt;/p&gt;
+</description>
+        <pubDate>Tue, 09 Jun 2020 07:48:45 +0700</pubDate>
+        <link>http://localhost:4000/life/2020/06/09/10-errors-when-build-api-and-how-to-fix-them/</link>
+        <guid isPermaLink="true">http://localhost:4000/life/2020/06/09/10-errors-when-build-api-and-how-to-fix-them/</guid>
+        
+        
+        <category>life</category>
+        
+      </item>
+    
+      <item>
+        <title>Bản thân bạn đang ở đâu ?</title>
+        <description>&lt;p&gt;Q: Làm sao để ngưng lười biếng và trì hoãn?&lt;/p&gt;
+
+&lt;p&gt;A: Farhan Shamir&lt;/p&gt;
+
+&lt;p&gt;Link: https://qr.ae/pNKIeo&lt;/p&gt;
+
+&lt;p&gt;Khi 13 tuổi, tôi đã tham gia Olympic Thiên văn học Quốc tế 2013 nhưng không thể giành được huy chương. Tôi ra về trong một tâm trạng buồn bã và đau đớn. Nhưng tôi nghĩ mình xứng đáng với điều đó: có lẽ tôi cần phải đập đầu của mình vào tường một lần để biết được rằng lười biếng là liều thuốc độc giết chết thành công. Nó gặm nhấm cuộc sống của bạn trong khi bạn đang xem TV, lướt Facebook.&lt;/p&gt;
+
+&lt;p&gt;Kể từ đó, tôi đăng xuất Facebook, bắt đầu luyện tập cho Olympic – cố gắng kết hợp cả khoa học và bóng rổ. Và rồi, tôi đã giành được 6 huy chương Olympic Khoa học quốc tế, 5 huy chương vàng Giải vô địch bóng rổ quốc gia và được nhận vào Đại học Cambridge.&lt;/p&gt;
+
+&lt;p&gt;Bây giờ, tôi tự hỏi mình: Làm cách nào tôi đã vượt qua được sự lười biếng? Tôi đã bắt đầu như thế nào?&lt;/p&gt;
+
+&lt;p&gt;Và rồi tôi nhận ra, câu trả lời, thật sự đơn giản…&lt;/p&gt;
+
+&lt;p&gt;CHỈ LÀ TÔI HÀNH ĐỘNG&lt;/p&gt;
+
+&lt;p&gt;Không có bí mật nào ở đây! Cho dù bạn đọc bao nhiêu lời khuyên như “Để tiêu diệt sự lười biếng thì bạn cần 5 điều sau đây” trên Quora hay các blog phát triển bản thân (Self-development) thì vẫn bạn sẽ không bao giờ thành công nếu bạn không lựa chọn.&lt;/p&gt;
+
+&lt;p&gt;Khi phải lựa chọn giữa việc chơi game hay làm việc, tôi chọn vế sau.
+Khi phải lựa chọn giữa việc đi chơi với bạn bè hay tập ném bóng, tôi chọn vế sau&lt;/p&gt;
+
+&lt;p&gt;Bạn KHÔNG THỂ ngăn được sự lười biếng của mình nếu bạn không thể sử dụng sức mạnh ý chí của mình để tạo nên sự khác biệt!
+Tôi nghĩ rằng tất cả chúng ta đều biết cách để chấm dứt sự lười biếng. Một thứ mà chỉ một vài người trong chúng ta lựa chọn…&lt;/p&gt;
+
+&lt;p&gt;HÀNH ĐỘNG&lt;/p&gt;
+
+&lt;p&gt;Không phải ngày mai hay sinh nhật. Bắt đầu. NGAY LẬP TỨC!&lt;/p&gt;
+
+&lt;p&gt;Lựa chọn. Quyết định cho chính mình. Bạn muốn gì?&lt;/p&gt;
+
+&lt;p&gt;Một cuộc sống vui vẻ? Thú vị? Đầy phiêu lưu?&lt;/p&gt;
+
+&lt;p&gt;TỐT! Bắt đầu hành động ngay đi!&lt;/p&gt;
+
+&lt;p&gt;Cuộc sống mơ ước luôn ở trong tầm tay bạn. Luôn thúc đẩy bản thân mình.
+Chỉ cần luôn thúc đẩy bản thân mình thôi.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 09 Jun 2020 07:48:45 +0700</pubDate>
+        <link>http://localhost:4000/life/2020/06/09/keep/</link>
+        <guid isPermaLink="true">http://localhost:4000/life/2020/06/09/keep/</guid>
+        
+        
+        <category>life</category>
+        
+      </item>
+    
+      <item>
+        <title>Rails Map Vs Pluck</title>
+        <description>
+</description>
+        <pubDate>Wed, 27 May 2020 00:00:00 +0700</pubDate>
+        <link>http://localhost:4000/2020/05/27/rails-map-vs-pluck/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/05/27/rails-map-vs-pluck/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Chuan Hoa Csdl</title>
+        <description>
+</description>
+        <pubDate>Wed, 27 May 2020 00:00:00 +0700</pubDate>
+        <link>http://localhost:4000/2020/05/27/chuan-hoa-csdl/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/05/27/chuan-hoa-csdl/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Rails cucumber - capybara notes</title>
+        <description>
+</description>
+        <pubDate>Fri, 08 May 2020 19:48:45 +0700</pubDate>
+        <link>http://localhost:4000/tech/2020/05/08/rails-rails-ckeditor-mention-with-elaticsearch/</link>
+        <guid isPermaLink="true">http://localhost:4000/tech/2020/05/08/rails-rails-ckeditor-mention-with-elaticsearch/</guid>
+        
+        
+        <category>tech</category>
+        
+      </item>
+    
+      <item>
+        <title>Rails elaticsearch - 1.Introduction</title>
+        <description>
+</description>
+        <pubDate>Fri, 08 May 2020 19:48:45 +0700</pubDate>
+        <link>http://localhost:4000/tech/2020/05/08/rails-elaticsearch-1-introduction/</link>
+        <guid isPermaLink="true">http://localhost:4000/tech/2020/05/08/rails-elaticsearch-1-introduction/</guid>
+        
+        
+        <category>tech</category>
+        
+      </item>
+    
+      <item>
+        <title>Test behavior với cucumber và capybara</title>
+        <description>&lt;p&gt;Hello cả nhà, cũng tương đối lâu rồi mình chưa quay lại. Một là do có sự thay đổi công việc nên hơi bận bịu. Hai là công việc mới khiến mình chưa thể cover được thời gian của bản thân. Hôm nay mình note lại một trong những điều khá hay ho mà mình gặp phải trong dự án.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Nhắc đến test trong rails hẳn ai cũng nhắc đến Rspec cùng tác dụng và sự vi diệu của nó nhưng Rspec chỉ hỗ trợ&lt;/p&gt;
+
+&lt;p&gt;Đầu tiên nhắc đến test, ngay từ lúc đầu giữa các khái niệm &lt;code&gt;rspec&lt;/code&gt;, &lt;code&gt;capybara&lt;/code&gt; và &lt;code&gt;cucumber&lt;/code&gt; nên mình cũng sẽ nhắc lại và so sánh để &lt;code&gt;cùng&lt;/code&gt; nhớ lại ;)&lt;/p&gt;
+
+&lt;hr /&gt;
+
+</description>
+        <pubDate>Fri, 08 May 2020 19:48:45 +0700</pubDate>
+        <link>http://localhost:4000/tech/2020/05/08/rails-cucumber-capybara-notes/</link>
+        <guid isPermaLink="true">http://localhost:4000/tech/2020/05/08/rails-cucumber-capybara-notes/</guid>
+        
+        
+        <category>tech</category>
+        
+      </item>
+    
+      <item>
+        <title>Đừng bao giờ `git push -f`</title>
+        <description>
+</description>
+        <pubDate>Fri, 08 May 2020 07:48:45 +0700</pubDate>
+        <link>http://localhost:4000/tech/2020/05/08/dung-bao-gio-git-push-f/</link>
+        <guid isPermaLink="true">http://localhost:4000/tech/2020/05/08/dung-bao-gio-git-push-f/</guid>
+        
+        
+        <category>tech</category>
+        
+      </item>
+    
+      <item>
+        <title>Rails rspec notes</title>
+        <description>&lt;h3 id=&quot;mock-vs-stub&quot;&gt;Mock vs stub&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;Stub
+    &lt;blockquote&gt;
+      &lt;p&gt;Returns canned responses, avoiding any meaningful computation or I/O&lt;/p&gt;
+    &lt;/blockquote&gt;
+
+    &lt;p&gt;=&amp;gt; Tra ve ket qua a
+ ex:&lt;/p&gt;
+    &lt;blockquote&gt;
+      &lt;p&gt;allow(some_object).to receive(some_method).and_return(some_value)&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Mock
+    &lt;blockquote&gt;
+      &lt;p&gt;Expects specific messages; will raise an error if it doesn’t receive them by the end of the example&lt;/p&gt;
+    &lt;/blockquote&gt;
+
+    &lt;p&gt;ex:&lt;/p&gt;
+    &lt;blockquote&gt;
+      &lt;p&gt;expect(some_object).to receive(some_method).and_return(some_value)&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;double&quot;&gt;Double&lt;/h3&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;double(*args) public
+     Shortcut for creating an instance of Spec::Mocks::Mock.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;name is used for failure reporting, so you should use the role that the double is playing in the example.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;stubs_and_options lets you assign options and stub values at the same time. The only option available is :null_object. Anything else is treated as a stub value.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Ex:&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;thing = double(“thing”, :a =&amp;gt; “A”)
+      thing.a == “A” =&amp;gt; true
+      person = double(“thing”, :name =&amp;gt; “Joe”, :email =&amp;gt; “joe@domain.com”)
+      person.name =&amp;gt; “Joe”
+      person.email =&amp;gt; “joe@domain.com”&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        <pubDate>Fri, 08 May 2020 07:48:45 +0700</pubDate>
+        <link>http://localhost:4000/tech/2020/05/08/rails-rspec-notes/</link>
+        <guid isPermaLink="true">http://localhost:4000/tech/2020/05/08/rails-rspec-notes/</guid>
+        
+        
+        <category>tech</category>
+        
+      </item>
     
       <item>
         <title>form_with — Building HTML forms in Rails 5.1</title>
@@ -85,1573 +289,6 @@
         
         
         <category>tech</category>
-        
-      </item>
-    
-      <item>
-        <title>Clean code - Comment</title>
-        <description>&lt;hr /&gt;
-
-&lt;p&gt;Đừng bình luận trên code xấu, hãy viết lại nó.
--Brian W.Kernighan và P.J.Plaugher-&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Comment donot make up for bad code.
-  Thay vì dành thời gian cho việc viết bình luận cho một đống lộn xộn, bạn nên dọn dẹp nó.&lt;/li&gt;
-  &lt;li&gt;Explain your self in code.
-  Code luôn là lời giải thích tốt nhất. Trong nhiều trường hợp, bạn nên thay thế hoặc tạo thêm những hàm mới để có thể nói lên những lời mà comment của bạn thể hiện.&lt;/li&gt;
-  &lt;li&gt;Good comment.
-    &lt;ul&gt;
-      &lt;li&gt;Legal comments (Bình luận pháp lý)&lt;/li&gt;
-      &lt;li&gt;Informative comments (Bình luận thông tin)&lt;/li&gt;
-      &lt;li&gt;Explanation of Intent (Giải thích về mục đích)&lt;/li&gt;
-      &lt;li&gt;Clarification (Làm sáng tỏ)&lt;/li&gt;
-      &lt;li&gt;Warning of Consquences (Cảnh báo về hậu quả)
-        &lt;pre&gt;&lt;code&gt; // Don't run unless you
- // have some time to kill.
-&lt;/code&gt;&lt;/pre&gt;
-      &lt;/li&gt;
-      &lt;li&gt;TODO comments: Khi có thời gian rảnh nên quay lại giải quyết các vấn đề mà đã TODO từ trước.&lt;/li&gt;
-      &lt;li&gt;Amplification (Phóng đại)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Bad comments: Tất cả những gì không phải good comments.
-    &lt;ul&gt;
-      &lt;li&gt;Mumbling (lẩm bẩm): Đưa ra một comment chỉ vì bạn cảm thấy nên hoặc vì quá trình yêu cầu nó, vì hack. Nếu bạn quyết định viết comment thì hãy giành thời gian để đảm bảo nó là comment tốt nhất bạn có thể viết.&lt;/li&gt;
-      &lt;li&gt;Redundant Comment (Comment dư thừa):&lt;/li&gt;
-      &lt;li&gt;Misleading comments (Comment sai lệch):&lt;/li&gt;
-      &lt;li&gt;Mandated comments (Comment bắt buộc): Thật là ngớ ngẩn khi có một quy tắc nói rằng mọi hàm phải có javadoc hoặc mọi biến phải có một comment. Những comment như thế này chỉ làm lộn xộn mã, tuyên truyền những lời nói dối và để gây nhầm lẫn và vô tổ chức.&lt;/li&gt;
-      &lt;li&gt;Jounal comments:Đôi khi mọi người thêm một comment vào đầu module mỗi khi họ chỉnh sửa nó. Những comment này tích lũy như một loại tạp chí, hoặc nhật ký, của mọi thay đổi đã từng được thực hiện. Tuy nhiên ngày nay những comment loại như này chỉ làm cho module trở nên xáo trộn hơn mà thôi.
-  -&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-</description>
-        <pubDate>Wed, 26 Feb 2020 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/tech/2020/02/26/clean-code-comment/</link>
-        <guid isPermaLink="true">http://localhost:4000/tech/2020/02/26/clean-code-comment/</guid>
-        
-        
-        <category>tech</category>
-        
-      </item>
-    
-      <item>
-        <title>Clean code - function</title>
-        <description>&lt;hr /&gt;
-
-&lt;h3 id=&quot;function-là-động-từ-class-là-danh-từ-nghệ-thuật-của-lập-trình-là-nghệ-thuật-của-ngôn-ngữ-thiết-kế&quot;&gt;Function là động từ, class là danh từ. Nghệ thuật của lập trình là nghệ thuật của ngôn ngữ thiết kế.&lt;/h3&gt;
-
-&lt;h3 id=&quot;các-lập-trình-viên-bậc-thầy-nghĩ-rằng-các-hệ-thống-như-một-câu-chuyện-để-kể-chứ-không-phải-là-một-chương-trình-để-viết-một-cách-thuần-tuý&quot;&gt;Các lập trình viên bậc thầy nghĩ rằng các hệ thống như một câu chuyện để kể chứ không phải là một chương trình để viết một cách thuần tuý.&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Small: Nguyên tắc đầu tiên của function là chúng càn phải nhỏ. Nguyên tắc thứ 2 là chúng cần phải nhỏ hơn nữa. (function không nên dài quá 20 dòng, mỗi dòng không nên dài quá 150 kí tự)&lt;/li&gt;
-  &lt;li&gt;Những khối lệnh if, else, while nên đặt trên cùng 1 dòng và những dòng này nên đặt tới 1 lời gọi tới hàm khác.&lt;/li&gt;
-  &lt;li&gt;Mức thụt lề của function nên ở mức 1 hoặc 2. Nếu quá mức này, hãy nghĩ tới việc tách function mới.&lt;/li&gt;
-  &lt;li&gt;Do one thing: Function chỉ nên thực hiện một thứ. Nó nên thực hiện điều đó cho tốt. Nó nên thực hiện 1 điều duy nhất.&lt;/li&gt;
-  &lt;li&gt;One level of Abstraction per Function: Để đảm bảo chắc chắn rằng function đang làm 1 việc duy nhất cần đảm bảo các câu lệnh trong function đang cùng nằm ở 1 mức độ trừu tượng.&lt;/li&gt;
-  &lt;li&gt;Reading code from top to bottom (the StepDown rule): Chúng ta muốn đọc code như một câu chuyện từ trên xuống. Mỗi function được sắp xếp đều được tuân theo mức độ của sự trừu tượng từ trên xuống. Giảm dần mức độ trừu tượng từ trên xuống.&lt;/li&gt;
-  &lt;li&gt;Use Descriptive Names: Sử dụng tên mô tả những gì function làm. Đừng ngần ngại vì đó là một cái tên dài. Tên mô tả dài sẽ tốt hơn là 1 tên mô tả ngắn và bí ẩn, tên mô tả dài sẽ tốt hơn là một đoạn comment bình luận để mô tả về function đó.&lt;/li&gt;
-  &lt;li&gt;Function arguments: Số lượng tham số lý tưởng trong 1 funciton là = 0 (niladic), tiếp đến là 1 (monadic), 2 (dyadic), 3 (triadic) thì nên tránh nếu có thể. Nhiều hơn 3 (polyadic) thì cần phải có một lý do đặc biệt và không nên sử dụng.&lt;/li&gt;
-  &lt;li&gt;Common Monadic Form:
-Hai hình thức phổ biến khi sử dụng function 1 tham số là:
-    &lt;ul&gt;
-      &lt;li&gt;Một hàm lý luận, trả về true hoặc false&lt;/li&gt;
-      &lt;li&gt;Một hàm lập luận, biến nó thành một thứ gì khác và trả về giá trị&lt;/li&gt;
-      &lt;li&gt;Một hình thức ít phổ biến hơn là hàm xử lý sự kiện, có 1 tham số đầu vào nhưng không có tham số đầu ra.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Flag argument: Nên tách nó thành 2 hàm, bởi vì hàm này đã làm hơn 1 điều: 1 là flag có giá trị đúng, hai là flag có giá trị sai.&lt;/li&gt;
-  &lt;li&gt;Dyalic function: Hai tham số phải có sự gắn kết tự nhiên hoặc là sắp xếp của một trật tự tự nhiên.&lt;/li&gt;
-  &lt;li&gt;Triads: Những hàm phải đưa ra tới 3 đối số càng khó để hiểu hơn là hai. Khuyên bạn nên thực sự cẩn thận khi đưa ra một hàm với một bộ 3 tham số.&lt;/li&gt;
-  &lt;li&gt;Argument Object: Khi một số hàm thực sự cần nhiều hơn 2 hay 3 tham số, có khả năng một số trong những args đó có thể được gói gọn trong 1 lớp chứa các tham số đó.&lt;/li&gt;
-  &lt;li&gt;Argument List: Đôi khi chúng ta muốn vượt qua số lượng biến số của tham số vào 1 hàm. Nếu các tham số đều được đối xử tương tự nhau, có thể gộp chung lại thành một tham số đơn kiểu List.&lt;/li&gt;
-  &lt;li&gt;Verbs and Keywords: Trong trường hợp là 1 monad function, hàm và tham số nên tạo thành 1 động từ hoặc danh từ đẹp. Ví dụ: assertEquals có thể được viết tốt hơn là assertExpectedEqualsActual(expected, actual), điều này giảm nhẹ vấn đề phải nhớ thứ tự các tham số.&lt;/li&gt;
-  &lt;li&gt;Have no sideeffecs:
-    &lt;ul&gt;
-      &lt;li&gt;Do one thinh&lt;/li&gt;
-      &lt;li&gt;Tránh các tham số đầu ra nếu sử dụng được this/self.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Comman query separation (Tách lệnh truy vấn): Hàm nên thực hiện hoặc làm 1 điều gì đó hoặc trả lời một điều gì đó, nhưng không bao gồm cả hai. Hàm của bạn nên thay đổi trạng thái của một đối tượng hoặc trả về thông tin của một đối tượng. Làm cả hai sẽ gây ra nhầm lẫn.&lt;/li&gt;
-  &lt;li&gt;Prefer exceptions to returning erros code:
-Trả về đoạn code báo lỗi bên trong các câu lệnh của hàm là một sự vi phạm tới việc tách câu lệnh truy vấn.&lt;/li&gt;
-  &lt;li&gt;Extract Try/Catch blocks:
-Tách các khối xử lý Try/Catch ra khỏi các thành phần chức năng riêng của chính nó.&lt;/li&gt;
-  &lt;li&gt;Errors handing Is one thing:
-Function nên làm một việc, xử lý lỗi nên làm một việc. Vậy nên một chức năng xử lý lỗi thì không nên làm bất cứ điều gì nữa.&lt;/li&gt;
-  &lt;li&gt;The Error.java Dependency Magnet:
-Một class hoặc enum chứa tất cả các định nghĩa lỗi. Khi sử dụng chúng thì các class khác đều phụ thuộc vào class định nghĩa này. Nhưng khi danh sách lỗi này được thay đổi thì tất cả các class khác cần được biên dịch và bố trí lại.
-=&amp;gt; Nên sử dụng các exception hơn là errors code.&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Don’t repeat your self&lt;/strong&gt;:
-Sự trùng lặp là một vấn đề vì nó thổi phồng mã lên và sẽ phải yêu cầu thay đổi nhiều lần nếu thuật toán có sự thay đổi. Nó cũng cấp số nhân nhiều lần cho một lỗi thiếu sót nào đó.&lt;/p&gt;
-
-    &lt;p&gt;Mục tiêu là giảm thiểu sự trùng lặp.&lt;/p&gt;
-
-    &lt;p&gt;Trùng lặp có thể là gốc rễ mọi tội lỗi ở trong phần mềm. Nhiều nguyên tắc và thông lệ được tạo ra nhằm kiếm soát và hạn chế sự trùng lặp đó. Lập trình hướng đối tượng, lập trình cấu trúc,…&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Structed Programing: Nguyên tắc Dijktra trong lập trình cấu trúc: Mọi function và mọi block ở trong function nên có một đầu vào và một đầu ra. Điều đó có nghĩa là chỉ nên có một statement trả về trong hàm, không có break hay continue trong một vòng lặp, và không bao giờ có ever hay bất cứ phát biểu goto nào.&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;How do you write function like this ?
-Viết phần mềm cũng như đang viết một bài văn vậy. Khi bạn viết một bài văn hay một bài báo, bạn sẽ có những ý tưởng đầu tiên, sau đó sẽ uốn nắn đề có thể đọc được tốt hơn. Phác thảo đầu tiên có thể vụng về và thiếu tổ chức. Nhưng bạn có thẻ rèn câu cú, tái cấu trúc và sàng lọc cho đến khi nó đọc được theo cách mà bạn muốn.&lt;/p&gt;
-
-    &lt;p&gt;Khi viết một hàm, nó bắt đầu rất dài và phức tạp, nó có nhiều phần chưa rõ ràng và vòng lặp lồng nhau. Nó có một danh sách dài các tham số. Tên thì tuỳ tiện và code thì trùng lặp. Và chắc chắn là đi cùng nó là một bộ unit test để cover hết đống lộn xộn đó.&lt;/p&gt;
-
-    &lt;p&gt;Vì vậy, uốn nắn và sàng lọc code, phân chia các chức năng, thay đổi tên, loại bỏ sự trùng lặp. Co gọn các phương pháp để rút ngắn lại. Đôi khi sẽ xảy ra việc tạo ra rất nhiều class. Nhưng đừng quên giữ cho pass các Unit test trước đó nhé =))&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        <pubDate>Tue, 25 Feb 2020 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/tech/2020/02/25/clean-code-function/</link>
-        <guid isPermaLink="true">http://localhost:4000/tech/2020/02/25/clean-code-function/</guid>
-        
-        
-        <category>tech</category>
-        
-      </item>
-    
-      <item>
-        <title>Ruby gem - Sidekiq</title>
-        <description>&lt;h1 id=&quot;sidekiq&quot;&gt;Sidekiq&lt;/h1&gt;
-</description>
-        <pubDate>Mon, 24 Feb 2020 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/post/2020/02/24/gem-sidekiq/</link>
-        <guid isPermaLink="true">http://localhost:4000/post/2020/02/24/gem-sidekiq/</guid>
-        
-        
-        <category>post</category>
-        
-      </item>
-    
-      <item>
-        <title>Ruby Notes</title>
-        <description>&lt;h3 id=&quot;developer-roadmap&quot;&gt;Developer roadmap&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/kamranahmedse/developer-roadmap&quot;&gt;https://github.com/kamranahmedse/developer-roadmap&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;namming&quot;&gt;Namming&lt;/h3&gt;
-&lt;ol&gt;
-  &lt;li&gt;Global variables start with &lt;code&gt;$&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Class variables start with &lt;code&gt;@@&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Instance variables start with &lt;code&gt;@&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Local variables must begin with a lowercase or an under score&lt;/li&gt;
-  &lt;li&gt;Constants start with an upper case letter&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Ruby variablse names must begin with a lowercase letter or underscore, and many contain only letters, numbers, and underscore characters.&lt;/p&gt;
-
-&lt;p&gt;Variable names must not conflict with keywords (e.g. you cannot have variable called &lt;code&gt;class&lt;/code&gt;), but unambiguous name that contain reserved worlds are acceptable (i.e. both &lt;code&gt;classy&lt;/code&gt; and &lt;code&gt;_class&lt;/code&gt; are valid Ruby variable names)&lt;/p&gt;
-
-&lt;h3 id=&quot;variable&quot;&gt;Variable&lt;/h3&gt;
-&lt;p&gt;With instance variables, class variables or Global variables, we can use &lt;code&gt;#$&lt;/code&gt;, &lt;code&gt;#@&lt;/code&gt; or &lt;code&gt;#@@&lt;/code&gt; to puts this values with string.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;#{$x} ~ #$x
-#{@x} ~ #@x
-#{@@x} ~ #@@x
-
-#{x} != #x =&amp;gt; not working
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-        <pubDate>Mon, 24 Feb 2020 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/tech/2020/02/24/ruby-notes/</link>
-        <guid isPermaLink="true">http://localhost:4000/tech/2020/02/24/ruby-notes/</guid>
-        
-        
-        <category>tech</category>
-        
-      </item>
-    
-      <item>
-        <title>The X-Y problem</title>
-        <description>&lt;blockquote&gt;
-  &lt;p&gt;XY problem là một vấn đề nan giải mà bất cứ ai hoặc bất cứ ngành nghề nào cũng có thể sẽ mắc phải trong công việc và cuộc sống.
-Mình biết tới vấn đề này thông qua một người anh trong team dự án - &lt;a href=&quot;https://ttuan.github.io/&quot;&gt;Tuấn Trần&lt;/a&gt;, hi vọng bài viết sẽ đem lại cho bạn một cách nhìn nhận khác khi đối mặt với bất kì vấn đề nào trong cuộc sống :D&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Source: &lt;a href=&quot;http://xyproblem.info/&quot;&gt;The XY Problem&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;what-is-it-&quot;&gt;What is it ?&lt;/h3&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;Vấn đề XY xảy ra khi bạn muốn đặt câu hỏi về vấn đề X nhưng bạn lại đặt câu hỏi về  những giải pháp bạn đưa ra để giải quyết vấn đề X đó. Điều đó dẫn tới nhiều lãng phí về thời gian và năng lượng, bao gồm người hỏi và người muốn giúp đỡ.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Để dễ hiểu có thể tham khảo ví dụ:&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;Bạn muốn giải quyết vấn đề X&lt;/li&gt;
-  &lt;li&gt;Bạn không biết làm thế nào để giải quyết X, nhưng nghĩ rằng bạn có thể tìm ra cách giải quyết vấn đề X nếu bạn làm được Y.&lt;/li&gt;
-  &lt;li&gt;Bạn tiếp tục không biết làm thế nào để giải quyết Y.&lt;/li&gt;
-  &lt;li&gt;Người khác giúp bạn giải quyết Y nhưng lại &lt;code&gt;confused&lt;/code&gt; bởi vì Y dường như là 1 vấn đề lạ và không liên quan tới X cho lắm =))&lt;/li&gt;
-  &lt;li&gt;Sau rất nhiều tương tác và thời gian lãng phí, cuối cùng bạn cũng hiểu được rằng bạn muốn được giúp đỡ giải quyết vấn đề X, và bạn cũng hiểu ra rằng Y cũng không liên quan tới X cho là mấy :v&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Vấn đề này xảy ra khi mà chúng ta bị mắc kẹt vào những vấn đề mà chúng ta tin đó là giải pháp và không thể quay lại bước trước đó để có thể hiểu vấn đề chính một cách rõ ràng.&lt;/p&gt;
-
-&lt;h3 id=&quot;what-to-do-about-it&quot;&gt;What to do about it?&lt;/h3&gt;
-&lt;p&gt;Vậy thì chúng ta cần phải làm gì ?? Câu hỏi tương đối khó bởi vì khi chìm sâu vào 1 vấn đề chúng ta luôn tìm cách giải quyết nó chứ ít khi chúng ta tìm hiểu nguyên nhân vấn đề đó tại sao lại xảy ra.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Luôn nhìn vấn đề ở một bức tranh rộng hơn và đi cùng nó là những giải pháp.&lt;/li&gt;
-  &lt;li&gt;Nếu ai đó yêu cầu thêm về thông tin, hãy cung cấp nó một cách đầy đủ và chi tiết.&lt;/li&gt;
-  &lt;li&gt;Loại trừ những giải pháp đã được sử dụng, chia sẻ lý do bạn loại trừ chúng. Điều này sẽ cung cấp thêm thông tin về yêu cầu của bạn.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;em&gt;Nên nhớ rằng nếu bạn luôn đoán đúng, bạn không cần phải hỏi bất cứ ai cả ^^&lt;/em&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;examples&quot;&gt;Examples&lt;/h3&gt;
-&lt;h4 id=&quot;example-1&quot;&gt;Example 1&lt;/h4&gt;
-&lt;p&gt;n00b không thực sự muốn 3 kí tự cuối cùng trong filename, anh ta muốn &lt;code&gt;file extensions&lt;/code&gt;, vậy tại sao anh ấy lại hỏi về 3 kí tự cuối cùng ??&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;n00b&amp;gt; Làm thế nào tôi có thể in ra 3 kí tự cuối cùng của filename ?
-&amp;lt;feline&amp;gt; Nếu chúng đang trong 1 biến, bạn có thể dùng: echo ${foo: -3}
-&amp;lt;feline&amp;gt; Tại sao lại là 3 kí tự ? Đó có thực sự là điều bạn muốn ?
-&amp;lt;feline&amp;gt; Có phải bạn đang muốn phần mở rộng của file ?
-&amp;lt;n00b&amp;gt; Đúng :)
-&amp;lt;feline&amp;gt; Không có gì đảm bảo rằng mọi filename sẽ có phần mở rộng là 3 kí tự cả, vì vậy cứ bám theo sự mù quáng rằng 3 kí tự sẽ không thể giải quyết được vấn đề
-&amp;lt;feline&amp;gt; echo ${foo##*.}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id=&quot;example-2&quot;&gt;Example 2&lt;/h4&gt;
-&lt;p&gt;Nếu Angela chỉ bắt đầu giải thích bằng cách giải thích thì cô ấy muốn ngăn người khác phát hiện hệ điều hành của mình, cuộc thảo luận đáng nhẽ ra có thể ngắn hơn rất nhiều.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;Angela: 'nmap -O -A 127.0.0.1' trả về một số dòng bắt đầu với 'OS:'. Làm thế nào để thay đổi nó ?
-Obama: Nhìn vào sourcecode của nmap, tìm cách nó tìm ra phần Linux, sau đó viết lại TCP/IP của bạn để nó không vận hành theo theo cách mà nmap hoạt động.
-Angela: Đúng, nhưng tôi không biết về hệ thống api linux
-Obama: Well, địa chỉ của nmap dựa trên cách hoạt động của ngăn xếp TCP/IP, không có cách nào ngoại trừ viết lại các phần thích hợp của ngăn xếp đó.
-Angela: Tôi thực sự mcaanf phải tránh những tin nhắn này. Những IP nào có thể làm công việc này ?
-Obama: Well, không sử dụng việc quyét hệ điều hành hoặc quét các phiên bản.
-Angela: Tôi muốn ngăn người khác biết hệ điều hành của tôi.....
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;:v :v&lt;/p&gt;
-</description>
-        <pubDate>Mon, 06 Jan 2020 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/life/2020/01/06/the-x-y-problem/</link>
-        <guid isPermaLink="true">http://localhost:4000/life/2020/01/06/the-x-y-problem/</guid>
-        
-        
-        <category>life</category>
-        
-      </item>
-    
-      <item>
-        <title>Ruby - Login and messaging with line</title>
-        <description>&lt;blockquote&gt;
-  &lt;p&gt;Gần đây mình có gặp lại task liên quan tới việc implement tính năng đăng nhập và nhắn tin thông qua mạng xã hội Line.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Tuy cách đây 1 năm mình cũng đã gặp task này nhưng khi gặp lại cũng còn khá nhiều bỡ ngỡ nên mình quyết định xây 1 chiếc base nhỏ cùng những &lt;code&gt;noob&lt;/code&gt; của mình để biết đâu sau này mình hoặc bạn có thể tránh phải&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;1-đặt-vấn-đề&quot;&gt;1. Đặt vấn đề&lt;/h3&gt;
-
-&lt;p&gt;Để làm bất cứ task nào mà mình chưa biết thì việc tự &lt;code&gt;research&lt;/code&gt; là vô cùng quan trọng. Như thường lệ, các câu hỏi đặt ra là: &lt;code&gt;what&lt;/code&gt;, &lt;code&gt;why&lt;/code&gt;, &lt;code&gt;when&lt;/code&gt;, &lt;code&gt;where&lt;/code&gt; và &lt;code&gt;how&lt;/code&gt;. Và chúng ta sẽ trả lời câu hỏi đó&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;what ? Chúng ta sẽ thực hiện chức năng login bằng Line và nhắn tin cho người dùng sử dụng Line&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;why ? Do có nhu cầu từ KH hoặc là vì &lt;code&gt;mình thích&lt;/code&gt; =))&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;when ? Khi người dùng muốn đồng bộ hoặc sử dụng thông tin tài khoản cá nhân Line của mình với hệ thống mà không tốn thời gian đăng nhập + nhận thông báo của hệ thống thông qua line. Để sâu hơn, bạn có thể tìm hiểu về &lt;a href=&quot;https://oauth.net/2/&quot;&gt;OAuth-2&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;where ? Phần này mình nghĩ sẽ liên quan tới &lt;code&gt;how&lt;/code&gt; nhiều hơn nhưng không sao, chúng ta vẫn có thể tìm kiếm mọi thứ thông qua internet hoặc thông qua &lt;em&gt;&lt;code&gt;người thân&lt;/code&gt;&lt;/em&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;how ?&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;
-        &lt;p&gt;Xác định vấn đề: Các bước trên đã có vẻ clear :D&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;Giải quyết vấn đề: Để giải quyết được các vấn đề, với mình thì nên đặt ra các câu hỏi đúng để có thể trả lời từng câu hỏi đó dẫn tới việc giải quyết bài toán. Bạn có thể tham khảo &lt;a href=&quot;/life/2020/01/06/the-x-y-problem/&quot; target=&quot;_blank&quot;&gt;X-Y problem&lt;/a&gt;&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;Khi một service sinh ra để cung cấp tính năng thì chắc chắn nhà cung cấp phải cung cấp đi kèm service đó một document cụ thể. =&amp;gt; Tài liệu nên tìm hiểu và đọc của Line service&lt;/p&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;2-giải-quyết-vấn-đề&quot;&gt;2. Giải quyết vấn đề&lt;/h3&gt;
-
-&lt;h4 id=&quot;21-đăng-nhập-với-tài-khoản-sử-dụng-thông-tin-đăng-nhập-từ-tài-khoản-line&quot;&gt;2.1. Đăng nhập với tài khoản sử dụng thông tin đăng nhập từ tài khoản Line&lt;/h4&gt;
-
-&lt;p&gt;Document hướng dẫn của Line: [Integrating LINE Login with your web app&lt;/p&gt;
-
-&lt;p&gt;](https://developers.line.biz/en/docs/line-login/web/integrate-line-login/)&lt;/p&gt;
-
-&lt;p&gt;Quá trình Đăng nhập LINE cho web (đăng nhập web) dựa trên luồng cấp mã ủy quyền OAuth 2.0 và giao thức OpenID Connect. Ứng dụng của bạn phải có khả năng thực hiện yêu cầu phía máy chủ và nhận dữ liệu từ Nền tảng LINE. Sau đây là tổng quan về dòng đăng nhập web:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://images.viblo.asia/18f9795d-8ce2-4550-8be5-ebca1f98b7fd.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Flow đăng nhập web sử dụng Line:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;Ứng dụng của bạn hướng người dùng đến URL ủy quyền Đăng nhập LINE với các tham số truy vấn bắt buộc (tham khảo bên dưới).&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Hộp thoại Đăng nhập LINE được mở trong trình duyệt và người dùng đăng nhập để được xác thực. Sau khi Nền tảng LINE xác thực thông tin đăng nhập của người dùng, người dùng cũng phải đồng ý cấp các quyền được yêu cầu cho ứng dụng của bạn.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Nền tảng LINE chuyển hướng người dùng quay lại ứng dụng của bạn thông qua redirect_uri với mã ủy quyền và trạng thái trong chuỗi truy vấn.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Ứng dụng của bạn yêu cầu mã thông báo truy cập từ https://api.line.me/oauth2/v2.1/token endpoint với mã ủy quyền.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Nền tảng LINE xác nhận yêu cầu của ứng dụng của bạn và trả về mã thông báo truy cập.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Khi bạn đã truy xuất mã thông báo truy cập, bạn có thể sử dụng mã này để gọi API đến các thông tin cần thiế để sử dụng.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;strong&gt;Trước khi bắt đầu bạn cần đăng kí tài khoản line channel của bạn: tại &lt;a href=&quot;https://developers.line.biz/en/docs/line-login/getting-started/&quot;&gt;https://developers.line.biz/en/docs/line-login/getting-started/&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Lưu ý: trong phần &lt;code&gt;Callback URL&lt;/code&gt; bạn cần khai báo địa url trong project của bạn mà sau khi line validate thành công sẽ redirect về project kèm theo params của Line cung cấp.
-Ví dụ trong môi trường development: http://localhost:3000/auth/line/callback&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://developers.line.biz/media/line-login/integrate-login-web/redirect-settings-cd7e32a6.png&quot; alt=&quot;image-callback &quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Tạo request url:
-    &lt;ul&gt;
-      &lt;li&gt;Để xác thực người dùng và yêu cầu quyền của ứng dụng của bạn, hãy chuyển hướng người dùng đến URL ủy quyền sau với các tham số truy vấn bắt buộc. Bạn có thể chuyển hướng người dùng bằng nút &lt;a href=&quot;https://developers.line.biz/en/docs/line-login/login-button/&quot;&gt;Đăng nhập LINE&lt;/a&gt; hoặc bằng liên kết trực tiếp.&lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;Các tham số cần thiết trong url được generate ra:&lt;/p&gt;
-
-        &lt;table&gt;
-          &lt;thead&gt;
-            &lt;tr&gt;
-              &lt;th&gt;Tham số&lt;/th&gt;
-              &lt;th style=&quot;text-align: center&quot;&gt;Kiểu dữ liệu&lt;/th&gt;
-              &lt;th style=&quot;text-align: right&quot;&gt;Bắt buộc&lt;/th&gt;
-              &lt;th style=&quot;text-align: right&quot;&gt;Mô tả&lt;/th&gt;
-            &lt;/tr&gt;
-          &lt;/thead&gt;
-          &lt;tbody&gt;
-            &lt;tr&gt;
-              &lt;td&gt;response_type&lt;/td&gt;
-              &lt;td style=&quot;text-align: center&quot;&gt;String&lt;/td&gt;
-              &lt;td style=&quot;text-align: right&quot;&gt;Bắt buộc&lt;/td&gt;
-              &lt;td style=&quot;text-align: right&quot;&gt;&lt;code&gt;code&lt;/code&gt;. Tham số này để thông báo cho Line Platform biết được cần trả về &lt;code&gt;authoration code&lt;/code&gt;&lt;/td&gt;
-            &lt;/tr&gt;
-            &lt;tr&gt;
-              &lt;td&gt;client_id&lt;/td&gt;
-              &lt;td style=&quot;text-align: center&quot;&gt;String&lt;/td&gt;
-              &lt;td style=&quot;text-align: right&quot;&gt;Bắt buộc&lt;/td&gt;
-              &lt;td style=&quot;text-align: right&quot;&gt;&lt;code&gt;Channel ID&lt;/code&gt;. Định danh duy nhất mà Line cung cấp cho channel của bạn, tham số này đuợc cung cấp trong trang quản lý login channel.&lt;/td&gt;
-            &lt;/tr&gt;
-            &lt;tr&gt;
-              &lt;td&gt;redirect_uri&lt;/td&gt;
-              &lt;td style=&quot;text-align: center&quot;&gt;String&lt;/td&gt;
-              &lt;td style=&quot;text-align: right&quot;&gt;Bắt buộc&lt;/td&gt;
-              &lt;td style=&quot;text-align: right&quot;&gt;&lt;code&gt;Callback URL&lt;/code&gt;. Là &lt;code&gt;url&lt;/code&gt; bạn cung cấp trong setting của line channel như đã &lt;code&gt;chu ý ở trên&lt;/code&gt;&lt;/td&gt;
-            &lt;/tr&gt;
-            &lt;tr&gt;
-              &lt;td&gt;state&lt;/td&gt;
-              &lt;td style=&quot;text-align: center&quot;&gt;String&lt;/td&gt;
-              &lt;td style=&quot;text-align: right&quot;&gt;Bắt buộc&lt;/td&gt;
-              &lt;td style=&quot;text-align: right&quot;&gt;Một chuỗi ký tự chữ và số duy nhất được sử dụng để ngăn chặn giả mạo yêu cầu giữa các trang web. Giá trị này sẽ được tạo ngẫu nhiên bởi ứng dụng của bạn. Không thể là một chuỗi được mã hóa URL.&lt;/td&gt;
-            &lt;/tr&gt;
-            &lt;tr&gt;
-              &lt;td&gt;scope&lt;/td&gt;
-              &lt;td style=&quot;text-align: center&quot;&gt;String&lt;/td&gt;
-              &lt;td style=&quot;text-align: right&quot;&gt;Bắt buộc&lt;/td&gt;
-              &lt;td style=&quot;text-align: right&quot;&gt;Quyền được cấp bởi người dùng. Bạn có thể chỉ định nhiều phạm vi bằng ký tự khoảng trắng được mã hóa URL (% 20). Thông thường, scope bao gồm: profile, openid và email&lt;/td&gt;
-            &lt;/tr&gt;
-            &lt;tr&gt;
-              &lt;td&gt;nonce&lt;/td&gt;
-              &lt;td style=&quot;text-align: center&quot;&gt;String&lt;/td&gt;
-              &lt;td style=&quot;text-align: right&quot;&gt;Không bắt buộc&lt;/td&gt;
-              &lt;td style=&quot;text-align: right&quot;&gt;Một chuỗi được sử dụng để ngăn chặn các cuộc tấn công phát lại. Giá trị này được trả về trong mã thông báo ID.&lt;/td&gt;
-            &lt;/tr&gt;
-            &lt;tr&gt;
-              &lt;td&gt;prompt&lt;/td&gt;
-              &lt;td style=&quot;text-align: center&quot;&gt;String&lt;/td&gt;
-              &lt;td style=&quot;text-align: right&quot;&gt;Không bắt buộc&lt;/td&gt;
-              &lt;td style=&quot;text-align: right&quot;&gt;&lt;code&gt;consent&lt;/code&gt;. Được sử dụng để buộc màn hình chấp thuận được hiển thị ngay cả khi người dùng đã cấp tất cả các quyền được yêu cầu.&lt;/td&gt;
-            &lt;/tr&gt;
-            &lt;tr&gt;
-              &lt;td&gt;max_age&lt;/td&gt;
-              &lt;td style=&quot;text-align: center&quot;&gt;Number&lt;/td&gt;
-              &lt;td style=&quot;text-align: right&quot;&gt;Không bắt buộc&lt;/td&gt;
-              &lt;td style=&quot;text-align: right&quot;&gt;Thời gian cho phép trôi qua tính bằng giây kể từ lần cuối cùng người dùng được xác thực. Tương ứng với tham số max_age được xác định trong phần “Yêu cầu xác thực” của OpenID Connect Core 1.0.&lt;/td&gt;
-            &lt;/tr&gt;
-            &lt;tr&gt;
-              &lt;td&gt;ui_locales&lt;/td&gt;
-              &lt;td style=&quot;text-align: center&quot;&gt;String&lt;/td&gt;
-              &lt;td style=&quot;text-align: right&quot;&gt;Optional&lt;/td&gt;
-              &lt;td style=&quot;text-align: right&quot;&gt;Ngôn ngữ hiển thị cho màn hình Đăng nhập LINE. Chỉ định là một hoặc nhiều thẻ ngôn ngữ RFC 5646 (BCP 47), được phân tách bằng dấu cách, theo thứ tự ưu tiên. Tương ứng với tham số ui_locales được xác định trong phần “Yêu cầu xác thực” của OpenID Connect Core 1.0.&lt;/td&gt;
-            &lt;/tr&gt;
-            &lt;tr&gt;
-              &lt;td&gt;bot_prompt&lt;/td&gt;
-              &lt;td style=&quot;text-align: center&quot;&gt;String&lt;/td&gt;
-              &lt;td style=&quot;text-align: right&quot;&gt;Không bắt buộc&lt;/td&gt;
-              &lt;td style=&quot;text-align: right&quot;&gt;Hiển thị tùy chọn để thêm tài khoản chính thức LINE làm bạn bè trong khi đăng nhập. Đặt giá trị &lt;code&gt;normal&lt;/code&gt; thường hoặc &lt;code&gt;aggressive&lt;/code&gt;. Để biết thêm thông tin, hãy xem &lt;a href=&quot;https://developers.line.biz/en/docs/line-login/web/link-a-bot/&quot;&gt;Liên kết tài khoản chính thức LINE với kênh Đăng nhập LINE của bạn.&lt;/a&gt;&lt;/td&gt;
-            &lt;/tr&gt;
-          &lt;/tbody&gt;
-        &lt;/table&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Sau khi tạo reques url thành công, khi di chuyển vào link đã được tạo ra, người dùng sẽ đuợc di chuyển sang trang của Line để tiến hành đăng nhập và xác thực. Nếu xác thực thành công, Line Platform sẽ redirect tới server của bạn với confir callback đã khai báo từ trước kèm them tham số là &lt;code&gt;code&lt;/code&gt;, &lt;code&gt;state&lt;/code&gt; và &lt;code&gt;friendship_status_changed&lt;/code&gt;&lt;/p&gt;
-
-    &lt;table&gt;
-      &lt;thead&gt;
-        &lt;tr&gt;
-          &lt;th&gt;Tables&lt;/th&gt;
-          &lt;th style=&quot;text-align: center&quot;&gt;Are&lt;/th&gt;
-          &lt;th style=&quot;text-align: right&quot;&gt;Cool&lt;/th&gt;
-        &lt;/tr&gt;
-      &lt;/thead&gt;
-      &lt;tbody&gt;
-        &lt;tr&gt;
-          &lt;td&gt;code&lt;/td&gt;
-          &lt;td style=&quot;text-align: center&quot;&gt;String&lt;/td&gt;
-          &lt;td style=&quot;text-align: right&quot;&gt;Mã ủy quyền được sử dụng để nhận mã thông báo truy cập. Có giá trị trong &lt;code&gt;10 phút&lt;/code&gt;. Mã ủy quyền này chỉ có thể được sử dụng một lần.&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-          &lt;td&gt;state&lt;/td&gt;
-          &lt;td style=&quot;text-align: center&quot;&gt;String&lt;/td&gt;
-          &lt;td style=&quot;text-align: right&quot;&gt;tham số  &lt;code&gt;state&lt;/code&gt; được bao gồm trong URL ủy quyền của yêu cầu ban đầu. Ứng dụng của bạn nên xác minh rằng giá trị này khớp với giá trị trong yêu cầu ban đầu.&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-          &lt;td&gt;friendship_status_changed&lt;/td&gt;
-          &lt;td style=&quot;text-align: center&quot;&gt;Boolean&lt;/td&gt;
-          &lt;td style=&quot;text-align: right&quot;&gt;&lt;code&gt;true&lt;/code&gt; nếu trạng thái tình bạn giữa người dùng và tài khoản chính thức LINE thay đổi trong quá trình đăng nhập. Nếu không, &lt;code&gt;false&lt;/code&gt;. Giá trị này chỉ được trả về nếu tham số truy vấn bot_prompt được chỉ định trong yêu cầu cấp phép và màn hình chấp thuận với tùy chọn thêm tài khoản chính thức LINE của bạn khi bạn bè được hiển thị cho người dùng.&lt;/td&gt;
-        &lt;/tr&gt;
-      &lt;/tbody&gt;
-    &lt;/table&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Ví dụ về một response của Line trả về:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;HTTP/1.1 302 Found
-Location : https://client.example.org/cb?code=abcd1234&amp;amp;state=0987poi&amp;amp;friendship_status_changed=true
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Lấy access token:
-  Để lấy accesstoken, hãy tạo một yêu cầu POST HTTP với mã ủy quyền. Khi bạn có mã thông báo truy cập, bạn có thể sử dụng nó để thực hiện các cuộc gọi API. Mã thông báo truy cập được phát hành tại điểm cuối sau.
-    &lt;ul&gt;
-      &lt;li&gt;Request
-        &lt;blockquote&gt;
-          &lt;p&gt;POST https://api.line.me/oauth2/v2.1/token&lt;/p&gt;
-        &lt;/blockquote&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Request header:
-  | Request header        | Mô tả           | 
-  | ————- |:————-:| 
-  | Content-Type | application/x-www-form-urlencoded |&lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;Request body&lt;/p&gt;
-
-        &lt;table&gt;
-          &lt;thead&gt;
-            &lt;tr&gt;
-              &lt;th&gt;Parameters&lt;/th&gt;
-              &lt;th style=&quot;text-align: center&quot;&gt;Type&lt;/th&gt;
-              &lt;th style=&quot;text-align: right&quot;&gt;Required&lt;/th&gt;
-              &lt;th style=&quot;text-align: right&quot;&gt;Description&lt;/th&gt;
-            &lt;/tr&gt;
-          &lt;/thead&gt;
-          &lt;tbody&gt;
-            &lt;tr&gt;
-              &lt;td&gt;grant_type&lt;/td&gt;
-              &lt;td style=&quot;text-align: center&quot;&gt;String&lt;/td&gt;
-              &lt;td style=&quot;text-align: right&quot;&gt;Required&lt;/td&gt;
-              &lt;td style=&quot;text-align: right&quot;&gt;authorization_code.&lt;/td&gt;
-            &lt;/tr&gt;
-            &lt;tr&gt;
-              &lt;td&gt;code&lt;/td&gt;
-              &lt;td style=&quot;text-align: center&quot;&gt;String&lt;/td&gt;
-              &lt;td style=&quot;text-align: right&quot;&gt;Required&lt;/td&gt;
-              &lt;td style=&quot;text-align: right&quot;&gt;Authorization code&lt;/td&gt;
-            &lt;/tr&gt;
-            &lt;tr&gt;
-              &lt;td&gt;redirect_uri&lt;/td&gt;
-              &lt;td style=&quot;text-align: center&quot;&gt;String&lt;/td&gt;
-              &lt;td style=&quot;text-align: right&quot;&gt;Required&lt;/td&gt;
-              &lt;td style=&quot;text-align: right&quot;&gt;Callback URL&lt;/td&gt;
-            &lt;/tr&gt;
-            &lt;tr&gt;
-              &lt;td&gt;client_id&lt;/td&gt;
-              &lt;td style=&quot;text-align: center&quot;&gt;String&lt;/td&gt;
-              &lt;td style=&quot;text-align: right&quot;&gt;Required&lt;/td&gt;
-              &lt;td style=&quot;text-align: right&quot;&gt;Channel ID. Found in the console.&lt;/td&gt;
-            &lt;/tr&gt;
-            &lt;tr&gt;
-              &lt;td&gt;client_secret&lt;/td&gt;
-              &lt;td style=&quot;text-align: center&quot;&gt;String&lt;/td&gt;
-              &lt;td style=&quot;text-align: right&quot;&gt;Required&lt;/td&gt;
-              &lt;td style=&quot;text-align: right&quot;&gt;Channel secret. Found in the console.&lt;/td&gt;
-            &lt;/tr&gt;
-          &lt;/tbody&gt;
-        &lt;/table&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Response: Sau khi request, nếu thông tin truyền lên valid, Line sẽ trả về &lt;code&gt;access_token&lt;/code&gt; và một số thông tin đi kèm.&lt;/li&gt;
-  &lt;li&gt;Chúng ta sẽ sử dụng accesstoken đó để request lên &lt;a href=&quot;https://developers.line.biz/en/docs/line-login/web/integrate-line-login/#use-endpoint&quot;&gt;LINE social enpoint&lt;/a&gt; để sử dụng các thông tin mà Line cung cấp.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;22-nhắn-tin-sử-dụng-line-channel&quot;&gt;2.2. Nhắn tin sử dụng line channel&lt;/h4&gt;
-
-&lt;p&gt;Để sử dụng tính năng nhắn tin Line, bạn cần phải tạo một channel để nhắn tin tại: &lt;a href=&quot;https://developers.line.biz/console/&quot;&gt;Line console&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Các lưu ý:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Sử dụng channel access token: Accesstoken là token tồn tại lâu dài phải được đặt trong tiêu đề ủy quyền khi thực hiện các cuộc gọi API. Bạn có thể phát hành lại mã thông báo truy cập kênh bất cứ lúc nào thông qua bảng điều khiển.&lt;/li&gt;
-  &lt;li&gt;Để sử dụng một access token, click vào &lt;code&gt;issue&lt;/code&gt; bên dưới phần &lt;code&gt;**Channel access token (long-lived)**&lt;/code&gt; trong tab &lt;code&gt;Messaging API&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Mặc định, BOT không thể nhắn tin cho người dùng mà chưa kết bạn hoặc chưa từng tuơng tác với người dùng. Vì thế bạn cần chắc chắn là bot channel của mình đã kết bạn với người dùng.  Có nhiều cách như trên trang chủ  &lt;a href=&quot;https://developers.line.biz/en/docs/messaging-api/building-bot/#sending-reply-messages&quot;&gt;LINE&lt;/a&gt; đã cung cấp. Trong phần này mình sẽ hướng dẫn bạn sử dụng tính năng &lt;code&gt;push_message&lt;/code&gt;
-&lt;em&gt;Chú ý: để có thể hiển thị tính năng kết bạn sau khi người dùng chấp nhận ủy quyền thông tin của Line, bạn cần liên kết Line bot messaging với Line login: Trong tab &lt;strong&gt;## LINE Login settings&lt;/strong&gt; &amp;gt; &lt;strong&gt;### General settings&lt;/strong&gt; &amp;gt; &lt;strong&gt;Linked OA&lt;/strong&gt; chọn app liên kết là Line bot messaging bạn vừa tạo.&lt;/em&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Hướng dẫn sử dụng tính năng &lt;code&gt;push_message&lt;/code&gt;:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;HTTP request
-  POST https://api.line.me/v2/bot/message/push&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Request headers&lt;/p&gt;
-
-    &lt;table&gt;
-      &lt;thead&gt;
-        &lt;tr&gt;
-          &lt;th&gt;Request header&lt;/th&gt;
-          &lt;th&gt;Description&lt;/th&gt;
-        &lt;/tr&gt;
-      &lt;/thead&gt;
-      &lt;tbody&gt;
-        &lt;tr&gt;
-          &lt;td&gt;Content-Type&lt;/td&gt;
-          &lt;td&gt;application/json&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-          &lt;td&gt;Authorization&lt;/td&gt;
-          &lt;td&gt;Bearer {channel access token}&lt;/td&gt;
-        &lt;/tr&gt;
-      &lt;/tbody&gt;
-    &lt;/table&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Request body&lt;/p&gt;
-
-    &lt;table&gt;
-      &lt;thead&gt;
-        &lt;tr&gt;
-          &lt;th&gt;Property&lt;/th&gt;
-          &lt;th&gt;Type&lt;/th&gt;
-          &lt;th&gt;Required	Description&lt;/th&gt;
-          &lt;th&gt; &lt;/th&gt;
-        &lt;/tr&gt;
-      &lt;/thead&gt;
-      &lt;tbody&gt;
-        &lt;tr&gt;
-          &lt;td&gt;to&lt;/td&gt;
-          &lt;td&gt;String&lt;/td&gt;
-          &lt;td&gt;Required&lt;/td&gt;
-          &lt;td&gt;ID của người nhận mục tiêu. Sử dụng giá trị userId, groupId hoặc roomId được trả về trong một đối tượng sự kiện webhook. Không sử dụng ID LINE được tìm thấy trên LINE.&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-          &lt;td&gt;messages&lt;/td&gt;
-          &lt;td&gt;Array của các đối tượng tin nhắn&lt;/td&gt;
-          &lt;td&gt;Required	Messages, Tối đa: 5&lt;/td&gt;
-          &lt;td&gt; &lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-          &lt;td&gt;notificationDisabled&lt;/td&gt;
-          &lt;td&gt;Boolean&lt;/td&gt;
-          &lt;td&gt;Optional&lt;/td&gt;
-          &lt;td&gt; &lt;/td&gt;
-        &lt;/tr&gt;
-      &lt;/tbody&gt;
-    &lt;/table&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Ví dụ khi thực hiện request sử dụng &lt;code&gt;curl&lt;/code&gt; :&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;curl -v -X POST https://api.line.me/v2/bot/message/push \
--H 'Content-Type: application/json' \
--H 'Authorization: Bearer {channel access token}' \
--d '{
-    &quot;to&quot;: &quot;U4af4980629...&quot;,
-    &quot;messages&quot;:[
-        {
-            &quot;type&quot;:&quot;text&quot;,
-            &quot;text&quot;:&quot;Hello, world1&quot;
-        },
-        {
-            &quot;type&quot;:&quot;text&quot;,
-            &quot;text&quot;:&quot;Hello, world2&quot;
-        }
-    ]
-}'
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-        <pubDate>Mon, 06 Jan 2020 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/tech/2020/01/06/login-and-messaging-with-line/</link>
-        <guid isPermaLink="true">http://localhost:4000/tech/2020/01/06/login-and-messaging-with-line/</guid>
-        
-        
-        <category>tech</category>
-        
-      </item>
-    
-      <item>
-        <title>Rails routes namespace vs scopes</title>
-        <description>&lt;p&gt;Bài viết được dịch từ nguồn: https://devblast.com/b/rails-5-routes-scope-vs-namespace&lt;/p&gt;
-
-&lt;p&gt;You may be wondering (tự hỏi) about the difference between scope and namespace for the routes in your Rails application. It’s important to know the difference, because they affect (có ảnh hưởng tới) the path of your resources and the controllers.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Bạn có thể tự hỏi về sự khác biệt giữa &lt;code&gt;scope&lt;/code&gt; và &lt;code&gt;namespace&lt;/code&gt; của router trong Rails ?. Đó là một sự khác biệt quan trọng bởi vì nó sẽ ảnh hưởng tới &lt;code&gt;path&lt;/code&gt; của &lt;code&gt;resources&lt;/code&gt; và &lt;code&gt;controller&lt;/code&gt; trong hệ thống của bạn.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;1-namespace&quot;&gt;1. namespace&lt;/h2&gt;
-
-&lt;p&gt;This is the simple option. When you use namespace, it will prefix the URL path for the specified resources (nó sẽ thêm tiền tố url cho các resources được chỉ định), and try to locate the controller under a module named in the same manner as the namespace. (và nó sẽ cố gắng để định vị controller của bạn nằm bên trong một module với tên tương tự như tên của namespace bạn vừa đặt).&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;code&gt;namespace&lt;/code&gt; là một cài đặt đơn giản. Khi bạn sử dụng namespace, nó sẽ sử dụng một đoạn &lt;code&gt;prefix&lt;/code&gt; (tiền tố) bên trước &lt;code&gt;path&lt;/code&gt; của &lt;code&gt;resources&lt;/code&gt; (dạng như thêm một tiền tố bên trước path vào controller) và đồng thời controller của bạn sẽ phải định nghĩa bên trong module với tên là tên của &lt;code&gt;namespace&lt;/code&gt; bạn vừa đặt.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;With the following code in the routes.rb file,&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;namespace :admin do
-  resources :users
-end
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;You will end up with the following routes:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;Prefix Verb         URI Pattern               Controller#Action
-admin_users GET    /admin/users(.:format)     admin/users#index
-            POST   /admin/users(.:format)     admin/users#create
-admin_user  GET    /admin/users/:id(.:format) admin/users#show
-            PATCH  /admin/users/:id(.:format) admin/users#update
-            PUT    /admin/users/:id(.:format) admin/users#update
-            DELETE /admin/users/:id(.:format) admin/users#destroy
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;As you can see, &lt;code&gt;admin&lt;/code&gt; was added as a prefix in the URI path (&lt;code&gt;/admin/users)&lt;/code&gt; and as a module containing (chứa) the controller (&lt;code&gt;admin/users#index&lt;/code&gt;). With this code, Rails will expect &lt;code&gt;Admin::UsersController&lt;/code&gt; to be located at &lt;code&gt;app/controllers/admin/users_controller&lt;/code&gt;.rb.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Bạn có thể thấy &lt;code&gt;admin&lt;/code&gt; đã được thêm vào dưới dạng &lt;code&gt;prefix&lt;/code&gt; của URI path: &lt;code&gt;/admin/users&lt;/code&gt; và module chứa controller &lt;code&gt;admin/users_controller&lt;/code&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;2-scope&quot;&gt;2. scope&lt;/h2&gt;
-
-&lt;h3 id=&quot;21-khi-scope-không-có-options-đi-kèm&quot;&gt;2.1 Khi scope không có options đi kèm&lt;/h3&gt;
-&lt;p&gt;&lt;code&gt;scope&lt;/code&gt; is a bit more complex - but the advantage is that it gives you more options to fine-tune exactly what you want to do.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;code&gt;scope&lt;/code&gt; thì phức tạp hơn nhưng có lợi thế là sẽ mang lại cho bạn nhiều lựa chọn để bạn có thể tinh chỉnh theo ý muốn.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;pre&gt;&lt;code&gt;# routes.rb
-scope :admin do
-  resources :users
-end
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Here are the generated routes:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;Prefix Verb   URI Pattern                Controller#Action
- users GET    /admin/users(.:format)     users#index
-       POST   /admin/users(.:format)     users#create
-  user GET    /admin/users/:id(.:format) users#show
-       PATCH  /admin/users/:id(.:format) users#update
-       PUT    /admin/users/:id(.:format) users#update
-       DELETE /admin/users/:id(.:format) users#destroy
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;As you can see, &lt;code&gt;/admin&lt;/code&gt; was added as a prefix before &lt;code&gt;/users&lt;/code&gt;, but users controller doesn’n have to be inside any module.&lt;/p&gt;
-
-&lt;p&gt;Như chúng ta thấy. &lt;code&gt;/admin&lt;/code&gt; đã được thêm vào tiền tố trước &lt;code&gt;/users&lt;/code&gt;, nhưng &lt;code&gt;users_controller&lt;/code&gt; không cần thiết phải nằm trong module nào cả.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Túm cái váy lại, khi dùng &lt;code&gt;namespace&lt;/code&gt; thì router của controller phải nằm trong một thứ gọi là &lt;code&gt;prefix&lt;/code&gt; (tiền tố) tương ứng với tên của module (thư mục) chứa controller đó.
-Còn với scope thì không cần thiết, nó sẽ cho phép bạn định nghĩa được &lt;code&gt;prefix&lt;/code&gt; router của bạn là gì mà không cần phải tạo thêm &lt;code&gt;module&lt;/code&gt; cho controller của bạn.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;22-scope-đi-kèm-với-option&quot;&gt;2.2 scope đi kèm với option&lt;/h3&gt;
-
-&lt;p&gt;&lt;code&gt;scope&lt;/code&gt; supports three options: &lt;code&gt;module&lt;/code&gt;, &lt;code&gt;path&lt;/code&gt;, &lt;code&gt;as&lt;/code&gt;.&lt;/p&gt;
-
-&lt;h4 id=&quot;module&quot;&gt;module&lt;/h4&gt;
-&lt;p&gt;&lt;code&gt;module&lt;/code&gt; let us define in which module the controller for the embedded resources will live.&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;code&gt;module&lt;/code&gt; cho phép chúng ta định nghĩa tên của module chứa resources - tức &lt;code&gt;controller&lt;/code&gt; của chúng ta.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;pre&gt;&lt;code&gt;scope module: 'admin' do
-  resources :users
-end
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;Prefix Verb   URI Pattern          Controller#Action
- users GET    /users(.:format)     admin/users#index
-       POST   /users(.:format)     admin/users#create
-  user GET    /users/:id(.:format) admin/users#show
-       PATCH  /users/:id(.:format) admin/users#update
-       PUT    /users/:id(.:format) admin/users#update
-       DELETE /users/:id(.:format) admin/users#destroy
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;=&amp;gt; Để ý &lt;code&gt;router&lt;/code&gt; của &lt;code&gt;users&lt;/code&gt; không cần phải đặt sau một chiếc &lt;code&gt;prefix&lt;/code&gt; nào cả.&lt;/p&gt;
-
-&lt;h4 id=&quot;path&quot;&gt;path&lt;/h4&gt;
-&lt;p&gt;&lt;code&gt;path&lt;/code&gt; allows us to set the prefix that will appear in the URI, before the resource name.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;code&gt;path&lt;/code&gt; cho phép chúng ta định nghĩa &lt;code&gt;prefix&lt;/code&gt; đứng trước &lt;code&gt;resources&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;pre&gt;&lt;code&gt;scope module: 'admin', path: 'fu' do
-  resources :users
-end
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;Prefix Verb   URI Pattern             Controller#Action
- users GET    /fu/users(.:format)     admin/users#index
-       POST   /fu/users(.:format)     admin/users#create
-  user GET    /fu/users/:id(.:format) admin/users#show
-       PATCH  /fu/users/:id(.:format) admin/users#update
-       PUT    /fu/users/:id(.:format) admin/users#update
-       DELETE /fu/users/:id(.:format) admin/users#destroy
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&quot;as&quot;&gt;as&lt;/h4&gt;
-
-&lt;p&gt;Finally, &lt;code&gt;as&lt;/code&gt; can be used to change the name of the path method used to identify the resources.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;code&gt;as&lt;/code&gt; được sử dụng để thay đổi tên của &lt;code&gt;path&lt;/code&gt; của &lt;code&gt;resources&lt;/code&gt; sử dụng khi định danh &lt;code&gt;resources&lt;/code&gt; như khi sử dụng &lt;code&gt;redirect&lt;/code&gt; hoặc gọi trên controller.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;pre&gt;&lt;code&gt;scope module: 'admin', path: 'fu', as: 'cool' do
-  resources :users
-end
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;In this case, we now have cool as a prefix for the path names cool_users and cool_user.&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;Trong case này, chúng ta đã có &lt;code&gt;prefix&lt;/code&gt; &lt;code&gt;fu&lt;/code&gt; cho controller &lt;code&gt;admin/users_controller&lt;/code&gt; với &lt;code&gt;path&lt;/code&gt; là &lt;code&gt;cool_users&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;pre&gt;&lt;code&gt;Prefix Verb   URI Pattern             Controller#Action
-cool_users GET    /fu/users(.:format)     admin/users#index
-           POST   /fu/users(.:format)     admin/users#create
-cool_user  GET    /fu/users/:id(.:format) admin/users#show
-           PATCH  /fu/users/:id(.:format) admin/users#update
-           PUT    /fu/users/:id(.:format) admin/users#update
-           DELETE /fu/users/:id(.:format) admin/users#destroy
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-        <pubDate>Sun, 22 Dec 2019 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/tech/2019/12/22/rails-namespace-vs-scopes/</link>
-        <guid isPermaLink="true">http://localhost:4000/tech/2019/12/22/rails-namespace-vs-scopes/</guid>
-        
-        
-        <category>tech</category>
-        
-      </item>
-    
-      <item>
-        <title>Tất tần tật về array trong ruby</title>
-        <description>&lt;p&gt;Bài viết dựa trên nguồn &lt;a href=&quot;https://ruby-doc.org/core-2.4.1/Array.html&quot;&gt;ruby-doc.org&lt;/a&gt; và một số ví dụ mình sưu tầm được. Hi vọng sẽ giúp đỡ được mình và mọi người trên con đường làm chủ Ruby.&lt;/p&gt;
-
-&lt;h1 id=&quot;array-mảng&quot;&gt;Array (mảng)&lt;/h1&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Array là kiểu dữ liệu được sắp xếp, đánh chỉ mục số nguyên (chỉ số) của bất kì đối tượng nào&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Array có chỉ số bắt đầu từ 0, tương tự như C hoặc Java. Một chỉ số âm được coi là có liên quan đến cuối của mảng là chỉ só &lt;code&gt;-1&lt;/code&gt; chỉ ra phần tử cuối cùng của mảng, &lt;code&gt;-2&lt;/code&gt; là phần tử tiếp theo cuối cùng trong mảng, và cứ thế tiếp tục &lt;code&gt;-3&lt;/code&gt;, ..&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;tạo-mới-arrays&quot;&gt;Tạo mới Arrays&lt;/h1&gt;
-&lt;ul&gt;
-  &lt;li&gt;Một mảng mới có thể được tạo bằng cách sử dụng kí tự khởi tạo: &lt;code&gt;[]&lt;/code&gt;. Như ví dụ dưới, mảng được tạo bao gồm kiểu dữ liệu &lt;code&gt;Integer&lt;/code&gt;, &lt;code&gt;String&lt;/code&gt; và &lt;code&gt;Float&lt;/code&gt;:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;arr = [1, &quot;two&quot;, 3.0] #=&amp;gt; [1, &quot;two&quot;, 3.0]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Một array có thể được tạo bằng cách gọi rõ ràng lệnh &lt;code&gt;::new&lt;/code&gt; với không, một (khởi tạo độ dài của mảng) hoặc hai phần tử (khởi tạo độ dài và giá trị mặc định của đối tượng)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;arr = Array.new     #=&amp;gt; []
-Array.new(3)        #=&amp;gt; [nil, nil, nil]
-Array.new(3, true)  #=&amp;gt; [true, true, true]
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Chú ý rằng phần thử thứ hai điền vào mảng với các tham chiếu tới cùng một đối tượng. Do đó, cách này nên dùng trong các trường hợp bạn cần khởi tạo các mảng với các đối tượng bất biến như là &lt;code&gt;Symbols&lt;/code&gt;, &lt;code&gt;numbers&lt;/code&gt;, &lt;code&gt;true&lt;/code&gt; hoặc &lt;code&gt;false&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Để taọ một mảng với các đối tượng riêng biệt, chúng ta có thể sử dụng block. Phương pháp này an toàn khi sử dụng với các đối tượng có thể thay đoỏi, chẳng hạn như &lt;code&gt;hashes&lt;/code&gt;, &lt;code&gt;strings&lt;/code&gt; hoặc &lt;code&gt;arrays&lt;/code&gt;.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;Array.new(4) { Hash.new }   #=&amp;gt; [{}, {}, {}, {}]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Một cách nhanh để tạo các mảng đa chiều:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;empty_table - Array.new(3) { Array.new(3) }
-
-#=&amp;gt; [[nil, nil, nil], [nil, nil, nil], [nil, nil, nil]]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Một array có thể tạo bằng cách sử dụng phương thức &lt;code&gt;Array()&lt;/code&gt;, cung cấp bởi Kernel, nơi mà chúng sẽ được gọi &lt;code&gt;to_ary&lt;/code&gt; sau đó &lt;code&gt;to_a&lt;/code&gt; trong mỗi phần tử của chúng:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;Array({:a =&amp;gt; &quot;a&quot;}, :b =&amp;gt; &quot;b&quot;)   #=&amp;gt; [[:a, &quot;a&quot;], [:b, &quot;b&quot;]]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&quot;truy-cập-các-phần-tử&quot;&gt;Truy cập các phần tử&lt;/h1&gt;
-&lt;ul&gt;
-  &lt;li&gt;Các phần tử trong array cso thể được lấy bằng cách sử dụng phương thức &lt;code&gt;[]&lt;/code&gt;. Nó có thể lấy thông qua chỉ số một giá trị duy nhất, cũng có thể lấy một phần trong khoảng (chỉ số bắt đầu và độ dài).&lt;/li&gt;
-  &lt;li&gt;Các chỉ số âm bắt đầu từ cuối, với &lt;code&gt;-1&lt;/code&gt; là phần tử cuối cùng.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;arr = [1, 2, 3, 4, 5, 6]
-arr[2]      #=&amp;gt; 3
-arr[100]    #=&amp;gt; nil
-arr[-3]     #=&amp;gt; 4
-arr[2, 3]   #=&amp;gt; [3, 4, 5]
-arr[1..4]   #=&amp;gt; [2, 3, 4, 5]
-arr[1..-3]  #=&amp;gt; [2, 3, 4]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Một cách khác để truy cập một phần tử cụ thể của mảng là sử dụng phương thức &lt;code&gt;at&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;arr.at(0)   #=&amp;gt; 1
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;**Để hiển thị ra lỗi cho trường hợp chỉ số nhập vào vượt ra bên ngoài của mảng hoặc đặt giá trị mặc định khi điều đó xảy ra, chúng ta sử dụng &lt;code&gt;fetch&lt;/code&gt; **&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;arr = ['a', 'b', 'c', 'd', 'e', 'f']
-
-arr.fetch(100) #=&amp;gt; IndexError: index 100 outside of array bounds: -6...6
-
-arr.fetch(100, &quot;oops&quot;) #=&amp;gt; &quot;oops&quot;
-arr.fetch(100, 'g') #=&amp;gt; &quot;g&quot;
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Phương thức &lt;code&gt;first&lt;/code&gt; và &lt;code&gt;last&lt;/code&gt; sẽ trả về giá trị đầu tiên và cuối cùng của mảng tương ứng&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;arr.first #=&amp;gt; 1
-arr.last  #=&amp;gt; 6
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Để trả về &lt;code&gt;n&lt;/code&gt; phần tử của mảng, sử dụng &lt;code&gt;take&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;arr.take(3) #=&amp;gt; [1, 2, 3]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code&gt;drop&lt;/code&gt; thực hiện ngược lại với &lt;code&gt;take&lt;/code&gt;, nó sẽ trả lại mảng với &lt;code&gt;n&lt;/code&gt; phần tử đã bị hủy&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;lấy-thông-tin-của-một-array&quot;&gt;Lấy thông tin của một Array&lt;/h1&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Arrays luôn theo dõi độ dài của chúng. Để truy vấn một mảng về số lượng phần tử mà nó chứa, sử dụng &lt;code&gt;length&lt;/code&gt;, &lt;code&gt;count&lt;/code&gt; hoặc &lt;code&gt;size&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;browsers = ['Chrome', 'Firefox', 'Safari', 'Opera', 'IE']
-browsers.length #=&amp;gt; 5
-browsers.count #=&amp;gt; 5
-browsers.size #=&amp;gt; 5
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Để kiểm mảng có chứa bất kì một phần tử nào không chúng ta sử dụng &lt;code&gt;empty?&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;browsers.empty?   #=&amp;gt; false
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Để kiểm tra một phần tử có nằm trong array ta sử dụng hàm &lt;code&gt;include?&lt;/code&gt;:
-    &lt;pre&gt;&lt;code&gt;browsers.include?('Konqueror') #=&amp;gt; false
-&lt;/code&gt;&lt;/pre&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;thêm-phần-tử-vào-mảng&quot;&gt;Thêm phần tử vào mảng&lt;/h1&gt;
-&lt;ul&gt;
-  &lt;li&gt;Các phần tử có thể được thêm vào cuối mảng bàng cách sử dụng &lt;code&gt;push&lt;/code&gt; hoặc &lt;code&gt;&amp;lt;&amp;lt;&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;arr = [1, 2, 3, 4]
-arr.push(5) #=&amp;gt; [1, 2, 3, 4, 5]
-arr &amp;lt;&amp;lt; 6    #=&amp;gt; [1, 2, 3, 4, 5, 6]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code&gt;unshift&lt;/code&gt; sẽ thêm phần tử mới vào đầu mảng.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;arr.unshift(0) #=&amp;gt; [0, 1, 2, 3, 4, 5, 6]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Với &lt;code&gt;insert&lt;/code&gt; bạn có thể thêm phần tử vào array với vị trí chỉ định&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;arr.insert(3, 'apple')  #=&amp;gt; [0, 1, 2, 'apple', 3, 4, 5, 6]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Khi sử dụng &lt;code&gt;insert&lt;/code&gt; chúng ta có thể thêm nhiều phần tử cùng 1 lúc trong 1 lần.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;arr.insert(3, 'orange', 'pear', 'grapefruit')
-#=&amp;gt; [0, 1, 2, &quot;orange&quot;, &quot;pear&quot;, &quot;grapefruit&quot;, &quot;apple&quot;, 3, 4, 5, 6]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&quot;xóa-phần-tử-khỏi-mảng&quot;&gt;Xóa phần tử khỏi mảng&lt;/h1&gt;
-&lt;ul&gt;
-  &lt;li&gt;Phương thức &lt;code&gt;pop&lt;/code&gt; xóa phần tử cuối cùng khỏi mảng và trả về mảng đó.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;arr =  [1, 2, 3, 4, 5, 6]
-arr.pop #=&amp;gt; 6
-arr #=&amp;gt; [1, 2, 3, 4, 5]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Để truy xuất đồng thời xóa phần tử đầu tiên, sử dụng &lt;code&gt;shift&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;arr.shift #=&amp;gt; 1
-arr #=&amp;gt; [2, 3, 4, 5]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;XÓa một phần tử tại vị trí xác định:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;arr.delete_at(2) #=&amp;gt; 4
-arr #=&amp;gt; [2, 3, 5]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Xóa một phần tử tại bất kì vị trí nào trong mảng, sử dụng &lt;code&gt;delete&lt;/code&gt;:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;arr = [1,2,2,3,2]
-arr.delete(2) #=&amp;gt; 2
-arr           #=&amp;gt; [1, 3]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Sử dụng &lt;code&gt;compact&lt;/code&gt; và &lt;code&gt;compact!&lt;/code&gt; để xóa giá trị &lt;code&gt;nil&lt;/code&gt; trong mảng:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;arr = ['foo', 0, nil, 'bar', 7, 'baz', nil]
-arr.compact  #=&amp;gt; ['foo', 0, 'bar', 7, 'baz']
-arr          #=&amp;gt; ['foo', 0, nil, 'bar', 7, 'baz', nil]
-arr.compact! #=&amp;gt; ['foo', 0, 'bar', 7, 'baz']
-arr          #=&amp;gt; ['foo', 0, 'bar', 7, 'baz']
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Để xóa các phần tử trùng lặp trong mảng, sử dụng &lt;code&gt;uniq&lt;/code&gt; và &lt;code&gt;uniq!&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;arr = [2, 5, 6, 556, 6, 6, 8, 9, 0, 123, 556]
-arr.uniq #=&amp;gt; [2, 5, 6, 556, 8, 9, 0, 123]
-arr      #=&amp;gt; [2, 5, 6, 556, 6, 6, 8, 9, 0, 123, 556]
-arr.uniq! #=&amp;gt; [2, 5, 6, 556, 8, 9, 0, 123]
-arr      #=&amp;gt; [2, 5, 6, 556, 8, 9, 0, 123]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&quot;lặp-mảng&quot;&gt;Lặp mảng&lt;/h1&gt;
-&lt;ul&gt;
-  &lt;li&gt;Tương tự các lớp khác bao gồm module &lt;code&gt;Enumerable&lt;/code&gt;, Array có một phương thức &lt;code&gt;each&lt;/code&gt;, định nghĩa các phần tử nào sẽ được lặp và làm thế nào. Trong trường hợp &lt;code&gt;each&lt;/code&gt; của Array, tất cả các phần tử trong đối tượng Array đều được đưa vào khối theo trình tự.&lt;/li&gt;
-  &lt;li&gt;Lưu ý rằng thao tác này không làm thay đổi giá trị của mảng.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;arr = [1, 2, 3, 4, 5]
-arr.each { |a| print a -= 10, &quot; &quot; }
-# prints: -9 -8 -7 -6 -5
-#=&amp;gt; [1, 2, 3, 4, 5]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Một phương thức lặp đôi khi cũng hữu ích là&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        <pubDate>Sun, 22 Dec 2019 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/tech/2019/12/22/tat-tan-tat-ve-array-trong-ruby/</link>
-        <guid isPermaLink="true">http://localhost:4000/tech/2019/12/22/tat-tan-tat-ve-array-trong-ruby/</guid>
-        
-        
-        <category>tech</category>
-        
-      </item>
-    
-      <item>
-        <title>Select muli categories with rails + jquery</title>
-        <description>&lt;section data-markdown=&quot;&quot; style=&quot;text-align: left;&quot;&gt;
-
-## Select muli categories
-
-## sử dụng rails + jquery
-
-- Author: [hungnv950](https://github.com/hungnv950)
-
-- Repo: [https://github.com/Hungnv950/rails-select-multi-categories](https://github.com/Hungnv950/rails-select-multi-categories)
-
-- Representor: [https://hungnv950.github.io/2019/12/14/slect-multy-categories/#/](https://hungnv950.github.io/2019/12/14/slect-multy-categories/#/)
-&lt;/section&gt;
-
-&lt;section data-markdown=&quot;&quot; style=&quot;text-align: left;&quot;&gt;
-
-  ### Vấn đề
-
-  - Hầu hết các dự án out source và dự án rails cho thị trường Nhật nói chung việc làm việc với lựa chọn dữ liệu dùng checkbox là rất phổ biến.
-
-  - ![problem](https://fluidsurveys.com/wp-content/uploads/2009/11/56.png)
-  - Lựa chọn categories cho người dùng
-&lt;/section&gt;
-
-&lt;section data-markdown=&quot;&quot; style=&quot;text-align: left;&quot;&gt;
-
-  ### Cách giải quyết
-
-  ![Vào code dự án cũ để xem lại.](https://as2.ftcdn.net/jpg/01/70/81/05/500_F_170810520_qTnUe8qFYZo6Rc9rcBpXuUvYDl4v1pDi.jpg &quot;Codding&quot;)
-&lt;/section&gt;
-
-&lt;section data-markdown=&quot;&quot; style=&quot;text-align: left;&quot;&gt;
-
-  ### Cách giải quyết
-
-  &lt;p&gt; Vào code dự án cũ để xem lại. &lt;/p&gt;
-  &lt;br /&gt;
-
-  ![Vào code dự án cũ để xem lại.](https://letweb.net/wp-content/uploads/2018/07/Source-Code-M%C3%A3-ngu%E1%BB%93n-l%C3%A0-g%C3%AC.png)
-&lt;/section&gt;
-
-&lt;section data-markdown=&quot;&quot; style=&quot;text-align: left;&quot;&gt;
-
-  ### Cách giải quyết
-
-  ![alt text](https://res.cloudinary.com/drdoqfhly/image/upload/v1530887094/gg-1_synrgy.jpg)
-&lt;/section&gt;
-
-&lt;section data-markdown=&quot;&quot; style=&quot;text-align: left;&quot;&gt;
-
-  ### Cách giải quyết
-
-  Tạo 1 base code:
-   - Đơn giản
-   - Dễ hiểu
-   - Đúng vấn đề
-   - Có thể tái sử dụng
-&lt;/section&gt;
-
-&lt;section style=&quot;text-align: left;&quot;&gt;
-  &lt;h3&gt; Các bước cần làm &lt;/h3&gt;
-  &lt;ol&gt;
-    &lt;li&gt;Tìm hiểu bài toán&lt;/li&gt;
-    &lt;li&gt;Cấu trúc database&lt;/li&gt;
-    &lt;li&gt;Khởi tạo model&lt;/li&gt;
-    &lt;li&gt;Xây dựng form checkbox&lt;/li&gt;
-    &lt;li&gt;Lưu trữ dữ liệu&lt;/li&gt;
-    &lt;li&gt;Lấy giá trị&lt;/li&gt;
-  &lt;/ol&gt;
-&lt;/section&gt;
-
-&lt;section data-markdown=&quot;&quot; style=&quot;text-align: left;&quot;&gt;
-
-  ### Tìm hiểu bài toán
-
-  ![problem](https://fluidsurveys.com/wp-content/uploads/2009/11/56.png)
-&lt;/section&gt;
-
-&lt;section data-markdown=&quot;&quot; style=&quot;text-align: left;&quot;&gt;
-
-  ### Cấu trúc database
-
-  ![Select multi categories db](/assets/images/multi-categories-db.png)
-&lt;/section&gt;
-
-&lt;section style=&quot;text-align: left;&quot;&gt;
-  &lt;h3&gt; Khởi tạo model &lt;/h3&gt;
-
-  &lt;pre style=&quot;width: 100%;&quot;&gt;
-  &lt;code data-trim=&quot;&quot; data-noescape=&quot;&quot;&gt;
-    # frozen_string_literal: true
-    class User &amp;lt; ApplicationRecord
-      has_many :users_categories, foreign_key: :user_id, dependent: :destroy
-    end
-	&lt;/code&gt;&lt;/pre&gt;
-
-  &lt;pre style=&quot;width: 100%;&quot;&gt;&lt;code data-trim=&quot;&quot; data-noescape=&quot;&quot;&gt;
-    # frozen_string_literal: true
-    class Category &amp;lt; ApplicationRecord
-      has_many :users_categories, foreign_key: :category_id,
-        dependent: :destroy
-    end
-	&lt;/code&gt;&lt;/pre&gt;
-
-  &lt;pre style=&quot;width: 100%;&quot;&gt;&lt;code data-trim=&quot;&quot; data-noescape=&quot;&quot;&gt;
-    # frozen_string_literal: true
-    class UsersCategory &amp;lt; ApplicationRecord
-      belongs_to :user, foreign_key: :user_id
-      belongs_to :category, class_name: Category.name
-    end
-	&lt;/code&gt;&lt;/pre&gt;
-&lt;/section&gt;
-
-&lt;section data-markdown=&quot;&quot; style=&quot;text-align: left;&quot;&gt;
-
-  ### Xây dựng form checkbox
-
-  Yêu cầu:
-  1. Generate form checkbox với dữ liệu category
-  2. Khi lựa chọn vào &quot;other content&quot; sẽ xuất hiện input để nhập dữ liệu
-  3. Trả lại đúng data khi validate sai
-&lt;/section&gt;
-
-&lt;section data-markdown=&quot;&quot; style=&quot;text-align: left;&quot;&gt;
-
-  ### Xây dựng form checkbox
-
-  #### 1. Generate form checkbox với dữ liệu category
-
-  Sử dụng nested attributes:
-    - accepts_nested_attributes_for
-    - fields_for
-&lt;/section&gt;
-
-&lt;section data-markdown=&quot;&quot; style=&quot;text-align: left;&quot;&gt;
-
-  ### Xây dựng form checkbox
-
-  #### 1. Generate form checkbox với dữ liệu category
-
-  - Thêm đoạn dưới vào model user:
-    ```
-    accepts_nested_attributes_for :users_categories, allow_destroy: true
-    ```
-&lt;/section&gt;
-
-&lt;section style=&quot;text-align: left;&quot;&gt;
-  &lt;h3&gt;  Xây dựng form checkbox &lt;/h3&gt;
-   &lt;h4&gt; 1. Generate form checkbox với dữ liệu category&lt;/h4&gt;
-  - Trong users_controller/new tiến hành build giá trị cho users_categories:
-    &lt;pre style=&quot;width: 100%;&quot;&gt;&lt;code data-trim=&quot;&quot; data-noescape=&quot;&quot;&gt;
-    def new
-      @user = User.new
-      @category_options =
-        Category.all.map do |category|
-          UsersCategory.new category: category, user: @user
-        end
-    end
-    &lt;/code&gt;&lt;/pre&gt;
-&lt;/section&gt;
-
-&lt;section style=&quot;text-align: left;&quot;&gt;
-  &lt;h3&gt;  Xây dựng form checkbox &lt;/h3&gt;
-  &lt;h4&gt; 1. Generate form checkbox với dữ liệu category&lt;/h4&gt;
-  Hiển thị dữ liệu trên view với fields_for:
-  &lt;br /&gt;
-  fields_for(record_name, record_object = nil, options = {}, &amp;amp;block)
-  &lt;br /&gt;
-  check_box(object_name, method, options = {}, checked_value = &quot;1&quot;, unchecked_value = &quot;0&quot;)
-  &lt;pre style=&quot;width: 100%;&quot;&gt;&lt;code data-trim=&quot;&quot; data-noescape=&quot;&quot;&gt;
-&amp;lt;%= form_for @user do |f| %&amp;gt;
-  &amp;lt;%= f.object.errors.full_messages %&amp;gt;
-  username: &amp;lt;%= f.text_field :name %&amp;gt;
-  categories:
-    &amp;lt;%= f.fields_for :users_categories, @category_options do |ff| %&amp;gt;
-      &amp;lt;% category_option = ff.object %&amp;gt;
-      &amp;lt;%= ff.check_box :_destroy, {}, checked_value: &quot;0&quot;, unchecked_value: &quot;1&quot; %&amp;gt;
-      &amp;lt;%= ff.hidden_field :category_id %&amp;gt;
-      &amp;lt;%= category_option.content %&amp;gt;
-    &amp;lt;% end %&amp;gt;
-  &amp;lt;%= f.submit %&amp;gt;
-&amp;lt;% end %&amp;gt;
-    &lt;/code&gt;&lt;/pre&gt;
-&lt;/section&gt;
-
-&lt;section data-markdown=&quot;&quot; style=&quot;text-align: left;&quot;&gt;
-
-  ###  Xây dựng form checkbox
-
-  #### 1. Generate form checkbox với dữ liệu category
-
-  ```
-  &amp;lt;%= ff.check_box :_destroy, {}, checked_value: &quot;0&quot;, unchecked_value: &quot;1&quot; %&amp;gt;
-  ```
-  - Mặc định `check_box` sẽ để `checked_value` = 1 và `unchecked_value` = 0. Nhưng trong trường hợp này những giá trị được checked sẽ đại diện cho `_destroy` có nghĩa là những checkbox nào được tích sẽ bị xóa.
-  - Vì thế nên chúng ta sẽ đổi lại giá trị mặc định `checked_value: &quot;0&quot;` và `unchecked_value: &quot;1&quot;` để giữ lại những `user_categories` được tick.
-&lt;/section&gt;
-
-&lt;section data-markdown=&quot;&quot; style=&quot;text-align: left;&quot;&gt;
-
-  ### Xây dựng form checkbox
-
-  #### 1. Generate form checkbox với dữ liệu category
-
-  - Kết quả:
-    ![Select multi categories db](/assets/images/select-multi-categories-form-checkbox.png)
-&lt;/section&gt;
-
-&lt;section style=&quot;text-align: left;&quot;&gt;
-  &lt;h3&gt;  Xây dựng form checkbox &lt;/h3&gt;
-   &lt;h4&gt; 2. Khi lựa chọn vào &quot;other content&quot; sẽ xuất hiện input để nhập dữ liệu &lt;/h4&gt;
-   &lt;p&gt; - Ý tưởng: Đối với category có key_name = &quot;other_content&quot; sẽ generate ra input và ẩn đi, khi người dùng click vào `other_content` sẽ show và hide &lt;/p&gt;
-      &lt;pre style=&quot;width: 100%;&quot;&gt;&lt;code data-trim=&quot;&quot; data-noescape=&quot;&quot;&gt;
-&amp;lt;%= form_for @user do |f| %&amp;gt;
-  &amp;lt;%= f.object.errors.full_messages %&amp;gt;
-  username: &amp;lt;%= f.text_field :name %&amp;gt;
-  categories:
-    &amp;lt;%= f.fields_for :users_categories, @category_options do |ff| %&amp;gt;
-      &amp;lt;% users_categories = f.object.users_categories %&amp;gt;
-      &amp;lt;% category_option = ff.object %&amp;gt;
-        &amp;lt;%= ff.check_box :_destroy, {}, 0, 1 %&amp;gt;
-        &amp;lt;%= ff.hidden_field :category_id %&amp;gt;
-        &amp;lt;%= category_option.content %&amp;gt;
-
-        # Thêm đoạn
-        &amp;lt;% if category_option.key_name == &quot;other_content&quot; %&amp;gt;
-          &amp;lt;%= ff.text_field :other_content, value: other_content,class: &quot;js-other_content-field hidden&quot; %&amp;gt;
-        &amp;lt;% end %&amp;gt;
-
-    &amp;lt;% end %&amp;gt;
-  &amp;lt;%= f.submit %&amp;gt;
-&amp;lt;% end %&amp;gt;
-    &lt;/code&gt;&lt;/pre&gt;
-&lt;/section&gt;
-
-&lt;section style=&quot;text-align: left;&quot;&gt;
-  &lt;h3&gt;  Xây dựng form checkbox &lt;/h3&gt;
-   &lt;h4&gt; 2. Khi lựa chọn vào &quot;other content&quot; sẽ xuất hiện input để nhập dữ liệu &lt;/h4&gt;
-   &lt;p&gt; - Xử lý một chút JS đơn giản: &lt;/p&gt;
-      &lt;pre style=&quot;width: 100%;&quot;&gt;&lt;code data-trim=&quot;&quot; data-noescape=&quot;&quot;&gt;
-  $(function() {
-    # Xử lý với trường hợp người dùng click vào `other_category`
-    $('.js-select-other_content').change(function () {
-      var self = $(this),
-          otherContent = $('.js-other_content-field');
-      if (self.is(':checked')) {
-        otherContent.removeClass('hidden');
-      } else {
-        otherContent.addClass('hidden');
-      }
-    });
-  });
-    &lt;/code&gt;&lt;/pre&gt;
-&lt;/section&gt;
-
-&lt;section data-markdown=&quot;&quot; style=&quot;text-align: left;&quot;&gt;
-
-  ### Xây dựng form checkbox
-
-  #### 2. Khi lựa chọn vào &quot;other content&quot; sẽ xuất hiện input để nhập dữ liệu
-
-  - Kết quả:
-    ![Select multi categories db](/assets/images/select-multi-categories-click-other.gif)
-&lt;/section&gt;
-
-&lt;section data-markdown=&quot;&quot; style=&quot;text-align: left;&quot;&gt;
-
-  ### Lưu trữ dữ liệu
-&lt;/section&gt;
-
-&lt;section data-markdown=&quot;&quot; style=&quot;text-align: left;&quot;&gt;
-
-  ### Lưu trữ dữ liệu
-
-  - Permit data
-  - Validate
-  - Điền data cũ vào form nếu validate sai
-&lt;/section&gt;
-
-&lt;section style=&quot;text-align: left;&quot;&gt;
-  &lt;h3&gt; Lưu trữ dữ liệu &lt;/h3&gt;
-  &lt;p&gt; 1.Permit data &lt;/p&gt;
-  &lt;pre style=&quot;width: 100%;&quot;&gt;&lt;code data-trim=&quot;&quot; data-noescape=&quot;&quot;&gt;
-  def user_params
-    params.require(:user).permit(
-      :name,
-      users_categories_attributes: [:id, :category_id, :other_content, :_destroy]
-    )
-  end
-    &lt;/code&gt;&lt;/pre&gt;
-&lt;/section&gt;
-
-&lt;section style=&quot;text-align: left;&quot;&gt;
-  &lt;h3&gt; Lưu trữ dữ liệu &lt;/h3&gt;
-  &lt;p&gt; 2. Validate &lt;/p&gt;
-  - số lượng category tối thiểu&lt;br /&gt;
-  - validate nội dung của &quot;other content&quot; khi chọn checkbox này
-&lt;/section&gt;
-
-&lt;section style=&quot;text-align: left;&quot;&gt;
-  &lt;h3&gt; Lưu trữ dữ liệu &lt;/h3&gt;
-  &lt;p&gt; 2. Validate &lt;/p&gt;
-  &lt;pre style=&quot;width: 100%;&quot;&gt;&lt;code data-trim=&quot;&quot; data-noescape=&quot;&quot;&gt;
-    # user.rb
-MIN_SIZE = 1
-# Validate số lượng tối thiểu categories
-validates :users_categories, length: {minimum: MIN_SIZE}
-  &lt;/code&gt;&lt;/pre&gt;
-
-  Hoặc sử dụng custom validate:
-    &lt;pre style=&quot;width: 100%;&quot;&gt;&lt;code data-trim=&quot;&quot; data-noescape=&quot;&quot;&gt;
-      # user.rb
-### Validate số lượng tối thiểu categories
-MIN_SIZE = 1
-validate :validate_users_categories
-
-private
-def validate_users_categories
-  errors.add(:users_categories, :minsize) if(users_categories.size &amp;lt; MIN_SIZE)
-end
-  &lt;/code&gt;&lt;/pre&gt;
-&lt;/section&gt;
-
-&lt;section style=&quot;text-align: left;&quot;&gt;
-  &lt;h3&gt; Lưu trữ dữ liệu &lt;/h3&gt;
-  &lt;p&gt; 2. Validate &lt;/p&gt;
-  &lt;pre style=&quot;width: 100%;&quot;&gt;&lt;code data-trim=&quot;&quot; data-noescape=&quot;&quot;&gt;
-    # users_category.rb
-# Validate nội dung khi chọn &quot;other_content&quot;
-validates :other_content, presence: true, if: lambda { key_name == &quot;other_content&quot;}
-  &lt;/code&gt;&lt;/pre&gt;
-  Hoặc sử dụng custom validate:
-    &lt;pre style=&quot;width: 100%;&quot;&gt;&lt;code data-trim=&quot;&quot; data-noescape=&quot;&quot;&gt;
-    # users_category.rb
-    # Validate nội dung khi chọn &quot;other_content&quot;
-    validate :validate_other_content
-    private
-    def validate_other_content
-      errors.add(:other_content, :blank) if(key_name == OTHER_CONTENT &amp;amp;&amp;amp; other_content.blank?)
-    end
-  &lt;/code&gt;&lt;/pre&gt;
-&lt;/section&gt;
-
-&lt;section data-markdown=&quot;&quot; style=&quot;text-align: left;&quot;&gt;
-
-  ### Lưu trữ dữ liệu
-
-  #### 3. Điền giá trị cũ vào form nếu validate sai
-
-  Có 2 trường hợp cần xử lý:
-    - Checkbox
-    - Nội dung của &quot;other content&quot; nếu người dùng lựa chọn ô này.
-&lt;/section&gt;
-
-&lt;section data-markdown=&quot;&quot; style=&quot;text-align: left;&quot;&gt;
-
-  ### Lưu trữ dữ liệu
-
-  #### 3. Điền giá trị cũ vào form nếu validate sai
-
-  - Checkbox
-    Ý tưởng: Khi submit dữ liệu lên controller, @user đã được gán giá trị khi &quot;@user = User.new user_params&quot;. Khi này, object @user đã được khởi tạo và có association.
-    ![Select multi categories db](/assets/images/select-ml-ct-object-user.png)
-  - Đây chính là những checkbox đã được checked
-&lt;/section&gt;
-
-&lt;section style=&quot;text-align: left;&quot;&gt;
-  &lt;h3&gt; Lưu trữ dữ liệu &lt;/h3&gt;
-  &lt;h4&gt; 3. Điền giá trị cũ vào form nếu validate sai &lt;/h4&gt;
-
-  &lt;pre style=&quot;width: 100%;&quot;&gt;&lt;code data-trim=&quot;&quot; data-noescape=&quot;&quot;&gt;
-    # new.html.rb
-    &amp;lt;%= form_for @user do |f| %&amp;gt;
-      &amp;lt;%= f.object.errors.full_messages %&amp;gt;
-      username: &amp;lt;%= f.text_field :name %&amp;gt;
-      categories:
-        &amp;lt;%= f.fields_for :users_categories, @category_options do |ff| %&amp;gt;
-          &amp;lt;% users_categories = f.object.users_categories %&amp;gt;
-          &amp;lt;% category_option = ff.object %&amp;gt;
-          # Tìm kiếm users_categories có chứa category_option hiện tại hay không
-          &amp;lt;% is_selected = users_categories.map{|c| c.key_name}.include?(category_option.key_name) %&amp;gt;
-          # Lấy giá trị của &quot;Other content&quot;
-          &amp;lt;% other_content = users_categories.select{|c| c.key_name == &quot;other_content&quot;}.first&amp;amp;.other_content %&amp;gt;
-            &amp;lt;%= ff.check_box :_destroy, {checked: is_selected, class: &quot;#{'js-select-other_content' if category_option.key_name == 'other_content'}&quot;}, 0, 1 %&amp;gt;
-            &amp;lt;%= ff.hidden_field :category_id %&amp;gt;
-            &amp;lt;%= category_option.content %&amp;gt;
-            &amp;lt;% if category_option.key_name == &quot;other_content&quot; %&amp;gt;
-              &amp;lt;%= ff.text_field :other_content, value: other_content,class: &quot;js-other_content-field hidden&quot; %&amp;gt;
-            &amp;lt;% end %&amp;gt;
-        &amp;lt;% end %&amp;gt;
-      &amp;lt;%= f.submit %&amp;gt;
-    &amp;lt;% end %&amp;gt;
-  &lt;/code&gt;&lt;/pre&gt;
-&lt;/section&gt;
-
-&lt;section data-markdown=&quot;&quot; style=&quot;text-align: left;&quot;&gt;
-
-  ### Lấy giá trị
-  Có 2 trường hợp:
-    - Nếu user_category có key_name không phải &quot;other content&quot; thì sẽ lấy giá trị &quot;content&quot; từ bảng &quot;category&quot;
-    - Nếu users_category có key_name là &quot;other_content&quot; sẽ tiến hành lấy &quot;other_content&quot; từ trong bảng users_category
-&lt;/section&gt;
-
-&lt;section style=&quot;text-align: left;&quot;&gt;
-  &lt;h3&gt; Lấy giá trị &lt;/h3&gt;
-  &lt;pre style=&quot;width: 100%;&quot;&gt;&lt;code data-trim=&quot;&quot; data-noescape=&quot;&quot;&gt;
-  # users_category.rb
-  def category_name
-    key_name == OTHER_CONTENT ? other_content : content
-  end
-  &lt;/code&gt;&lt;/pre&gt;
-
-  &lt;pre style=&quot;width: 100%;&quot;&gt;&lt;code data-trim=&quot;&quot; data-noescape=&quot;&quot;&gt;
-  # user.rb
-  def show
-    @user = User.find params[:id]
-    @categories = @user.users_categories.map{|c| c.category_name}.join(&quot; ,&quot;)
-  end
-  &lt;/code&gt;&lt;/pre&gt;
-&lt;/section&gt;
-
-&lt;section data-markdown=&quot;&quot; style=&quot;text-align: left;&quot;&gt;
-
-  ### Trường hợp edit
-
-  - Đối với trường hợp edit, khi chúng ta chạy đoạn:
-
-  ```
-is_selected = users_categories.map{|c| c.category_key_name}.include?(category_option.category_key_name)
-  ```
-
-  thì sẽ phải thực hiện truy vấn thông qua database để lấy lại association. Khi đó khi chúng ta cập nhật thay đổi giá trị cho ô select, ô đó sẽ luôn là giá trị cũ
-&lt;/section&gt;
-
-&lt;section data-markdown=&quot;&quot; style=&quot;text-align: left;&quot;&gt;
-
-  ![Select multi categories db](/assets/images/1.png)
-
-&lt;/section&gt;
-
-&lt;section data-markdown=&quot;&quot; style=&quot;text-align: left;&quot;&gt;
-
-  ![Select multi categories db](/assets/images/2.png)
-
-&lt;/section&gt;
-
-&lt;section data-markdown=&quot;&quot; style=&quot;text-align: left;&quot;&gt;
-
-  ![Select multi categories db](/assets/images/3.png)
-
-&lt;/section&gt;
-
-&lt;section data-markdown=&quot;&quot; style=&quot;text-align: left;&quot;&gt;
-
-  ### Edit | Ý tưởng
-
-  - Khi submit params lên chúng ta sẽ lọc được những params có category đã được chọn
-  - Lọc và trả lại những id đó
-
-  ```
-  @selected_ids =
-    users_categories_attributes.values.map {|c| c[:category_id] if c[:_destroy] == &quot;0&quot;}.compact
-  ```
-
-  - Kết quả: Mảng các categories đã selected. Ví dụ: [&quot;1&quot;, &quot;2&quot;]
-
-&lt;/section&gt;
-
-&lt;section data-markdown=&quot;&quot; style=&quot;text-align: left;&quot;&gt;
-
-  ### Edit | Ý tưởng
-
-  - Edit một chút trong view:
-
-  ```
-    selected_ids = @selected_ids ||
-    users_categories.map{|c| c.category_id.to_s}
-  ```
-
-  ```
-  is_selected = selected_ids.include?(category_option.category_id.to_s)
-  ```
-
-  - Kết quả: Mảng các categories đã selected. Ví dụ: [&quot;1&quot;, &quot;2&quot;]
-&lt;/section&gt;
-
-&lt;section data-markdown=&quot;&quot; style=&quot;text-align: left;&quot;&gt;
-
-  ### Lưu ý
-
-  - Khi cập nhật dữ liệu cần phải permit id của nested params để tránh tình trạng tạo thêm bản ghi mới giống bản ghi cũ.
-
-  - Trong file edit.html.slim thêm hidden_field cho id của users_category.
-
-  ```
-  &amp;lt;%= ff.hidden_field :id, value: users_categories.select{|c| c.key_name == category.key_name}.first&amp;amp;.id %&amp;gt;
-  ```
-
-  - Về bản chất neseted_attributes đã hỗ trợ tự điền id vào form nested nhưng trong trường hợp này giá trị của nested form được build ra không phải là giá trị trong quan hệ mà là giá trị của object `@category_options` chúng ta truyền vào nên cần phải lọc ra như trên.
-  - Vị trí của categories: Thông thường vị trí của trường `other_content` sẽ là ở cuối danh sách. Nhưng không hẳn master data nào cũng chuẩn hoặc category được sinh tự động. Có một mẹo là chúng ta sẽ luôn để `other_content` ở đầu tiên của mảng (bản ghi đầu tiên) và dùng hàm `rotate(1)` để dịch bản ghi đó xuống cuối mảng
-
-  ```
-  a = [ &quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot; ]
-  a.rotate         #=&amp;gt; [&quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;a&quot;]
-  ```
-
-  - Tìm hiểu kĩ design để khi import master
-&lt;/section&gt;
-
-&lt;section data-markdown=&quot;&quot; style=&quot;text-align: left;&quot;&gt;
-
-  ### End.
-
-  #### Cảm ơn mọi người đã lắng nghe!
-
-&lt;/section&gt;
-</description>
-        <pubDate>Sat, 14 Dec 2019 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/2019/12/14/select-multy-categories/</link>
-        <guid isPermaLink="true">http://localhost:4000/2019/12/14/select-multy-categories/</guid>
-        
         
       </item>
     

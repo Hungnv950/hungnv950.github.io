@@ -5,9 +5,163 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 03 Mar 2021 22:38:53 +0700</pubDate>
-    <lastBuildDate>Wed, 03 Mar 2021 22:38:53 +0700</lastBuildDate>
+    <pubDate>Fri, 02 Apr 2021 10:30:37 +0700</pubDate>
+    <lastBuildDate>Fri, 02 Apr 2021 10:30:37 +0700</lastBuildDate>
     <generator>Jekyll v3.9.0</generator>
+    
+      <item>
+        <title>Amazon Simple Email Service</title>
+        <description>&lt;h1 id=&quot;amazon-simple-email-service&quot;&gt;Amazon Simple Email Service&lt;/h1&gt;
+
+&lt;p&gt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/Welcome.html&lt;/p&gt;
+
+&lt;p&gt;Lâu rồi mới quay lại viết blog thay vì dịch tài liệu. Hôm nay có 1 task liên quan tới việc chuyển server mail từ SendGrid về ASW SES nên mình note lại các ý chính luôn. Chắc là sẽ có 1 series về phần này luôn.&lt;/p&gt;
+
+&lt;p&gt;Trước tiên như mọi bài blog khác thì sẽ vào phần introduction luôn.&lt;/p&gt;
+&lt;h3 id=&quot;giới-thiệu---amazon-ses-là-gì-&quot;&gt;Giới thiệu - Amazon SES là gì ?&lt;/h3&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Amazon SES là một nền tảng email cung cấp dễ dàng và tiết kiệm chi phí cho bạn có thể gửi và nhận email sử dụng email sử dụng địa chỉ email và domains của bạn.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Như thế thì đơn giản quá nhỉ. Nếu thế thì tại sao lại phải sử dụng AWS SES ?&lt;/p&gt;
+
+&lt;p&gt;Theo như trên trang chủ của AWS thì có vẻ hợp lý:&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Xây dựng một giải pháp quản lý email lớn thường rát phức tạp và tốn chi phí cho doanh nghiệp. bạn càn phải đối mặt với những thách thức về cơ sở hạ tầng cũng như quản lý máy chủ, config network và địa chỉ IP. Hơn nữa nhiều giải pháp email của bên thứ ba yêu cầu thương lượng hợp đồng và giá cả, cũng như phải trả trước một chi phí đáng kể. Amazon SES đã loại bỏ những vấn đề này và cho phép bạn thừa hưởng các lợi ích nhiều năng kinh nghiệm và cấu trúc server phức tạo từ Amazon.com đã xây dựng để phục vụ cơ sở hạ tầng lớn của họ.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;amazon-ses-and-other-aws-services&quot;&gt;Amazon SES and other AWS services&lt;/h3&gt;
+&lt;p&gt;Amazon SES integrates seamlessly with other AWS products. For example, you can:&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Amazon SES tích hợp một cách liền mạch với các sản phầm khác của AWS. Như ví dụ, bạn có thể:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Add email-sending capabilities to any application. If your application runs in &lt;a href=&quot;https://aws.amazon.com/ec2/&quot;&gt;Amazon Elastic Compute Cloud&lt;/a&gt; (Amazon EC2), you can use Amazon SES to send &lt;a href=&quot;https://aws.amazon.com/ses/pricing/&quot;&gt;62,000 emails every month at no additional charge&lt;/a&gt;. You can send email from Amazon EC2 by using an &lt;a href=&quot;https://aws.amazon.com/tools/#sdk&quot;&gt;AWS SDK&lt;/a&gt;, by using the Amazon &lt;a href=&quot;Amazon SES SMTP interface&quot;&gt;SES SMTP&lt;/a&gt; interface, or by making calls directly to the Amazon &lt;a href=&quot;https://docs.aws.amazon.com/ses/latest/APIReference/&quot;&gt;SES API&lt;/a&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Thêm khả năng gửi mail vào bất cứ ứng dụng nào. Nếu ứng dụng đang chạy trên &lt;a href=&quot;https://aws.amazon.com/ec2/&quot;&gt;Amazon Elastic Compute Cloud&lt;/a&gt; (Amazon EC2), bạn có thể sử dụng Amazon SES để gửi &lt;a href=&quot;https://aws.amazon.com/ses/pricing/&quot;&gt;62,000 email mỗi tháng mà không cần phải trả thêm phí&lt;/a&gt;. Bạn có thể gửi email từ Amazon EC2 bằng cách sử dụng &lt;a href=&quot;https://aws.amazon.com/tools/#sdk&quot;&gt;AWS SDK&lt;/a&gt;, bằng cách sử dụng phương thức Amazon &lt;a href=&quot;Amazon SES SMTP interface&quot;&gt;SES SMTP&lt;/a&gt;, hoặc bằng cách gửi trực tiếp từ Amazon &lt;a href=&quot;https://docs.aws.amazon.com/ses/latest/APIReference/&quot;&gt;SES API&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Use &lt;a href=&quot;https://aws.amazon.com/elasticbeanstalk/&quot;&gt;AWS Elastic Beanstalk&lt;/a&gt; to create an email-enabled application such as a program that uses Amazon SES to send a newsletter to customers.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Sử dụng &lt;a href=&quot;https://aws.amazon.com/elasticbeanstalk/&quot;&gt;AWS Elastic BeanStalk&lt;/a&gt; để tạo 1 ứng dụng hỗ trợ email giống như một chương trình sử dụng Amazon SES để gửi tới những người dùng mới.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Set up &lt;a href=&quot;https://aws.amazon.com/sns/&quot;&gt;Amazon Simple Notification Service (Amazon SNS)&lt;/a&gt; to notify you of your emails that bounced, produced a complaint, or were successfully delivered to the recipient’s mail server. When you use Amazon SES to receive emails, your email content can be published to Amazon SNS topics.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Cài đặt &lt;a href=&quot;https://aws.amazon.com/sns/&quot;&gt;Amazon Simple Notification Service (Amazon SNS)&lt;/a&gt; để thông báo cho bạn những email bị trả lại, đưa ra phàn nàn, hoặc đã gửi thành công cho server nhận mail. Khi bạn sử dụng Amazon SES để nhận emmails, nội dung email của bạn có thể được xuất bản lên topics của Amazon SNS&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Use the AWS Management Console to set up &lt;a href=&quot;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-authentication-dkim.html&quot;&gt;Easy DKIM&lt;/a&gt;, which is a way to authenticate your emails. Although you can use Easy DKIM with any DNS provider, it is especially easy to set up when you manage your domain with Route 53.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Sử dụng AWS Management Console để cài đặt &lt;a href=&quot;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-authentication-dkim.html&quot;&gt;Easy DKIM&lt;/a&gt;, là cách để xác thực email của bạn. Tuy nhiên bạn có thể sử dụng Easy DKIM với bất kì nhà cung cấp DNS nào, nó cơ bản đơn giản để cài đặt khi bạn quản lý domain với Route 53&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Control user access to your email sending by using &lt;a href=&quot;https://aws.amazon.com/iam/&quot;&gt;AWS Identity and Access Management (IAM)&lt;/a&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Quản lý truy cập người dùng vào email gửi của bạn bằng cách sử dụng &lt;a href=&quot;https://aws.amazon.com/iam/&quot;&gt;AWS Identity and Access Management (IAM)&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Store emails you receive in Amazon Simple Storage &lt;a href=&quot;https://aws.amazon.com/s3/&quot;&gt;Service (Amazon S3)&lt;/a&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Lưu trữ những email bạn nhận được trong Amazon Simple Storage &lt;a href=&quot;https://aws.amazon.com/s3/&quot;&gt;Service (Amazon S3)&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Take action on your received emails by triggering &lt;a href=&quot;https://aws.amazon.com/lambda/&quot;&gt;AWS Lambda functions&lt;/a&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Thực hiện hành động với các email nhận được bằng cách sử dụng trigger &lt;a href=&quot;https://aws.amazon.com/lambda/&quot;&gt;AWS Lambda function&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Use &lt;a href=&quot;https://aws.amazon.com/kms/&quot;&gt;AWS Key Management Service (AWS KMS)&lt;/a&gt; to optionally encrypt the mail you receive in your Amazon S3 bucket.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Sử dụng &lt;a href=&quot;https://aws.amazon.com/kms/&quot;&gt;AWS Key Management Service (AWS KMS)&lt;/a&gt; để có thể tuỳ chọn mã hoá email bạn nhận được trên Amazon S3 bucket.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Use AWS CloudTrail to log Amazon SES API calls that you make using the console or the Amazon SES API.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Sử dụng AWS CloudTrail để lưu lại log Amazon SES API đã sử dụng bằng bảng điều khiển Amazon SES API.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Publish your email sending events to Amazon CloudWatch or Amazon Kinesis Data Firehose. If you publish your email sending events to Kinesis Data Firehose, you can access them in Amazon Redshift, Amazon Elasticsearch Service, or Amazon S3.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 15 Mar 2021 07:48:45 +0700</pubDate>
+        <link>http://localhost:4000/tech/2021/03/15/Amazon-Simple-Email-Serivce/</link>
+        <guid isPermaLink="true">http://localhost:4000/tech/2021/03/15/Amazon-Simple-Email-Serivce/</guid>
+        
+        
+        <category>tech</category>
+        
+      </item>
+    
+      <item>
+        <title>Explaining magic behind popular Ruby on Rails code</title>
+        <description>&lt;blockquote&gt;
+
+  &lt;p&gt;Link bài viết gốc: &lt;a href=&quot;https://longliveruby.com/articles/the-magic-behind-ruby-code&quot;&gt;Explaining magic behind popular Ruby on Rails code&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;explaining-magic-behind-popular-ruby-on-rails-code&quot;&gt;Explaining magic behind popular Ruby on Rails code&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Giải thích những điều thú vị đằng sau những mã code Ruby on Rails thường xuyên được sử dụng&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Explore the Ruby code behind popular solutions to learn how they were created&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Khám phá Ruby code đằng sau những giải pháp phổ biến để tìm hiểu cách chúng được tạo ra&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Ruby language allows us to easily create beautiful DSL’s and design complex libraries that anybody can easily use, despite programming experience. The code often looks perfect, but sometimes it is not clear how it was achieved under the hood. In this article, I explain a few solutions that are quite popular among many gems, and you can easily use it in your projects once you understand how you can build a similar code.&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+  &lt;p&gt;Ngôn ngữ Ruby cho phép chúng ta dễ dàng tạo ra các DSL đẹp và cú pháp thiết kế thư viện mà bất cứ ai cũng có thể dễ dàng sử dụng bất chấp với kinh nghiệm lập trình. Code thường xuyên trông thật hoàn hảo, nhưng đội khi lại không rõ ràng là làm thế nào mà nó lại giải quyết được vấn đề đó. Trong bài này, tôi sẽ giải thích một vài giải pháp khá phổ biến được sử dụng ở tương đối nhiều &lt;code&gt;gems&lt;/code&gt;, và bạn có thể dễ dàng sử dụng nó trong dự án của bạn một khi bạn hiểu cách có thể xây dựng được 1 đoạn code tương tự.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;the-config-way-of-setting-variables-cách-để-thiết-lập-cài-đặt-các-biến&quot;&gt;The config-way of setting variables (Cách để thiết lập cài đặt các biến)&lt;/h3&gt;
+&lt;p&gt;You can see this code in almost every Ruby gem that utilizes initializers to set some variables needed for later use:&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+  &lt;p&gt;Bạn có thể thấy đoạn coe này ở hầu hết các Ruby gem được sử dụng để khởi tạo các biến cần thiết cho sử dụng sau này:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;SomeGem.configure do |config|
+  config.api_key = 'api_key'
+  config.app_name = 'My App'
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This way of setting variables is very readable and easily extendable. It works like any other method that yields something. While the each method yields elements of the array, in the above example, the configure method yields the instance of the Configuration class (or any other). It allows us to set attributes of this class inside the block.&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+  &lt;p&gt;Bằng cách này các biến rất dễ dàng để đọc và mở rộng. Nó hoạt động tương tự các method về &lt;code&gt;yields&lt;/code&gt;. Trong khi mỗi phương thức &lt;code&gt;yields&lt;/code&gt;
+You can build your configurator this way:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;module SomeGem
+  class &amp;lt;&amp;lt; self
+    attr_accessor :configuration
+
+    def configure
+      self.configuration ||= Configuration.new
+      yield(configuration)
+    end
+  end
+
+  class Configuration
+    attr_accessor :api_key, :app_name
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+        <pubDate>Mon, 15 Mar 2021 07:48:45 +0700</pubDate>
+        <link>http://localhost:4000/tech/2021/03/15/Magic-behing-popular-ruby-code-copy/</link>
+        <guid isPermaLink="true">http://localhost:4000/tech/2021/03/15/Magic-behing-popular-ruby-code-copy/</guid>
+        
+        
+        <category>tech</category>
+        
+      </item>
     
       <item>
         <title>10 Error status codes khi xây dựng API và cách giải quyết chúng</title>
@@ -99,9 +253,9 @@
 
 &lt;p&gt;Thông thường, request với phương thức (method) sai thường nhận được với kết quả là 404 not found. Trạng thái not-implemented ngụ ý rằng phương thức này đã không được triển khai. Nhà cung cấp API có thể sử dụng status đó để thông báo với client rằng phương thức này sẽ có thể truy cập được trong tương lai.&lt;/p&gt;
 </description>
-        <pubDate>Tue, 09 Jun 2020 07:48:45 +0700</pubDate>
-        <link>http://localhost:4000/tech/2020/06/09/10-errors-when-build-api-and-how-to-fix-them/</link>
-        <guid isPermaLink="true">http://localhost:4000/tech/2020/06/09/10-errors-when-build-api-and-how-to-fix-them/</guid>
+        <pubDate>Wed, 10 Mar 2021 07:48:45 +0700</pubDate>
+        <link>http://localhost:4000/tech/2021/03/10/10-errors-when-build-api-and-how-to-fix-them/</link>
+        <guid isPermaLink="true">http://localhost:4000/tech/2021/03/10/10-errors-when-build-api-and-how-to-fix-them/</guid>
         
         
         <category>tech</category>
@@ -233,144 +387,6 @@ Chỉ cần luôn thúc đẩy bản thân mình thôi.&lt;/p&gt;
         <pubDate>Fri, 08 May 2020 07:48:45 +0700</pubDate>
         <link>http://localhost:4000/tech/2020/05/08/dung-bao-gio-git-push-f/</link>
         <guid isPermaLink="true">http://localhost:4000/tech/2020/05/08/dung-bao-gio-git-push-f/</guid>
-        
-        
-        <category>tech</category>
-        
-      </item>
-    
-      <item>
-        <title>Rails rspec notes</title>
-        <description>&lt;h3 id=&quot;mock-vs-stub&quot;&gt;Mock vs stub&lt;/h3&gt;
-&lt;ol&gt;
-  &lt;li&gt;Stub
-    &lt;blockquote&gt;
-      &lt;p&gt;Returns canned responses, avoiding any meaningful computation or I/O&lt;/p&gt;
-    &lt;/blockquote&gt;
-
-    &lt;p&gt;=&amp;gt; Tra ve ket qua a
- ex:&lt;/p&gt;
-    &lt;blockquote&gt;
-      &lt;p&gt;allow(some_object).to receive(some_method).and_return(some_value)&lt;/p&gt;
-    &lt;/blockquote&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Mock
-    &lt;blockquote&gt;
-      &lt;p&gt;Expects specific messages; will raise an error if it doesn’t receive them by the end of the example&lt;/p&gt;
-    &lt;/blockquote&gt;
-
-    &lt;p&gt;ex:&lt;/p&gt;
-    &lt;blockquote&gt;
-      &lt;p&gt;expect(some_object).to receive(some_method).and_return(some_value)&lt;/p&gt;
-    &lt;/blockquote&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;double&quot;&gt;Double&lt;/h3&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;double(*args) public
-     Shortcut for creating an instance of Spec::Mocks::Mock.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;name is used for failure reporting, so you should use the role that the double is playing in the example.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;stubs_and_options lets you assign options and stub values at the same time. The only option available is :null_object. Anything else is treated as a stub value.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Ex:&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;thing = double(“thing”, :a =&amp;gt; “A”)
-      thing.a == “A” =&amp;gt; true
-      person = double(“thing”, :name =&amp;gt; “Joe”, :email =&amp;gt; “joe@domain.com”)
-      person.name =&amp;gt; “Joe”
-      person.email =&amp;gt; “joe@domain.com”&lt;/p&gt;
-&lt;/blockquote&gt;
-</description>
-        <pubDate>Fri, 08 May 2020 07:48:45 +0700</pubDate>
-        <link>http://localhost:4000/tech/2020/05/08/rails-rspec-notes/</link>
-        <guid isPermaLink="true">http://localhost:4000/tech/2020/05/08/rails-rspec-notes/</guid>
-        
-        
-        <category>tech</category>
-        
-      </item>
-    
-      <item>
-        <title>form_with — Building HTML forms in Rails 5.1</title>
-        <description>&lt;blockquote&gt;
-  &lt;p&gt;Bài viết lấy nguồn từ bài viết &lt;a href=&quot;https://medium.com/@tinchorb/form-with-building-html-forms-in-rails-5-1-f30bd60ef52d&quot;&gt;form_with — Building HTML forms in Rails 5.1
-&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;A couple of months ago a PR created by kaspth was merged to rails 5.1, introducing the form_with view helper. The idea behind it is to unify the interface of form_tag and form_for by extracting both implementations to a common object. As long as developers start using this new helper, form_tag and form_for will softly get deprecated.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Một vài tháng trước, một pull request &lt;a href=&quot;https://github.com/rails/rails/pull/26976&quot;&gt;Pr&lt;/a&gt; được tạo bởi một thím với nickname &lt;code&gt;kasspth&lt;/code&gt; đã được merge vào rails 5.1 (Thời điểm tôi dịch bài này thì rails 6 đã release và sắp ra rails 7 mất rồi =))). Giới thiệu về &lt;code&gt;form_with&lt;/code&gt; trong phần hỗ trợ hiển thị. Ý tưởng đằng sau là thống nhất lại giao diện của &lt;code&gt;form_tag&lt;/code&gt; và &lt;code&gt;form_for&lt;/code&gt;bằng cách trích xuất cả hai triển khai trên vào một đối tượng chung. Miễn là các lập trình viên bắt đầu sử dụng helper mới này, &lt;code&gt;form_tag&lt;/code&gt; và &lt;code&gt;form_for&lt;/code&gt; sẽ dần dần được lãng quên.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;1-a-litte-bit-of-background&quot;&gt;1. A litte bit of background&lt;/h3&gt;
-&lt;p&gt;(Chém gió một chút về bối cảnh)&lt;/p&gt;
-
-&lt;p&gt;Let’s say that you have a Post model and want to create a new instance of it. In Rails 4, the form_for view helper allows you to create a form for it:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Hãy tưởng tượng bạn có một model &lt;code&gt;Post&lt;/code&gt; và muốn tạo thêm đối tượng cho nó. Trong rails 4, &lt;code&gt;form_for&lt;/code&gt; đã hỗ trợ tận răng và cho phép bạn tạo form cho nó như sau:&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;%= form_for @post do |form| %&amp;gt;
- &amp;lt;%= form.text_field :author %&amp;gt;
- &amp;lt;%= form.submit “Create” %&amp;gt;
-&amp;lt;% end %&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Một view tương ứng html sẽ được sinh ra (a view html will be created)&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;form class=”new_post” id=”new_post” action=”/posts” accept-charset=”UTF-8&quot; method=”post”&amp;gt;
- &amp;lt;input name=”utf8&quot; type=”hidden” value=”✓”&amp;gt;
- &amp;lt;input type=”hidden” name=”authenticity_token” value=”…”&amp;gt;
- &amp;lt;input type=”text” name=”post[author]” id=”post_author”&amp;gt;
- &amp;lt;input type=”submit” name=”commit” value=”Create” data-disable-with=”Create”&amp;gt;
-&amp;lt;/form&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The variable form yielded to the block is a FormBuilder object that incorporates the knowledge about the model object represented by :post passed to form_for.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Các giá trị trong block form là đối tượng được tạo ra bởi đối tượng &lt;code&gt;FormBuilder&lt;/code&gt; kết hợp với thông tin được cung cấp bởi &lt;code&gt;:post&lt;/code&gt; truyền vào &lt;code&gt;form_for&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;What happens when you need to create a form but you don’t have an underlying model instance? Rails provides us with the form_tag helper:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;ĐIều gì sẽ xảy ra nếu bạn muốn tạo một &lt;code&gt;form&lt;/code&gt; mà không muốn cung cấp một đối tượng của model ? Khi đó rails sẽ cung cấp &lt;code&gt;form_tag&lt;/code&gt; helper.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;%= form_tag “/posts” do %&amp;gt;
- &amp;lt;%= text_field_tag “post[author]” %&amp;gt;
- &amp;lt;%= submit_tag “Create” %&amp;gt;
-&amp;lt;% end %&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;form action=”/posts” accept-charset=”UTF-8&quot; method=”post”&amp;gt;
- &amp;lt;input name=”utf8&quot; type=”hidden” value=”✓”&amp;gt;
- &amp;lt;input type=”hidden” name=”authenticity_token” value=”…”&amp;gt;
- &amp;lt;input type=”text” name=“post[author]” id=“post_author”&amp;gt;
- &amp;lt;input type=”submit” name=”commit” value=“Create” data-disable-with=“Create”&amp;gt;
-&amp;lt;/form&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;There is no FormBuilder object in this second form. For each field that you need to add to the form, you need to use the correspondent input tag, such as text_field_tag.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Không có object &lt;code&gt;FormBuilder&lt;/code&gt; trên form thứ hai.&lt;/p&gt;
-&lt;/blockquote&gt;
-</description>
-        <pubDate>Sun, 08 Mar 2020 00:00:00 +0700</pubDate>
-        <link>http://localhost:4000/tech/2020/03/08/form_with-vs-form_tag/</link>
-        <guid isPermaLink="true">http://localhost:4000/tech/2020/03/08/form_with-vs-form_tag/</guid>
         
         
         <category>tech</category>

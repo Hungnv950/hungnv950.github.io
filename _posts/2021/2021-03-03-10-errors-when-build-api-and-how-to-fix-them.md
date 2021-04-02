@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  10 Error status codes khi xây dựng API và cách giải quyết chúng
-date:   2020-06-09 00:48:45
+date:   2021-03-10 00:48:45
 description: 10 Error status codes khi xây dựng API và cách giải quyết chúng
 categories:
 - tech

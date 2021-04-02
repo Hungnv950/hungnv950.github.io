@@ -3,12 +3,12 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>form_with — Building HTML forms in Rails 5.1</title>
+        <title>Explaining magic behind popular Ruby on Rails code</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">        
         <meta name="description" content="Harmony is a free responsive jekyll theme by Gayan Virajith and Maheshika Lakmali. Sourced on Github - https://github.com/gayanvirajith/harmony
 ">
         <link rel="canonical" 
-        href="http://localhost:4000/tech/2020/03/08/form_with-vs-form_tag/">
+        href="http://localhost:4000/tech/2021/03/15/Magic-behing-popular-ruby-code-copy/">
         
         <!-- styles -->
         <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
@@ -49,7 +49,7 @@
         <div class="page-content wc-container">
 	
 	<div class="post">
-		<h1>form_with — Building HTML forms in Rails 5.1</h1>
+		<h1>Explaining magic behind popular Ruby on Rails code</h1>
 		<p class="post-meta">
 			
       <span class="categories">
@@ -57,77 +57,69 @@
       </span> |
 	    
 	    <span class="post-date">
-    	Mar 8, 2020 
+    	Mar 15, 2021 
 	    </span>
 		</p>		
 		<div class="post">
 			<blockquote>
-  <p>Bài viết lấy nguồn từ bài viết <a href="https://medium.com/@tinchorb/form-with-building-html-forms-in-rails-5-1-f30bd60ef52d">form_with — Building HTML forms in Rails 5.1
-</a></p>
+
+  <p>Link bài viết gốc: <a href="https://longliveruby.com/articles/the-magic-behind-ruby-code">Explaining magic behind popular Ruby on Rails code</a></p>
 </blockquote>
 
-<p>A couple of months ago a PR created by kaspth was merged to rails 5.1, introducing the form_with view helper. The idea behind it is to unify the interface of form_tag and form_for by extracting both implementations to a common object. As long as developers start using this new helper, form_tag and form_for will softly get deprecated.</p>
+<h2 id="explaining-magic-behind-popular-ruby-on-rails-code">Explaining magic behind popular Ruby on Rails code</h2>
+<blockquote>
+  <p>Giải thích những điều thú vị đằng sau những mã code Ruby on Rails thường xuyên được sử dụng</p>
+</blockquote>
+
+<p>Explore the Ruby code behind popular solutions to learn how they were created</p>
+<blockquote>
+  <p>Khám phá Ruby code đằng sau những giải pháp phổ biến để tìm hiểu cách chúng được tạo ra</p>
+</blockquote>
+
+<p>Ruby language allows us to easily create beautiful DSL’s and design complex libraries that anybody can easily use, despite programming experience. The code often looks perfect, but sometimes it is not clear how it was achieved under the hood. In this article, I explain a few solutions that are quite popular among many gems, and you can easily use it in your projects once you understand how you can build a similar code.</p>
 
 <blockquote>
-  <p>Một vài tháng trước, một pull request <a href="https://github.com/rails/rails/pull/26976">Pr</a> được tạo bởi một thím với nickname <code>kasspth</code> đã được merge vào rails 5.1 (Thời điểm tôi dịch bài này thì rails 6 đã release và sắp ra rails 7 mất rồi =))). Giới thiệu về <code>form_with</code> trong phần hỗ trợ hiển thị. Ý tưởng đằng sau là thống nhất lại giao diện của <code>form_tag</code> và <code>form_for</code>bằng cách trích xuất cả hai triển khai trên vào một đối tượng chung. Miễn là các lập trình viên bắt đầu sử dụng helper mới này, <code>form_tag</code> và <code>form_for</code> sẽ dần dần được lãng quên.</p>
+
+  <p>Ngôn ngữ Ruby cho phép chúng ta dễ dàng tạo ra các DSL đẹp và cú pháp thiết kế thư viện mà bất cứ ai cũng có thể dễ dàng sử dụng bất chấp với kinh nghiệm lập trình. Code thường xuyên trông thật hoàn hảo, nhưng đội khi lại không rõ ràng là làm thế nào mà nó lại giải quyết được vấn đề đó. Trong bài này, tôi sẽ giải thích một vài giải pháp khá phổ biến được sử dụng ở tương đối nhiều <code>gems</code>, và bạn có thể dễ dàng sử dụng nó trong dự án của bạn một khi bạn hiểu cách có thể xây dựng được 1 đoạn code tương tự.</p>
 </blockquote>
 
-<h3 id="1-a-litte-bit-of-background">1. A litte bit of background</h3>
-<p>(Chém gió một chút về bối cảnh)</p>
-
-<p>Let’s say that you have a Post model and want to create a new instance of it. In Rails 4, the form_for view helper allows you to create a form for it:</p>
+<h3 id="the-config-way-of-setting-variables-cách-để-thiết-lập-cài-đặt-các-biến">The config-way of setting variables (Cách để thiết lập cài đặt các biến)</h3>
+<p>You can see this code in almost every Ruby gem that utilizes initializers to set some variables needed for later use:</p>
 
 <blockquote>
-  <p>Hãy tưởng tượng bạn có một model <code>Post</code> và muốn tạo thêm đối tượng cho nó. Trong rails 4, <code>form_for</code> đã hỗ trợ tận răng và cho phép bạn tạo form cho nó như sau:</p>
+
+  <p>Bạn có thể thấy đoạn coe này ở hầu hết các Ruby gem được sử dụng để khởi tạo các biến cần thiết cho sử dụng sau này:</p>
 </blockquote>
 
-<pre><code>&lt;%= form_for @post do |form| %&gt;
- &lt;%= form.text_field :author %&gt;
- &lt;%= form.submit “Create” %&gt;
-&lt;% end %&gt;
+<pre><code>SomeGem.configure do |config|
+  config.api_key = 'api_key'
+  config.app_name = 'My App'
+end
 </code></pre>
 
-<p>Một view tương ứng html sẽ được sinh ra (a view html will be created)</p>
-
-<pre><code>&lt;form class=”new_post” id=”new_post” action=”/posts” accept-charset=”UTF-8" method=”post”&gt;
- &lt;input name=”utf8" type=”hidden” value=”✓”&gt;
- &lt;input type=”hidden” name=”authenticity_token” value=”…”&gt;
- &lt;input type=”text” name=”post[author]” id=”post_author”&gt;
- &lt;input type=”submit” name=”commit” value=”Create” data-disable-with=”Create”&gt;
-&lt;/form&gt;
-</code></pre>
-
-<p>The variable form yielded to the block is a FormBuilder object that incorporates the knowledge about the model object represented by :post passed to form_for.</p>
+<p>This way of setting variables is very readable and easily extendable. It works like any other method that yields something. While the each method yields elements of the array, in the above example, the configure method yields the instance of the Configuration class (or any other). It allows us to set attributes of this class inside the block.</p>
 
 <blockquote>
-  <p>Các giá trị trong block form là đối tượng được tạo ra bởi đối tượng <code>FormBuilder</code> kết hợp với thông tin được cung cấp bởi <code>:post</code> truyền vào <code>form_for</code></p>
+
+  <p>Bằng cách này các biến rất dễ dàng để đọc và mở rộng. Nó hoạt động tương tự các method về <code>yields</code>. Trong khi mỗi phương thức <code>yields</code>
+You can build your configurator this way:</p>
 </blockquote>
 
-<p>What happens when you need to create a form but you don’t have an underlying model instance? Rails provides us with the form_tag helper:</p>
+<pre><code>module SomeGem
+  class &lt;&lt; self
+    attr_accessor :configuration
 
-<blockquote>
-  <p>ĐIều gì sẽ xảy ra nếu bạn muốn tạo một <code>form</code> mà không muốn cung cấp một đối tượng của model ? Khi đó rails sẽ cung cấp <code>form_tag</code> helper.</p>
-</blockquote>
+    def configure
+      self.configuration ||= Configuration.new
+      yield(configuration)
+    end
+  end
 
-<pre><code>&lt;%= form_tag “/posts” do %&gt;
- &lt;%= text_field_tag “post[author]” %&gt;
- &lt;%= submit_tag “Create” %&gt;
-&lt;% end %&gt;
+  class Configuration
+    attr_accessor :api_key, :app_name
+  end
+end
 </code></pre>
-
-<pre><code>&lt;form action=”/posts” accept-charset=”UTF-8" method=”post”&gt;
- &lt;input name=”utf8" type=”hidden” value=”✓”&gt;
- &lt;input type=”hidden” name=”authenticity_token” value=”…”&gt;
- &lt;input type=”text” name=“post[author]” id=“post_author”&gt;
- &lt;input type=”submit” name=”commit” value=“Create” data-disable-with=“Create”&gt;
-&lt;/form&gt;
-</code></pre>
-
-<p>There is no FormBuilder object in this second form. For each field that you need to add to the form, you need to use the correspondent input tag, such as text_field_tag.</p>
-
-<blockquote>
-  <p>Không có object <code>FormBuilder</code> trên form thứ hai.</p>
-</blockquote>
 
 		</div>
 	</div>
@@ -141,11 +133,6 @@
 		    <li>
 			  <span>15 Mar 2021 &raquo;</span>
 			  <a href="http://localhost:4000/tech/2021/03/15/Amazon-Simple-Email-Serivce/">Amazon Simple Email Service</a>
-		    </li>
-		    
-		    <li>
-			  <span>15 Mar 2021 &raquo;</span>
-			  <a href="http://localhost:4000/tech/2021/03/15/Magic-behing-popular-ruby-code-copy/">Explaining magic behind popular Ruby on Rails code</a>
 		    </li>
 		    
 		    <li>
@@ -188,6 +175,11 @@
 			  <a href="http://localhost:4000/tech/2020/05/08/dung-bao-gio-git-push-f/">Đừng bao giờ `git push -f`</a>
 		    </li>
 		    
+		    <li>
+			  <span>08 May 2020 &raquo;</span>
+			  <a href="http://localhost:4000/tech/2020/05/08/rails-rspec-notes/">Rails rspec notes</a>
+		    </li>
+		    
 		</ul>
 	</div>
 	
@@ -195,13 +187,13 @@
 	<div class="post-footer">
 		<div class="column-1">
 			
-				<a href="http://localhost:4000/tech/2020/02/26/clean-code-comment/"><< Older</a>
+				<a href="http://localhost:4000/tech/2021/03/10/10-errors-when-build-api-and-how-to-fix-them/"><< Older</a>
 			
 		</div>
 		<div class="column-2"><a href="http://localhost:4000/ ">Home</a></div>
 		<div class="column-3">
 			
-				<a href="http://localhost:4000/tech/2020/05/08/rails-rspec-notes/">Newer >></a>
+				<a href="http://localhost:4000/tech/2021/03/15/Amazon-Simple-Email-Serivce/">Newer >></a>
 			
 		</div>
 	</div>

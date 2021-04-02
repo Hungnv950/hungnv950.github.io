@@ -3,8 +3,10 @@ layout: post
 title: "Rails 6 - Active Storage changes"
 date: 2019-11-12
 description: "Rails 6 - Active Storage changes"
-categories:
-- tech
+category: technical
+author: hungnv950
+usemathjax: true
+thumbnail: /assets/img/posts/rails6-active-storage.jpg
 ---
 
 This article found in: https://blog.saeloun.com/2019/11/04/rails-6-active-storage-updates.html

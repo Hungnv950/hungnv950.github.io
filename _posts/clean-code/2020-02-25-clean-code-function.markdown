@@ -3,8 +3,10 @@ layout: post
 title:  Clean code - function
 date:   2020-02-25
 description: Clean code - function
-categories:
-- tech
+category: technical
+author: hungnv950
+usemathjax: true
+thumbnail: /assets/img/posts/Clean-code.jpg
 ---
 
 ---

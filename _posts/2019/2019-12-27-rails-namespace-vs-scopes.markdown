@@ -3,8 +3,10 @@ layout: post
 title: "Rails routes namespace vs scopes"
 date: 2019-12-22
 description: "Rails routes namespace vs scopes"
-categories:
-- tech
+category: technical
+author: hungnv950
+usemathjax: true
+thumbnail: /assets/img/posts/namespace-vs-scope.png
 ---
 
 Bài viết được dịch từ nguồn: https://devblast.com/b/rails-5-routes-scope-vs-namespace

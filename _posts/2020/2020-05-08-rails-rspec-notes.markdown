@@ -3,8 +3,10 @@ layout: post
 title:  Rails rspec notes
 date:   2020-05-08 00:48:45
 description: Rails rspec notes
-categories:
-- tech
+category: technical
+author: hungnv950
+usemathjax: true
+thumbnail: /assets/img/posts/ruby-on-rails-project-rspec.png
 ---
 
 

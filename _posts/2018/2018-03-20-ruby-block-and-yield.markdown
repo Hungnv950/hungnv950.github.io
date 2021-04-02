@@ -3,8 +3,10 @@ layout: post
 title:  Block và yield trong ruby
 date:   2018-03-20 22:48:45
 description: Block và yield trong ruby
-categories:
-- tech
+category: technical
+author: hungnv950
+usemathjax: true
+thumbnail: /assets/img/posts/block_proc.png
 ---
 
 #  **`Blocks`**

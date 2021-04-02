@@ -3,8 +3,10 @@ layout: post
 title: "Multi dynamic nested attributes trong rails"
 date: 2019-11-12
 description: "Multi dynamic nested attributes trong rails"
-categories:
-- tech
+category: technical
+author: hungnv950
+usemathjax: true
+thumbnail: /assets/img/posts/nested-attributes.png
 ---
 
 

@@ -3,8 +3,10 @@ layout: post
 title: "Learn SQL advanced"
 date: 2019-09-09
 description: "The list when i learned mysql for myself"
-categories:
-- tech
+category: technical
+author: hungnv950
+usemathjax: true
+thumbnail: /assets/img/posts/sql.jpg
 ---
 
 The first thing i want tell about the first link i found from google. It make by qoura. Fine, i like it: https://www.quora.com/How-do-I-learn-more-advanced-SQL

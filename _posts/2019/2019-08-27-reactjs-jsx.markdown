@@ -3,9 +3,12 @@ layout: post
 title:  "Những tricks khi học JSX"
 date:   2019-08-27
 description: Những tricks khi học JSX
-categories:
-- tech
+category: technical
+author: hungnv950
+usemathjax: true
+thumbnail: /assets/img/posts/jsx.png
 ---
+
 - Nội dung bài viết xoay quanh khóa học trên [Codecademy](https://www.codecademy.com/courses/react-101/lessons/react-jsx-advanced/exercises/self-closing-tags?action=resume_content_item)
 
 

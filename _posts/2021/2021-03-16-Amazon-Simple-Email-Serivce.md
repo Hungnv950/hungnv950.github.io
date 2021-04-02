@@ -3,8 +3,10 @@ layout: post
 title:  Amazon Simple Email Service
 date:   2021-03-15 00:48:45
 description: Amazon Simple Email Service
-categories:
-- tech
+category: technical
+author: hungnv950
+usemathjax: true
+thumbnail: /assets/img/posts/amazon-simple-email-service.jpg
 ---
 
 # Amazon Simple Email Service

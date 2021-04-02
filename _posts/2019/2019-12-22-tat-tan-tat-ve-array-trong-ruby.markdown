@@ -3,8 +3,10 @@ layout: post
 title: "Tất tần tật về array trong ruby"
 date: 2019-12-22
 description: "Tất tần tật về array trong ruby"
-categories:
-- tech
+category: technical
+author: hungnv950
+usemathjax: true
+thumbnail: /assets/img/posts/ruby-array.png
 ---
 
 Bài viết dựa trên nguồn [ruby-doc.org](https://ruby-doc.org/core-2.4.1/Array.html) và một số ví dụ mình sưu tầm được. Hi vọng sẽ giúp đỡ được mình và mọi người trên con đường làm chủ Ruby.

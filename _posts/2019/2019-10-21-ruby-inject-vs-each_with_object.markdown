@@ -3,8 +3,10 @@ layout: post
 title: "Ruby inject vs each_with_object"
 date: 2019-09-09
 description: "Ruby inject vs each_with_object"
-categories:
-- tech
+category: technical
+author: hungnv950
+usemathjax: true
+thumbnail: /assets/img/posts/ruby.jpg
 ---
 
 Có thể bạn đã nghe qua hoặc đã dùng thử với `inject` và `each_with_object` nhưng chưa thực sự hiểu sâu về chúng mà chỉ đọc qua guide về cách sử dụng căn bản. Hôm nay chúng ta sẽ đi sâu tìm hiểu để có một cái nhìn sâu hơn về `inject` và `each_with_object` thông qua các ví dụ trực quan.

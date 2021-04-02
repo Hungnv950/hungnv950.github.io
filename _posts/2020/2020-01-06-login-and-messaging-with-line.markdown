@@ -1,8 +1,10 @@
 ---
 layout: post
 title: Ruby - Login and messaging with line
-categories:
-- tech
+category: technical
+author: hungnv950
+usemathjax: true
+thumbnail: /assets/img/posts/messaging-api-architecture.f40bffbb.png
 ---
 
 > Gần đây mình có gặp lại task liên quan tới việc implement tính năng đăng nhập và nhắn tin thông qua mạng xã hội Line.
@@ -11,13 +13,13 @@ categories:
 
 > Tuy cách đây 1 năm mình cũng đã gặp task này nhưng khi gặp lại cũng còn khá nhiều bỡ ngỡ nên mình quyết định xây 1 chiếc base nhỏ cùng những `noob` của mình để biết đâu sau này mình hoặc bạn có thể tránh phải
 
-  
+
 
 ### 1. Đặt vấn đề
 
 Để làm bất cứ task nào mà mình chưa biết thì việc tự `research` là vô cùng quan trọng. Như thường lệ, các câu hỏi đặt ra là: `what`, `why`, `when`, `where` và `how`. Và chúng ta sẽ trả lời câu hỏi đó
 
-  
+
 
 - what ? Chúng ta sẽ thực hiện chức năng login bằng Line và nhắn tin cho người dùng sử dụng Line
 
@@ -35,7 +37,7 @@ categories:
 
     - Khi một service sinh ra để cung cấp tính năng thì chắc chắn nhà cung cấp phải cung cấp đi kèm service đó một document cụ thể. => Tài liệu nên tìm hiểu và đọc của Line service
 
-  
+
 
 ### 2. Giải quyết vấn đề
 
@@ -45,21 +47,21 @@ Document hướng dẫn của Line: [Integrating LINE Login with your web app
 
 ](https://developers.line.biz/en/docs/line-login/web/integrate-line-login/)
 
-  
-  
+
+
 
 Quá trình Đăng nhập LINE cho web (đăng nhập web) dựa trên luồng cấp mã ủy quyền OAuth 2.0 và giao thức OpenID Connect. Ứng dụng của bạn phải có khả năng thực hiện yêu cầu phía máy chủ và nhận dữ liệu từ Nền tảng LINE. Sau đây là tổng quan về dòng đăng nhập web:
 
-  
+
 
 ![](https://images.viblo.asia/18f9795d-8ce2-4550-8be5-ebca1f98b7fd.png)
 
-  
-  
+
+
 
 Flow đăng nhập web sử dụng Line:
 
-  
+
 
 1. Ứng dụng của bạn hướng người dùng đến URL ủy quyền Đăng nhập LINE với các tham số truy vấn bắt buộc (tham khảo bên dưới).
 
@@ -73,18 +75,18 @@ Flow đăng nhập web sử dụng Line:
 
 6. Khi bạn đã truy xuất mã thông báo truy cập, bạn có thể sử dụng mã này để gọi API đến các thông tin cần thiế để sử dụng.
 
-  
+
 
 **Trước khi bắt đầu bạn cần đăng kí tài khoản line channel của bạn: tại [https://developers.line.biz/en/docs/line-login/getting-started/](https://developers.line.biz/en/docs/line-login/getting-started/)**
 
-  
+
 
 - Lưu ý: trong phần `Callback URL` bạn cần khai báo địa url trong project của bạn mà sau khi line validate thành công sẽ redirect về project kèm theo params của Line cung cấp.
 Ví dụ trong môi trường development: http://localhost:3000/auth/line/callback
 
 ![image-callback ](https://developers.line.biz/media/line-login/integrate-login-web/redirect-settings-cd7e32a6.png)
 
-  - Tạo request url: 
+  - Tạo request url:
 	  - Để xác thực người dùng và yêu cầu quyền của ứng dụng của bạn, hãy chuyển hướng người dùng đến URL ủy quyền sau với các tham số truy vấn bắt buộc. Bạn có thể chuyển hướng người dùng bằng nút [Đăng nhập LINE](https://developers.line.biz/en/docs/line-login/login-button/) hoặc bằng liên kết trực tiếp.
 	- Các tham số cần thiết trong url được generate ra:
 
@@ -102,7 +104,7 @@ Ví dụ trong môi trường development: http://localhost:3000/auth/line/callb
         | bot_prompt | String | Không bắt buộc | Hiển thị tùy chọn để thêm tài khoản chính thức LINE làm bạn bè trong khi đăng nhập. Đặt giá trị `normal` thường hoặc `aggressive`. Để biết thêm thông tin, hãy xem [Liên kết tài khoản chính thức LINE với kênh Đăng nhập LINE của bạn.](https://developers.line.biz/en/docs/line-login/web/link-a-bot/) |
 
 - Sau khi tạo reques url thành công, khi di chuyển vào link đã được tạo ra, người dùng sẽ đuợc di chuyển sang trang của Line để tiến hành đăng nhập và xác thực. Nếu xác thực thành công, Line Platform sẽ redirect tới server của bạn với confir callback đã khai báo từ trước kèm them tham số là `code`, `state` và `friendship_status_changed`
-    
+
     | Tables        | Are           | Cool  |
     | ------------- |:-------------:| -----:|
     | code | String | Mã ủy quyền được sử dụng để nhận mã thông báo truy cập. Có giá trị trong `10 phút`. Mã ủy quyền này chỉ có thể được sử dụng một lần.|
@@ -120,11 +122,11 @@ Location : https://client.example.org/cb?code=abcd1234&state=0987poi&friendship_
 	- Request
 		> POST https://api.line.me/oauth2/v2.1/token
 	- Request header:
-		| Request header        | Mô tả           | 
-		| ------------- |:-------------:| 
+		| Request header        | Mô tả           |
+		| ------------- |:-------------:|
 		| Content-Type | application/x-www-form-urlencoded |
 	- Request body
-	
+
         Parameters | Type | Required | Description |
         --------- | :----: | ------: | ---------: |
         grant_type| String| Required| authorization_code. |
@@ -136,13 +138,13 @@ Location : https://client.example.org/cb?code=abcd1234&state=0987poi&friendship_
 
 - Response: Sau khi request, nếu thông tin truyền lên valid, Line sẽ trả về `access_token` và một số thông tin đi kèm.
 - Chúng ta sẽ sử dụng accesstoken đó để request lên [LINE social enpoint](https://developers.line.biz/en/docs/line-login/web/integrate-line-login/#use-endpoint) để sử dụng các thông tin mà Line cung cấp.
-		
+
 #### 2.2. Nhắn tin sử dụng line channel
 
 Để sử dụng tính năng nhắn tin Line, bạn cần phải tạo một channel để nhắn tin tại: [Line console](https://developers.line.biz/console/)
 
 
-Các lưu ý: 
+Các lưu ý:
 
 - Sử dụng channel access token: Accesstoken là token tồn tại lâu dài phải được đặt trong tiêu đề ủy quyền khi thực hiện các cuộc gọi API. Bạn có thể phát hành lại mã thông báo truy cập kênh bất cứ lúc nào thông qua bảng điều khiển.
 - Để sử dụng một access token, click vào `issue` bên dưới phần `**Channel access token (long-lived)**` trong tab `Messaging API`

@@ -1,0 +1,31 @@
+---
+name: Hung Nguyen
+username: hungnv950
+bio: "Hi I a Hung, a Web Engineer."
+site: http://hungnv950.github.io
+avatar: hungnv950.jpeg
+email: hungnv950@gmail.com
+social:
+    - title: "github"
+      url: "https://github.com/hungnv950"
+    - title: "linkedin"
+      url: "https://www.linkedin.com/in/hungnv950"
+    # - title: "youtube"
+      # url: "https://www.youtube.com/channel/UCSfLBFFfNU9r6ihfei6VeJw"
+    - title: "facebook"
+      url: "https://www.facebook.com/hungnv950"
+    - title: "twitter"
+      url: "https://www.twitter.com/hungnv950"
+    - title: "behance"
+      url: "https://behance.com/hungnv950"
+    - title: "instagram"
+      url: "https://instagram.com/hungnv950"
+    - title: "medium"
+      url: "https://medium.com/hungnv950"
+    - title: "telegram"
+      url: "https://telegram.com/hungnv950"
+    - title: "dribbble"
+      url: "https://dribbble.com/hungnv950"
+    - title: "flickr"
+      url: "https://flickr.com/hungnv950"
+---

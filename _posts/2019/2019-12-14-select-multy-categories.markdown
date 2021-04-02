@@ -6,6 +6,7 @@ theme: league
 author: Hungnv950
 transition: fade
 date: 2019-12-14
+thumbnail: /assets/img/posts/categories.png
 ---
 
 <section data-markdown style="text-align: left;">

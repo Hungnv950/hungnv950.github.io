@@ -2,56 +2,41 @@
 layout: default
 ---
 
-<div class="page-content wc-container">
-	
-	<div class="post">
-		<h1>{{ page.title }}</h1>
-		<p class="post-meta">
-			{% if page.categories.size > 0 %}
-      <span class="categories">
-      {{ page.categories | array_to_sentence_string }}
-      </span> |
-	    {% endif %}
-	    <span class="post-date">
-    	{{ page.date | date: "%b %-d, %Y" }} 
-	    </span>
-		</p>		
-		<div class="post">
-			{{ content }}
-		</div>
-	</div>
-
-
-	{% if site.related_posts %}
-	<div class="related">
-		<h4>Related Posts</h4>
-		<ul class="posts">
-		    {% for post in site.related_posts%}
-		    <li>
-			  <span>{{ post.date | date_to_string }} &raquo;</span>
-			  <a href="{{ post.url | prepend: site.baseurl | prepend: site.url }}">{{ post.title }}</a>
-		    </li>
-		    {% endfor %}
-		</ul>
-	</div>
-	{% endif %}
-
-	<div class="post-footer">
-		<div class="column-1">
-			{% if page.previous %}
-				<a href="{{page.previous.url | prepend: site.baseurl | prepend: site.url }}"><< Older</a>
-			{% else %}
-				<span><< Older</span>
-			{% endif %}
-		</div>
-		<div class="column-2"><a href="{{ '/' | prepend: site.baseurl | prepend: site.url }} ">Home</a></div>
-		<div class="column-3">
-			{% if page.next %}
-				<a href="{{ page.next.url | prepend: site.baseurl | prepend: site.url }}">Newer >></a>
-			{% else %}
-				<span>Newer >></span>
-			{% endif %}
-		</div>
-	</div>
+<div class="row" id="blog-post-container">
+  <div class="col-lg-8 offset-md-2">
+    {%- include blog_post_article.html -%}
+     {%- include blog_post_comments.html-%}
+  </div>
 </div>
- 
+<div class="row">
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-header">About {{site.author}}</div>
+      <div class="card-body">
+        <p class="author_bio">{{ site.author_bio }}</p>
+        {%- include github_star_button.html -%}
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-header">Categories</div>
+      <div class="card-body text-dark">
+        {%- include blog_categories.html -%}
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-header">Useful Links</div>
+      <div class="card-body text-dark">
+        {% for i in site.urls %}
+        <li>
+          <a href="{{ site.url}}{{site.baseurl}}{{ i.url }}">{{ i.text }}</a>
+        </li>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+

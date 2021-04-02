@@ -3,8 +3,10 @@ layout: post
 title: "Sử dụng scopes trong Ruby on Rails"
 date: 2019-11-12
 description: "Sử dụng scopes trong Ruby on Rails"
-categories:
-- tech
+category: technical
+author: hungnv950
+usemathjax: true
+thumbnail: /assets/img/posts/scope.png
 ---
 
 This article found in: https://www.rubyguides.com/2019/10/scopes-in-ruby-on-rails/

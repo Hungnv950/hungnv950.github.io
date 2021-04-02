@@ -3,8 +3,10 @@ layout: post
 title: "Restful webservice"
 date: 2019-11-29
 description: "Restful webservice"
-categories:
-- tech
+category: technical
+author: hungnv950
+usemathjax: true
+thumbnail: /assets/img/posts/restful.gif
 ---
 
 *Rest là gì ?*

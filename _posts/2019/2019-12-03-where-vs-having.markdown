@@ -3,8 +3,10 @@ layout: post
 title: "SQL WHERE vs HAVING"
 date: 2019-11-29
 description: "SQL WHERE vs HAVING"
-categories:
-- tech
+category: technical
+author: hungnv950
+usemathjax: true
+thumbnail: /assets/img/posts/where-vs-having.png
 ---
 
 ```

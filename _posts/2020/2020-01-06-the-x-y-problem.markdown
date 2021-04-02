@@ -2,8 +2,10 @@
 layout: post
 title:  The X-Y problem
 description: The X-Y problem
-categories:
-- life
+category: life
+author: hungnv950
+usemathjax: true
+thumbnail: /assets/img/posts/x-y-porblem.png
 ---
 
 > XY problem là một vấn đề nan giải mà bất cứ ai hoặc bất cứ ngành nghề nào cũng có thể sẽ mắc phải trong công việc và cuộc sống.

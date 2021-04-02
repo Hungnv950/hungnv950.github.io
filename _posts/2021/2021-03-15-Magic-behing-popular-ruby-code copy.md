@@ -3,8 +3,10 @@ layout: post
 title:  Explaining magic behind popular Ruby on Rails code
 date:   2021-03-15 00:48:45
 description: Explaining magic behind popular Ruby on Rails code
-categories:
-- tech
+category: technical
+author: hungnv950
+usemathjax: true
+thumbnail: /assets/img/posts/ruby.jpg
 ---
 
 

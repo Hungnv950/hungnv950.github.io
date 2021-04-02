@@ -3,10 +3,11 @@ layout: post
 title:  Clean code - Comment
 date:   2020-02-26
 description: Clean code - Comment
-categories:
-- tech
+category: technical
+author: hungnv950
+usemathjax: true
+thumbnail: /assets/img/posts/Clean-code.jpg
 ---
-
 ---
 
 Đừng bình luận trên code xấu, hãy viết lại nó.

@@ -3,8 +3,10 @@ layout: post
 title: "form_with — Building HTML forms in Rails 5.1"
 date: 2020-03-08
 description: "form_with — Building HTML forms in Rails 5.1"
-categories:
-- tech
+category: technical
+author: hungnv950
+usemathjax: true
+thumbnail: /assets/img/posts/rails-form-with.jpg
 ---
 
 > Bài viết lấy nguồn từ bài viết [form_with — Building HTML forms in Rails 5.1

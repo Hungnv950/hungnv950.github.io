@@ -3,8 +3,10 @@ layout: post
 title:  "Sử dụng nhiều tài khoản github trên cùng một máy tính cá nhân"
 date:   2019-06-25 22:48:45
 description: Sử dụng nhiều tài khoản github trên cùng một máy tính cá nhân
-categories:
-- tech
+category: technical
+author: hungnv950
+usemathjax: true
+thumbnail: /assets/img/posts/setup-multiple-git-account-on-a-system.png
 ---
 
 ### Step 1: Tạo ssh key mới cho tài khoản công việc
@@ -12,8 +14,8 @@ categories:
 
 Khi màn hình hiện `Enter file in which to save the key (/home/<user>/.ssh/id_rsa):`  Nhập user cho công việc của bạn, ví dụ mình sẽ nhập là `id_rsa_sun`
 
-Kiểm tra xem id_rsa_sun đã được sinh ra chưa. 
->cd cd ~/.ssh 
+Kiểm tra xem id_rsa_sun đã được sinh ra chưa.
+>cd cd ~/.ssh
 
 >ls
 >
@@ -27,7 +29,7 @@ id_rsa_sun  id_rsa_sun.pub  id_rsa  id_rsa.pub
 
 Lấy id_rsa của email mới bạn vừa tạo.
 
->cat id_rsa_sun.pub 
+>cat id_rsa_sun.pub
 
 Sau đó nhập vào ssh-key cuả tài khoản git công việc tại https://github.com/settings/keys
 
@@ -56,7 +58,7 @@ Sau khi tạo 1 project trên github với tài khoản khác. Khi bạn `add re
 Ví dụ khi clone repo mới:
 
 >git clone git@github.com-sun:<**user**>/sample_ruby.git
- 
+
 > git config user.email "<**emai dùng để sinh id_rsa_sun ở trên**>"
 
 Sau đó bạn có thể add và commit bình thường.

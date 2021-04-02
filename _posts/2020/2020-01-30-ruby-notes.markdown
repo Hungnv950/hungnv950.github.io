@@ -3,8 +3,10 @@ layout: post
 title:  Ruby Notes
 date:   2020-02-24
 description: Ruby Notes
-categories:
-- tech
+category: technical
+author: hungnv950
+usemathjax: true
+thumbnail: /assets/img/posts/big_picture_lightbulb.jpg
 ---
 
 ### Developer roadmap

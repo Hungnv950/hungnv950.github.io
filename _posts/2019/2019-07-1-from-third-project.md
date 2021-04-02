@@ -1,3 +1,14 @@
+---
+layout: post
+title:  "Những điều thú vị khi làm project mới"
+date:   2019-06-25 22:48:45
+description: Sử dụng nhiều tài khoản github trên cùng một máy tính cá nhân
+category: technical
+author: hungnv950
+usemathjax: true
+thumbnail: /assets/img/posts/big_picture_lightbulb.jpg
+---
+
 ## Những điều thú vị
 **From 1/7/2019**
 

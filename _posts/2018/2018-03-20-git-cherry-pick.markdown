@@ -3,8 +3,10 @@ layout: post
 title:  Git Cherry-pick
 date:   2018-03-20 22:48:45
 description: Git Cherry-pick
-categories:
-- tech
+category: technical
+author: hungnv950
+usemathjax: true
+thumbnail: /assets/img/posts/cherry-pick.png
 ---
 
 # Git Cherry-pick

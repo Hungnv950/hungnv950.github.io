@@ -1,11 +1,11 @@
 # Add Authors here
 hungnv950:
-   name: John Doe
+   name: Hung Nguyen
    username: hungnv950
-   site: http://hungnv950.com
+   site: http://hungnv950.github.io
    avatar: hungnv950.jpeg
-   bio: "Hi I a John, a Web Developer and Designer."
-   email: mail@hungnv950.com
+   bio: "Hi I a Hung, a Web Developer and Project manager."
+   email: hungnv950@gmail.com
    social:
       - title: "github"
         url: "https://github.com/hungnv950"

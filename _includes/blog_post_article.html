@@ -20,7 +20,7 @@
       assign categories = page.categories %} {% endif %} Category : {% for
       category in categories %}
       <a href="{{site.baseurl}}/blog/categories/{{category|slugize}}"
-        >{{category}}</a
+        >{{category | capitalize}}</a
       >
       {% unless forloop.last %}&nbsp;{% endunless %} {% endfor %}
     </div>

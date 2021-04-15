@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  10 Error status codes khi xây dựng API và cách giải quyết chúng
+title:  10 lỗi có bản được trả về khi xây dựng API và cách giải quyết chúng
 date:   2021-03-10 00:48:45
-description: 10 Error status codes khi xây dựng API và cách giải quyết chúng
+description: 10 lỗi có bản được trả về khi xây dựng API và cách giải quyết chúng
 category: technical
 author: hungnv950
 usemathjax: true
